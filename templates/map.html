@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 500px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+
+</head>
+<body>
+    <!--NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">SpecieGeo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gbif" target="_blank">JSON GBIF</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mapa">Mapa </a>
+            </li>
+             <!--
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li> -->
+          </ul>
+        </div>
+      </nav>
+      <!--NAVBAR -->
+    <div id="map"></div>
+    
+ <script>
+   //Aqui estão algumas funções que estão relacionadas a criar áreas e salvar suas posições
+   //Esses vetores são responsáveis por armazenar em cada índice uma área selecionada
+          Norte = []
+          Sul = []
+          Leste = []
+          Oeste = []
+          retan = []
+          //esse inserir fica responsável por testar se o usuário inseriu ou não alguma área
+          inserir = false
+          //essas variáveis são responsáveis por armazenar a posição de uma área modificada
+          Novo_Norte = ""
+          Novo_Sul = ""
+          Novo_Leste = ""
+          Novo_Oeste = ""
+        //contabiliza o número de áreas criadas, talvez seja desnecessário, verificar depois
+        retangulos_criados = 0
+        //Função responsável por criar uma nova área
+        function Criar(){ 
+          inserir = true
+          initMap()
+        }
+        //Função responsável por salvar a posição de uma área criada
+        function Save(){
+          inserir = false //mudo para falso para que não seja criada uma nova área
+          Norte[Norte.length-1] = Novo_Norte
+          Sul[Sul.length-1] = Novo_Sul
+          Leste[Leste.length-1] = Novo_Leste
+          Oeste[Oeste.length-1] = Novo_Oeste 
+          initMap()
+          inserir = true //deppis ligo novamente para quando o usuário vá inserir uma nova área
+        }
+ </script>
+
+<script>
+      //Variáveis para armazenar os objetos de área, mapa e a janela de informação
+      var rectangle;
+      var map;
+      var infoWindow;
+  //Função que inicia o mapa
+  function initMap() {
+    //Vetores que irão armazenar as coordenadas Norte, Sul, Leste e Oeste de uma área criada, armazena 
+    //conforme a área for se modificando
+    retan_NL = []
+    retan_SO = []
+    //variável que ficará responsável por determinar onde o mapa irá iniciar
+    var belem = {lat:-1.44502, lng: -48.4650};
+    //variável mapa armazenando o objeto maps
+    var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: belem});
+    //condição que determia se os valores dos input devem ser armazenados nos vetores para criação de uma
+    //área. Definir isso aqui depois como uma função, pra criar somente se clicar em um botão
+    if(inserir == true){
+      Norte.push(parseFloat(document.getElementById("norte").value))
+      Sul.push(parseFloat(document.getElementById("sul").value))
+      Leste.push(parseFloat(document.getElementById("leste").value))
+      Oeste.push(parseFloat(document.getElementById("oeste").value))
+    }
+    //Aqui verifica se já há algo dentro do vetor Note para a criação dos Markers e áreas
+    if(Norte.length > 0){
+          //Looping que ficará responsável por criar mais de 1 área no mapa. 
+          //O looping percorre todo o Vetor norte, e pra cada indíce guardado ele cria uma área.
+          //Como os vetores armazenaram as áreas anteriores, então ele irá criar novamente as áreas já criadas
+          //Anteriormente
+          for (x in Norte){
+            //O bounds determina as arestas do retângulo (área) criada.
+            var bounds = {
+                north: Norte[x],
+                south: Sul[x],
+                east: Leste[x],
+                west: Oeste[x]
+              };
+            //Esse if verifica se a área que está sendo criada é nova ou não, se for uma área criada anteriormente
+            //ele desabilita o arraste e o modo de edição dela
+     
+            /*Mostrar pro MP desse modo aqui antes
+              rectangle = new google.maps.Rectangle({
+                bounds: bounds,
+                editable: true,
+                draggable: true
+              });
+              */
+
+            if(x != Norte.length-1){
+              rectangle = new google.maps.Rectangle({
+                bounds: bounds,
+                editable: false,
+                draggable: false
+              });
+            }
+            //Se for uma área nova então o modo de edição é habilitado
+            else{
+              rectangle = new google.maps.Rectangle({
+                bounds: bounds,
+                editable: true,
+                draggable: true
+              });
+            }
+
+            //Aqui está armazenando as coordenadas nos vetores
+            retan_NL.push(rectangle.getBounds().getNorthEast());
+            retan_SO.push(rectangle.getBounds().getSouthWest());
+            rectangle.setMap(map);
+            rectangle.addListener('bounds_changed', showNewRect);
+            infoWindow = new google.maps.InfoWindow();
+
+            //Função que mostra a janela de informação das coordenadas da área
+            function showNewRect(event) {
+              var ne = rectangle.getBounds().getNorthEast();
+              var sw = rectangle.getBounds().getSouthWest();
+              var contentString = '<b>Movendo</b><br>' +
+                                  'Novo Norte e Leste: ' + ne.lat() + ', ' + ne.lng() + '<br>' +
+                                  'Novo Sul e Oeste: ' + sw.lat() + ', ' + sw.lng();
+                // Defini as informações na janela.
+                infoWindow.setContent(contentString);
+                infoWindow.setPosition(ne);
+                Novo_Norte = ne.lat()
+                Novo_Sul = sw.lat()
+                Novo_Leste = ne.lng()
+                Novo_Oeste = sw.lng()
+                infoWindow.open(map);
+            }
+          }
+
+          //Essa função ficará responsável por criar os markers
+          //Ela verifica em cada área se algum marker está dentro ou fora da área criada
+          function Detectar_Marks(latitude,longitude){
+            marker_verificado = []
+            for(x in Norte){
+              //Esse if e else faz uma filtragem nos markers, ele verifica em cada área já criada se o marker que está sendo criado está dentro ou fora da área
+              if((latitude < retan_NL[x].lat()) && (latitude > retan_SO[x].lat()) && (longitude < retan_NL[x].lng()) && (longitude > retan_SO[x].lng())){
+                marker_verificado.push("marcado")
+                
+              }
+              else{
+                marker_verificado.push("nah")
+                
+              }
+            }
+            //Caso ele identifique que o marker está dentro de 1 área então ele já se torna um marker azul
+            if(marker_verificado.includes("marcado")){
+              var marker = new google.maps.Marker({
+                position: {lat:latitude, lng: longitude},
+                map: map,
+                icon: "../static/blue_marker2.png" //Bota aqui o SRC da imagem
+              });
+              marker.setMap(map)
+            }
+            //Se não, ele vira um vermelho
+            else{
+              var marker = new google.maps.Marker({
+                position: {lat:latitude, lng: longitude},
+                map: map,
+                icon: "../static/red_marker2.png" //Bota aqui o SRC da imagem
+              });
+              marker.setMap(map)
+            }
+          }
+          //Vetores para armazenas os dados vindo do Python (GBIF)
+          latitude = []
+          longitude = []
+          for(x in {{latitude}}){
+            latitude.push({{latitude}}[x])
+            longitude.push({{longitude}}[x])
+          }
+          for(x in latitude){
+            Detectar_Marks(latitude[x],longitude[x])
+          }
+      }
+  }
+</script>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" >Norte</span>
+    </div>
+  <input type="text" id="norte" placeholder="Norte" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <div class="input-group-prepend">
+      <span class="input-group-text" >Sul</span>
+  </div>
+  <input type="text" id="sul" placeholder="Sul" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <div class="input-group-prepend">
+      <span class="input-group-text" >Leste</span>
+  </div>
+  <input type="text" id="leste" placeholder="Leste" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <div class="input-group-prepend">
+      <span class="input-group-text" >Oeste</span>
+  </div>
+  <input type="text" id="oeste" placeholder="Oeste" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+</div>
+
+<button type="button" onclick="Criar()">Pesquisar</button>
+<button type="button" onclick="Save()">Salvar</button>
+
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&callback=initMap">
+</script>
+</body>
+</html>
+
+<!--
+Norte: -1.4591914
+Sul: -1.4151914
+Leste: -48.4301188
+Oeste: -48.4701188
+-->
