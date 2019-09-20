@@ -99,10 +99,31 @@
     //conforme a área for se modificando
     retan_NL = []
     retan_SO = []
+
     //variável que ficará responsável por determinar onde o mapa irá iniciar
     var belem = {lat:-1.44502, lng: -48.4650};
+
     //variável mapa armazenando o objeto maps
     var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: belem});
+    var triangleCoords = [
+            {lat: -14.4626, lng: -60.2910},
+            {lat: -14.4626, lng: -52.6142},
+            {lat: -22.2995, lng: -53.5810},
+            {lat: -22.2995, lng: -60.1591}
+          ];
+          // Construct the polygon.
+          var bermudaTriangle = new google.maps.Polygon({
+            paths: triangleCoords,
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            editable: true
+          });        
+          bermudaTriangle.setMap(map);
+          bermudaTriangle.addListener('click', showArrays);
+          infoWindow = new google.maps.InfoWindow;
     //condição que determia se os valores dos input devem ser armazenados nos vetores para criação de uma
     //área. Definir isso aqui depois como uma função, pra criar somente se clicar em um botão
     if(inserir == true){
@@ -111,8 +132,11 @@
       Leste.push(parseFloat(document.getElementById("leste").value))
       Oeste.push(parseFloat(document.getElementById("oeste").value))
     }
+
+
     //Aqui verifica se já há algo dentro do vetor Note para a criação dos Markers e áreas
     if(Norte.length > 0){
+
           //Looping que ficará responsável por criar mais de 1 área no mapa. 
           //O looping percorre todo o Vetor norte, e pra cada indíce guardado ele cria uma área.
           //Como os vetores armazenaram as áreas anteriores, então ele irá criar novamente as áreas já criadas
@@ -211,6 +235,7 @@
               marker.setMap(map)
             }
           }
+
           //Vetores para armazenas os dados vindo do Python (GBIF)
           latitude = []
           longitude = []
@@ -223,6 +248,30 @@
           }
       }
   }
+  /** @this {google.maps.Polygon} */
+  function showArrays(event) {
+        // Since this polygon has only one path, we can call getPath() to return the
+        // MVCArray of LatLngs.
+        var vertices = this.getPath();
+
+        var contentString = '<b>Bermuda Triangle polygon</b><br>' +
+            'Clicked location: <br>' + event.latLng.lat() + ',' + event.latLng.lng() +
+            '<br>';
+
+        // Iterate over the vertices.
+        for (var i =0; i < vertices.getLength(); i++) {
+          var xy = vertices.getAt(i);
+          contentString += '<br>' + 'Coordinate ' + i + ':<br>' + xy.lat() + ',' +
+              xy.lng();
+        }
+
+        // Replace the info window's content and position.
+        infoWindow.setContent(contentString);
+        infoWindow.setPosition(event.latLng);
+
+        infoWindow.open(map);
+      }
+
 </script>
 <div class="input-group mb-3">
     <div class="input-group-prepend">
