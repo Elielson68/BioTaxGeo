@@ -6,14 +6,10 @@
 </head>
 <body>
 <h1>encher de bootstrap</h1>
-<script>
-           escrito = []
-          for(x in {{escrito}}){
-            escrito.push({{escrito}}[x])
-          }
-            alert(escrito)
-
-
-</script>
+<ul>
+{% for x in escrito %}
+    <li>{{x}}</li>
+{% endfor %}
+</ul>
 </body>
 </html>

@@ -1,11 +1,46 @@
+from flask import Flask, jsonify, render_template, redirect, url_for, make_response
 import requests
-animal = "Anodorhynchus hyacinthinus"
-#r_especie = requests.get('http://api.vertnet-portal.appspot.com/api/search?q={"q":"'+animal+'"}')
-#print(r_especie.text)
-Latitude = "-1.45502"
-Longitude =  "-48.5024"
-Pais = "Brazil"
-Nome_cientifico = "Puma concolor"
-r_geo = requests.get("http://api-geospatial.vertnet-portal.appspot.com/geospatial?decimalLongitude=1.2324&decimalLatitude=3.2314&scientificName="+Nome_cientifico+"&countryCode="+Pais)
+app = Flask(__name__)
 
-print(r_geo.text)
+#animal = "Anodorhynchus hyacinthinus"
+#Latitude = "-1.45502"
+#Longitude =  "-48.5024"
+#Pais = "Brazil"
+
+def Buscar_ocorrencia(quantidade):
+    pesquisar = []
+    for criar in range(1,int(quantidade)+1):
+        pais = input("Digite o país: ")
+        Nome_cientifico = input("Digite o nome cientifico: ")
+        try:
+            latitude = float(str(input("Digite a latitude: ")))
+
+        except:
+            latitude = ""
+        try:
+            longitude = float(str(input("Digite a longitude: ")))
+        except:
+            longitude = ""
+        print("\n")
+        dados = {
+                 'occurrenceId':              criar,
+                 'decimalLatitude':        latitude,
+                 'decimalLongitude':      longitude,
+                 'countryCode':                pais,
+                 'scientificName':  Nome_cientifico,
+                }
+        pesquisar.append(dados)
+    pesquisar = str(pesquisar)
+    return pesquisar.replace("'", '\"')
+
+@app.route("/")
+def json_api():
+    quantidade = input("Quantas ocorrências? ")
+    resultado = requests.post("http://api-geospatial.vertnet-portal.appspot.com/geospatial", Buscar_ocorrencia(quantidade))
+    return jsonify(resultado.json())
+app.run(debug=True)
+
+
+
+
+
