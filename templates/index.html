@@ -61,7 +61,7 @@
             </div>
         </nav>
         <div id="read2"><p>Pesquisar ocorrência de espécie no mapa.</p><p>Insira o nome ciêntifico da espécie e o país onde deseja fazer a busca, insira a sigla do país como por exemplo: 'BR'</p>
-            <form action = "http://localhost:5000/pesquisar" method = "POST" enctype = "multipart/form-data">
+            <form action = "http://localhost:8080/pesquisar" method = "POST" enctype = "multipart/form-data">
                 <div class="input-group mb-3">
                     <input type="text" name="nome" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nome Cientifico"/>
                     <input type="text" name="pais" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="País"/>
@@ -73,7 +73,7 @@
         </div>
 
         <div id="read"><p>Pesquisar ocorrência de espécie no mapa.</p><p>Abaixo terá onde por arquivos XLS para avaliação dos mesmos.</p>
-            <form action = "http://localhost:5000/ler" method = "POST" enctype = "multipart/form-data">
+            <form action = "http://localhost:8080/ler" method = "POST" enctype = "multipart/form-data">
                 <input type = "file" name = "file" value="Selecionar arquivo"/>
                 <input type = "submit" value="Enviar arquivo"/>
             </form>
