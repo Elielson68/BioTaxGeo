@@ -121,9 +121,7 @@
             fillOpacity: 0.35,
             editable: true
           });        
-          bermudaTriangle.setMap(map);
-          bermudaTriangle.addListener('click', showArrays);
-          infoWindow = new google.maps.InfoWindow;
+          bermudaTriangle.setMap(map);;
     //condição que determia se os valores dos input devem ser armazenados nos vetores para criação de uma
     //área. Definir isso aqui depois como uma função, pra criar somente se clicar em um botão
     if(inserir == true){
@@ -249,28 +247,7 @@
       }
   }
   /** @this {google.maps.Polygon} */
-  function showArrays(event) {
-        // Since this polygon has only one path, we can call getPath() to return the
-        // MVCArray of LatLngs.
-        var vertices = this.getPath();
 
-        var contentString = '<b>Bermuda Triangle polygon</b><br>' +
-            'Clicked location: <br>' + event.latLng.lat() + ',' + event.latLng.lng() +
-            '<br>';
-
-        // Iterate over the vertices.
-        for (var i =0; i < vertices.getLength(); i++) {
-          var xy = vertices.getAt(i);
-          contentString += '<br>' + 'Coordinate ' + i + ':<br>' + xy.lat() + ',' +
-              xy.lng();
-        }
-
-        // Replace the info window's content and position.
-        infoWindow.setContent(contentString);
-        infoWindow.setPosition(event.latLng);
-
-        infoWindow.open(map);
-      }
 
 </script>
 <div class="input-group mb-3">
