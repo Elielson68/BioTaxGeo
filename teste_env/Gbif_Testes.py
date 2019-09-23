@@ -1,7 +1,17 @@
 import pygbif
+from flask import Flask
 occ = pygbif
+app = Flask(__name__)
+
+
+@app.route("/")
+def teste():
+    return "EAE"
+
+
+app.run(debug=True, port=8080)
+
 pesquisa = occ.search(geometry='POLYGON((-60.2910 -14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626))', scientificName="Anodorhynchus hyacinthinus")
-print(pesquisa)
 for x in pesquisa['results']:
     Resultado = ""
     if 'countryCode' in x:
@@ -33,7 +43,4 @@ for x in pesquisa['results']:
         Resultado += " | Longitude: "+str(x['decimalLongitude'])
     else:
         Resultado += " | Longitude: NULO"
-
     print(Resultado+"\n")
-    print("Teste de commit, bebê")
-print("eae")

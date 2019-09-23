@@ -38,7 +38,7 @@ def json_api():
     quantidade = input("Quantas ocorrências? ")
     resultado = requests.post("http://api-geospatial.vertnet-portal.appspot.com/geospatial", Buscar_ocorrencia(quantidade))
     return jsonify(resultado.json())
-app.run(debug=True)
+app.run()
 
 
 

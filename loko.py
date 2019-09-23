@@ -3,7 +3,7 @@ import os
 import pygbif
 import xlrd
 from flask import Flask, render_template, redirect, url_for, request
-from werkzeug.utils import secure_filename
+#from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 latitude = []
@@ -35,8 +35,8 @@ def ler():
         latitude.clear()
         longitude.clear()
         f = request.files['file']
-        f.save(secure_filename(f.filename))
-        Ler_Arquivo(secure_filename(f.filename),latitude,longitude)
+        #f.save(secure_filename(f.filename))
+        #Ler_Arquivo(secure_filename(f.filename),latitude,longitude)
         return redirect(url_for('mapa'))
 
 
@@ -105,4 +105,4 @@ def Ler_Arquivo(arquivo,Latitude,Longitude):
                 armazenar = True
                 coluna_lng = coluna
 
-app.run(debug=True)
+app.run(debug=True, port=8080)
