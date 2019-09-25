@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="" />
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/templates/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,11 +15,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loko.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="795">
               <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#77#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -25,7 +24,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/teste_env/especify_request.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-311">
+            <state relative-caret-position="15">
               <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
               <folding>
                 <element signature="e#0#83#0" expanded="true" />
@@ -34,31 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/teste_env/Gbif_Testes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-160">
-              <caret line="2" column="106" selection-start-line="2" selection-start-column="98" selection-end-line="2" selection-end-column="106" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/map.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="135" selection-start-line="135" selection-end-line="135" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Lendo_Arquivos.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="319">
+              <caret line="139" column="25" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -99,23 +78,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="teste" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teste" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teste" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teste" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="SpeciesGeo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpeciesGeo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -159,7 +133,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/../../testar/venv/bin/python" />
+      <option name="SDK_HOME" value="$USER_HOME$/testar/venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -180,7 +154,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/../../testar/venv/bin/python" />
+      <option name="SDK_HOME" value="$USER_HOME$/testar/venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -201,7 +175,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/../../testar/venv/bin/python" />
+      <option name="SDK_HOME" value="$USER_HOME$/testar/venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/teste_env" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -222,7 +196,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/../../testar/venv/bin/python" />
+      <option name="SDK_HOME" value="$USER_HOME$/testar/venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -277,8 +251,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1440" height="859" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24982357" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24982357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -303,25 +278,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="Mapa Atualizadaço" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Lendo_Arquivos.py">
+    <entry file="file://$PROJECT_DIR$/Lendo_Arquivos.py" />
+    <entry file="file://$PROJECT_DIR$/teste_env/Gbif_Testes.py" />
+    <entry file="file://$PROJECT_DIR$/loko.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/teste_env/Gbif_Testes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-160">
-          <caret line="2" column="106" selection-start-line="2" selection-start-column="98" selection-end-line="2" selection-end-column="106" />
+        <state relative-caret-position="795">
+          <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/teste_env/especify_request.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-311">
+        <state relative-caret-position="15">
           <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
           <folding>
             <element signature="e#0#83#0" expanded="true" />
@@ -329,20 +297,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loko.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/map.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="135" selection-start-line="135" selection-end-line="135" />
+        <state relative-caret-position="319">
+          <caret line="139" column="25" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="25" />
         </state>
       </provider>
     </entry>
