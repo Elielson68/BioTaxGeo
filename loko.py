@@ -1,8 +1,8 @@
 import os
-
 import pygbif
 import xlrd
 from flask import Flask, render_template, redirect, url_for, request
+
 #from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -11,7 +11,6 @@ longitude = []
 nome_especie = ""
 pais = ""
 escrito = []
-pygbif.registry.dataset_metrics(uuid='3f8a1297-3259-4700-91fc-acc4170b27ce')
 occ = pygbif
 
 
