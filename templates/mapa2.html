@@ -59,6 +59,7 @@ var poligono_criado = [];
 var vertices_poligonos_formatada;
 var map;
 var vertices_poligonos = []
+var contador = 99;
 //Função que inicia o mapa
 function initMap() {
     var belem = {lat:-1.44502, lng: -48.4650};
@@ -100,38 +101,42 @@ function initMap() {
     }
 
     Poligono.setMap(map);
-    map.addListener('click', addLatLng);
-    function addLatLng(event) {
-        var path = Poligono.getPath();
-        path.push(event.latLng);
-        poligono_criado.push(event.latLng);
-        lat = ""
-        lng = ""
-        for (x of event.latLng.toString()){
-          if(x != ","){
-            lng += x
-          }
-          else{
-            lat += lng
-            lng = ""
-          }
+        map.addListener('click', addLatLng);
+        function addLatLng(event) {
+          if(contador>0){
+              contador -= 1
+              document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador
+              var path = Poligono.getPath();
+              path.push(event.latLng);
+              poligono_criado.push(event.latLng);
+              lat = ""
+              lng = ""
+              for (x of event.latLng.toString()){
+                if(x != ","){
+                  lng += x
+                }
+                else{
+                  lat += lng
+                  lng = ""
+                }
+              }
+              lat = lat.replace("(","")
+              lng = lng.replace(")","").replace(" ","")
+              vertices_poligonos.push(lng+" "+lat)
+              vertices_poligonos_formatada = vertices_poligonos.toString()
+              vertices_poligonos_formatada = "POLYGON(("+vertices_poligonos_formatada
+              var marker = new google.maps.Marker({
+                  position: event.latLng,
+                  title: "Latitude: " + lat + " Longitude: "+lng,
+                  map: map,
+                  icon: "https://icon-icons.com/icons2/165/PNG/48/mapmarker_pushpin_chartreuse_23003.png"
+              });
         }
+        else{
+          alert("Limite de vértices atingido!")
+        }
+      }
 
-        lat = lat.replace("(","")
-        lng = lng.replace(")","").replace(" ","")
-        vertices_poligonos.push(lng+" "+lat)
-        vertices_poligonos_formatada = vertices_poligonos.toString()
-        vertices_poligonos_formatada = "POLYGON(("+vertices_poligonos_formatada
-        console.log(vertices_poligonos_formatada)
-        var marker = new google.maps.Marker({
-            position: event.latLng,
-            title: '#' + path.getLength(),
-            map: map,
-            icon: "https://icon-icons.com/icons2/165/PNG/32/mapmarker_pushpin_pink_23002.png",
-            draggable: true
-
-        });
-    }
 
   function Detectar_Marks(latitude,longitude){
     var marker = new google.maps.Marker({
@@ -157,11 +162,20 @@ function Save(){
   alert("Tá salvo chefe\n\n"+ document.getElementById("Poly").value)
 }
 </script>
-    <button type="button" onclick="Save()">Salvar</button>
+
+
     <form action = "http://localhost:8080/" method = "POST" enctype = "multipart/form-data">
+        <div>
+            <button type="button" onclick="Save()" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Salvar</button>
+            <input type = "submit" value="Pesquisar" class="btn btn-primary btn-lg btn-block"/>
+        </div>
         <input type = "text" name = "vertices" value="" hidden="hidden" id="vert"/>
         <input type = "text" name = "poligono" value="" hidden="hidden" id="Poly"/>
-        <input type = "submit" value="Pesquisar"/>
+
+        <div class="alert alert-primary" role="alert">
+            <label id="contador">Vértices disponíveis: 99</label>
+        </div>
+
     </form>
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&callback=initMap">

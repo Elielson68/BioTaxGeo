@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gbif_Testes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gbif_Testes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mapa2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mapa2.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,7 +59,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Gbif_Testes">
+  <component name="RunManager" selected="Python.loko">
     <configuration name="Gbif_Testes" type="PythonConfigurationType" factoryName="Python">
       <module name="teste" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -232,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569440504142</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Marker personalizado">
+      <created>1569521499353</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1569521499353</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -262,6 +268,8 @@
     <MESSAGE value="Pesquisa nas áreas com plotagem" />
     <MESSAGE value="alterações simples" />
     <MESSAGE value="Projeto Configurado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Projeto Configurado" />
+    <MESSAGE value="Marker personalizado" />
+    <MESSAGE value="Marker personalizado + Botões personalizados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Marker personalizado + Botões personalizados" />
   </component>
 </project>

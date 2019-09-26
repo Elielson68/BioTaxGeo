@@ -22,7 +22,7 @@ def teste():
 
 def Pesquisar_Poli(Poligono, lat, long):
     #'POLYGON((-60.2910 -14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626))'
-    pesquisa = occ.search(geometry=Poligono)
+    pesquisa = occ.search(geometry=Poligono, scientificName="Anodorhynchus hyacinthinus")
     Resultado_total = ""
     for x in pesquisa['results']:
         Resultado = ""
