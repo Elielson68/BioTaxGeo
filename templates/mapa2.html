@@ -111,9 +111,7 @@ function initMap() {
         else{
           lat_aux = lat_aux.replace("(","")
           lng_aux = lng_aux.replace(")","").replace(" ","")
-          alert("Latitude: "+lat_aux+"\nLongitude: "+lng_aux)
           coordenada_aux = {lat: parseFloat(lat_aux), lng: parseFloat(lng_aux)}
-          alert(coordenada_aux)
           Petes.push(coordenada_aux)
           lat_aux = ""
           lng_aux = ""
@@ -127,7 +125,7 @@ function initMap() {
         paths: Petes,
         strokeOpacity: 0.8,
         strokeWeight: 2,
-        fillColor: '#FF0000',
+        fillColor: '#2F4F4F',
         fillOpacity: 0.35,
       })
       /*
