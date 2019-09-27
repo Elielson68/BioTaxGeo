@@ -60,6 +60,7 @@ var vertices_poligonos_formatada;
 var map;
 var vertices_poligonos = []
 var contador = 99;
+var plotar_poligono = [];
 //Função que inicia o mapa
 function initMap() {
     var belem = {lat:-1.44502, lng: -48.4650};
@@ -88,19 +89,56 @@ function initMap() {
         fillColor: '#FF0000',
         fillOpacity: 0.35,
       })
+      Poligono.setMap(map);
     }
     else{
-      var Poligono = new google.maps.Polygon({
+      poligono_criado = "{{vertices}}"
+      var lng_aux = "";
+      var lat_aux = "";
+      var coordenada_aux = "";
+      var Petes = [];
+      for (caracter of poligono_criado){
+        if (caracter != ")"){
+          if(caracter != ","){
+            lng_aux += caracter
+          }
+          else{
+            lat_aux += lng_aux
+            lng_aux = ""
+          }
+        }
+
+        else{
+          lat_aux = lat_aux.replace("(","")
+          lng_aux = lng_aux.replace(")","").replace(" ","")
+          alert("Latitude: "+lat_aux+"\nLongitude: "+lng_aux)
+          coordenada_aux = {lat: parseFloat(lat_aux), lng: parseFloat(lng_aux)}
+          alert(coordenada_aux)
+          Petes.push(coordenada_aux)
+          lat_aux = ""
+          lng_aux = ""
+
+        }
+
+      }
+
+      var Poligono_antigo = new google.maps.Polygon({
         strokeColor: '#FF0000',
+        paths: Petes,
         strokeOpacity: 0.8,
         strokeWeight: 2,
         fillColor: '#FF0000',
         fillOpacity: 0.35,
       })
+      /*
       var path = Poligono.getPath();
+      for(x in plotar_poligono){
+        path.push(plotar_poligono[x])
+      }
+      */
+      Poligono_antigo.setMap(map);
     }
-
-    Poligono.setMap(map);
+    
         map.addListener('click', addLatLng);
         function addLatLng(event) {
           if(contador>0){
@@ -159,7 +197,7 @@ function initMap() {
 function Save(){ 
   document.getElementById("Poly").value = vertices_poligonos_formatada+","+vertices_poligonos[0]+"))"
   document.getElementById("vert").value = poligono_criado
-  alert("Tá salvo chefe\n\n"+ document.getElementById("Poly").value)
+  alert("Poligono criado: "+poligono_criado+"\nValor no label: "+document.getElementById("vert").value)
 }
 </script>
 

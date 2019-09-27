@@ -4,6 +4,7 @@
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gbif_Testes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gbif_Testes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/mapa2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mapa2.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,7 +60,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.loko">
+  <component name="RunManager" selected="Python.Gbif_Testes (1)">
+    <configuration name="Gbif_Testes (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="teste" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../tratamento_dados_specify/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Gbif_Testes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Gbif_Testes" type="PythonConfigurationType" factoryName="Python">
       <module name="teste" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -169,7 +191,13 @@
       <item itemvalue="Python.Gbif_Testes" />
       <item itemvalue="Python.loko" />
       <item itemvalue="Python.especify_request" />
+      <item itemvalue="Python.Gbif_Testes (1)" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Gbif_Testes (1)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
@@ -238,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569521499353</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Marker personalizado + Botões personalizados">
+      <created>1569529369235</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1569529369254</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -255,7 +290,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
