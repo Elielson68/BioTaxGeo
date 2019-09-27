@@ -22,7 +22,18 @@
                 background-color: #D3D3D3;
                 padding-left: 5px;
                 margin-left: 150px;
+                margin-bottom: 25px;
                 margin-right: 150px;
+                border-width: medium;
+                border-style: solid;
+                border-color: #000000;
+            }
+            #read3{
+                background-color: #D3D3D3;
+                padding-left: 5px;
+                margin-left: 150px;
+                margin-right: 150px;
+                margin-bottom: 25px;
                 border-width: medium;
                 border-style: solid;
                 border-color: #000000;
@@ -72,8 +83,14 @@
             </form>
         </div>
 
-        <div id="read"><p>Pesquisar ocorrência de espécie no mapa.</p><p>Abaixo terá onde por arquivos XLS para avaliação dos mesmos.</p>
+        <div id="read"><p>Pesquisar ocorrência de espécie no mapa utilizando quadrados.</p><p>Abaixo terá onde por arquivos XLS para avaliação dos mesmos.</p>
             <form action = "http://localhost:8080/ler" method = "POST" enctype = "multipart/form-data">
+                <input type = "file" name = "file" value="Selecionar arquivo"/>
+                <input type = "submit" value="Enviar arquivo"/>
+            </form>
+        </div>
+        <div id="read3"><p>Pesquisar ocorrência de espécie no mapa utilizando Poligonos.</p><p>Abaixo terá onde por arquivos XLS para avaliação dos mesmos.</p>
+            <form action = "http://localhost:8080/mapa2" method = "POST" enctype = "multipart/form-data">
                 <input type = "file" name = "file" value="Selecionar arquivo"/>
                 <input type = "submit" value="Enviar arquivo"/>
             </form>

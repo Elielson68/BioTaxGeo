@@ -6,7 +6,7 @@ app = Flask(__name__)
 latitude = []
 longitude = []
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/mapa2", methods=["GET", "POST"])
 def teste():
     if request.method == 'GET':
         criar_poligono = False
