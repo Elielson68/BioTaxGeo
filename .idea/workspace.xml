@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loko.py" beforeDir="false" afterPath="$PROJECT_DIR$/loko.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -293,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569612319179</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Inserção da leitura de planilha e seleção de área pelo usuário">
+      <created>1569867171562</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1569867171562</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -330,6 +335,7 @@
     <MESSAGE value="Plotagem do poligono no mapa após ser criado" />
     <MESSAGE value="Personalização da área plotada" />
     <MESSAGE value="Código de testes passado para o arquivo principal De GBIF Testes.py Para Loko.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Código de testes passado para o arquivo principal De GBIF Testes.py Para Loko.py" />
+    <MESSAGE value="Inserção da leitura de planilha e seleção de área pelo usuário" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inserção da leitura de planilha e seleção de área pelo usuário" />
   </component>
 </project>
