@@ -2,8 +2,7 @@ import os
 import pygbif
 import xlrd
 from flask import Flask, render_template, redirect, url_for, request
-
-#from werkzeug.utils import secure_filename
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 latitude = []
@@ -34,10 +33,19 @@ def ler():
         latitude.clear()
         longitude.clear()
         f = request.files['file']
-        #f.save(secure_filename(f.filename))
-        #Ler_Arquivo(secure_filename(f.filename),latitude,longitude)
+        f.save(secure_filename(f.filename))
+        Ler_Arquivo(secure_filename(f.filename),latitude,longitude)
         return redirect(url_for('mapa'))
 
+@app.route("/ler2", methods=["GET", "POST"])
+def ler2():
+    if request.method == 'POST':
+        latitude.clear()
+        longitude.clear()
+        f = request.files['file']
+        f.save(secure_filename(f.filename))
+        Ler_Arquivo(secure_filename(f.filename),latitude,longitude)
+        return redirect(url_for('mapa_desenhar'))
 
 @app.route("/pesquisar", methods=["GET", "POST"])
 def pesquisar():
@@ -53,7 +61,7 @@ def pesquisar():
 def mapa2():
     if request.method == 'GET':
         criar_poligono = False
-        return render_template("mapa2.html",latitude=latitude,longitude=longitude,criar_poligono=criar_poligono)
+        return render_template("mapa2.html",latitude=latitude, longitude=longitude, criar_poligono=criar_poligono)
     if request.method == 'POST':
         criar_poligono = True
         poligono = request.form['poligono']
@@ -61,6 +69,13 @@ def mapa2():
         Pesquisar_Poli(poligono,latitude,longitude)
         return render_template("mapa2.html",latitude=latitude, longitude=longitude, criar_poligono=criar_poligono, vertices=vertices)
 
+@app.route("/mapa_desenhar",methods=["GET","POST"])
+def mapa_desenhar():
+    if request.method == "POST":
+        vertices = request.form['vertices']
+        return render_template("desenhar_no_mapa.html", latitude=latitude, longitude=longitude, vertices=vertices)
+    else:
+        return render_template("criar_no_mapa.html")
 
 def Pesquisar(nome, pais, Latitude, Longitude):
     gbif = pygbif
