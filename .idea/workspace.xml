@@ -298,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569867171562</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Verificação se marker está dentro de área estabelecida pelo usuário">
+      <created>1569870054691</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1569870054691</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -336,6 +343,7 @@
     <MESSAGE value="Personalização da área plotada" />
     <MESSAGE value="Código de testes passado para o arquivo principal De GBIF Testes.py Para Loko.py" />
     <MESSAGE value="Inserção da leitura de planilha e seleção de área pelo usuário" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inserção da leitura de planilha e seleção de área pelo usuário" />
+    <MESSAGE value="Verificação se marker está dentro de área estabelecida pelo usuário" />
+    <option name="LAST_COMMIT_MESSAGE" value="Verificação se marker está dentro de área estabelecida pelo usuário" />
   </component>
 </project>
