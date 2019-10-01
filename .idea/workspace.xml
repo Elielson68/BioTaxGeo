@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="" />
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569955571042</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="inserido limite para criação de inputs">
+      <created>1569956448998</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1569956448998</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -365,6 +376,7 @@
     <MESSAGE value="Verificação se marker está dentro de área estabelecida pelo usuário" />
     <MESSAGE value="Lista de markers que estão dentro da área" />
     <MESSAGE value="Modificação no layout, inserção da opção de criar vértices através de inputs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modificação no layout, inserção da opção de criar vértices através de inputs" />
+    <MESSAGE value="inserido limite para criação de inputs" />
+    <option name="LAST_COMMIT_MESSAGE" value="inserido limite para criação de inputs" />
   </component>
 </project>
