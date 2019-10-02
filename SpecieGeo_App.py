@@ -18,13 +18,22 @@ occ = pygbif
 def teste():
     return render_template("index.html")
 
+@app.route("/pesquisar", methods=["GET", "POST"])
+def pesquisar():
+    if request.method == 'POST':
+        latitude.clear()
+        longitude.clear()
+        nome_especie = request.form['nome']
+        pais = request.form['pais']
+        Pesquisar(nome_especie, pais, latitude, longitude)
+        return redirect(url_for('mapa_quadrados'))
 
-@app.route("/mapa", methods=["GET", "POST"])
+@app.route("/mapa_quadrados", methods=["GET", "POST"])
 def mapa():
     if request.method == 'POST':
-        return render_template("map.html", latitude=latitude, longitude=longitude)
+        return render_template("mapa_quadrados.html", latitude=latitude, longitude=longitude)
     else:
-        return render_template("map.html", latitude=latitude, longitude=longitude)
+        return render_template("mapa_quadrados.html", latitude=latitude, longitude=longitude)
 
 
 @app.route("/ler", methods=["GET", "POST"])
@@ -35,7 +44,7 @@ def ler():
         f = request.files['file']
         f.save(secure_filename(f.filename))
         Ler_Arquivo(secure_filename(f.filename),latitude,longitude)
-        return redirect(url_for('mapa'))
+        return redirect(url_for('mapa_quadrados'))
 
 @app.route("/ler2", methods=["GET", "POST"])
 def ler2():
@@ -47,36 +56,28 @@ def ler2():
         Ler_Arquivo(secure_filename(f.filename),latitude,longitude)
         return redirect(url_for('mapa_desenhar'))
 
-@app.route("/pesquisar", methods=["GET", "POST"])
-def pesquisar():
-    if request.method == 'POST':
-        latitude.clear()
-        longitude.clear()
-        nome_especie = request.form['nome']
-        pais = request.form['pais']
-        Pesquisar(nome_especie, pais, latitude, longitude)
-        return redirect(url_for('mapa'))
 
 @app.route("/mapa2", methods=["GET", "POST"])
 def mapa2():
     if request.method == 'GET':
         criar_poligono = False
-        return render_template("mapa2.html",latitude=latitude, longitude=longitude, criar_poligono=criar_poligono)
+        return render_template("mapa_poligonos_pesquisa_livre.html",latitude=latitude, longitude=longitude, criar_poligono=criar_poligono)
     if request.method == 'POST':
         criar_poligono = True
         poligono = request.form['poligono']
         vertices = request.form['vertices']
         Pesquisar_Poli(poligono,latitude,longitude)
-        return render_template("mapa2.html",latitude=latitude, longitude=longitude, criar_poligono=criar_poligono, vertices=vertices)
+        return render_template("mapa_poligonos_pesquisa_livre.html",latitude=latitude, longitude=longitude, criar_poligono=criar_poligono, vertices=vertices)
 
 @app.route("/mapa_desenhar",methods=["GET","POST"])
 def mapa_desenhar():
     if request.method == "POST":
         vertices = request.form['vertices']
-        return render_template("desenhar_no_mapa.html", latitude=latitude, longitude=longitude, vertices=vertices)
+        return render_template("plotar_poligono_no_mapa.html", latitude=latitude, longitude=longitude, vertices=vertices)
     else:
-        return render_template("criar_no_mapa.html")
+        return render_template("criar_poligono_no_mapa.html")
 
+#Criar um arquivo onde vai ser a classe de pesquisa, qualquer coisa referente a pesquisa deve ser criado lá
 def Pesquisar(nome, pais, Latitude, Longitude):
     gbif = pygbif
     animal = gbif.search(scientificName=nome, country=pais)
@@ -105,7 +106,7 @@ def Pesquisar(nome, pais, Latitude, Longitude):
             impressao += "\n"
         print(impressao)
         impressao = ''
-
+#Criar classe a leitura de arquivo, qualquer coisa referente a leitura de arquivo deve ser feito lá
 def Ler_Arquivo(arquivo,Latitude,Longitude):
     path = str(os.getcwd()) + "/"+arquivo
     wb = xlrd.open_workbook(path)

@@ -2,11 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/green_marker.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/criar_no_mapa.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/desenhar_no_mapa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Consulta_Geophagus_Auchenipteridae_Sandro.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpecieGeo_App.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/criar_poligono_no_mapa.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mapa_poligonos_pesquisa_livre.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mapa_quadrados.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/teste_leitura_latitude_longitude.xls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/teste_leitura_latitude_longitude_leitura_autonoma.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lendo_Arquivos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lendo_Arquivos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/caca.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loko.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sasa.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/criar_no_mapa.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/desenhar_no_mapa.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/leitura.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/map.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mapa2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testar.xls" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +77,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.loko">
+  <component name="RunManager" selected="Python.SpecieGeo_App">
     <configuration name="Gbif_Testes (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="teste" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -117,6 +133,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Gbif_Testes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SpecieGeo_App" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="teste" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../tratamento_dados_specify/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SpecieGeo_App.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -193,9 +230,11 @@
       <item itemvalue="Python.loko" />
       <item itemvalue="Python.especify_request" />
       <item itemvalue="Python.Gbif_Testes (1)" />
+      <item itemvalue="Python.SpecieGeo_App" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.SpecieGeo_App" />
         <item itemvalue="Python.Gbif_Testes (1)" />
       </list>
     </recent_temporary>
@@ -344,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569960814697</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Upando os dois html para o git">
+      <created>1570034754629</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1570034754629</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -390,6 +436,7 @@
     <MESSAGE value="Modificação no layout, inserção da opção de criar vértices através de inputs" />
     <MESSAGE value="inserido limite para criação de inputs" />
     <MESSAGE value="Criação de inputs através do click do mouse" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criação de inputs através do click do mouse" />
+    <MESSAGE value="Upando os dois html para o git" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upando os dois html para o git" />
   </component>
 </project>
