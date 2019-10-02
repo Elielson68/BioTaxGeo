@@ -6,7 +6,7 @@ app = Flask(__name__)
 latitude = []
 longitude = []
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/mapa2", methods=["GET", "POST"])
 def teste():
     if request.method == 'GET':
         criar_poligono = False
@@ -14,10 +14,9 @@ def teste():
     if request.method == 'POST':
         criar_poligono = True
         poligono = request.form['poligono']
-        macaco = "eaeuyi"
         vertices = request.form['vertices']
         Pesquisar_Poli(poligono,latitude,longitude)
-        return render_template("mapa2.html",latitude=latitude, longitude=longitude,criar_poligono=criar_poligono,vertices=vertices)
+        return render_template("mapa2.html",latitude=latitude, longitude=longitude, criar_poligono=criar_poligono, vertices=vertices)
 
 
 def Pesquisar_Poli(Poligono, lat, long):

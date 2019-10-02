@@ -27,13 +27,10 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="gbif" target="_blank">JSON GBIF</a>
-            </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="mapa">Mapa </a>
             </li>
              <!--
@@ -105,23 +102,8 @@
 
     //variável mapa armazenando o objeto maps
     var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: belem});
-    var triangleCoords = [
-            {lat: -14.4626, lng: -60.2910},
-            {lat: -14.4626, lng: -52.6142},
-            {lat: -22.2995, lng: -53.5810},
-            {lat: -22.2995, lng: -60.1591}
-          ];
-          // Construct the polygon.
-          var bermudaTriangle = new google.maps.Polygon({
-            paths: triangleCoords,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35,
-            editable: true
-          });        
-          bermudaTriangle.setMap(map);;
+
+
     //condição que determia se os valores dos input devem ser armazenados nos vetores para criação de uma
     //área. Definir isso aqui depois como uma função, pra criar somente se clicar em um botão
     if(inserir == true){

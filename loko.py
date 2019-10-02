@@ -2,8 +2,7 @@ import os
 import pygbif
 import xlrd
 from flask import Flask, render_template, redirect, url_for, request
-
-#from werkzeug.utils import secure_filename
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 latitude = []
@@ -34,10 +33,19 @@ def ler():
         latitude.clear()
         longitude.clear()
         f = request.files['file']
-        #f.save(secure_filename(f.filename))
-        #Ler_Arquivo(secure_filename(f.filename),latitude,longitude)
+        f.save(secure_filename(f.filename))
+        Ler_Arquivo(secure_filename(f.filename),latitude,longitude)
         return redirect(url_for('mapa'))
 
+@app.route("/ler2", methods=["GET", "POST"])
+def ler2():
+    if request.method == 'POST':
+        latitude.clear()
+        longitude.clear()
+        f = request.files['file']
+        f.save(secure_filename(f.filename))
+        Ler_Arquivo(secure_filename(f.filename),latitude,longitude)
+        return redirect(url_for('mapa_desenhar'))
 
 @app.route("/pesquisar", methods=["GET", "POST"])
 def pesquisar():
@@ -48,6 +56,26 @@ def pesquisar():
         pais = request.form['pais']
         Pesquisar(nome_especie, pais, latitude, longitude)
         return redirect(url_for('mapa'))
+
+@app.route("/mapa2", methods=["GET", "POST"])
+def mapa2():
+    if request.method == 'GET':
+        criar_poligono = False
+        return render_template("mapa2.html",latitude=latitude, longitude=longitude, criar_poligono=criar_poligono)
+    if request.method == 'POST':
+        criar_poligono = True
+        poligono = request.form['poligono']
+        vertices = request.form['vertices']
+        Pesquisar_Poli(poligono,latitude,longitude)
+        return render_template("mapa2.html",latitude=latitude, longitude=longitude, criar_poligono=criar_poligono, vertices=vertices)
+
+@app.route("/mapa_desenhar",methods=["GET","POST"])
+def mapa_desenhar():
+    if request.method == "POST":
+        vertices = request.form['vertices']
+        return render_template("desenhar_no_mapa.html", latitude=latitude, longitude=longitude, vertices=vertices)
+    else:
+        return render_template("criar_no_mapa.html")
 
 def Pesquisar(nome, pais, Latitude, Longitude):
     gbif = pygbif
@@ -104,4 +132,43 @@ def Ler_Arquivo(arquivo,Latitude,Longitude):
                 armazenar = True
                 coluna_lng = coluna
 
+def Pesquisar_Poli(Poligono, lat, long):
+    #'POLYGON((-60.2910 -14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626))'
+    pesquisa = occ.search(geometry=Poligono)
+    Resultado_total = ""
+    for x in pesquisa['results']:
+        Resultado = ""
+        if 'countryCode' in x:
+            Resultado += "Nome científico: "+x['scientificName']
+        else:
+            Resultado += "Nome científico: NULO"
+
+        if 'countryCode' in x:
+            Resultado += " | Código do País: "+x['countryCode']
+        else:
+            Resultado += " | Código do País: NULO"
+
+        if 'country' in x:
+            Resultado += " | País: "+x['country']
+        else:
+            Resultado += " | País: NULO"
+
+        if 'stateProvince' in x:
+            Resultado += " | Estado: "+x['stateProvince']
+        else:
+            Resultado += " | Estado: NULO"
+
+        if 'decimalLatitude' in x:
+            Resultado += " | Latitude: "+str(x['decimalLatitude'])
+            lat.append(x['decimalLatitude'])
+        else:
+            Resultado += " | Latitude: NULO"
+
+        if 'decimalLongitude' in x:
+            Resultado += " | Longitude: "+str(x['decimalLongitude'])
+            long.append(x['decimalLongitude'])
+        else:
+            Resultado += " | Longitude: NULO"
+        Resultado_total += Resultado+"\n"
+    return print(Resultado_total)
 app.run(debug=True, port=8080)
