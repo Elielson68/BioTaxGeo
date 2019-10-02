@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/green_marker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/criar_no_mapa.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/desenhar_no_mapa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +31,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/SpeciesGeoEnv2/bin" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -335,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569956448998</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Criação de inputs através do click do mouse">
+      <created>1569960814697</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1569960814697</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -361,6 +370,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
+    </ignored-roots>
     <MESSAGE value="Atualizado" />
     <MESSAGE value="Mapa Atualizadaço" />
     <MESSAGE value="teste" />
@@ -377,6 +389,7 @@
     <MESSAGE value="Lista de markers que estão dentro da área" />
     <MESSAGE value="Modificação no layout, inserção da opção de criar vértices através de inputs" />
     <MESSAGE value="inserido limite para criação de inputs" />
-    <option name="LAST_COMMIT_MESSAGE" value="inserido limite para criação de inputs" />
+    <MESSAGE value="Criação de inputs através do click do mouse" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criação de inputs através do click do mouse" />
   </component>
 </project>

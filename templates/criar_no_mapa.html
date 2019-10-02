@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+
+        width: 1020px;
+	      height: 680px;
+	      float: left;
+       }
+
+        #inserir_poligono{
+          position:relative;
+          width: 400px;
+          height: 680px;
+          background-color: #696969;
+          float: left;
+        }
+        #input_vertices{
+          overflow: auto; 
+          height: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!--NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">SpecieGeo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="mapa">Mapa </a>
+            </li>
+             <!--
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li> -->
+          </ul>
+        </div>
+      </nav>
+      <!--NAVBAR -->
+    <div>
+      <div id="map"></div>
+      <div id="inserir_poligono"> 
+
+        <div class="alert alert-primary" role="alert" style="height: 40px; text-align: center;">
+          <label id="contador">Vértices disponíveis: 99</label>
+        </div>
+
+        <div class="input-group mb-3">
+          <input id="numero_de_vertices" type="number" class="form-control" placeholder="Digite o número de vértices" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="button-addon2" onclick="setCriarVertices()">Criar vértices</button>
+          </div>
+        </div>
+        <div id="input_vertices">
+
+        </div>
+        <form action = "http://localhost:8080/mapa_desenhar" method = "POST" enctype = "multipart/form-data">
+          <div>
+              <button type="button" onclick="" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Criar poligono</button>
+            <button type="button" onclick="Save()" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Salvar poligono</button>
+            <input type = "submit" value="Pesquisar na área" class="btn btn-primary btn-lg btn-block"/>
+          </div>
+          <input type = "text" name = "vertices" value="" hidden="hidden" id="vert"/>
+        </form>
+
+      </div>
+    </div>
+
+<div>
+  <!--SCRIPT PARA CRIAR CAIXAS DE INPUT PARA INSERIR VÉRTICES-->
+  <script>
+    console.log("to no git agora pai!");
+    identificador_input = 0;
+    function setCriarVertices(){
+      var num_vertices = document.getElementById("numero_de_vertices");
+      var input_vertices = document.getElementById("input_vertices");
+      input_vertices.style = "height: 300px;";
+      if(num_vertices.value >= 0){
+        verificador = contador - num_vertices.value;
+      }
+      else{
+        verificador = -1
+      }
+      
+      if(verificador < 0){
+        alert("Vértices ultrapassam limite permitido!");
+      }
+      else{
+        contador -= num_vertices.value;
+        document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
+        for(x=0;x < num_vertices.value;x++){
+          identificador_input += 1
+          var div_pai = document.createElement('div');
+          div_pai.className = "input-group";
+          var div_filha = document.createElement('div');
+          div_filha.className = "input-group-prepend";
+          div_pai.appendChild(div_filha);
+
+          var span = document.createElement('span');
+          span.className = "input-group-text";
+          div_filha.appendChild(span);
+
+          var texto_span  = document.createTextNode(identificador_input.toString()+". "+"Latitude e Longitude");
+          span.appendChild(texto_span);
+
+          var input_1 = document.createElement('input');
+          input_1.type = "text";
+          input_1.className = "form-control";
+          input_1.placeholder = "Latitude"
+          input_1.id = "Lat"+identificador_input.toString();
+          div_pai.appendChild(input_1);
+
+          var input_2 = document.createElement('input');
+          input_2.type = "text";
+          input_2.className = "form-control";
+          input_2.placeholder = "Longitude"
+          input_2.id = "Lng"+identificador_input.toString();
+          div_pai.appendChild(input_2);
+          div_pai.style = "margin-bottom: 10px;"
+          input_vertices.appendChild(div_pai);
+          input_vertices.scroll(10,10);
+        }
+      }
+      
+        
+    }
+    function setCriarVerticesClick(lat, lng){
+      
+      var num_vertices = document.getElementById("numero_de_vertices");
+      var input_vertices = document.getElementById("input_vertices");
+      input_vertices.style = "height: 300px;";
+      identificador_input += 1
+          var div_pai = document.createElement('div');
+          div_pai.className = "input-group";
+          var div_filha = document.createElement('div');
+          div_filha.className = "input-group-prepend";
+          div_pai.appendChild(div_filha);
+
+          var span = document.createElement('span');
+          span.className = "input-group-text";
+          div_filha.appendChild(span);
+
+          var texto_span  = document.createTextNode(identificador_input.toString()+". "+"Latitude e Longitude");
+          span.appendChild(texto_span);
+
+          var input_1 = document.createElement('input');
+          input_1.type = "text";
+          input_1.className = "form-control";
+          input_1.placeholder = "Latitude"
+          input_1.id = "Lat"+identificador_input.toString();
+          div_pai.appendChild(input_1);
+          input_1.value = lat
+
+          var input_2 = document.createElement('input');
+          input_2.type = "text";
+          input_2.className = "form-control";
+          input_2.placeholder = "Longitude"
+          input_2.id = "Lng"+identificador_input.toString();        
+          div_pai.appendChild(input_2);
+          input_2.value = lng
+
+          div_pai.style = "margin-bottom: 10px;"
+          input_vertices.appendChild(div_pai);
+    }
+  </script>
+  <script>
+    var poligono_criado = [];
+    var vertices_poligonos_formatada;
+    var map;
+    var vertices_poligonos = []
+    var contador = 99;
+    var plotar_poligono = [];
+    //Função que inicia o mapa
+    function initMap() {
+      var belem = {lat:-1.44502, lng: -48.4650};
+      var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: belem});
+      /*
+        UM QUADRADO PARA TESTE 
+        var triangleCoords = [
+        {lat: -14.4626, lng: -60.2910},
+        {lat: -14.4626, lng: -52.6142},
+        {lat: -22.2995, lng: -53.5810},
+        {lat: -22.2995, lng: -60.1591}
+        ];
+      */
+      // Construct the polygon.
+      var Poligono = new google.maps.Polygon({
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+      })
+      Poligono.setMap(map);
+      map.addListener('click', addLatLng);
+      
+      function addLatLng(event) {
+        
+        if(contador>0){
+          contador -= 1
+          document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador
+          var path = Poligono.getPath();
+          path.push(event.latLng);
+          poligono_criado.push(event.latLng);
+          var marker = new google.maps.Marker({
+            position: event.latLng,
+            map: map,
+            icon: "../static/green_marker.png"
+          });
+          marker.setMap(map);
+          getCriarVerticesClick(marker.position["lat"]().toString(),marker.position["lng"]().toString())
+        }
+        else{
+          alert("Limite de vértices atingido!")
+        }
+       
+      }
+    }
+    
+    function Save(){ 
+      document.getElementById("vert").value = poligono_criado
+      alert("Poligono criado: "+poligono_criado+"\nValor no label: "+document.getElementById("vert").value)
+    }
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&callback=initMap">
+    </script>
+</div>
+
+</body>
+</html>
+
+<!--
+Norte: -1.4591914
+Sul: -1.4151914
+Leste: -48.4301188
+Oeste: -48.4701188
+-->
