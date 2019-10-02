@@ -161,12 +161,13 @@ function initMap() {
               vertices_poligonos.push(lng+" "+lat)
               vertices_poligonos_formatada = vertices_poligonos.toString()
               vertices_poligonos_formatada = "POLYGON(("+vertices_poligonos_formatada
-              var marker = new google.maps.Marker({
+              var marker2 = new google.maps.Marker({
                   position: event.latLng,
                   title: "Latitude: " + lat + " Longitude: "+lng,
                   map: map,
-                  icon: "https://icon-icons.com/icons2/165/PNG/48/mapmarker_pushpin_chartreuse_23003.png"
+                  icon: "../static/green_marker.png"
               });
+              marker2.setMap(map)
         }
         else{
           alert("Limite de vértices atingido!")

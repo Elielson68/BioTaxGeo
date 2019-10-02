@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Consulta_Geophagus_Auchenipteridae_Sandro.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SpecieGeo_App.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/criar_poligono_no_mapa.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/mapa_poligonos_pesquisa_livre.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/mapa_quadrados.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/teste_leitura_latitude_longitude.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/teste_leitura_latitude_longitude_leitura_autonoma.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lendo_Arquivos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lendo_Arquivos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/caca.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/loko.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sasa.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/criar_no_mapa.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/desenhar_no_mapa.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/leitura.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/map.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mapa2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testar.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mapa_poligonos_pesquisa_livre.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mapa_poligonos_pesquisa_livre.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -390,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570034754629</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="formatações referente a nomes">
+      <created>1570036108243</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1570036108243</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -437,6 +426,7 @@
     <MESSAGE value="inserido limite para criação de inputs" />
     <MESSAGE value="Criação de inputs através do click do mouse" />
     <MESSAGE value="Upando os dois html para o git" />
-    <option name="LAST_COMMIT_MESSAGE" value="Upando os dois html para o git" />
+    <MESSAGE value="formatações referente a nomes" />
+    <option name="LAST_COMMIT_MESSAGE" value="formatações referente a nomes" />
   </component>
 </project>
