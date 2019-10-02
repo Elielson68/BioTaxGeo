@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
 <head>
     <meta charset="UTF-8">
     <title>Mapa</title>
@@ -10,29 +10,36 @@
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <style>
       /* Set the size of the div element that contains the map */
+      #body{
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+      }
       #map {
-
-        width: 1020px;
-	      height: 680px;
+          position: absolute;
+          width: 66%;
+	      height: 91%;
 	      float: left;
        }
 
         #inserir_poligono{
-          position:relative;
-          width: 400px;
-          height: 680px;
+          margin-left: 66%;
+          position: absolute;
+          width: 34%;
+          height: 91%;
           background-color: #696969;
-          float: left;
+          float: right;
         }
         #input_vertices{
           overflow: auto; 
-          height: 10px;
+          height: 45%;
         }
 
     </style>
 
 </head>
-<body>
+<body id="body">
     <!--NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">SpecieGeo</a>
@@ -101,7 +108,7 @@
     function setCriarVertices(){
       var num_vertices = document.getElementById("numero_de_vertices");
       var input_vertices = document.getElementById("input_vertices");
-      input_vertices.style = "height: 300px;";
+
       if(num_vertices.value >= 0){
         verificador = contador - num_vertices.value;
       }
@@ -155,7 +162,7 @@
       
       var num_vertices = document.getElementById("numero_de_vertices");
       var input_vertices = document.getElementById("input_vertices");
-      input_vertices.style = "height: 300px;";
+
       identificador_input += 1
           var div_pai = document.createElement('div');
           div_pai.className = "input-group";
@@ -237,7 +244,7 @@
           Latitude = document.getElementById("Lat"+identificador_input).value
           Longitude = document.getElementById("Lng"+identificador_input).value
           LatLngFormatado = "("+Latitude+", "+Longitude+")"
-          alert(event.latLng+"\n"+LatLngFormatado)
+
           document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador
           var path = Poligono.getPath();
           path.push(event.latLng);
