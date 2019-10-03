@@ -233,7 +233,8 @@
           marker.push(new google.maps.Marker({
             position: event.latLng,
             map: map,
-            icon: "../static/green_marker.png"
+            icon: "../static/green_marker.png",
+            draggable
           }));
           marker[marker.length-1].setMap(map);
           setCriarVerticesClick(marker[marker.length-1].position["lat"]().toString(),marker[marker.length-1].position["lng"]().toString())
@@ -244,7 +245,8 @@
           coordenadas.push(new google.maps.LatLng(parseFloat(document.getElementById("Lat"+identificador_input.toString()).value), parseFloat(document.getElementById("Lng"+identificador_input.toString()).value)))    
           Poligono.getPath().push(coordenadas[coordenadas.length-1])
           poligono_criado.push(event.latLng)
-          mudar = document.getElementById("Lat"+identificador_input.toString()).addEventListener('change', addLatLng2);
+          document.getElementById("Lat"+identificador_input.toString()).addEventListener('change', addLatLng2);
+          marker[marker.length-1].addEventListener('change', addLatLng2);
         }
         else{
           alert("Limite de vértices atingido!")
@@ -253,14 +255,9 @@
       }
       
       function addLatLng2(event) {
-        
-        Poligono.getPath()["g"][focado-1] = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+focado.toString()).value), parseFloat(document.getElementById("Lng"+focado.toString()).value))
-        marker[focado-1].position = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+focado.toString()).value), parseFloat(document.getElementById("Lng"+focado.toString()).value))
-        marker[focado-1].setMap(map);
-        teste = new google.maps.LatLng(-1,-48)
-        Poligono.getPath().push(teste)
-        Poligono.getPath().pop()
-        console.log(Poligono.getPath())
+        coordenadas = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+focado.toString()).value), parseFloat(document.getElementById("Lng"+focado.toString()).value))
+        Poligono.getPath().setAt(focado-1, coordenadas)
+        marker.setAt(focado-1, coordenadas)      
       }
       
 
