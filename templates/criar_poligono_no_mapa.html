@@ -200,7 +200,9 @@
     }
     function Mudando_valores_poligono(index){
       Latitude_Longite_poligono[index-1] = {lat: parseFloat(document.getElementById("Lat"+index.toString()).value), lng: parseFloat(document.getElementById("Lng"+index.toString()).value)}
-      initMap()
+      
+      coordenadas[index-1] = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+index.toString()).value), parseFloat(document.getElementById("Lng"+index.toString()).value))
+      
     }
   </script>
   <script>
@@ -208,6 +210,8 @@
     var map;
     var Latitude_Longite_poligono = []
     var contador = 99;
+    var coordenadas = [] 
+    var Poligono;
     //Função que inicia o mapa
     
     function initMap() {
@@ -236,17 +240,26 @@
           //Tentar alguma coisa a partir daqui
           Latitude_Longite_poligono.push({lat: marker.position["lat"](), lng: marker.position["lng"]()})
           document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador 
-          var coordenadas = [] 
+          
           coordenadas.push(new google.maps.LatLng(parseFloat(document.getElementById("Lat"+identificador_input.toString()).value), parseFloat(document.getElementById("Lng"+identificador_input.toString()).value)))    
           Poligono.getPath().push(coordenadas[coordenadas.length-1])
           poligono_criado.push(event.latLng)
-
+          
+          document.getElementById("Lat1").addEventListener('change', addLatLng2);
+          map.addEventListener('change', addLatLng2);
+          function addLatLng2(event) {
+            console.log(Poligono.getPath()["g"][0]["lat"]())
+            Poligono.getPath()["g"][0] = new google.maps.LatLng(parseFloat(document.getElementById("Lat1").value), parseFloat(document.getElementById("Lng1").value))
+            Poligono.getPath()
+            Poligono.setMap(map)
+          }
         }
         else{
           alert("Limite de vértices atingido!")
         }
-       
+
       }
+
     }
     
     function Save(){ 
