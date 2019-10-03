@@ -103,7 +103,7 @@
 <div>
   <!--SCRIPT PARA CRIAR CAIXAS DE INPUT PARA INSERIR VÉRTICES-->
   <script>
-    console.log("to no git agora pai!");
+    
     identificador_input = 0;
     function setCriarVertices(){
       var num_vertices = document.getElementById("numero_de_vertices");
@@ -184,6 +184,7 @@
           input_1.id = "Lat"+identificador_input.toString();
           div_pai.appendChild(input_1);
           input_1.value = lat
+          input_1.setAttribute("onchange",`Mudando_valores_poligono(${identificador_input})`)
 
           var input_2 = document.createElement('input');
           input_2.type = "text";
@@ -192,42 +193,35 @@
           input_2.id = "Lng"+identificador_input.toString();        
           div_pai.appendChild(input_2);
           input_2.value = lng
+          input_2.setAttribute("onchange",`Mudando_valores_poligono(${identificador_input})`)
 
           div_pai.style = "margin-bottom: 10px;"
           input_vertices.appendChild(div_pai);
     }
+    function Mudando_valores_poligono(index){
+      Latitude_Longite_poligono[index-1] = {lat: parseFloat(document.getElementById("Lat"+index.toString()).value), lng: parseFloat(document.getElementById("Lng"+index.toString()).value)}
+      initMap()
+    }
   </script>
   <script>
     var poligono_criado = [];
-    var vertices_poligonos_formatada;
     var map;
-    var vertices_poligonos = []
+    var Latitude_Longite_poligono = []
     var contador = 99;
-    var plotar_poligono = [];
     //Função que inicia o mapa
+    
     function initMap() {
       var belem = {lat:-1.44502, lng: -48.4650};
       var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: belem});
-      /*
-        UM QUADRADO PARA TESTE 
-        var triangleCoords = [
-        {lat: -14.4626, lng: -60.2910},
-        {lat: -14.4626, lng: -52.6142},
-        {lat: -22.2995, lng: -53.5810},
-        {lat: -22.2995, lng: -60.1591}
-        ];
-      */
-      // Construct the polygon.
       var Poligono = new google.maps.Polygon({
-        strokeColor: '#FF0000',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: '#FF0000',
-        fillOpacity: 0.35,
-      })
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+          })
       Poligono.setMap(map);
-      map.addListener('click', addLatLng);
-      
+      map.addListener('click', addLatLng);  
       function addLatLng(event) {
         
         if(contador>0){
@@ -238,17 +232,14 @@
             icon: "../static/green_marker.png"
           });
           marker.setMap(map);
-
           setCriarVerticesClick(marker.position["lat"]().toString(),marker.position["lng"]().toString())
           //Tentar alguma coisa a partir daqui
-          Latitude = document.getElementById("Lat"+identificador_input).value
-          Longitude = document.getElementById("Lng"+identificador_input).value
-          LatLngFormatado = "("+Latitude+", "+Longitude+")"
-
-          document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador
-          var path = Poligono.getPath();
-          path.push(event.latLng);
-          poligono_criado.push(event.latLng);
+          Latitude_Longite_poligono.push({lat: marker.position["lat"](), lng: marker.position["lng"]()})
+          document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador 
+          var coordenadas = [] 
+          coordenadas.push(new google.maps.LatLng(parseFloat(document.getElementById("Lat"+identificador_input.toString()).value), parseFloat(document.getElementById("Lng"+identificador_input.toString()).value)))    
+          Poligono.getPath().push(coordenadas[coordenadas.length-1])
+          poligono_criado.push(event.latLng)
 
         }
         else{
