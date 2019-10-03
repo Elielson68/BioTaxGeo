@@ -199,9 +199,6 @@
           input_vertices.appendChild(div_pai);
     }
     function Mudando_valores_poligono(index){
-      Latitude_Longite_poligono[index-1] = {lat: parseFloat(document.getElementById("Lat"+index.toString()).value), lng: parseFloat(document.getElementById("Lng"+index.toString()).value)}
-      
-      coordenadas[index-1] = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+index.toString()).value), parseFloat(document.getElementById("Lng"+index.toString()).value))
       
     }
   </script>
@@ -244,21 +241,24 @@
           coordenadas.push(new google.maps.LatLng(parseFloat(document.getElementById("Lat"+identificador_input.toString()).value), parseFloat(document.getElementById("Lng"+identificador_input.toString()).value)))    
           Poligono.getPath().push(coordenadas[coordenadas.length-1])
           poligono_criado.push(event.latLng)
-          
-          document.getElementById("Lat1").addEventListener('change', addLatLng2);
-          map.addEventListener('change', addLatLng2);
-          function addLatLng2(event) {
-            console.log(Poligono.getPath()["g"][0]["lat"]())
-            Poligono.getPath()["g"][0] = new google.maps.LatLng(parseFloat(document.getElementById("Lat1").value), parseFloat(document.getElementById("Lng1").value))
-            Poligono.getPath()
-            Poligono.setMap(map)
-          }
+          mudar = document.getElementById("Lat1").addEventListener('change', addLatLng2);
         }
         else{
           alert("Limite de vértices atingido!")
         }
 
       }
+      
+      function addLatLng2(event) {
+        Poligono.getPath()["g"][0] = new google.maps.LatLng(parseFloat(document.getElementById("Lat1").value), parseFloat(document.getElementById("Lng1").value))
+        teste = new google.maps.LatLng(-1,-48)
+        Poligono.getPath().push(teste)
+        Poligono.getPath().pop()
+        console.log(Poligono.getPath())
+      }
+      
+
+
 
     }
     
