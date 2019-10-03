@@ -28,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/criar_poligono_no_mapa.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1">
-              <caret line="68" column="21" lean-forward="true" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+            <state relative-caret-position="220">
+              <caret line="81" column="38" lean-forward="true" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -356,7 +356,21 @@
       <option name="project" value="LOCAL" />
       <updated>1570071918574</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Tentativa de criar poligonos pelos input (fail 2), mas progredindo">
+      <created>1570075584936</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1570075584936</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Tentativa de criar poligonos pelos input (win 1), tem um pouco de gambiarra, mas dá de melhorar">
+      <created>1570077045377</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1570077045377</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -443,7 +457,9 @@
     <MESSAGE value="inserido limite para criação de inputs" />
     <MESSAGE value="Width e height do mapa e menu alterados para %" />
     <MESSAGE value="Tentativa de criar poligonos pelos input (fail 1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tentativa de criar poligonos pelos input (fail 1)" />
+    <MESSAGE value="Tentativa de criar poligonos pelos input (fail 2), mas progredindo" />
+    <MESSAGE value="Tentativa de criar poligonos pelos input (win 1), tem um pouco de gambiarra, mas dá de melhorar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tentativa de criar poligonos pelos input (win 1), tem um pouco de gambiarra, mas dá de melhorar" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/SpecieGeo_App.py">
@@ -465,8 +481,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/criar_poligono_no_mapa.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="68" column="21" lean-forward="true" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+        <state relative-caret-position="220">
+          <caret line="81" column="38" lean-forward="true" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>

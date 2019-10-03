@@ -184,7 +184,7 @@
           input_1.id = "Lat"+identificador_input.toString();
           div_pai.appendChild(input_1);
           input_1.value = lat
-          input_1.setAttribute("onchange",`Mudando_valores_poligono(${identificador_input})`)
+          input_1.setAttribute("onfocus",`Mudando_valores_poligono(${identificador_input})`)
 
           var input_2 = document.createElement('input');
           input_2.type = "text";
@@ -193,13 +193,14 @@
           input_2.id = "Lng"+identificador_input.toString();        
           div_pai.appendChild(input_2);
           input_2.value = lng
-          input_2.setAttribute("onchange",`Mudando_valores_poligono(${identificador_input})`)
+          input_2.setAttribute("onfocus",`Mudando_valores_poligono(${identificador_input})`)
 
           div_pai.style = "margin-bottom: 10px;"
           input_vertices.appendChild(div_pai);
     }
+    var focado;
     function Mudando_valores_poligono(index){
-      
+      focado = index
     }
   </script>
   <script>
@@ -209,6 +210,7 @@
     var contador = 99;
     var coordenadas = [] 
     var Poligono;
+    var marker = []
     //Função que inicia o mapa
     
     function initMap() {
@@ -227,21 +229,22 @@
         
         if(contador>0){
           contador -= 1
-          var marker = new google.maps.Marker({
+          
+          marker.push(new google.maps.Marker({
             position: event.latLng,
             map: map,
             icon: "../static/green_marker.png"
-          });
-          marker.setMap(map);
-          setCriarVerticesClick(marker.position["lat"]().toString(),marker.position["lng"]().toString())
+          }));
+          marker[marker.length-1].setMap(map);
+          setCriarVerticesClick(marker[marker.length-1].position["lat"]().toString(),marker[marker.length-1].position["lng"]().toString())
           //Tentar alguma coisa a partir daqui
-          Latitude_Longite_poligono.push({lat: marker.position["lat"](), lng: marker.position["lng"]()})
+          Latitude_Longite_poligono.push({lat: marker[marker.length-1].position["lat"](), lng: marker[marker.length-1].position["lng"]()})
           document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador 
           
           coordenadas.push(new google.maps.LatLng(parseFloat(document.getElementById("Lat"+identificador_input.toString()).value), parseFloat(document.getElementById("Lng"+identificador_input.toString()).value)))    
           Poligono.getPath().push(coordenadas[coordenadas.length-1])
           poligono_criado.push(event.latLng)
-          mudar = document.getElementById("Lat1").addEventListener('change', addLatLng2);
+          mudar = document.getElementById("Lat"+identificador_input.toString()).addEventListener('change', addLatLng2);
         }
         else{
           alert("Limite de vértices atingido!")
@@ -250,7 +253,10 @@
       }
       
       function addLatLng2(event) {
-        Poligono.getPath()["g"][0] = new google.maps.LatLng(parseFloat(document.getElementById("Lat1").value), parseFloat(document.getElementById("Lng1").value))
+        
+        Poligono.getPath()["g"][focado-1] = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+focado.toString()).value), parseFloat(document.getElementById("Lng"+focado.toString()).value))
+        marker[focado-1].position = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+focado.toString()).value), parseFloat(document.getElementById("Lng"+focado.toString()).value))
+        marker[focado-1].setMap(map);
         teste = new google.maps.LatLng(-1,-48)
         Poligono.getPath().push(teste)
         Poligono.getPath().pop()
