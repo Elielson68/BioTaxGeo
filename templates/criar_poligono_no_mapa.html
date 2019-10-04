@@ -55,22 +55,11 @@
             <li class="nav-item active">
               <a class="nav-link" href="mapa">Mapa </a>
             </li>
-             <!--
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li> -->
           </ul>
         </div>
       </nav>
       <!--NAVBAR -->
+      
     <div>
       <div id="map"></div>
       <div id="inserir_poligono"> 
@@ -90,7 +79,7 @@
         </div>
         <form action = "http://localhost:8080/mapa_desenhar" method = "POST" enctype = "multipart/form-data">
           <div>
-              <button type="button" onclick="" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Criar poligono</button>
+              <button type="button" onclick="" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Adicionar +1 Poligono</button>
             <button type="button" onclick="Save()" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Salvar poligono</button>
             <input type = "submit" value="Pesquisar na área" class="btn btn-primary btn-lg btn-block"/>
           </div>
@@ -105,10 +94,10 @@
   <script>
     
     identificador_input = 0;
+    var num_vertices = document.getElementById("numero_de_vertices");
+    var input_vertices = document.getElementById("input_vertices");
     function setCriarVertices(){
-      var num_vertices = document.getElementById("numero_de_vertices");
-      var input_vertices = document.getElementById("input_vertices");
-
+    
       if(num_vertices.value >= 0){
         verificador = contador - num_vertices.value;
       }
@@ -164,7 +153,7 @@
     }
     function setCriarVerticesClick(lat, lng){
       
-      var num_vertices = document.getElementById("numero_de_vertices");
+      
       var input_vertices = document.getElementById("input_vertices");
           identificador_input += 1;
           var div_pai = document.createElement('div');
@@ -297,11 +286,68 @@
         
         quantidade_vertices = parseInt(document.getElementById("numero_de_vertices").value)
         if(poligono_criado.length == 0){
+          constante_k = 1
+          contador_parar = 0
           for(criar=0; criar<quantidade_vertices; criar++){
+            
+            if(contador_parar==0){
+              document.getElementById("Lat"+(criar+1)).value
+              document.getElementById("Lng"+(criar+1)).value
+              contador_parar = 1
+            }
+            else if(contador_parar==1){
+              document.getElementById("Lat"+(criar+1)).value = parseFloat(document.getElementById("Lat1").value)
+              document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar+1)).value)-constante_k
+              contador_parar = 2
+            }
+            else if(contador_parar==2){
+              document.getElementById("Lat"+(criar+1)).value = parseFloat(document.getElementById("Lat"+(criar+1)).value) - constante_k
+              document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng2").value)
+              contador_parar = 3
+            }
+            else if(contador_parar==3){
+              document.getElementById("Lat"+(criar+1)).value = document.getElementById("Lat3").value
+              document.getElementById("Lng"+(criar+1)).value = document.getElementById("Lng1").value
+              contador_parar = 4
+              constante_k = 2
+            }
+            else if(contador_parar == 4 && criar != quantidade_vertices-1){
+              constante_k += 1
+              document.getElementById("Lat"+(criar+1)).value = document.getElementById("Lat4").value
+              document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar+1)).value)+constante_k
+            }
+            else{
+              document.getElementById("Lat"+(criar+1)).value = document.getElementById("Lat1").value
+              document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar)).value)
+            }
+            
+            coordenadas_4 = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+(criar+1)).value),parseFloat(document.getElementById("Lng"+(criar+1)).value));
+            Poligono.getPath().push(coordenadas_4)
+            marker = new google.maps.Marker({
+              title: "Vértice: "+(criar+1).toString(),
+              position: coordenadas_4,
+              map: map,
+              icon: "../static/green_marker.png",
+              draggable: true
+            });
+            markers.push(marker);
+            marker.setMap(map);
+            Poligono.setMap(map);
 
-            document.getElementById("Lat"+(criar+1)).value = parseFloat(document.getElementById("Lat"+(criar+1)).value) - parseFloat(criar)
-            document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar+1)).value) + parseFloat(criar)
+            marker.addListener('position_changed', Modificando_vertice_marker);
+            document.getElementById("Lat"+(criar+1)).addEventListener('change', Modificando_vertice_input);
+            document.getElementById("Lng"+(criar+1)).addEventListener('change', Modificando_vertice_input);
 
+            poligono_criado.push(coordenadas_4)
+          }
+        }
+        else{
+          for(criar=(identificador_input-num_vertices.value); criar<identificador_input; criar++){
+           
+            console.log(`Valor de criar: ${criar}\n Valor da quantidade de vértice: ${quantidade_vertices}`)
+            
+            document.getElementById("Lat"+(criar+1)).value = parseFloat(document.getElementById("Lat"+(criar)).value) - 0.2
+            document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar)).value) + 0.2
             coordenadas_4 = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+(criar+1)).value),parseFloat(document.getElementById("Lng"+(criar+1)).value));
             Poligono.getPath().push(coordenadas_4)
             marker = new google.maps.Marker({

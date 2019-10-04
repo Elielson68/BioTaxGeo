@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="formatação na pesquisa utilizando quadrados e poligonos">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/criar_poligono_no_mapa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/criar_poligono_no_mapa.html" afterDir="false" />
     </list>
@@ -387,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570036897071</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Alteração das vertices pelos: inputs; markers e clicks.">
+      <created>1570130603909</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1570130603909</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -436,6 +441,7 @@
     <MESSAGE value="Upando os dois html para o git" />
     <MESSAGE value="formatações referente a nomes" />
     <MESSAGE value="formatação na pesquisa utilizando quadrados e poligonos" />
-    <option name="LAST_COMMIT_MESSAGE" value="formatação na pesquisa utilizando quadrados e poligonos" />
+    <MESSAGE value="Alteração das vertices pelos: inputs; markers e clicks." />
+    <option name="LAST_COMMIT_MESSAGE" value="Alteração das vertices pelos: inputs; markers e clicks." />
   </component>
 </project>
