@@ -286,10 +286,65 @@
         
         quantidade_vertices = parseInt(document.getElementById("numero_de_vertices").value)
         if(poligono_criado.length == 0){
+           
           constante_k = 1
           contador_parar = 0
+          p = belem;
+          passo = 0
+          ymax = belem["lat"]+3
+          ymin = belem["lat"]
+
+          xmax = belem["lng"]+3
+          xmin = belem["lng"]
+
+          ymax_neg = belem["lat"]-3
+          xmin_neg = belem["lng"]-3
+          d = 0
+
+          aux_y = ymax
+          aux_x = xmin
           for(criar=0; criar<quantidade_vertices; criar++){
-            
+          //TENTATIVA DE CRIAR CIRCULOS AUTOMATICAMENTE
+            if(passo==0){
+              document.getElementById("Lat"+(criar+1)).value = aux_y - d
+              document.getElementById("Lng"+(criar+1)).value = aux_x + d
+              aux_y -= d
+              aux_x += d
+              d = 1
+              if(aux_x == xmax){
+                passo=1
+              }
+              
+            }
+            else if(passo==1){
+              document.getElementById("Lat"+(criar+1)).value = aux_y - d
+              document.getElementById("Lng"+(criar+1)).value = aux_x - d
+              aux_y -= d
+              aux_x -= d
+              d = 1
+              if(aux_x == xmin){
+                passo=2
+              }
+            }
+            else if(passo==2){
+              document.getElementById("Lat"+(criar+1)).value = aux_y + d
+              document.getElementById("Lng"+(criar+1)).value = aux_x - d
+              aux_y += d
+              aux_x -= d
+              d = 1
+              if(aux_x == xmin_neg){
+                passo=3
+              }
+            }
+            else if (passo==3){
+              document.getElementById("Lat"+(criar+1)).value = aux_y + d
+              document.getElementById("Lng"+(criar+1)).value = aux_x + d
+              aux_y += d
+              aux_x += d
+              d = 1
+            }
+          /*
+            CRIAÇÃO DE RETÂNGULOS AUTOMATICAMENTE
             if(contador_parar==0){
               document.getElementById("Lat"+(criar+1)).value
               document.getElementById("Lng"+(criar+1)).value
@@ -320,7 +375,8 @@
               document.getElementById("Lat"+(criar+1)).value = document.getElementById("Lat1").value
               document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar)).value)
             }
-            
+            */
+
             coordenadas_4 = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+(criar+1)).value),parseFloat(document.getElementById("Lng"+(criar+1)).value));
             Poligono.getPath().push(coordenadas_4)
             marker = new google.maps.Marker({
