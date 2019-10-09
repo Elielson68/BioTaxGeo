@@ -460,6 +460,7 @@
         indice = parseInt(indice)
         Poligono.getPath().removeAt(indice-1);
         markers[indice-1].setMap(null);
+        poligono_criado.splice(indice-1,0);
       }
     }
 
