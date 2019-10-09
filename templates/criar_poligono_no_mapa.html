@@ -143,6 +143,17 @@
           div_pai.appendChild(input_2);
           input_2.value = -48.4650;
 
+          var div_button_filha = document.createElement('div');
+          div_button_filha.className = "input-group-append";
+          div_pai.appendChild(div_button_filha);
+
+          
+          var button_excluir = document.createElement('button');
+          button_excluir.className = "btn btn-danger";
+          var texto_button =  document.createTextNode("Excluir");
+          button_excluir.appendChild(texto_button);
+          div_button_filha.appendChild(button_excluir);
+
           div_pai.style = "margin-bottom: 10px;"
           input_vertices.appendChild(div_pai);
           input_vertices.scroll(10,10);
@@ -158,6 +169,7 @@
           identificador_input += 1;
           var div_pai = document.createElement('div');
           div_pai.className = "input-group";
+          div_pai.id = "input_vertice"+identificador_input.toString();
           var div_filha = document.createElement('div');
           div_filha.className = "input-group-prepend";
           div_pai.appendChild(div_filha);
@@ -186,6 +198,18 @@
           div_pai.appendChild(input_2);
           input_2.value = lng;
           input_2.setAttribute("onfocus",`Mudando_valores_poligono(${identificador_input})`);
+
+          var div_button_filha = document.createElement('div');
+          div_button_filha.className = "input-group-append";
+          div_pai.appendChild(div_button_filha);
+
+          
+          var button_excluir = document.createElement('button');
+          button_excluir.className = "btn btn-danger";
+          button_excluir.id = "Excluir"+identificador_input.toString();
+          var texto_button =  document.createTextNode("Excluir");
+          button_excluir.appendChild(texto_button);
+          div_button_filha.appendChild(button_excluir);
 
           div_pai.style = "margin-bottom: 10px;"
           input_vertices.appendChild(div_pai);
@@ -220,7 +244,8 @@
       Poligono.setMap(map);
       criar_vertices_button.addEventListener('click', setCriarVerticesButton);
       map.addListener('click', addLatLng);  
-      function addLatLng(event) {
+      //FUNÇÕES RELACIONADAS A CRIAÇÃO E MODIFICAÇÃO DOS POLIGONOS
+      function addLatLng(event){
         
         if(contador>0){
           contador -= 1;
@@ -238,11 +263,11 @@
           //Tentar alguma coisa a partir daqui
           Latitude_Longite_poligono.push({lat: markers[markers.length-1].position["lat"](), lng: markers[markers.length-1].position["lng"]()});
           document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
-          
           coordenadas.push(new google.maps.LatLng(parseFloat(document.getElementById("Lat"+identificador_input.toString()).value), parseFloat(document.getElementById("Lng"+identificador_input.toString()).value)))    
           Poligono.getPath().push(coordenadas[coordenadas.length-1]);
           document.getElementById("Lat"+identificador_input.toString()).addEventListener('change', Modificando_vertice_input);
           document.getElementById("Lng"+identificador_input.toString()).addEventListener('change', Modificando_vertice_input);
+          document.getElementById("Excluir"+identificador_input.toString()).addEventListener('click', ExcluirVertice);
           marker.addListener('position_changed', Modificando_vertice_marker);
           poligono_criado.push(event.latLng);
         }
@@ -252,7 +277,7 @@
 
       }
       
-      function Modificando_vertice_input() {
+      function Modificando_vertice_input(){
         coordenadas_2 = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+focado.toString()).value), parseFloat(document.getElementById("Lng"+focado.toString()).value));
         Poligono.getPath().setAt(focado-1, coordenadas_2);
         poligono_criado[focado-1] = coordenadas_2;
@@ -282,6 +307,7 @@
         poligono_criado[parseInt(indice)-1] = coordenadas_3;
         
       }
+      
       function setCriarVerticesButton(){
         
         quantidade_vertices = parseInt(document.getElementById("numero_de_vertices").value)
@@ -425,16 +451,22 @@
           }
         }
       }
-
-
-
-
-    }
     
-    function Save(){ 
-      document.getElementById("vert").value = poligono_criado
-      alert("Poligono criado: "+poligono_criado+"\nValor no label: "+document.getElementById("vert").value)
+      function ExcluirVertice(){
+        indice = this.id.replace("Excluir","")
+        Input_para_excluir = document.getElementById("input_vertice"+indice)
+        Input_pai = document.getElementById("input_vertices")
+        Input_pai.removeChild(Input_para_excluir);
+        indice = parseInt(indice)
+        Poligono.getPath().removeAt(indice-1);
+        markers[indice-1].setMap(null);
+      }
     }
+
+      function Save(){ 
+        document.getElementById("vert").value = poligono_criado
+        alert("Poligono criado: "+poligono_criado+"\nValor no label: "+document.getElementById("vert").value)
+      }
     </script>
 
     <script async defer

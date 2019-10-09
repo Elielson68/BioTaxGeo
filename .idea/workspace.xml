@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="" />
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/criar_poligono_no_mapa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/criar_poligono_no_mapa.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -396,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570217491565</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Criando circulo">
+      <created>1570564327217</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1570564327217</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -447,6 +457,7 @@
     <MESSAGE value="formatação na pesquisa utilizando quadrados e poligonos" />
     <MESSAGE value="Alteração das vertices pelos: inputs; markers e clicks." />
     <MESSAGE value="Criando formas automaticamente" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criando formas automaticamente" />
+    <MESSAGE value="Criando circulo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criando circulo" />
   </component>
 </project>
