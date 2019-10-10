@@ -420,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570650248576</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Excluir vértices pelo botão do input (FEITO)">
+      <created>1570728126560</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1570728126560</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -473,6 +480,7 @@
     <MESSAGE value="Criando formas automaticamente" />
     <MESSAGE value="Criando circulo" />
     <MESSAGE value="Exclusão de vértice: retirado os inputs, retirado os markers e vertice. Falta configurar os novos inputs a serem plotados pós exclusão" />
-    <option name="LAST_COMMIT_MESSAGE" value="Exclusão de vértice: retirado os inputs, retirado os markers e vertice. Falta configurar os novos inputs a serem plotados pós exclusão" />
+    <MESSAGE value="Excluir vértices pelo botão do input (FEITO)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Excluir vértices pelo botão do input (FEITO)" />
   </component>
 </project>

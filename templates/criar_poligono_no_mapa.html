@@ -115,12 +115,14 @@
           identificador_input += 1;
           var div_pai = document.createElement('div');
           div_pai.className = "input-group";
+          div_pai.id = "input_vertice"+identificador_input.toString();
           var div_filha = document.createElement('div');
           div_filha.className = "input-group-prepend";
           div_pai.appendChild(div_filha);
 
           var span = document.createElement('span');
           span.className = "input-group-text";
+          span.id = "span"+identificador_input;
           div_filha.appendChild(span);
 
           var texto_span  = document.createTextNode(identificador_input.toString()+"ª. "+"Vértice");
@@ -150,6 +152,7 @@
           
           var button_excluir = document.createElement('button');
           button_excluir.className = "btn btn-danger";
+          button_excluir.id = "Excluir"+identificador_input.toString();
           var texto_button =  document.createTextNode("Excluir");
           button_excluir.appendChild(texto_button);
           div_button_filha.appendChild(button_excluir);
@@ -417,7 +420,7 @@
             marker.addListener('position_changed', Modificando_vertice_marker);
             document.getElementById("Lat"+(criar+1)).addEventListener('change', Modificando_vertice_input);
             document.getElementById("Lng"+(criar+1)).addEventListener('change', Modificando_vertice_input);
-
+            document.getElementById("Excluir"+(criar+1)).addEventListener('click', ExcluirVertice);
             poligono_criado.push(coordenadas_4)
           }
         }
@@ -425,7 +428,6 @@
           for(criar=(identificador_input-num_vertices.value); criar<identificador_input; criar++){
            
             console.log(`Valor de criar: ${criar}\n Valor da quantidade de vértice: ${quantidade_vertices}`)
-            
             document.getElementById("Lat"+(criar+1)).value = parseFloat(document.getElementById("Lat"+(criar)).value) - 0.2
             document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar)).value) + 0.2
             coordenadas_4 = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+(criar+1)).value),parseFloat(document.getElementById("Lng"+(criar+1)).value));
@@ -444,7 +446,7 @@
             marker.addListener('position_changed', Modificando_vertice_marker);
             document.getElementById("Lat"+(criar+1)).addEventListener('change', Modificando_vertice_input);
             document.getElementById("Lng"+(criar+1)).addEventListener('change', Modificando_vertice_input);
-
+            document.getElementById("Excluir"+(criar+1)).addEventListener('click', ExcluirVertice);
             poligono_criado.push(coordenadas_4)
           }
         }
