@@ -147,7 +147,7 @@
           input_1.id = "Lat"+identificador_input.toString();
           div_pai.appendChild(input_1);
           input_1.value = -1.44502;
-
+          input_1.setAttribute("onfocus",`Mudando_valores_poligono(${identificador_input})`);
 
           var input_2 = document.createElement('input');
           input_2.type = "text";
@@ -156,7 +156,8 @@
           input_2.id = "Lng"+identificador_input.toString();
           div_pai.appendChild(input_2);
           input_2.value = -48.4650;
-
+          input_2.setAttribute("onfocus",`Mudando_valores_poligono(${identificador_input})`);
+          
           var div_button_filha = document.createElement('div');
           div_button_filha.className = "input-group-append";
           div_pai.appendChild(div_button_filha);
@@ -301,7 +302,6 @@
             alert("Limite de vértices atingido!")
           }
         }
-      
         function Modificando_vertice_input(){
           coordenadas_2 = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+focado.toString()).value), parseFloat(document.getElementById("Lng"+focado.toString()).value));
           Poligono.getPath().setAt(focado-1, coordenadas_2);
