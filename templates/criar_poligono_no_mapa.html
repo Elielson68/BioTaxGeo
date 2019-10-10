@@ -163,9 +163,8 @@
         
     }
     function setCriarVerticesClick(lat, lng){
-      
-      
-      var input_vertices = document.getElementById("input_vertices");
+           
+          input_vertices = document.getElementById("input_vertices");
           identificador_input += 1;
           var div_pai = document.createElement('div');
           div_pai.className = "input-group";
@@ -176,6 +175,7 @@
 
           var span = document.createElement('span');
           span.className = "input-group-text";
+          span.id = "span"+identificador_input;
           div_filha.appendChild(span);
 
           var texto_span  = document.createTextNode(identificador_input.toString()+"ª. "+"Vértice");
@@ -222,7 +222,6 @@
   <script>
     var poligono_criado = [];
     var map;
-    var Latitude_Longite_poligono = [];
     var contador = 99;
     var coordenadas = [];
     var Poligono;
@@ -261,7 +260,6 @@
           markers[markers.length-1].setMap(map);
           setCriarVerticesClick(markers[markers.length-1].position["lat"]().toString(),markers[markers.length-1].position["lng"]().toString());
           //Tentar alguma coisa a partir daqui
-          Latitude_Longite_poligono.push({lat: markers[markers.length-1].position["lat"](), lng: markers[markers.length-1].position["lng"]()});
           document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
           coordenadas.push(new google.maps.LatLng(parseFloat(document.getElementById("Lat"+identificador_input.toString()).value), parseFloat(document.getElementById("Lng"+identificador_input.toString()).value)))    
           Poligono.getPath().push(coordenadas[coordenadas.length-1]);
@@ -453,14 +451,46 @@
       }
     
       function ExcluirVertice(){
+        contador += 1;
+        document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
+        identificador_input -= 1;
         indice = this.id.replace("Excluir","")
         Input_para_excluir = document.getElementById("input_vertice"+indice)
         Input_pai = document.getElementById("input_vertices")
         Input_pai.removeChild(Input_para_excluir);
         indice = parseInt(indice)
-        Poligono.getPath().removeAt(indice-1);
         markers[indice-1].setMap(null);
-        poligono_criado.splice(indice-1,0);
+        console.log("Antes: "+markers)
+        markers.splice(indice-1,1);
+        console.log("Depois: "+markers)
+        Poligono.getPath().removeAt(indice-1);
+        coordenadas.splice(indice-1,1);
+        for (x=0;x<(markers.length);x++){
+          //renomeando título de todos os markers
+          markers[x].setMap(null)
+          markers[x].title = "Vértice: "+(x+1).toString()
+          markers[x].setMap(map)
+
+          //renomeando id de todos os inputs e spans
+          if((x+1)>=indice){
+            span_formatado = document.getElementById("span"+(x+2).toString())
+            span_formatado.innerHTML = (x+1).toString()+"ª. "+"Vértice"
+            span_formatado.id = "span"+(x+1).toString()
+
+            input_lat = document.getElementById("Lat"+(x+2).toString())
+            input_lng = document.getElementById("Lng"+(x+2).toString())
+            input_lat.id = "Lat"+(x+1).toString()
+            input_lng.id = "Lng"+(x+1).toString()
+
+            div_inputs = document.getElementById("input_vertice"+(x+2).toString())
+            div_inputs.id = "input_vertice"+(x+1).toString()
+
+            button_id = document.getElementById("Excluir"+(x+2).toString())
+            button_id.id = "Excluir"+(x+1)
+          }
+
+        }
+        poligono_criado.splice(indice-1,1);
       }
     }
 
