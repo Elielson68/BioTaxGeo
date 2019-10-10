@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/criar_poligono_no_mapa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/criar_poligono_no_mapa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -433,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570729339671</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Excluir vértices pelo botão do input (FEITO), consertado alguns outros bugs">
+      <created>1570729886380</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1570729886380</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -462,7 +471,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Mapa Atualizadaço" />
     <MESSAGE value="teste" />
     <MESSAGE value="Pesquisa nas áreas com plotagem" />
     <MESSAGE value="alterações simples" />
@@ -487,6 +495,7 @@
     <MESSAGE value="Exclusão de vértice: retirado os inputs, retirado os markers e vertice. Falta configurar os novos inputs a serem plotados pós exclusão" />
     <MESSAGE value="Excluir vértices pelo botão do input (FEITO)" />
     <MESSAGE value="Excluir vértices pelo botão do input (FEITO), consertado alguns bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Excluir vértices pelo botão do input (FEITO), consertado alguns bugs" />
+    <MESSAGE value="Excluir vértices pelo botão do input (FEITO), consertado alguns outros bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Excluir vértices pelo botão do input (FEITO), consertado alguns outros bugs" />
   </component>
 </project>
