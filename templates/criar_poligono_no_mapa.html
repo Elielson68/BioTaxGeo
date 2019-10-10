@@ -483,6 +483,8 @@
             input_lng = document.getElementById("Lng"+(x+2).toString())
             input_lat.id = "Lat"+(x+1).toString()
             input_lng.id = "Lng"+(x+1).toString()
+            input_lat.setAttribute("onfocus",`Mudando_valores_poligono(${x+1})`);
+            input_lng.setAttribute("onfocus",`Mudando_valores_poligono(${x+1})`);
 
             div_inputs = document.getElementById("input_vertice"+(x+2).toString())
             div_inputs.id = "input_vertice"+(x+1).toString()
