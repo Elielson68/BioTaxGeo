@@ -187,7 +187,7 @@
     
     function initMap() {
       var belem = {lat:-1.44502, lng: -48.4650};
-      var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: belem});
+      map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: belem});
       //Aqui é caso já tenha mais de 1 poligono criado
       if(poligonos_salvos.length != 0){
         if(editando == false){
@@ -216,14 +216,16 @@
                         icon: "../static/green_marker.png",
                         draggable: true
                       });
+                      markers.push(marker);
                       var marker_latitude = marker.position["lat"]().toString()
                       var marker_longitude = marker.position["lng"]().toString()
                       setCriarVertice(marker_latitude,marker_longitude)
-                      markers.push(marker);
-                      marker.setMap(map)
-                      marker.addListener('position_changed', Modificando_vertice_marker)
+                      document.getElementById("Excluir"+(indice+1)).addEventListener('click', ExcluirVertice);
+                      document.getElementById("Lat"+(indice+1)).addEventListener('change', Modificando_vertice_input);//Adiciono o evento pro input criado poder alterar essa vértice em específico
+                      document.getElementById("Lng"+(indice+1)).addEventListener('change', Modificando_vertice_input);
+                      markers[markers.length-1].addListener('position_changed', Modificando_vertice_marker)
+                      markers[markers.length-1].setMap(map)
                     }
-                    
                 }
             }
         }
@@ -234,7 +236,7 @@
         botao_salvar_vertices.addEventListener('click',SalvarVertices)
         botao_criar_novo_poligono = document.getElementById("botao_criar_novo_poligono")
         botao_criar_novo_poligono.addEventListener('click',Plotar_novo_poligono)
-        criar_vertices_button.addEventListener('click', setCriarVerticesButton);
+        criar_vertices_button.addEventListener('click', CriarVerticesButton);
       }
       if(editando == false){
         var Poligono = new google.maps.Polygon({
@@ -285,13 +287,14 @@
           }
         }
         function Modificando_vertice_input(){
+          console.log(markers)
           var input_latitude = parseFloat(document.getElementById("Lat"+focado).value);
           var input_longitude = parseFloat(document.getElementById("Lng"+focado).value);
           var nova_coordenada_map = new google.maps.LatLng(input_latitude, input_longitude);
-          //coordenadas[focado-1] = nova_coordenada_map
           var Poligono_atual = poligonos_salvos[poligono_selecionado];
           Poligono_atual.getPath().setAt(focado-1, nova_coordenada_map); //Altero o valor da vértice do poligono atual
           poligono_criado["poligono"+(poligono_selecionado+1)][focado-1] = nova_coordenada_map;
+          markers[focado-1].setMap(null);//desabilita o marker da posição atual
           marker = new google.maps.Marker({
             title: "Vértice: "+focado.toString(),
             position: nova_coordenada_map,
@@ -300,7 +303,6 @@
             draggable: true
           });
           marker.addListener('position_changed', Modificando_vertice_marker);//Pra cada objeto marker criado é adicionado o evento que possibilita ele de alterar o vértice por quem ele é responsável
-          markers[focado-1].setMap(null);//desabilita o marker da posição atual
           markers[focado-1] = marker;
           markers[focado-1].setMap(map);//habilita a nova posição dele
         }
@@ -316,7 +318,7 @@
           poligonos_salvos[poligono_selecionado].getPath().setAt((indice-1), nova_coordenada_map);
           poligono_criado["poligono"+(poligono_selecionado+1)][indice-1] = nova_coordenada_map;
         }
-        function setCriarVerticesButton(){
+        function CriarVerticesButton(){
           if(contador>0){
             contador -= 1
             document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
@@ -325,9 +327,9 @@
             if(latitude_input.value && longitude_input.value != null){
               setCriarVertice(latitude_input.value,longitude_input.value) 
               var nova_coordenada_map = new google.maps.LatLng(parseFloat(latitude_input.value),parseFloat(longitude_input.value));
-              
+              console.log(nova_coordenada_map)
               poligonos_salvos[poligono_selecionado].getPath().push(nova_coordenada_map)
-              marker = new google.maps.Marker({
+              var marker = new google.maps.Marker({
                 title: "Vértice: "+identificador_input,
                 position: nova_coordenada_map,
                 map: map,
@@ -335,9 +337,8 @@
                 draggable: true
               });
               markers.push(marker);
-              marker.setMap(map);
-              poligonos_salvos[poligono_selecionado].setMap(map);
-              marker.addListener('position_changed', Modificando_vertice_marker);
+              markers[markers.length-1].setMap(map);
+              markers[markers.length-1].addListener('position_changed', Modificando_vertice_marker);
               document.getElementById("Lat"+identificador_input).addEventListener('change', Modificando_vertice_input);
               document.getElementById("Lng"+identificador_input).addEventListener('change', Modificando_vertice_input);
               document.getElementById("Excluir"+identificador_input).addEventListener('click', ExcluirVertice);
@@ -389,9 +390,7 @@
               button_id.id = "Excluir"+(x+1)
             }
           }
-          console.log( poligono_criado["poligono"+(poligono_selecionado+1)])
           poligono_criado["poligono"+(poligono_selecionado+1)].splice(indice-1,1);
-          console.log( poligono_criado["poligono"+(poligono_selecionado+1)])
         }
         function SalvarVertices(){
           document.getElementById("vert").value =  poligono_criado
@@ -434,7 +433,7 @@
           identificador_input = 0
           editando = true
           poligono_selecionado = parseInt(this.id.replace("Poligono ",""))-1
-          marker = []
+          markers = []
           initMap()
         }
       }
