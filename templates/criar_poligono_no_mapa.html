@@ -402,6 +402,9 @@
         }
         function Plotar_novo_poligono(){
           if(poligono_criado["poligono"+(poligono_selecionado+1)].length > 2){
+            for(botoes=0; botoes<poligonos_salvos.length; botoes++){
+              document.getElementById("Poligono "+(botoes+1)).className = "dropdown-item";
+            }
             var Input_pai = document.getElementById("input_vertices")
             var div_buttons_poligonos = document.getElementById("div_buttons_poligonos")
             for (var excluir=1;excluir<=identificador_input; excluir++){
@@ -424,6 +427,7 @@
           }
         }
         function selecionar_poligono(){
+          
           var Input_pai = document.getElementById("input_vertices")
           var div_buttons_poligonos = document.getElementById("div_buttons_poligonos")
           for (var excluir=1;excluir<=identificador_input; excluir++){
@@ -439,14 +443,29 @@
           poligono_selecionado = parseInt(this.id.replace("Poligono ",""))-1
           markers = []
           initMap()
+          
         }
 
         function CriarBotaoRefPoligono(){
           function QuandoEstaSobre(){
-            this.className = "dropdown-item bg-primary"
+            if(this.className != "dropdown-item active"){
+              this.className = "dropdown-item bg-primary"
+            }
+     
           }
           function QuandoSai(){
-            this.className = "dropdown-item"
+            if(this.className != "dropdown-item active"){
+              this.className = "dropdown-item"
+            }     
+          }
+          function QuandoClicado(){
+            for(botoes=0; botoes<poligonos_salvos.length; botoes++){
+              document.getElementById("Poligono "+(botoes+1)).className = "dropdown-item";
+            }
+            if(this.className != "dropdown-item active"){
+              this.className = "dropdown-item active"
+            }
+            
           }
           numero_poligonos_criados.innerHTML = poligonos_salvos.length
           var botao_poligono = document.createElement("button")
@@ -456,9 +475,11 @@
           
           botao_poligono.id = "Poligono "+poligonos_salvos.length
           botao_poligono.addEventListener('click',selecionar_poligono)
-          div_buttons_poligonos.appendChild(botao_poligono)  
           botao_poligono.addEventListener('mouseover', QuandoEstaSobre) 
-          botao_poligono.addEventListener("mouseout", QuandoSai);          
+          botao_poligono.addEventListener("mouseout", QuandoSai);   
+          botao_poligono.addEventListener('click', QuandoClicado)
+          div_buttons_poligonos.appendChild(botao_poligono)  
+       
           document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
         }
 
