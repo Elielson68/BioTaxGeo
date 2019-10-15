@@ -77,9 +77,13 @@
           <div id="div_buttons_poligonos"class="dropdown-menu" aria-labelledby="dropdownMenu2"></div>
         </div>
         <div class="input-group mb-3">
-          <input id="numero_de_vertices" type="number" class="form-control" placeholder="Digite o número de vértices" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button" id="button-addon2" onclick="setCriarVertices()">Criar vértices</button>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Vértice</span>
+            </div>
+            <input type="number" aria-label="Latitude" class="form-control" placeholder="Latitude" id="Latitude">
+            <input type="number" aria-label="Longitude" class="form-control" placeholder="Longitude" id="Longitude">
+            <button class="btn btn-primary" type="button" id="button-addon2">Criar vértices</button>
           </div>
         </div>
         <div id="input_vertices">
@@ -104,129 +108,65 @@
     var num_vertices = document.getElementById("numero_de_vertices");
     var input_vertices = document.getElementById("input_vertices");
     var focado;
-    function setCriarVertices(){
-      //ese if e esse verificador vai checar se o limite de vértices que podem ser criadas é igual a 0, foi feito isso porque quando o número ficava em negativo ele dava um bug que dava pra "adicionar" mais vertices se a pessoa pedisse pra criar uma vertice com número negativo.
-      if(num_vertices.value >= 0){
-        verificador = contador - num_vertices.value;
-      }
-      else{
-        verificador = -1;
-      }
+    function setCriarVertice(lat, lng){
+      identificador_input += 1;
+      var div_pai = document.createElement('div');
+      var div_filha = document.createElement('div');
+      var span = document.createElement('span');
+      var texto_span  = document.createTextNode(identificador_input.toString()+"ª. "+"Vértice");
+      var input_1 = document.createElement('input');
+      var input_2 = document.createElement('input');
+      var div_button_filha = document.createElement('div');
+      var button_excluir = document.createElement('button');
+      var texto_button =  document.createTextNode("Excluir");  
       
-      if(verificador < 0){
-        alert("Vértices ultrapassam limite permitido!");
-      }
-      else{
-        contador -= num_vertices.value;
-        document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
-        for(x=0;x < num_vertices.value;x++){
-          identificador_input += 1;
-          var div_pai = document.createElement('div');
-          div_pai.className = "input-group";
-          div_pai.id = "input_vertice"+identificador_input.toString();
-          var div_filha = document.createElement('div');
-          div_filha.className = "input-group-prepend";
-          div_pai.appendChild(div_filha);
-
-          var span = document.createElement('span');
-          span.className = "input-group-text";
-          span.id = "span"+identificador_input;
-          div_filha.appendChild(span);
-
-          var texto_span  = document.createTextNode(identificador_input.toString()+"ª. "+"Vértice");
-          span.appendChild(texto_span);
-
-          var input_1 = document.createElement('input');
-          input_1.type = "text";
-          input_1.className = "form-control";
-          input_1.placeholder = "Latitude";
-          input_1.id = "Lat"+identificador_input.toString();
-          div_pai.appendChild(input_1);
-          input_1.value = -1.44502;
-          input_1.setAttribute("onfocus",`Mudando_valores_poligono(${identificador_input})`);
-
-          var input_2 = document.createElement('input');
-          input_2.type = "text";
-          input_2.className = "form-control";
-          input_2.placeholder = "Longitude";
-          input_2.id = "Lng"+identificador_input.toString();
-          div_pai.appendChild(input_2);
-          input_2.value = -48.4650;
-          input_2.setAttribute("onfocus",`Mudando_valores_poligono(${identificador_input})`);
-          
-          var div_button_filha = document.createElement('div');
-          div_button_filha.className = "input-group-append";
-          div_pai.appendChild(div_button_filha);
-
-          
-          var button_excluir = document.createElement('button');
-          button_excluir.className = "btn btn-danger";
-          button_excluir.id = "Excluir"+identificador_input.toString();
-          var texto_button =  document.createTextNode("Excluir");
-          button_excluir.appendChild(texto_button);
-          div_button_filha.appendChild(button_excluir);
-
-          div_pai.style = "margin-bottom: 10px;"
-          input_vertices.appendChild(div_pai);
-          input_vertices.scroll(10,10);
-        }
-      }
+      div_pai.className = "input-group";
+      div_pai.id = "input_vertice"+identificador_input.toString();
       
-        
-    }
-    function setCriarVerticesClick(lat, lng){
-           
-          input_vertices = document.getElementById("input_vertices");
-          identificador_input += 1;
-          var div_pai = document.createElement('div');
-          div_pai.className = "input-group";
-          div_pai.id = "input_vertice"+identificador_input.toString();
-          var div_filha = document.createElement('div');
-          div_filha.className = "input-group-prepend";
-          div_pai.appendChild(div_filha);
+      div_filha.className = "input-group-prepend";
+      div_pai.appendChild(div_filha);
 
-          var span = document.createElement('span');
-          span.className = "input-group-text";
-          span.id = "span"+identificador_input;
-          div_filha.appendChild(span);
+      
+      span.className = "input-group-text";
+      span.id = "span"+identificador_input;
+      div_filha.appendChild(span);
 
-          var texto_span  = document.createTextNode(identificador_input.toString()+"ª. "+"Vértice");
-          span.appendChild(texto_span);
+      
+      span.appendChild(texto_span);
 
-          var input_1 = document.createElement('input');
-          input_1.type = "text";
-          input_1.className = "form-control";
-          input_1.placeholder = "Latitude";
-          input_1.id = "Lat"+identificador_input.toString();
-          div_pai.appendChild(input_1);
-          input_1.value = lat;
-          input_1.setAttribute("onfocus",`Mudando_valores_poligono(${identificador_input})`);
+      
+      input_1.type = "text";
+      input_1.className = "form-control";
+      input_1.placeholder = "Latitude";
+      input_1.id = "Lat"+identificador_input.toString();
+      div_pai.appendChild(input_1);
+      input_1.value = lat;
+      input_1.setAttribute("onfocus",`Mudando_valores_poligono(${identificador_input})`);
 
-          var input_2 = document.createElement('input');
-          input_2.type = "text";
-          input_2.className = "form-control";
-          input_2.placeholder = "Longitude";
-          input_2.id = "Lng"+identificador_input.toString();        
-          div_pai.appendChild(input_2);
-          input_2.value = lng;
-          input_2.setAttribute("onfocus",`Mudando_valores_poligono(${identificador_input})`);
+      
+      input_2.type = "text";
+      input_2.className = "form-control";
+      input_2.placeholder = "Longitude";
+      input_2.id = "Lng"+identificador_input.toString();        
+      div_pai.appendChild(input_2);
+      input_2.value = lng;
+      input_2.setAttribute("onfocus",`Mudando_valores_poligono(${identificador_input})`);
 
-          var div_button_filha = document.createElement('div');
-          div_button_filha.className = "input-group-append";
-          div_pai.appendChild(div_button_filha);
+      
+      div_button_filha.className = "input-group-append";
+      div_pai.appendChild(div_button_filha);
 
-          
-          var button_excluir = document.createElement('button');
-          button_excluir.className = "btn btn-danger";
-          button_excluir.id = "Excluir"+identificador_input.toString();
-          var texto_button =  document.createTextNode("Excluir");
-          button_excluir.appendChild(texto_button);
-          div_button_filha.appendChild(button_excluir);
+      
+      
+      button_excluir.className = "btn btn-danger";
+      button_excluir.id = "Excluir"+identificador_input.toString();
+      
+      button_excluir.appendChild(texto_button);
+      div_button_filha.appendChild(button_excluir);
 
-          div_pai.style = "margin-bottom: 10px;"
-          input_vertices.appendChild(div_pai);
-    }
-    
+      div_pai.style = "margin-bottom: 10px;"
+      input_vertices.appendChild(div_pai);
+    }    
     function Mudando_valores_poligono(index){
       focado = index;
     }
@@ -235,6 +175,7 @@
     var poligono_criado = {};
     var poligonos_salvos = [];
     var editando = false
+    var poligono_selecionado = 0
     var map;
     var contador = 99;
     var Poligono;
@@ -245,317 +186,38 @@
     //Função que inicia o mapa
     
     function initMap() {
-      
+      var belem = {lat:-1.44502, lng: -48.4650};
+      var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: belem});
       //Aqui é caso já tenha mais de 1 poligono criado
-      if(poligonos_salvos.length != 0 && editando == false){
-        var belem = {lat:-1.44502, lng: -48.4650};
-        var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: belem});
-        for(plotar_poligono of poligonos_salvos){
-          plotar_poligono.fillColor = "#2F4F4F";
-          plotar_poligono.setMap(map)
-        }
-        var Poligono = new google.maps.Polygon({
-          strokeColor: '#FF0000',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: '#FF0000',
-          fillOpacity: 0.35,
-        })
-        poligonos_salvos.push(Poligono)
-        poligono_criado["poligono"+(poligonos_salvos.length)] = []
-        poligonos_salvos[poligonos_salvos.length-1].setMap(map);
-        map.addListener('click', addLatLng);  
-        //FUNÇÕES RELACIONADAS A CRIAÇÃO E MODIFICAÇÃO DOS POLIGONOS
-        function addLatLng(event){
-          if(contador>0){
-            contador -= 1;
-          
-            marker = new google.maps.Marker({
-              title: "Vértice: "+(identificador_input+1),
-              position: event.latLng,
-              map: map,
-              icon: "../static/green_marker.png",
-              draggable: true
-            });
-            markers.push(marker);
-            markers[markers.length-1].setMap(map);
-            marker_latitude = markers[markers.length-1].position["lat"]().toString()
-            marker_longitude = markers[markers.length-1].position["lng"]().toString()
-            setCriarVerticesClick(marker_latitude,marker_longitude);//Cria um ponto de vértice no mapa a partir do ponto de referência de onde o marker foi clicado
-
-            document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
-            input_latitude = parseFloat(document.getElementById("Lat"+identificador_input).value)
-            input_longitude = parseFloat(document.getElementById("Lng"+identificador_input).value)
-            var coordenada_map = new google.maps.LatLng(input_latitude, input_longitude)//Cria um objeto de coordenada do google, que pode ser usado para inserir uma coordeanda de latitude e longitude nos objetos da API
-            //coordenadas.push(coordenada_map)//Guardo o valor dos objetos de coordenadas nese vetor
-            Poligono_atual = poligonos_salvos[poligonos_salvos.length-1]//Pego a referência do poligono que desejo inserir a vértice
-            Poligono_atual.getPath().push(coordenada_map);//Aqui eu atribuo uma nova vértice criada pelo click do mouse
-            document.getElementById("Lat"+identificador_input).addEventListener('change', Modificando_vertice_input);//Adiciono o evento pro input criado poder alterar essa vértice em específico
-            document.getElementById("Lng"+identificador_input).addEventListener('change', Modificando_vertice_input);
-            document.getElementById("Excluir"+identificador_input).addEventListener('click', ExcluirVertice);
-            marker.addListener('position_changed', Modificando_vertice_marker);
-            poligono_criado["poligono"+(poligonos_salvos.length)].push(coordenada_map);
-            console.log(poligono_criado)
-            console.log(poligono_criado["poligono"+(poligonos_salvos.length)])
-
-          }
-          else{
-            alert("Limite de vértices atingido!")
-          }
-        }
-        function Modificando_vertice_input(){
-          var input_latitude = parseFloat(document.getElementById("Lat"+focado).value);
-          var input_longitude = parseFloat(document.getElementById("Lng"+focado).value);
-          var nova_coordenada_map = new google.maps.LatLng(input_latitude, input_longitude);
-          //coordenadas[focado-1] = nova_coordenada_map
-          var Poligono_atual = poligonos_salvos[poligonos_salvos.length-1];
-          Poligono_atual.getPath().setAt(focado-1, nova_coordenada_map); //Altero o valor da vértice do poligono atual
-          poligono_criado[focado-1] = nova_coordenada_map;
-          marker = new google.maps.Marker({
-            title: "Vértice: "+focado.toString(),
-            position: nova_coordenada_map,
-            map: map,
-            icon: "../static/green_marker.png",
-            draggable: true
-          });
-          marker.addListener('position_changed', Modificando_vertice_marker);//Pra cada objeto marker criado é adicionado o evento que possibilita ele de alterar o vértice por quem ele é responsável
-          markers[focado-1].setMap(null);//desabilita o marker da posição atual
-          markers[focado-1] = marker;
-          markers[focado-1].setMap(map);//habilita a nova posição dele
-        }
-        function Modificando_vertice_marker(event){
-          var indice = this.title.replace("Vértice: ","");
-          var latitude_input = document.getElementById("Lat"+indice);
-          var longitude_input = document.getElementById("Lng"+indice);
-
-          latitude_input.value = this.position["lat"]().toString();
-          longitude_input.value = this.position["lng"]().toString();
-
-          var nova_coordenada_map = new google.maps.LatLng(parseFloat(latitude_input.value),parseFloat(longitude_input.value));
-          poligonos_salvos[poligonos_salvos.length-1].getPath().setAt(parseInt(indice)-1, nova_coordenada_map);
-          poligono_criado[parseInt(indice)-1] = nova_coordenada_map;
-        }
-        function setCriarVerticesButton(){
-          var quantidade_vertices = parseInt(document.getElementById("numero_de_vertices").value)
-          if(poligono_criado.length == 0){
-            //variáveis pra criar o retangulo
-            var constante_k = 1
-            var contador_parar = 0
-            //variáveis pra tentativa de criar um circulo
-            var p = belem;
-            var passo = 0
-            var ymax = belem["lat"]+3
-            var ymin = belem["lat"]
-            var xmax = belem["lng"]+3
-            var xmin = belem["lng"]
-            var ymax_neg = belem["lat"]-3
-            var xmin_neg = belem["lng"]-3
-            var d = 0
-            var aux_y = ymax
-            var aux_x = xmin
-            for(criar=0; criar<quantidade_vertices; criar++){
-              //TENTATIVA DE CRIAR CIRCULOS AUTOMATICAMENTE
-              /*
-              if(passo==0){
-                document.getElementById("Lat"+(criar+1)).value = aux_y - d
-                document.getElementById("Lng"+(criar+1)).value = aux_x + d
-                aux_y -= d
-                aux_x += d
-                d = 1
-                if(aux_x == xmax){
-                  passo=1
-                }
-                
-              }
-              else if(passo==1){
-                document.getElementById("Lat"+(criar+1)).value = aux_y - d
-                document.getElementById("Lng"+(criar+1)).value = aux_x - d
-                aux_y -= d
-                aux_x -= d
-                d = 1
-                if(aux_x == xmin){
-                  passo=2
-                }
-              }
-              else if(passo==2){
-                document.getElementById("Lat"+(criar+1)).value = aux_y + d
-                document.getElementById("Lng"+(criar+1)).value = aux_x - d
-                aux_y += d
-                aux_x -= d
-                d = 1
-                if(aux_x == xmin_neg){
-                  passo=3
-                }
-              }
-              else if (passo==3){
-                document.getElementById("Lat"+(criar+1)).value = aux_y + d
-                document.getElementById("Lng"+(criar+1)).value = aux_x + d
-                aux_y += d
-                aux_x += d
-                d = 1
-              }
-              */
-            
-              //CRIAÇÃO DE RETÂNGULOS AUTOMATICAMENTE
-              if(contador_parar==0){
-                document.getElementById("Lat"+(criar+1)).value
-                document.getElementById("Lng"+(criar+1)).value
-                contador_parar = 1
-              }
-              else if(contador_parar==1){
-                document.getElementById("Lat"+(criar+1)).value = parseFloat(document.getElementById("Lat1").value)
-                document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar+1)).value)-constante_k
-                contador_parar = 2
-              }
-              else if(contador_parar==2){
-                document.getElementById("Lat"+(criar+1)).value = parseFloat(document.getElementById("Lat"+(criar+1)).value) - constante_k
-                document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng2").value)
-                contador_parar = 3
-              }
-              else if(contador_parar==3){
-                document.getElementById("Lat"+(criar+1)).value = document.getElementById("Lat3").value
-                document.getElementById("Lng"+(criar+1)).value = document.getElementById("Lng1").value
-                contador_parar = 4
-                constante_k = 2
-              }
-              else if(contador_parar == 4 && criar != quantidade_vertices-1){
-                constante_k += 1
-                document.getElementById("Lat"+(criar+1)).value = document.getElementById("Lat4").value
-                document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar+1)).value)+constante_k
-              }
-              else{
-                document.getElementById("Lat"+(criar+1)).value = document.getElementById("Lat1").value
-                document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar)).value)
-              }
-              var nova_coordenada_map = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+(criar+1)).value),parseFloat(document.getElementById("Lng"+(criar+1)).value));
-              poligonos_salvos[poligonos_salvos.length-1].getPath().push(nova_coordenada_map)
-              marker = new google.maps.Marker({
-                title: "Vértice: "+(criar+1).toString(),
-                position: nova_coordenada_map,
-                map: map,
-                icon: "../static/green_marker.png",
-                draggable: true
-              });
-              markers.push(marker);
-              marker.setMap(map);
-              poligonos_salvos[poligonos_salvos.length-1].setMap(map);
-
-              marker.addListener('position_changed', Modificando_vertice_marker);
-              document.getElementById("Lat"+(criar+1)).addEventListener('change', Modificando_vertice_input);
-              document.getElementById("Lng"+(criar+1)).addEventListener('change', Modificando_vertice_input);
-              document.getElementById("Excluir"+(criar+1)).addEventListener('click', ExcluirVertice);
-              poligono_criado.push(nova_coordenada_map)
+      if(poligonos_salvos.length != 0){
+        if(editando == false){
+            for(plotar_poligono of poligonos_salvos){
+                plotar_poligono.fillColor = "#2F4F4F";
+                plotar_poligono.setMap(map)
             }
-          }
-          else{
-            for(criar=(identificador_input-num_vertices.value); criar<identificador_input; criar++){
-            
-              document.getElementById("Lat"+(criar+1)).value = parseFloat(document.getElementById("Lat"+(criar)).value) - 0.2
-              document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar)).value) + 0.2
-              var nova_coordenada_map = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+(criar+1)).value),parseFloat(document.getElementById("Lng"+(criar+1)).value));
-              poligonos_salvos[poligonos_salvos.length-1].getPath().push(nova_coordenada_map)
-              marker = new google.maps.Marker({
-                title: "Vértice: "+(criar+1).toString(),
-                position: nova_coordenada_map,
-                map: map,
-                icon: "../static/green_marker.png",
-                draggable: true
-              });
-              markers.push(marker);
-              marker.setMap(map);
-              var Poligono_atual = poligonos_salvos[poligonos_salvos.length-1]
-              Poligono_atual.setMap(map);
-
-              marker.addListener('position_changed', Modificando_vertice_marker);
-              document.getElementById("Lat"+(criar+1)).addEventListener('change', Modificando_vertice_input);
-              document.getElementById("Lng"+(criar+1)).addEventListener('change', Modificando_vertice_input);
-              document.getElementById("Excluir"+(criar+1)).addEventListener('click', ExcluirVertice);
-              poligono_criado.push(nova_coordenada_map)
+        }
+        else{
+            for(plotar_poligono=0;plotar_poligono<poligonos_salvos.length;plotar_poligono++){
+                if(plotar_poligono != poligono_selecionado){
+                    poligonos_salvos[plotar_poligono].fillColor = "#2F4F4F";
+                    poligonos_salvos[plotar_poligono].setMap(map)
+                }
+                else{
+                    poligonos_salvos[plotar_poligono].fillColor = "#FF0000";
+                    poligonos_salvos[plotar_poligono].setMap(map)
+                }
             }
-          }
         }
-        function ExcluirVertice(){
-          var indice = this.id.replace("Excluir","")
-          var Input_para_excluir = document.getElementById("input_vertice"+indice)
-          var Input_pai = document.getElementById("input_vertices")
-          var Poligono_atual = poligonos_salvos[poligonos_salvos.length-1]
-          contador += 1;
-          identificador_input -= 1;
-          document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
 
-          Input_pai.removeChild(Input_para_excluir);
-          indice = parseInt(indice)
-          markers[indice-1].setMap(null);
-          markers.splice(indice-1,1);
-          Poligono_atual.getPath().removeAt(indice-1);
-          for (x=0;x<(markers.length);x++){
-            //renomeando título de todos os markers
-            markers[x].setMap(null)
-            markers[x].title = "Vértice: "+(x+1).toString()
-            markers[x].setMap(map)
-
-            //renomeando id de todos os inputs e spans
-            if((x+1)>=indice){
-              var span_formatado = document.getElementById("span"+(x+2).toString())
-              var input_lat = document.getElementById("Lat"+(x+2).toString())
-              var input_lng = document.getElementById("Lng"+(x+2).toString())
-              var div_inputs = document.getElementById("input_vertice"+(x+2).toString())
-              var button_id = document.getElementById("Excluir"+(x+2).toString())
-
-              span_formatado.innerHTML = (x+1).toString()+"ª. "+"Vértice"
-              span_formatado.id = "span"+(x+1).toString()
-              input_lat.id = "Lat"+(x+1).toString()
-              input_lng.id = "Lng"+(x+1).toString()
-              input_lat.setAttribute("onfocus",`Mudando_valores_poligono(${x+1})`);
-              input_lng.setAttribute("onfocus",`Mudando_valores_poligono(${x+1})`);
-              div_inputs.id = "input_vertice"+(x+1).toString()   
-              button_id.id = "Excluir"+(x+1)
-            }
-          }
-          poligono_criado.splice(indice-1,1);
-        }
-        function SalvarVertices(){
-          document.getElementById("vert").value = poligono_criado
-          alert("Coordenadas salvas")
-          numero_poligonos_criados.innerHTML = poligonos_salvos.length
-          //console.log(poligonos_salvos)
-        }
-        function Plotar_novo_poligono(){
-          var Input_pai = document.getElementById("input_vertices")
-          var div_buttons_poligonos = document.getElementById("div_buttons_poligonos")
-          for (var excluir=1;excluir<=identificador_input; excluir++){
-            var Input_para_excluir = document.getElementById("input_vertice"+excluir)
-            Input_pai.removeChild(Input_para_excluir);
-          }
-          var botao_poligono = document.createElement("button")
-          var texto_button = document.createTextNode("Poligono "+poligonos_salvos.length)
-          botao_poligono.appendChild(texto_button)
-          botao_poligono.className = "dropdown-item"
-          botao_poligono.id = "Poligono "+poligonos_salvos.length
-          botao_poligono.addEventListener('click',selecionar_poligono)
-          div_buttons_poligonos.appendChild(botao_poligono)
-          contador = 99
-          document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
-          identificador_input = 0
-          markers = []
-
-          initMap(); 
-          }
-        function selecionar_poligono(){
-          editando = true
-          initMap()
-        }
       }
-      //Aqui é caso ele não tenha poligono algum
-      else if (poligonos_salvos.length == 0 && editando == false){
-        //Eu insiro apenas uma vez o evento quando não há nenhum poligono, pois quando chamo o initMap ele insere mais 1 evento pros componentes HTML e isso duplica as ações que eles fazem.
+      else{
         botao_salvar_vertices = document.getElementById("button_salvar")
         botao_salvar_vertices.addEventListener('click',SalvarVertices)
         botao_criar_novo_poligono = document.getElementById("botao_criar_novo_poligono")
         botao_criar_novo_poligono.addEventListener('click',Plotar_novo_poligono)
         criar_vertices_button.addEventListener('click', setCriarVerticesButton);
-        var belem = {lat:-1.44502, lng: -48.4650};
-        var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: belem});
+      }
+      if(editando == false){
         var Poligono = new google.maps.Polygon({
           strokeColor: '#FF0000',
           strokeOpacity: 0.8,
@@ -565,38 +227,39 @@
         })
         poligonos_salvos.push(Poligono)
         poligono_criado["poligono"+(poligonos_salvos.length)] = []
-        poligonos_salvos[poligonos_salvos.length-1].setMap(map);
+
+        poligonos_salvos[poligono_selecionado].setMap(map);
+      }
         map.addListener('click', addLatLng);  
         //FUNÇÕES RELACIONADAS A CRIAÇÃO E MODIFICAÇÃO DOS POLIGONOS
         function addLatLng(event){
           if(contador>0){
             contador -= 1;
-          
             marker = new google.maps.Marker({
               title: "Vértice: "+(identificador_input+1),
               position: event.latLng,
               map: map,
-              icon: "../static/green_marker.png",
+              icon: "https://icon-icons.com/icons2/165/PNG/32/mapmarker_pushpin_chartreuse_23003.png",
               draggable: true
             });
             markers.push(marker);
             markers[markers.length-1].setMap(map);
             marker_latitude = markers[markers.length-1].position["lat"]().toString()
             marker_longitude = markers[markers.length-1].position["lng"]().toString()
-            setCriarVerticesClick(marker_latitude,marker_longitude);//Cria um ponto de vértice no mapa a partir do ponto de referência de onde o marker foi clicado
+            setCriarVertice(marker_latitude,marker_longitude);//Cria um ponto de vértice no mapa a partir do ponto de referência de onde o marker foi clicado
 
             document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
             input_latitude = parseFloat(document.getElementById("Lat"+identificador_input).value)
             input_longitude = parseFloat(document.getElementById("Lng"+identificador_input).value)
             var coordenada_map = new google.maps.LatLng(input_latitude, input_longitude)//Cria um objeto de coordenada do google, que pode ser usado para inserir uma coordeanda de latitude e longitude nos objetos da API
             //coordenadas.push(coordenada_map)//Guardo o valor dos objetos de coordenadas nese vetor
-            Poligono_atual = poligonos_salvos[poligonos_salvos.length-1]//Pego a referência do poligono que desejo inserir a vértice
+            Poligono_atual = poligonos_salvos[poligono_selecionado]//Pego a referência do poligono que desejo inserir a vértice
             Poligono_atual.getPath().push(coordenada_map);//Aqui eu atribuo uma nova vértice criada pelo click do mouse
             document.getElementById("Lat"+identificador_input).addEventListener('change', Modificando_vertice_input);//Adiciono o evento pro input criado poder alterar essa vértice em específico
             document.getElementById("Lng"+identificador_input).addEventListener('change', Modificando_vertice_input);
             document.getElementById("Excluir"+identificador_input).addEventListener('click', ExcluirVertice);
             marker.addListener('position_changed', Modificando_vertice_marker);
-            poligono_criado["poligono"+(poligonos_salvos.length)].push(coordenada_map);
+            poligono_criado["poligono"+(poligono_selecionado+1)].push(coordenada_map);
           }
           else{
             alert("Limite de vértices atingido!")
@@ -607,14 +270,14 @@
           var input_longitude = parseFloat(document.getElementById("Lng"+focado).value);
           var nova_coordenada_map = new google.maps.LatLng(input_latitude, input_longitude);
           //coordenadas[focado-1] = nova_coordenada_map
-          var Poligono_atual = poligonos_salvos[poligonos_salvos.length-1];
+          var Poligono_atual = poligonos_salvos[poligono_selecionado];
           Poligono_atual.getPath().setAt(focado-1, nova_coordenada_map); //Altero o valor da vértice do poligono atual
-          poligono_criado[focado-1] = nova_coordenada_map;
+          poligono_criado["poligono"+(poligono_selecionado+1)][focado-1] = nova_coordenada_map;
           marker = new google.maps.Marker({
             title: "Vértice: "+focado.toString(),
             position: nova_coordenada_map,
             map: map,
-            icon: "../static/green_marker.png",
+            icon: "https://icon-icons.com/icons2/165/PNG/32/mapmarker_pushpin_chartreuse_23003.png",
             draggable: true
           });
           marker.addListener('position_changed', Modificando_vertice_marker);//Pra cada objeto marker criado é adicionado o evento que possibilita ele de alterar o vértice por quem ele é responsável
@@ -631,153 +294,43 @@
           longitude_input.value = this.position["lng"]().toString();
 
           var nova_coordenada_map = new google.maps.LatLng(parseFloat(latitude_input.value),parseFloat(longitude_input.value));
-          poligonos_salvos[poligonos_salvos.length-1].getPath().setAt(parseInt(indice)-1, nova_coordenada_map);
-          poligono_criado[parseInt(indice)-1] = nova_coordenada_map;
+          poligonos_salvos[poligono_selecionado].getPath().setAt(parseInt(indice)-1, nova_coordenada_map);
+          poligono_criado["poligono"+(poligono_selecionado+1)][indice-1] = nova_coordenada_map;
         }
         function setCriarVerticesButton(){
-          var quantidade_vertices = parseInt(document.getElementById("numero_de_vertices").value)
-          if(poligono_criado.length == 0){
-            //variáveis pra criar o retangulo
-            var constante_k = 1
-            var contador_parar = 0
-            //variáveis pra tentativa de criar um circulo
-            var p = belem;
-            var passo = 0
-            var ymax = belem["lat"]+3
-            var ymin = belem["lat"]
-            var xmax = belem["lng"]+3
-            var xmin = belem["lng"]
-            var ymax_neg = belem["lat"]-3
-            var xmin_neg = belem["lng"]-3
-            var d = 0
-            var aux_y = ymax
-            var aux_x = xmin
-            for(criar=0; criar<quantidade_vertices; criar++){
-              //TENTATIVA DE CRIAR CIRCULOS AUTOMATICAMENTE
-              /*
-              if(passo==0){
-                document.getElementById("Lat"+(criar+1)).value = aux_y - d
-                document.getElementById("Lng"+(criar+1)).value = aux_x + d
-                aux_y -= d
-                aux_x += d
-                d = 1
-                if(aux_x == xmax){
-                  passo=1
-                }
-                
-              }
-              else if(passo==1){
-                document.getElementById("Lat"+(criar+1)).value = aux_y - d
-                document.getElementById("Lng"+(criar+1)).value = aux_x - d
-                aux_y -= d
-                aux_x -= d
-                d = 1
-                if(aux_x == xmin){
-                  passo=2
-                }
-              }
-              else if(passo==2){
-                document.getElementById("Lat"+(criar+1)).value = aux_y + d
-                document.getElementById("Lng"+(criar+1)).value = aux_x - d
-                aux_y += d
-                aux_x -= d
-                d = 1
-                if(aux_x == xmin_neg){
-                  passo=3
-                }
-              }
-              else if (passo==3){
-                document.getElementById("Lat"+(criar+1)).value = aux_y + d
-                document.getElementById("Lng"+(criar+1)).value = aux_x + d
-                aux_y += d
-                aux_x += d
-                d = 1
-              }
-              */
+          contador -= 1
+          var latitude_input = document.getElementById("Latitude")
+          var longitude_input = document.getElementById("Longitude")
+          if(latitude_input.value && longitude_input.value != null){
+            setCriarVertice(latitude_input.value,longitude_input.value) 
+            var nova_coordenada_map = new google.maps.LatLng(parseFloat(latitude_input.value),parseFloat(longitude_input.value));
             
-              //CRIAÇÃO DE RETÂNGULOS AUTOMATICAMENTE
-              if(contador_parar==0){
-                document.getElementById("Lat"+(criar+1)).value
-                document.getElementById("Lng"+(criar+1)).value
-                contador_parar = 1
-              }
-              else if(contador_parar==1){
-                document.getElementById("Lat"+(criar+1)).value = parseFloat(document.getElementById("Lat1").value)
-                document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar+1)).value)-constante_k
-                contador_parar = 2
-              }
-              else if(contador_parar==2){
-                document.getElementById("Lat"+(criar+1)).value = parseFloat(document.getElementById("Lat"+(criar+1)).value) - constante_k
-                document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng2").value)
-                contador_parar = 3
-              }
-              else if(contador_parar==3){
-                document.getElementById("Lat"+(criar+1)).value = document.getElementById("Lat3").value
-                document.getElementById("Lng"+(criar+1)).value = document.getElementById("Lng1").value
-                contador_parar = 4
-                constante_k = 2
-              }
-              else if(contador_parar == 4 && criar != quantidade_vertices-1){
-                constante_k += 1
-                document.getElementById("Lat"+(criar+1)).value = document.getElementById("Lat4").value
-                document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar+1)).value)+constante_k
-              }
-              else{
-                document.getElementById("Lat"+(criar+1)).value = document.getElementById("Lat1").value
-                document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar)).value)
-              }
-              var nova_coordenada_map = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+(criar+1)).value),parseFloat(document.getElementById("Lng"+(criar+1)).value));
-              poligonos_salvos[poligonos_salvos.length-1].getPath().push(nova_coordenada_map)
-              marker = new google.maps.Marker({
-                title: "Vértice: "+(criar+1).toString(),
-                position: nova_coordenada_map,
-                map: map,
-                icon: "../static/green_marker.png",
-                draggable: true
-              });
-              markers.push(marker);
-              marker.setMap(map);
-              poligonos_salvos[poligonos_salvos.length-1].setMap(map);
-
-              marker.addListener('position_changed', Modificando_vertice_marker);
-              document.getElementById("Lat"+(criar+1)).addEventListener('change', Modificando_vertice_input);
-              document.getElementById("Lng"+(criar+1)).addEventListener('change', Modificando_vertice_input);
-              document.getElementById("Excluir"+(criar+1)).addEventListener('click', ExcluirVertice);
-              poligono_criado.push(nova_coordenada_map)
-            }
+            poligonos_salvos[poligono_selecionado].getPath().push(nova_coordenada_map)
+            marker = new google.maps.Marker({
+              title: "Vértice: "+identificador_input,
+              position: nova_coordenada_map,
+              map: map,
+              icon: "https://icon-icons.com/icons2/165/PNG/32/mapmarker_pushpin_chartreuse_23003.png",
+              draggable: true
+            });
+            markers.push(marker);
+            marker.setMap(map);
+            poligonos_salvos[poligono_selecionado].setMap(map);
+            marker.addListener('position_changed', Modificando_vertice_marker);
+            document.getElementById("Lat"+identificador_input).addEventListener('change', Modificando_vertice_input);
+            document.getElementById("Lng"+identificador_input).addEventListener('change', Modificando_vertice_input);
+            document.getElementById("Excluir"+identificador_input).addEventListener('click', ExcluirVertice);
+            poligono_criado["poligono"+(poligono_selecionado+1)].push(nova_coordenada_map)
           }
           else{
-            for(criar=(identificador_input-num_vertices.value); criar<identificador_input; criar++){
-            
-              document.getElementById("Lat"+(criar+1)).value = parseFloat(document.getElementById("Lat"+(criar)).value) - 0.2
-              document.getElementById("Lng"+(criar+1)).value = parseFloat(document.getElementById("Lng"+(criar)).value) + 0.2
-              var nova_coordenada_map = new google.maps.LatLng(parseFloat(document.getElementById("Lat"+(criar+1)).value),parseFloat(document.getElementById("Lng"+(criar+1)).value));
-              poligonos_salvos[poligonos_salvos.length-1].getPath().push(nova_coordenada_map)
-              marker = new google.maps.Marker({
-                title: "Vértice: "+(criar+1).toString(),
-                position: nova_coordenada_map,
-                map: map,
-                icon: "../static/green_marker.png",
-                draggable: true
-              });
-              markers.push(marker);
-              marker.setMap(map);
-              var Poligono_atual = poligonos_salvos[poligonos_salvos.length-1]
-              Poligono_atual.setMap(map);
-
-              marker.addListener('position_changed', Modificando_vertice_marker);
-              document.getElementById("Lat"+(criar+1)).addEventListener('change', Modificando_vertice_input);
-              document.getElementById("Lng"+(criar+1)).addEventListener('change', Modificando_vertice_input);
-              document.getElementById("Excluir"+(criar+1)).addEventListener('click', ExcluirVertice);
-              poligono_criado.push(nova_coordenada_map)
-            }
+            alert("Insira um valor válido de latitude e longitude.")
           }
         }
         function ExcluirVertice(){
           var indice = this.id.replace("Excluir","")
           var Input_para_excluir = document.getElementById("input_vertice"+indice)
           var Input_pai = document.getElementById("input_vertices")
-          var Poligono_atual = poligonos_salvos[poligonos_salvos.length-1]
+          var Poligono_atual = poligonos_salvos[poligono_selecionado]
           contador += 1;
           identificador_input -= 1;
           document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
@@ -811,24 +364,26 @@
               button_id.id = "Excluir"+(x+1)
             }
           }
-          poligono_criado.splice(indice-1,1);
+          console.log( poligono_criado["poligono"+(poligono_selecionado+1)])
+          poligono_criado["poligono"+(poligono_selecionado+1)].splice(indice-1,1);
+          console.log( poligono_criado["poligono"+(poligono_selecionado+1)])
         }
         function SalvarVertices(){
-          document.getElementById("vert").value = poligono_criado
+          document.getElementById("vert").value =  poligono_criado
+          console.log(poligono_criado)
           alert("Coordenadas salvas")
+          numero_poligonos_criados.innerHTML = poligonos_salvos.length
           //console.log(poligonos_salvos)
         }
         function Plotar_novo_poligono(){
-          
           var Input_pai = document.getElementById("input_vertices")
           var div_buttons_poligonos = document.getElementById("div_buttons_poligonos")
-          var botao_poligono = document.createElement("button")
-          var texto_button = document.createTextNode("Poligono "+poligonos_salvos.length)
-          numero_poligonos_criados.innerHTML = poligonos_salvos.length
           for (var excluir=1;excluir<=identificador_input; excluir++){
             var Input_para_excluir = document.getElementById("input_vertice"+excluir)
             Input_pai.removeChild(Input_para_excluir);
           }
+          var botao_poligono = document.createElement("button")
+          var texto_button = document.createTextNode("Poligono "+poligonos_salvos.length)
           botao_poligono.appendChild(texto_button)
           botao_poligono.className = "dropdown-item"
           botao_poligono.id = "Poligono "+poligonos_salvos.length
@@ -838,48 +393,22 @@
           document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
           identificador_input = 0
           markers = []
+          poligono_selecionado = (poligonos_salvos.length-1)
+          poligono_selecionado += 1;
+          editando = false
           initMap(); 
-        }
+          }
         function selecionar_poligono(){
           editando = true
-          
-          markers = []
-          var indice = this.id.replace("Poligono "+"")
-          var Input_pai = document.getElementById("input_vertices")
-          var div_buttons_poligonos = document.getElementById("div_buttons_poligonos")
-          var botao_poligono = document.createElement("button")
-          var texto_button = document.createTextNode("Poligono "+poligonos_salvos.length)
-          numero_poligonos_criados.innerHTML = poligonos_salvos.length
-          for (var excluir=1;excluir<=identificador_input; excluir++){
-            var Input_para_excluir = document.getElementById("input_vertice"+excluir)
-            Input_pai.removeChild(Input_para_excluir);
-          }
-          identificador_input = 0
-          for(coordenada of poligonos_salvos[indice-1].length){
-            setCriarVerticesClick(coordenada["lat"](),coordenada["lng"]())
-          }
+          poligono_selecionado = parseInt(this.id.replace("Poligono ",""))-1
           initMap()
         }
       }
-      else if (poligonos_salvos.length != 0 && editando == true){
-        alert("Qual foi?")
-      }
-
- 
-    }
     </script>
 
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&callback=initMap">
     </script>
 </div>
-
 </body>
 </html>
-
-<!--
-Norte: -1.4591914
-Sul: -1.4151914
-Leste: -48.4301188
-Oeste: -48.4701188
--->
