@@ -170,6 +170,7 @@
     function Mudando_valores_poligono(index){
       focado = index;
     }
+
   </script>
   <script>
     var poligono_criado = {};
@@ -439,17 +440,29 @@
           markers = []
           initMap()
         }
+
         function CriarBotaoRefPoligono(){
+          function QuandoEstaSobre(){
+            this.className = "dropdown-item bg-primary"
+          }
+          function QuandoSai(){
+            this.className = "dropdown-item"
+          }
           numero_poligonos_criados.innerHTML = poligonos_salvos.length
           var botao_poligono = document.createElement("button")
           var texto_button = document.createTextNode("Poligono "+poligonos_salvos.length)
           botao_poligono.appendChild(texto_button)
           botao_poligono.className = "dropdown-item"
+          
           botao_poligono.id = "Poligono "+poligonos_salvos.length
           botao_poligono.addEventListener('click',selecionar_poligono)
-          div_buttons_poligonos.appendChild(botao_poligono)            
+          div_buttons_poligonos.appendChild(botao_poligono)  
+          botao_poligono.addEventListener('mouseover', QuandoEstaSobre) 
+          botao_poligono.addEventListener("mouseout", QuandoSai);          
           document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
         }
+
+
       }
     </script>
 
