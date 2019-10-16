@@ -183,6 +183,7 @@
     var markers = [];
     var criar_vertices_button = document.getElementById("button-addon2");
     var numero_poligonos_criados = document.getElementById("numero_poligonos_criados")
+    var infoWindow = [];
     numero_poligonos_criados.innerHTML = poligonos_salvos.length
     //Função que inicia o mapa
     
@@ -247,7 +248,21 @@
           fillColor: '#FF0000',
           fillOpacity: 0.35,
         })
+        
         poligonos_salvos.push(Poligono)
+        poligonos_salvos[poligonos_salvos.length-1].title = "Poligono "+poligonos_salvos.length
+        poligonos_salvos[poligonos_salvos.length-1].addListener("click",function(event){
+          console.log(infoWindow.length)
+          console.log(poligonos_salvos.length)
+          if(infoWindow == null || infoWindow.length < poligonos_salvos.length){
+            infoWindow.push(new google.maps.InfoWindow)
+            contentString = `<b>Poligono ${poligonos_salvos.length}</b><br>`
+            infoWindow[infoWindow.length-1].setContent(contentString);
+          }
+          infoWindow[(this.title.replace("Poligono ",""))-1].setPosition(event.latLng);
+          infoWindow[(this.title.replace("Poligono ",""))-1].open(map);
+
+        })
         poligono_criado["poligono"+(poligonos_salvos.length)] = []
 
         poligonos_salvos[poligono_selecionado].setMap(map);
@@ -288,7 +303,6 @@
           }
         }
         function Modificando_vertice_input(){
-          console.log(markers)
           var input_latitude = parseFloat(document.getElementById("Lat"+focado).value);
           var input_longitude = parseFloat(document.getElementById("Lng"+focado).value);
           var nova_coordenada_map = new google.maps.LatLng(input_latitude, input_longitude);
@@ -402,8 +416,10 @@
         }
         function Plotar_novo_poligono(){
           if(poligono_criado["poligono"+(poligono_selecionado+1)].length > 2){
-            for(botoes=0; botoes<poligonos_salvos.length; botoes++){
-              document.getElementById("Poligono "+(botoes+1)).className = "dropdown-item";
+            if(numero_poligonos_criados.innerHTML == poligonos_salvos.length){
+              for(botoes=0; botoes<poligonos_salvos.length; botoes++){
+                  document.getElementById("Poligono "+(botoes+1)).className = "dropdown-item";
+              }
             }
             var Input_pai = document.getElementById("input_vertices")
             var div_buttons_poligonos = document.getElementById("div_buttons_poligonos")
@@ -445,7 +461,6 @@
           initMap()
           
         }
-
         function CriarBotaoRefPoligono(){
           function QuandoEstaSobre(){
             if(this.className != "dropdown-item active"){
@@ -471,7 +486,7 @@
           var botao_poligono = document.createElement("button")
           var texto_button = document.createTextNode("Poligono "+poligonos_salvos.length)
           botao_poligono.appendChild(texto_button)
-          botao_poligono.className = "dropdown-item"
+          botao_poligono.className = "dropdown-item active"
           
           botao_poligono.id = "Poligono "+poligonos_salvos.length
           botao_poligono.addEventListener('click',selecionar_poligono)
