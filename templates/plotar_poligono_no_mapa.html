@@ -8,9 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&libraries=geometry">
-    </script>
-    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&libraries=geometry"></script>
     <style>
       /* Set the size of the div element that contains the map */
       #map {
@@ -61,7 +59,7 @@
     var vertices_poligonos = []
     var contador = 0;
     var plotar_poligono = [];
-    
+
     //Função que inicia o mapa
     function initMap() {
       var belem = {lat:-1.44502, lng: -48.4650};
@@ -115,52 +113,50 @@
       }
       latitude = []
       longitude = []
-    
-      for(x in {{latitude}}){
-        latitude.push({{latitude}}[x])
-        longitude.push({{longitude}}[x])
-      }
-      
-    
-        poligono_criado = "{{vertices}}"
-        var lng_aux = "";
-        var lat_aux = "";
-        var coordenada_aux = "";
-        var Petes = [];
-        for (caracter of poligono_criado){
-            if (caracter != ")"){
-              if(caracter != ","){
-                lng_aux += caracter
-              }
-              else{
-                lat_aux += lng_aux
-                lng_aux = ""
-              }
-            }
-            else{
-              lat_aux = lat_aux.replace("(","")
-              lng_aux = lng_aux.replace(")","").replace(" ","")
-              coordenada_aux = {lat: parseFloat(lat_aux), lng: parseFloat(lng_aux)}
-              Petes.push(coordenada_aux)
-              lat_aux = ""
-              lng_aux = ""
-    
-            }
-    
+      Coordenadas = []
+      coordenada_aux = ""
+      poli_aux = ""
+      poligono = ""
+      poligono_criado = "{{vertices}}"
+      parte = 1
+      for (x of poligono_criado){
+        if(parte == 1){
+          if (x != ":"){
+          poli_aux += x
           }
-    
-        var Poligono_antigo = new google.maps.Polygon({
-            strokeColor: '#FF0000',
-            paths: Petes,
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#2F4F4F',
-            fillOpacity: 0.35,
-          })
-        Poligono_antigo.setMap(map);
-        for(x in latitude){
-          Detectar_Marks(latitude[x], longitude[x], Poligono_antigo)
+          else{
+            poligono = poli_aux
+            parte = 2
+            poli_aux = ""
+          }
         }
+        else if(parte == 2){
+          if (x != ")"){
+            poli_aux += x
+          }
+          else{
+            coordenada_aux = poli_aux
+            coordenada_aux = coordenada_aux.replace(/\(/g,'')
+            parte = 3
+          }
+        }
+        else if(parte == 3){
+          
+        }
+      }
+      console.log(`Variável poligono: ${poligono}\nVariável coordenada_aux: ${coordenada_aux}`)
+      var Poligono_antigo = new google.maps.Polygon({
+          strokeColor: '#FF0000',
+          paths: Coordenadas,
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#2F4F4F',
+          fillOpacity: 0.35,
+        })
+      Poligono_antigo.setMap(map);
+      for(x in latitude){
+        Detectar_Marks(latitude[x], longitude[x], Poligono_antigo)
+      }
     }
     
     </script>

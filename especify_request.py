@@ -6,6 +6,10 @@ app = Flask(__name__)
 #Latitude = "-1.45502"
 #Longitude =  "-48.5024"
 #Pais = "Brazil"
+dados = {
+    'occurrenceId': "teste",
+}
+pesquisar = dados
 
 def Buscar_ocorrencia(quantidade):
     pesquisar = []
@@ -35,8 +39,9 @@ def Buscar_ocorrencia(quantidade):
 
 @app.route("/")
 def json_api():
-    quantidade = input("Quantas ocorrências? ")
+    quantidade = int(input("Quantas ocorrências? "))
     resultado = requests.post("http://api-geospatial.vertnet-portal.appspot.com/geospatial", Buscar_ocorrencia(quantidade))
+    print(resultado.json())
     return jsonify(resultado.json())
 app.run()
 

@@ -1,7 +1,7 @@
 import os
 import pygbif
 import xlrd
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, jsonify, render_template, redirect, url_for, request, json
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -73,7 +73,7 @@ def mapa2():
 def mapa_desenhar():
     if request.method == "POST":
         vertices = request.form['vertices']
-        return render_template("plotar_poligono_no_mapa.html", latitude=latitude, longitude=longitude, vertices=vertices)
+        return render_template("plotar_poligono_no_mapa.html", vertices=vertices)
     else:
         return render_template("criar_poligono_no_mapa.html")
 
@@ -100,7 +100,7 @@ def Pesquisar(nome, pais, Latitude, Longitude):
             impressao += 'Latitude: SEM LATITUDE | '
         if ('decimalLongitude' in x):
             impressao += 'Longitude: ' + str(x['decimalLongitude']) + " | "
-            Longitude.append(x['decimalLongitude'])
+            Longitude.append(x['dec19imalLongitude'])
         else:
             impressao += 'Longitude: SEM LONGITUDE | '
             impressao += "\n"
