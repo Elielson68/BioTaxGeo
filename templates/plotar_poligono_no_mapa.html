@@ -3,20 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Mapa</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&libraries=geometry"></script>
-    <style>
-      /* Set the size of the div element that contains the map */
-      #map {
-        height: 500px;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
-       }
-    </style>
-
 </head>
 <body>
     <!--NAVBAR inserido no caralho do git-->
@@ -50,117 +42,13 @@
         </div>
       </nav>
       <!--NAVBAR -->
-    <div id="map"></div>
+    <div id="mapa_plotar"></div>
 <div>
-  <script>
-    var poligono_criado = [];
-    var vertices_poligonos_formatada;
-    var map;
-    var vertices_poligonos = []
-    var contador = 0;
-    var plotar_poligono = [];
 
-    //Função que inicia o mapa
-    function initMap() {
-      var belem = {lat:-1.44502, lng: -48.4650};
-      var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: belem});
-        /*
-        UM QUADRADO PARA TESTE 
-        var triangleCoords = [
-        {lat: -14.4626, lng: -60.2910},
-        {lat: -14.4626, lng: -52.6142},
-        {lat: -22.2995, lng: -53.5810},
-        {lat: -22.2995, lng: -60.1591}
-        ];
-        */
-        // Construct the polygon.
-    
-      function Detectar_Marks(latitude,longitude, poligono){
-    
-        var coordenadas = new google.maps.LatLng(latitude, longitude)
-        var isWithinPolygon = google.maps.geometry.poly.containsLocation(coordenadas, poligono)
-        if(isWithinPolygon){
-          var marker = new google.maps.Marker({
-            position: {lat:latitude, lng: longitude},
-            map: map,
-            icon: "../static/blue_marker2.png"
-          });
-          var elemento_pai = document.getElementById("tbody")
-          var linha = document.createElement("tr")
-          var indice_coluna = document.createElement("th")
-          var nome_coluna = document.createElement("td")
-          var latitude_coluna = document.createElement("td")
-          var longitude_coluna = document.createElement("td")
-          linha.appendChild(indice_coluna)
-          linha.appendChild(nome_coluna)
-          linha.appendChild(latitude_coluna)
-          linha.appendChild(longitude_coluna)
-          elemento_pai.appendChild(linha)
-          contador += 1;
-          indice_coluna.innerHTML = contador;
-          latitude_coluna.innerHTML = latitude;
-          longitude_coluna.innerHTML = longitude;
-        }
-        else{
-          var marker = new google.maps.Marker({
-            position: {lat:latitude, lng: longitude},
-            map: map,
-            icon: "../static/red_marker2.png"
-          });
-        }
-    
-        marker.setMap(map)
-      }
-      latitude = []
-      longitude = []
-      Coordenadas = []
-      coordenada_aux = ""
-      poli_aux = ""
-      poligono = ""
-      poligono_criado = "{{vertices}}"
-      parte = 1
-      for (x of poligono_criado){
-        if(parte == 1){
-          if (x != ":"){
-          poli_aux += x
-          }
-          else{
-            poligono = poli_aux
-            parte = 2
-            poli_aux = ""
-          }
-        }
-        else if(parte == 2){
-          if (x != ")"){
-            poli_aux += x
-          }
-          else{
-            coordenada_aux = poli_aux
-            coordenada_aux = coordenada_aux.replace(/\(/g,'')
-            parte = 3
-          }
-        }
-        else if(parte == 3){
-          
-        }
-      }
-      console.log(`Variável poligono: ${poligono}\nVariável coordenada_aux: ${coordenada_aux}`)
-      var Poligono_antigo = new google.maps.Polygon({
-          strokeColor: '#FF0000',
-          paths: Coordenadas,
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: '#2F4F4F',
-          fillOpacity: 0.35,
-        })
-      Poligono_antigo.setMap(map);
-      for(x in latitude){
-        Detectar_Marks(latitude[x], longitude[x], Poligono_antigo)
-      }
-    }
-    
-    </script>
-    <p></p>
+  <script type="text/javascript" src="../static/js/poligonos.js"></script>
+  <script type="text/javascript" src="../static/js/map2.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&callback=MapaDois"></script>
+   <p></p>
     <table class="table">
       <thead>
         <tr>
@@ -176,9 +64,7 @@
       <tbody id="tbody">
       </tbody>
     </table>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&callback=initMap">
-    </script>
+
 </div>
 
 </body>

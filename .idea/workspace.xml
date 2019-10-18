@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpecieGeo_App.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpecieGeo_App.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/especify_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/especify_request.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/criar_poligono_no_mapa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/criar_poligono_no_mapa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mapa_poligonos_pesquisa_livre.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mapa_poligonos_pesquisa_livre.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mapa_quadrados.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mapa_quadrados.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/styles/style.css" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -486,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571186022580</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="focando em analisar os dados">
+      <created>1571341556014</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1571341556014</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -520,7 +527,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="alterações simples" />
     <MESSAGE value="Projeto Configurado" />
     <MESSAGE value="Marker personalizado" />
     <MESSAGE value="Marker personalizado + Botões personalizados" />
@@ -545,6 +551,7 @@
     <MESSAGE value="inserido mouseover sobre os inputs na selecao dos poligonos" />
     <MESSAGE value="mouseover foi melhorado para saber em qual poligono a pessoa está editando" />
     <MESSAGE value="Adicionado identificador dos poligonos alem do identificador do dropdown, ao clicar no poligono ele cria uma caixinha informando qual é o poligono clicado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionado identificador dos poligonos alem do identificador do dropdown, ao clicar no poligono ele cria uma caixinha informando qual é o poligono clicado" />
+    <MESSAGE value="focando em analisar os dados" />
+    <option name="LAST_COMMIT_MESSAGE" value="focando em analisar os dados" />
   </component>
 </project>
