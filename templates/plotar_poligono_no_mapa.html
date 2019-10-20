@@ -26,18 +26,6 @@
             <li class="nav-item active">
               <a class="nav-link" href="mapa">Mapa</a>
             </li>
-             <!--
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li> -->
           </ul>
         </div>
       </nav>
@@ -45,34 +33,31 @@
     <div id="mapa_plotar"></div>
 <div>
 
-  <script type="text/javascript" src="../static/js/poligonos.js"></script>
-  <script type="text/javascript" src="../static/js/map2.js"></script>
+  <script type="text/javascript" src="../static/js/markers.js"></script>
+  <script>
+    function MapaDois() {
+      var belem = {lat:-1.44502, lng: -48.4650};
+      var map = new google.maps.Map(document.getElementById('mapa_plotar'), {zoom: 4, center: belem});
+      console.log('{{vertices}}')
+      Detectar_Marks(latitude,longitude, poligono)
+    }
+  </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&callback=MapaDois"></script>
-   <p></p>
-    <table class="table">
-      <thead>
-        <tr>
-          <th colspan="4" style="text-align: center">Lista de Markers dentro da área</th>
-        </tr>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nome Científico</th>
-          <th scope="col">Latitude</th>
-          <th scope="col">Longitude</th>
-        </tr>
-      </thead>
-      <tbody id="tbody">
-      </tbody>
-    </table>
-
+  <table class="table">
+    <thead>
+      <tr>
+        <th colspan="4" style="text-align: center">Lista de Markers dentro da área</th>
+      </tr>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome Científico</th>
+        <th scope="col">Latitude</th>
+        <th scope="col">Longitude</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+  </table>
 </div>
-
 </body>
 </html>
-
-<!--
-Norte: -1.4591914
-Sul: -1.4151914
-Leste: -48.4301188
-Oeste: -48.4701188
--->

@@ -11,6 +11,7 @@
     
   </head>
   <body id="body">
+    
     <!--NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">SpecieGeo</a>
@@ -58,8 +59,8 @@
         <div>
           <button id="botao_criar_novo_poligono" type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Adicionar +1 Poligono</button>
           <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px" id="button_salvar">Salvar coordenadas</button> 
-          <form action = "http://localhost:8080/mapa_desenhar" method = "POST" enctype = "multipart/form-data">
-            <input type = "submit" value="Pesquisar na área" class="btn btn-primary btn-lg btn-block"/>
+          <form id="formulario" action = "http://localhost:8080/mapa_desenhar" method="POST" enctype="application/json">
+            <input id="submit" type = "submit" value="Pesquisar na área" class="btn btn-primary btn-lg btn-block"/>
             <input type="text" name = "vertices" value="" hidden="hidden" id="vert"/>
           </form>
         </div>

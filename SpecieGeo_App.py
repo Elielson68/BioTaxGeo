@@ -1,7 +1,8 @@
 import os
 import pygbif
 import xlrd
-from flask import Flask, jsonify, render_template, redirect, url_for, request, json
+from flask import Flask, jsonify, render_template, redirect, url_for, request
+import json
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -73,7 +74,9 @@ def mapa2():
 def mapa_desenhar():
     if request.method == "POST":
         vertices = request.form['vertices']
-        return render_template("plotar_poligono_no_mapa.html", vertices=vertices)
+        vertices = eval(vertices)
+        print(vertices["poligono1"][0]["lat"])
+        return jsonify(vertices)#render_template("plotar_poligono_no_mapa.html", vertices=vertices)
     else:
         return render_template("criar_poligono_no_mapa.html")
 

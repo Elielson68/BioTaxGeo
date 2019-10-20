@@ -215,27 +215,6 @@ identificador_input = 0;
         }
         poligono_criado["poligono"+(poligono_selecionado+1)].splice(indice-1,1);
     }
-    function SalvarVertices(){
-        var enviando_formatado = ""
-        var valores = []
-        for(var soldado in poligono_criado){
-          enviando_formatado += `${soldado}: `
-          console.log(poligono_criado[soldado])
-          for(var bala of poligono_criado[soldado]){
-
-            valores.push(`(${bala["lat"]().toString()};${bala["lng"]().toString()})`)
-          }
-          enviando_formatado += valores+"|\n"
-          valores = []
-        }
-        console.log(enviando_formatado)
-        document.getElementById("vert").value =  enviando_formatado
-        
-        if(numero_poligonos_criados.innerHTML < poligonos_salvos.length){
-          CriarBotaoRefPoligono()
-        }
-        alert("Coordenadas salvas")
-    }
     function Plotar_novo_poligono(){
         if(poligono_criado["poligono"+(poligono_selecionado+1)].length > 2){
           if(numero_poligonos_criados.innerHTML == poligonos_salvos.length){
@@ -347,4 +326,30 @@ identificador_input = 0;
           markers[markers.length-1].setMap(map)
         }
     }
-    
+    function SalvarVertices(){
+      var enviando_formatado = "{"
+      var valores = []
+      var contador = 0
+      for(var soldado in poligono_criado){
+        contador++
+        enviando_formatado += `'${soldado}': [`
+        for(var bala of poligono_criado[soldado]){
+
+          valores.push(`{'lat': ${bala["lat"]().toString()}, 'lng': ${bala["lng"]().toString()}}`)
+        }
+        if(contador == Object.keys(poligono_criado).length){
+          enviando_formatado += valores+"]"
+        }
+        else{
+          enviando_formatado += valores+"],"
+        }
+        valores = []
+      }
+      enviando_formatado += "}"
+      document.getElementById("vert").value =  enviando_formatado
+      console.log(enviando_formatado)
+      if(numero_poligonos_criados.innerHTML < poligonos_salvos.length){
+        CriarBotaoRefPoligono()
+      }
+      alert("Coordenadas salvas")
+  }
