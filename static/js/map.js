@@ -50,5 +50,4 @@ function initMap() {
       poligonos_salvos[poligono_selecionado].setMap(map);
     }
     map.addListener('click', addLatLng);  
-    //FUNÇÕES RELACIONADAS A CRIAÇÃO E MODIFICAÇÃO DOS POLIGONOS
 }
