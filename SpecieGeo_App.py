@@ -73,10 +73,12 @@ def mapa2():
 @app.route("/mapa_desenhar",methods=["GET","POST"])
 def mapa_desenhar():
     if request.method == "POST":
-        vertices = request.form['vertices']
-        vertices = eval(vertices)
-        print(vertices["poligono1"][0]["lat"])
-        return jsonify(vertices)#render_template("plotar_poligono_no_mapa.html", vertices=vertices)
+        poligonos = request.form['vertices']
+        poligonos = eval(poligonos)
+        poligono = ""
+        vertice = ""
+        lat = 0
+        return render_template("plotar_poligono_no_mapa.html", poligonos=poligonos, poligono=poligono, vertice=vertice, latitude=latitude, longitude=longitude, lat=lat)
     else:
         return render_template("criar_poligono_no_mapa.html")
 
