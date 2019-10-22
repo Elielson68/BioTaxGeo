@@ -41,11 +41,17 @@
     function MapaDois() {
       var belem = {lat:-1.44502, lng: -48.4650};
       map = new google.maps.Map(document.getElementById('mapa_plotar'), {zoom: 4, center: belem});
-      var poligono = []
-      var latitude = []
-      var longitude = []
-      var markers = []
-      '{% for poligono in poligonos %}'
+      var poligonos_vertices = "{{poligonos}}";
+      poligonos_vertices = poligonos_vertices.replace(/&#39;/g,'"');
+      poligonos_vertices = JSON.parse(poligonos_vertices);
+      poligonos = [];
+      var latitude = "{{latitude}}";
+      latitude = JSON.parse(latitude);
+      var longitude = "{{longitude}}";
+      longitude = JSON.parse(longitude);
+      var markers = [];
+
+      for (var poligono in poligonos_vertices){
         var Poligono = new google.maps.Polygon({
           strokeColor: '#FF0000',
           strokeOpacity: 0.8,
@@ -53,24 +59,18 @@
           fillColor: '#2F4F4F',
           fillOpacity: 0.35,
         })
-        poligono.push(Poligono)
-        '{% for vertice in poligonos[poligono] %}'
-          coordenada = new google.maps.LatLng('{{vertice["lat"]}}', '{{vertice["lng"]}}');
-          poligono[poligono.length-1].getPath().push(coordenada)
-        '{% endfor %}'
-      '{% endfor %}'
-      '{% for lat in latitude %}'
-        latitude.push(parseFloat("{{lat}}"))
-      '{% endfor %}'
-      '{% for lng in longitude %}'
-        longitude.push(parseFloat("{{lng}}"))
-      '{% endfor %}'
-
-      for(var poli in poligono){
-        poligono[poli].setMap(map);
-        Criar_THead(parseInt(poli)+1)
+        poligonos.push(Poligono)
+        for (var vertice of poligonos_vertices[poligono]){
+          coordenada = new google.maps.LatLng(vertice["lat"], vertice["lng"]);
+          poligonos[poligonos.length-1].getPath().push(coordenada);
+        }
       }
-      Detectar_Marks(latitude, longitude, markers, poligono)
+
+      for(var poli in poligonos){
+        poligonos[poli].setMap(map);
+        Criar_THead(parseInt(poli)+1);
+      }
+      Detectar_Marks(latitude, longitude, markers, poligonos);
   }
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&callback=MapaDois"></script>
