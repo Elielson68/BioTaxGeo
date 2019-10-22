@@ -4,8 +4,8 @@
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpecieGeo_App.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpecieGeo_App.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/poligonos.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/poligonos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/Jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/markers.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/markers.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -504,7 +504,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571687959671</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Modificado o método de envio dos objetos pro servidor e do servidor pro cliente. Utilido o Eval no python e JSON.Stringfy e JSON.parse no javascript.">
+      <created>1571768181846</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1571768181846</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

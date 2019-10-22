@@ -73,8 +73,15 @@ function Criar_THead(indice){
   th_titulo.setAttribute("colspan",4)
   th_titulo.id = "thead_poligono"+indice
   th_titulo.className = "thead"
-  texto_th_titulo = document.createTextNode("Lista de Markers dentro do Poligono "+indice)
+  //texto_th_titulo = document.createTextNode("Lista de Markers dentro do Poligono "+indice)
+  texto_th_titulo = document.createElement("button")
+  texto_th_titulo.innerHTML = "Lista de Markers dentro do Poligono "+indice
+  texto_th_titulo.setAttribute("class","btn btn-link")
   th_titulo.appendChild(texto_th_titulo)
+  th_titulo.setAttribute("data-toggle","collapse")
+  th_titulo.setAttribute("data-target",".tab_poligono"+indice)
+  th_titulo.setAttribute("aria-expanded","false")
+  th_titulo.setAttribute("aria-controls","tbody_poligono"+indice)
   tr_titulo_tabela.appendChild(th_titulo)
   thead.appendChild(tr_titulo_tabela)
 
@@ -94,14 +101,13 @@ function Criar_THead(indice){
   tr_titulos.appendChild(th_latitude)
   tr_titulos.appendChild(th_longitude)
   tr_titulos.id = "tr_poligono"+indice
-  tr_titulos.style = "display: none"
-
+  tr_titulos.setAttribute("class","collapse "+"tab_poligono"+indice)
   //anexando ao cabeçário da tabela
   thead.append(tr_titulos)
 
   //Identificando o body para inserir os dados de cada poligono individualmente
   tbody.id = "tbody_poligono"+indice
-  tbody.style = "display: none"
+  tbody.setAttribute("class","collapse "+"tab_poligono"+indice)
 
   //Anexado o cabeçario e o corpo na tabela
   tabela.appendChild(thead)

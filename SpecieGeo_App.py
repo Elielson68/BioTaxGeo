@@ -86,8 +86,7 @@ def Pesquisar(nome, pais, Latitude, Longitude):
     print("\n\n\nAnimal pesquisado: {}".format(nome)+".\nNo país: {}".format(pais)+"\n\n\n")
     impressao = ''  # variável que vai ser usada pra imprimir as informações
     for x in animal['results']:  # dentro da variável que referência os dados buscados pelo gbif, ele busca os dados correspondentes a chave results
-        if (
-                'stateProvince' in x):  # Cada if pega como referência uma chave, caso exista ele soma na variável que ficará pra impressão, caso não ele pula pro else
+        if ('stateProvince' in x):  # Cada if pega como referência uma chave, caso exista ele soma na variável que ficará pra impressão, caso não ele pula pro else
             impressao += 'Estado: ' + x["stateProvince"] + " | "
         else:  # se não existir a variável, então ele retorna que a key não existe no determinado dado
             impressao += "Estado: SEM ESTADO | "
