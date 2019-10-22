@@ -16,39 +16,11 @@ occ = pygbif
 
 
 @app.route("/", methods=["GET", "POST"])
-def teste():
+def home():
     return render_template("index.html")
 
-@app.route("/pesquisar", methods=["GET", "POST"])
-def pesquisar():
-    if request.method == 'POST':
-        latitude.clear()
-        longitude.clear()
-        nome_especie = request.form['nome']
-        pais = request.form['pais']
-        Pesquisar(nome_especie, pais, latitude, longitude)
-        return redirect(url_for('mapa_quadrados'))
-
-@app.route("/mapa_quadrados", methods=["GET", "POST"])
-def mapa():
-    if request.method == 'POST':
-        return render_template("mapa_quadrados.html", latitude=latitude, longitude=longitude)
-    else:
-        return render_template("mapa_quadrados.html", latitude=latitude, longitude=longitude)
-
-
-@app.route("/ler", methods=["GET", "POST"])
-def ler():
-    if request.method == 'POST':
-        latitude.clear()
-        longitude.clear()
-        f = request.files['file']
-        f.save(secure_filename(f.filename))
-        Ler_Arquivo(secure_filename(f.filename),latitude,longitude)
-        return redirect(url_for('mapa_quadrados'))
-
-@app.route("/ler2", methods=["GET", "POST"])
-def ler2():
+@app.route("/ler_planilha", methods=["GET", "POST"])
+def ler_planilha():
     if request.method == 'POST':
         latitude.clear()
         longitude.clear()
@@ -56,19 +28,6 @@ def ler2():
         f.save(secure_filename(f.filename))
         Ler_Arquivo(secure_filename(f.filename),latitude,longitude)
         return redirect(url_for('mapa_desenhar'))
-
-
-@app.route("/mapa2", methods=["GET", "POST"])
-def mapa2():
-    if request.method == 'GET':
-        criar_poligono = False
-        return render_template("mapa_poligonos_pesquisa_livre.html",latitude=latitude, longitude=longitude, criar_poligono=criar_poligono)
-    if request.method == 'POST':
-        criar_poligono = True
-        poligono = request.form['poligono']
-        vertices = request.form['vertices']
-        Pesquisar_Poli(poligono,latitude,longitude)
-        return render_template("mapa_poligonos_pesquisa_livre.html",latitude=latitude, longitude=longitude, criar_poligono=criar_poligono, vertices=vertices)
 
 @app.route("/mapa_desenhar",methods=["GET","POST"])
 def mapa_desenhar():

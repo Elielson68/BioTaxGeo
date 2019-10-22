@@ -21,40 +21,21 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mapa_quadrados">Mapa Quadrados</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="mapa2">Mapa Poligonos</a>
-                    </li>
                 </ul>
             </div>
         </nav>
-
-
-        <div id="read2"><p>Pesquisar ocorrência de espécie no mapa.</p><p>Insira o nome ciêntifico da espécie e o país onde deseja fazer a busca, insira a sigla do país como por exemplo: 'BR'</p>
-            <form action = "http://localhost:8080/pesquisar" method = "POST" enctype = "multipart/form-data">
-                <div class="input-group mb-3">
-                    <input type="text" name="nome" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nome Cientifico"/>
-                    <input type="text" name="pais" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="País"/>
-                </div>
-                <div class="input-group-prepend">
-                    <input type="submit" value="Enviar" class="btn btn-primary btn-sm"/>
-                </div>
-            </form>
-        </div>
-
-        <div id="read"><p>Pesquisar ocorrência de espécie no mapa utilizando quadrados.</p><p>Abaixo terá onde por arquivos XLS para avaliação dos mesmos.</p>
-            <form action = "http://localhost:8080/ler" method = "POST" enctype = "multipart/form-data">
+        <div class="card mb-3 shadow p-3 mb-5 bg-white rounded" id="card">
+            <img src="https://www.infoescola.com/wp-content/uploads/2018/02/floresta-amazonica-343759751.jpg" class="card-img-top img-fluid" alt="Responsive image">
+            <div class="card-body">
+                <h5 class="card-title">SpecieGeo - Qualidade de dados</h5>
+                <p class="card-text">Esse software-web permite a análise de arquivos com dados referentes a ocorrência de Espécies. Os tipos de verificações realizadas por ele são: Análise das coordenadas, <strike>Verificação de erros de digitação</strike>, <strike>verificação de erros na localização</strike>.</p>
+                <p class="card-text">Para utilizar o software basta enviar logo abaixo seu arquivo que deve ser verificado.</p>
+                <form action = "http://localhost:8080/ler_planilha" method = "POST" enctype = "multipart/form-data">
                 <input type = "file" name = "file" value="Selecionar arquivo"/>
                 <input type = "submit" value="Enviar arquivo"/>
-            </form>
-        </div>
-        <div id="read3"><p>Pesquisar ocorrência de espécie no mapa utilizando Poligonos.</p><p>Abaixo terá onde por arquivos XLS para avaliação dos mesmos.</p>
-            <form action = "http://localhost:8080/ler2" method = "POST" enctype = "multipart/form-data">
-                <input type = "file" name = "file" value="Selecionar arquivo"/>
-                <input type = "submit" value="Enviar arquivo"/>
-            </form>
+                </form>
+                <p class="card-text"><small class="text-muted">Atualizado em 22 outubro de 2019</small></p>
+            </div>
         </div>
 
     </body>

@@ -4,8 +4,10 @@
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpecieGeo_App.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpecieGeo_App.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/Jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/markers.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/markers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mapa_poligonos_pesquisa_livre.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mapa_quadrados.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -511,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571768181846</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Tabela com as informacoes sobre os markers formatada, titulo possui aparencia de um link e foi inserido o collapse">
+      <created>1571770438570</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1571770438570</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -545,7 +554,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Plotagem do poligono no mapa após ser criado" />
     <MESSAGE value="Personalização da área plotada" />
     <MESSAGE value="Código de testes passado para o arquivo principal De GBIF Testes.py Para Loko.py" />
     <MESSAGE value="Inserção da leitura de planilha e seleção de área pelo usuário" />
@@ -570,6 +578,7 @@
     <MESSAGE value="enviando para o servidor formatado e convertendo no backend pra json" />
     <MESSAGE value="tentando fazer um slidewon com a tabela" />
     <MESSAGE value="Modificado o método de envio dos objetos pro servidor e do servidor pro cliente. Utilido o Eval no python e JSON.Stringfy e JSON.parse no javascript." />
-    <option name="LAST_COMMIT_MESSAGE" value="Modificado o método de envio dos objetos pro servidor e do servidor pro cliente. Utilido o Eval no python e JSON.Stringfy e JSON.parse no javascript." />
+    <MESSAGE value="Tabela com as informacoes sobre os markers formatada, titulo possui aparencia de um link e foi inserido o collapse" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tabela com as informacoes sobre os markers formatada, titulo possui aparencia de um link e foi inserido o collapse" />
   </component>
 </project>
