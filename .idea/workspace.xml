@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/criar_poligono_no_mapa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/criar_poligono_no_mapa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/markers.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/markers.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -498,7 +493,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571609037962</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Formatado layout do home e da tela de plotagem para ficar um padrão">
+      <created>1571942134673</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1571942134673</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,7 +534,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Marker personalizado" />
     <MESSAGE value="Marker personalizado + Botões personalizados" />
     <MESSAGE value="Plotagem do poligono no mapa após ser criado" />
     <MESSAGE value="Personalização da área plotada" />
@@ -557,6 +558,7 @@
     <MESSAGE value="Adicionado identificador dos poligonos alem do identificador do dropdown, ao clicar no poligono ele cria uma caixinha informando qual é o poligono clicado" />
     <MESSAGE value="focando em analisar os dados" />
     <MESSAGE value="enviando para o servidor formatado e convertendo no backend pra json" />
-    <option name="LAST_COMMIT_MESSAGE" value="enviando para o servidor formatado e convertendo no backend pra json" />
+    <MESSAGE value="Formatado layout do home e da tela de plotagem para ficar um padrão" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formatado layout do home e da tela de plotagem para ficar um padrão" />
   </component>
 </project>
