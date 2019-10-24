@@ -11,19 +11,13 @@
     </head>
     <body>
         
-        <div id=pai></div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div id=fundo_home></div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
             <a class="navbar-brand" href="#">SpecieGeo <span class="sr-only">(current)</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                </ul>
-            </div>
         </nav>
         
         <div class="card mb-3 shadow p-3 mb-5 bg-white rounded" id="card">
@@ -33,10 +27,13 @@
                 <p class="card-text">Esse software-web permite a análise de arquivos com dados referentes a ocorrência de Espécies. Os tipos de verificações realizadas por ele são: Análise das coordenadas, <strike>Verificação de erros de digitação</strike>, <strike>verificação de erros na localização</strike>.</p>
                 <p class="card-text">Para utilizar o software basta enviar logo abaixo seu arquivo que deve ser verificado.</p>
                 <form action = "http://localhost:8080/ler_planilha" method = "POST" enctype = "multipart/form-data">
-                <input type = "file" name = "file" value="Selecionar arquivo"/>
+                <div id="arquivo">
+                    <input type ="file" name ="file" value="Selecionar arquivo"/>
+                </div>
                 <input type = "submit" value="Enviar arquivo"/>
                 </form>
-                <p class="card-text"><small class="text-muted">Atualizado em 22 outubro de 2019</small></p>
+                <p class="card-text"><small class="text-muted">Atualizado em 24 outubro de 2019</small></p>
+                
             </div> 
         </div>
         

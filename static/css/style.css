@@ -1,5 +1,5 @@
 
-#pai{
+#fundo_home{
      background: url("https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2019/06/formacao_igreja-e-meio-ambiente-olhos-voltados-para-a-amazonia.jpg");
      position: absolute;
      width: 100%;
@@ -8,18 +8,17 @@
      background-repeat:no-repeat;
      filter: blur(3px);
 }
-#map{
-     height: 500px;  
-     width: 100%;  
-}
 #card{
      position: relative;
      left: 30%;
      width: 40%;
      margin-top: 5px; 
-     
 }
-
+#arquivo{
+     border: #696969;
+     border-style: dashed;
+     margin-bottom: 2%;
+}
 #body{
      width: 100%;
      height: 100%;
@@ -33,8 +32,10 @@
      float: left;
 }
 #mapa_plotar {
-     height: 500px;  
-     width: 100%;  
+     position: absolute;
+     width: 66%;
+     height: 100%;
+     float: left;  
 }
 
 #inserir_poligono{
@@ -51,4 +52,12 @@
 }
 #dropdown_poligonos{
      margin-bottom: 2%;
+}
+#Tabelita{
+     margin-left: 66%;
+     position: absolute;
+     width: 34%;
+     height: 100%;
+     float: right;
+     overflow: auto; 
 }
