@@ -230,6 +230,7 @@ function Plotar_novo_poligono(){
     }
     if(numero_poligonos_criados.innerHTML < poligonos_salvos.length){
       CriarBotaoRefPoligono()
+      //CriarOption()
       for(botoes=0; botoes<poligonos_salvos.length; botoes++){
           document.getElementById("Poligono "+(botoes+1)).className = "dropdown-item";
       }
@@ -247,7 +248,6 @@ function Plotar_novo_poligono(){
   }
 }
 function selecionar_poligono(){
-    
     var Input_pai = document.getElementById("input_vertices")
     var div_buttons_poligonos = document.getElementById("div_buttons_poligonos")
     for (var excluir=1;excluir<=identificador_input; excluir++){
@@ -256,11 +256,12 @@ function selecionar_poligono(){
     }
     if(numero_poligonos_criados.innerHTML < poligonos_salvos.length){
       CriarBotaoRefPoligono()
+      //CriarOption()
     }
     contador = 99
     identificador_input = 0
     editando = true
-    poligono_selecionado = parseInt(this.id.replace("Poligono ",""))-1
+    poligono_selecionado = this.value-1//parseInt(this.id.replace("Poligono ",""))-1
     markers = []
     initMap()
     
@@ -284,6 +285,7 @@ function CriarBotaoRefPoligono(){
       this.className = "dropdown-item active"
     }
   }
+  //CriarOption()
   numero_poligonos_criados.innerHTML = poligonos_salvos.length
   var botao_poligono = document.createElement("button")
   var texto_button = document.createTextNode("Poligono "+poligonos_salvos.length)
@@ -294,9 +296,13 @@ function CriarBotaoRefPoligono(){
   botao_poligono.addEventListener('mouseover', QuandoEstaSobre) 
   botao_poligono.addEventListener("mouseout", QuandoSai);   
   botao_poligono.addEventListener('click', QuandoClicado)
-  div_buttons_poligonos.appendChild(botao_poligono)  
+  div_buttons_poligonos.appendChild(botao_poligono) 
+
+
 
   document.getElementById("contador").innerHTML = "Vértices disponíveis: "+contador;
+
+
 }
 function Poligono_Escolhido(){
   var poligono_editando = poligono_criado["poligono"+(poligono_selecionado+1)]
@@ -332,3 +338,12 @@ function SalvarVertices(){
   }
   alert("Coordenadas salvas")
 }
+//Cria option pra section, talvez esse section substitua a maneira atual de selecionar os
+function CriarOption(){
+  var selecionar_poligono = document.getElementById("selecionar_poligono");
+  var option = document.createElement("option");
+  option.innerHTML = "Poligono "+poligonos_salvos.length;
+  option.value = poligonos_salvos.length;
+  selecionar_poligono.appendChild(option);
+}
+//document.getElementById("selecionar_poligono").addEventListener("click",selecionar_poligono);

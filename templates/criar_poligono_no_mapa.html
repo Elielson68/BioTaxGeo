@@ -21,10 +21,10 @@
     </nav>
     <!--NAVBAR -->
     <div>
-      <div id="mapa_criar"></div>
-      <div id="inserir_poligono"> 
-        <div class="alert alert-primary" role="alert" style="height: 40px; text-align: center;">
-          <label id="contador">Vértices disponíveis: 99</label>
+      <div id="mapa_criar" class="border border-dark"></div>
+      <div id="inserir_poligono" class="border border-dark"> 
+        <div class="rounded-0 alert-primary" role="alert" style="height: 30px; text-align: center; margin-bottom: 5px;">
+          <label id="contador"><img src="../static/green_marker.png"> Vértices disponíveis: 99</label>
         </div>
         <div class="dropdown" id="dropdown_poligonos">
           <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -32,14 +32,17 @@
           </button>
           <div id="div_buttons_poligonos" class="dropdown-menu" aria-labelledby="dropdownMenu2"></div>
         </div>
+        <select class="custom-select" id="selecionar_poligono" style="margin-bottom: 5px;">
+            <option selected>Selecionar poligono...</option>
+        </select>
         <div class="input-group mb-3">
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text">Vértice</span>
+              <span class="input-group-text" id="vertice_criar">Vértice</span>
             </div>
             <input type="number" aria-label="Latitude" class="form-control" placeholder="Latitude" id="Latitude">
             <input type="number" aria-label="Longitude" class="form-control" placeholder="Longitude" id="Longitude">
-            <button class="btn btn-primary" type="button" id="button-addon2">Criar vértices</button>
+            <button class="btn btn-primary" type="button" id="button-addon2">Criar vértice</button>
           </div>
         </div>
         <div id="input_vertices">

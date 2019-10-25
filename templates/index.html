@@ -27,15 +27,25 @@
                 <p class="card-text">Esse software-web permite a análise de arquivos com dados referentes a ocorrência de Espécies. Os tipos de verificações realizadas por ele são: Análise das coordenadas, <strike>Verificação de erros de digitação</strike>, <strike>verificação de erros na localização</strike>.</p>
                 <p class="card-text">Para utilizar o software basta enviar logo abaixo seu arquivo que deve ser verificado.</p>
                 <form action = "http://localhost:8080/ler_planilha" method = "POST" enctype = "multipart/form-data">
-                <div id="arquivo">
-                    <input type ="file" name ="file" value="Selecionar arquivo"/>
-                </div>
-                <input type = "submit" value="Enviar arquivo"/>
+                    <input id="uploadFile" placeholder="Escolha o arquivo" disabled="disabled" />
+                    <div class="fileUpload btn btn-primary">
+                        <span>Selecionar</span>
+                        <input id="uploadBtn" type="file" name="file" class="upload" />
+                    </div>
+                <input id="submit_home" type="submit" value="Enviar arquivo" class="btn btn-success" disabled />
                 </form>
                 <p class="card-text"><small class="text-muted">Atualizado em 24 outubro de 2019</small></p>
                 
             </div> 
         </div>
-        
+        <script>
+           document.getElementById("uploadBtn").onchange = function () {
+                document.getElementById("uploadFile").value = this.value;
+                if(document.getElementById("uploadFile").value != "" || document.getElementById("uploadFile").value != null){
+                    document.getElementById("submit_home").removeAttribute("disabled");
+                }
+                
+           };
+        </script>
     </body>
 </html>
