@@ -17,7 +17,7 @@ function initMap() {
             poligonos_salvos[plotar_poligono].setMap(map)
           }
           else{ //Se for igual ele vem pra cá e faz essas alteraçções, muda a cor pra vermelha que é a cor de edição padrão, ele resgata o objeto do vetor e plota ele no mapa
-            Poligono_Escolhido()
+            Poligono_Escolhido(plotar_poligono)
           }
         }
       }

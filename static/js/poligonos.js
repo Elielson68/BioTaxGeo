@@ -150,7 +150,6 @@ function CriarVerticesButton(){
     if(latitude_input.value && longitude_input.value != null){
       setCriarVertice(latitude_input.value,longitude_input.value) 
       var nova_coordenada_map = new google.maps.LatLng(parseFloat(latitude_input.value),parseFloat(longitude_input.value));
-      console.log(nova_coordenada_map)
       poligonos_salvos[poligono_selecionado].getPath().push(nova_coordenada_map)
       var marker = new google.maps.Marker({
         title: "Vértice: "+identificador_input,
@@ -261,7 +260,7 @@ function selecionar_poligono(){
     contador = 99
     identificador_input = 0
     editando = true
-    poligono_selecionado = this.value-1//parseInt(this.id.replace("Poligono ",""))-1
+    poligono_selecionado = parseInt(this.id.replace("Poligono ",""))-1
     markers = []
     initMap()
     
@@ -304,7 +303,7 @@ function CriarBotaoRefPoligono(){
 
 
 }
-function Poligono_Escolhido(){
+function Poligono_Escolhido(plotar_poligono){
   var poligono_editando = poligono_criado["poligono"+(poligono_selecionado+1)]
   poligonos_salvos[plotar_poligono].fillColor = "#FF0000";
   poligonos_salvos[plotar_poligono].setMap(map)
@@ -338,7 +337,7 @@ function SalvarVertices(){
   }
   alert("Coordenadas salvas")
 }
-//Cria option pra section, talvez esse section substitua a maneira atual de selecionar os
+//Cria option pra section, talvez esse section substitua a maneira atual de selecionar os poligonos
 function CriarOption(){
   var selecionar_poligono = document.getElementById("selecionar_poligono");
   var option = document.createElement("option");
