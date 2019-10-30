@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/poligonos.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/poligonos.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -521,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572032676002</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Codigo formatado para maneira antiga, porem com as atualizacoes a serem feitas em formato de comentarios">
+      <created>1572368433929</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1572368433929</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -555,7 +561,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Personalização da área plotada" />
     <MESSAGE value="Código de testes passado para o arquivo principal De GBIF Testes.py Para Loko.py" />
     <MESSAGE value="Inserção da leitura de planilha e seleção de área pelo usuário" />
     <MESSAGE value="Verificação se marker está dentro de área estabelecida pelo usuário" />
@@ -580,6 +585,7 @@
     <MESSAGE value="Formatado layout do home e da tela de plotagem para ficar um padrão" />
     <MESSAGE value="Formatado layout da tela de plotagem, tabela agora indica os poligonos que contém ou não markers" />
     <MESSAGE value="formatado algumas coisas e mudando a forma de se selecionar o poligono" />
-    <option name="LAST_COMMIT_MESSAGE" value="formatado algumas coisas e mudando a forma de se selecionar o poligono" />
+    <MESSAGE value="Codigo formatado para maneira antiga, porem com as atualizacoes a serem feitas em formato de comentarios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Codigo formatado para maneira antiga, porem com as atualizacoes a serem feitas em formato de comentarios" />
   </component>
 </project>
