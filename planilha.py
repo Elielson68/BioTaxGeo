@@ -151,5 +151,11 @@ class Planilha:
                 pass
             else:
                 valores = requests.get('http://api.gbif.org/v1/species/match?name='+nome).json()
-                self.ocorrencias_NC[nome] = {"quantidade": NC_value.count(nome), "precisão": valores["confidence"]}
+                if(valores["matchType"] != "NONE"):
+                    if(valores["matchType"] == "FUZZY"):
+                        self.ocorrencias_NC[nome] = {"quantidade": NC_value.count(nome), "precisão": valores["confidence"], "corretude": valores["matchType"], "sugerirCorrecao": valores["canonicalName"]}
+                    else:
+                        self.ocorrencias_NC[nome] = {"quantidade": NC_value.count(nome), "precisão": valores["confidence"], "corretude": valores["matchType"], "sugerirCorrecao": None}
+                else:
+                        self.ocorrencias_NC[nome] = {"quantidade": NC_value.count(nome), "precisão": 0, "corretude": valores["matchType"], "sugerirCorrecao": "Não encontrado"}
         return self.ocorrencias_NC
