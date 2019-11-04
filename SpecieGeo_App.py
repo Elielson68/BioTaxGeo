@@ -4,7 +4,7 @@ import xlrd
 from flask import Flask, jsonify, render_template, redirect, url_for, request
 import json
 from werkzeug.utils import secure_filename
-
+from planilha import Planilha
 app = Flask(__name__)
 latitude = []
 longitude = []
@@ -12,7 +12,7 @@ nome_especie = ""
 pais = ""
 escrito = []
 occ = pygbif
-
+Planilha_atual = Planilha()
 @app.route("/", methods=["GET", "POST"])
 def home():
     return render_template("index.html")
@@ -24,7 +24,9 @@ def ler_planilha():
         longitude.clear()
         f = request.files['file']
         f.save(secure_filename(f.filename))
-        Ler_Arquivo(secure_filename(f.filename),latitude,longitude)
+        Planilha_atual.set_Diretorio(secure_filename(f.filename))
+        Planilha_atual.set_Latitude_values("Latitude")
+        Planilha_atual.set_Longitude_values("Longitude")
         return redirect(url_for('mapa_desenhar'))
 
 @app.route("/mapa_desenhar",methods=["GET","POST"])
@@ -32,7 +34,7 @@ def mapa_desenhar():
     if request.method == "POST":
         poligonos = request.form['vertices']
         poligonos = eval(poligonos)
-        return render_template("plotar_poligono_no_mapa.html", poligonos=poligonos, latitude=latitude, longitude=longitude)
+        return render_template("plotar_poligono_no_mapa.html", poligonos=poligonos, latitude=Planilha_atual.get_Latitude_values(), longitude=Planilha_atual.get_Longitude_values())
     else:
         return render_template("criar_poligono_no_mapa.html")
 
@@ -65,32 +67,6 @@ def Pesquisar(nome, pais, Latitude, Longitude):
         print(impressao)
         impressao = ''
 #Criar classe a leitura de arquivo, qualquer coisa referente a leitura de arquivo deve ser feito lá
-def Ler_Arquivo(arquivo,Latitude,Longitude):
-    path = str(os.getcwd()) + "/"+arquivo
-    wb = xlrd.open_workbook(path)
-    sheets = wb.sheet_names()
-    sheet = wb.sheet_by_name(sheets[0])
-    linhas = sheet.nrows
-    colunas = sheet.ncols
-    coluna_lng = ""
-    coluna_lat = ""
-    armazenar = False
-
-    for coluna in range(colunas):
-        for linha in range(linhas):
-
-            if (armazenar and coluna_lat == coluna):
-                Latitude.append(sheet.cell(linha, coluna).value)
-            if (sheet.cell(linha, coluna).value == "Latitude"):
-                armazenar = True
-                coluna_lat = coluna
-
-            if (armazenar and coluna_lng == coluna):
-                Longitude.append(sheet.cell(linha, coluna).value)
-            if (sheet.cell(linha, coluna).value == "Longitude"):
-                armazenar = True
-                coluna_lng = coluna
-
 def Pesquisar_Poli(Poligono, lat, long):
     #'POLYGON((-60.2910 -14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626))'
     pesquisa = occ.search(geometry=Poligono)

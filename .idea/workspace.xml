@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.~lock.teste_leitura_latitude_longitude_leitura_autonoma.xls#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gbif_Testes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gbif_Testes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lendo_Arquivos.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/especify_request.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/teste_leitura_latitude_longitude_leitura_autonoma.xls" beforeDir="false" afterPath="$PROJECT_DIR$/teste_leitura_latitude_longitude_leitura_autonoma.xls" afterDir="false" />
-    </list>
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -539,7 +532,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572464585318</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Criacao de arquivo pra ler planilha">
+      <created>1572637636168</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1572637636168</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -573,7 +573,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Inserção da leitura de planilha e seleção de área pelo usuário" />
     <MESSAGE value="Verificação se marker está dentro de área estabelecida pelo usuário" />
     <MESSAGE value="Lista de markers que estão dentro da área" />
     <MESSAGE value="Modificação no layout, inserção da opção de criar vértices através de inputs" />
@@ -598,6 +597,7 @@
     <MESSAGE value="formatado algumas coisas e mudando a forma de se selecionar o poligono" />
     <MESSAGE value="Codigo formatado para maneira antiga, porem com as atualizacoes a serem feitas em formato de comentarios" />
     <MESSAGE value="Começando a implementar a API REST pra analise dos dados da planilha" />
-    <option name="LAST_COMMIT_MESSAGE" value="Começando a implementar a API REST pra analise dos dados da planilha" />
+    <MESSAGE value="Criacao de arquivo pra ler planilha" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criacao de arquivo pra ler planilha" />
   </component>
 </project>

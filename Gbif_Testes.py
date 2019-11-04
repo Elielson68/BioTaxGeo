@@ -29,8 +29,8 @@ def mapa_teste():
 app.run(debug=True, port=8080)
 '''
 from planilha import Planilha
-planilha_atual = Planilha("teste_leitura_latitude_longitude_leitura_autonoma.xls")
-planilha_atual.get_Lista_de_planilhas()
-planilha_atual.get_Planilha()
-planilha_atual.set_Planilha()
-planilha_atual.get_Planilha()
+planilha_atual = Planilha()
+planilha_atual.set_Diretorio("teste_leitura_latitude_longitude_leitura_autonoma.xls")
+planilha_atual.set_Latitude_values("Latitude")
+planilha_atual.set_Longitude_values("Longitude")
+print(planilha_atual.get_Latitude_values())

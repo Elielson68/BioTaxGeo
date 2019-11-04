@@ -2,15 +2,15 @@ import os
 import xlrd
 import pygbif
 class Planilha:
-    def __init__(self, diretorio):
+    def __init__(self):
         #Essas variáveis irão ser atribuídas assim que o objeto for criado, pois dizem respeito somente ao arquivo, então já configuro eles automaticamente.
-        self.diretorio = str(os.getcwd())+"/"+diretorio #O comando os.getcwd pega o diretório atual de onde o arquivo python está.
-        self.arquivo = xlrd.open_workbook(self.diretorio) #Abre o arquivo com o nome enviado no parâmetro diretorio
-        self.lista_de_planilhas = self.arquivo.sheet_names() #Pega o nome das páginas do arquivo
-        self.planilha = self.arquivo.sheet_by_index(0) #Pega a página inicial (começa por 0)
-        #Aqui já vão ser atribuídas no decorrer do processamento.
-        self.total_de_colunas = self.planilha.ncols
-        self.total_de_linhas  = self.planilha.nrows
+        self.diretorio = None 
+        self.arquivo = None 
+        self.lista_de_planilhas = None 
+        self.planilha = None 
+        
+        self.total_de_colunas = int
+        self.total_de_linhas  = int
 
         self.valor_na_celula = str
 
@@ -20,6 +20,15 @@ class Planilha:
         self.coluna_longitude = []
 
         self.index_planilha = 0
+
+    def set_Diretorio(self, diretorio):
+        self.diretorio = str(os.getcwd())+"/"+diretorio #O comando os.getcwd pega o diretório atual de onde o arquivo python está.
+        self.arquivo = xlrd.open_workbook(self.diretorio) #Abre o arquivo com o nome enviado no parâmetro diretorio
+        self.lista_de_planilhas = self.arquivo.sheet_names() #Pega o nome das páginas do arquivo
+        self.planilha = self.arquivo.sheet_by_index(0) #Pega a página inicial (começa por 0)
+        #Aqui já vão ser atribuídas no decorrer do processamento.
+        self.total_de_colunas = self.planilha.ncols
+        self.total_de_linhas  = self.planilha.nrows
 
     def set_Planilha (self):
         self.index_planilha = input("Digite o nome ou o index da planilha: ")
@@ -41,6 +50,9 @@ class Planilha:
         self.lista_de_planilhas = self.arquivo.sheet_names()
         return print(self.lista_de_planilhas)
 
+    def get_Cabecario_Planilha(self):
+        return self.planilha.row_values(0)
+
     def get_Total_de_colunas(self):
         return self.total_de_colunas
 
@@ -60,32 +72,22 @@ class Planilha:
         self.Resetar_valores()
         try:
             if(type(coluna)==str):
-                colunha_length = self.get_Total_de_colunas()
-                linha_length   = self.get_Total_de_linhas()
-
-                for coluna_indice in range(0, colunha_length):
-                    for linha_indice in range(0, linha_length):
-                        if(self.planilha.cell(0, coluna_indice).value == coluna):
-                            self.valores_na_coluna.append(self.planilha.cell(linha_indice, coluna_indice).value)
-
+                coluna_indice = self.planilha.row_values(0).index(coluna)
+                self.valores_na_coluna = self.planilha.col_values(coluna_indice,1)
                 if(self.valores_na_coluna == []):
                     return print ("Valor não encontrado.")
                 else:
                     return print(self.valores_na_coluna)
-
             elif(type(coluna)==int):
-                for linha in range (0, self.total_de_linhas):
-                    self.valores_na_coluna.append(self.planilha.cell(linha, (coluna-1)).value)
+                self.valores_na_coluna = self.planilha.col_values(coluna,1)
                 return print(self.valores_na_coluna)
         except:
-            return print("Valor informado não é válido.")
-    
+            return print("Coluna não encontrada.")
+
     def get_Valores_na_linha(self, linha):
-        if(linha <= self.get_Total_de_linhas()):
+        if(linha <= self.get_Total_de_linhas() and linha > 0):
             self.Resetar_valores()
-            colunha_length = self.get_Total_de_colunas()
-            for coluna in range (0, colunha_length):
-                self.valores_na_linha.append(self.planilha.cell((linha-1), coluna).value)
+            self.valores_na_linha = self.planilha.row_values((linha-1))
             return print(self.valores_na_linha)
         else:
             return print("Linha excede limite de linhas do documento.")
@@ -96,3 +98,29 @@ class Planilha:
         self.valores_na_linha = []
         self.coluna_latitude = []
         self.coluna_longitude = []
+
+    def set_Latitude_values(self, coluna_lat):
+        if(type(coluna_lat) == str):
+            indice_coluna = self.planilha.row_values(0).index(coluna_lat)
+            self.coluna_latitude = self.planilha.col_values(indice_coluna,1)
+        elif(type(coluna_lat) == int):
+            self.coluna_latitude = self.planilha.col_values(coluna_lat,1)
+
+    def set_Longitude_values(self, coluna_lng):
+        if(type(coluna_lng) == str):
+            indice_coluna = self.planilha.row_values(0).index(coluna_lng)
+            self.coluna_longitude = self.planilha.col_values(indice_coluna,1)
+        elif(type(coluna_lng) == int):
+            self.coluna_longitude = self.planilha.col_values(coluna_lng,1)
+    
+    def get_Latitude_values(self):
+        if(self.coluna_latitude == []):
+            return "Coluna vazia."
+        else:    
+            return self.coluna_latitude
+
+    def get_Longitude_values(self):
+        if(self.coluna_longitude == []):
+            return "Coluna vazia."
+        else:
+            return self.coluna_longitude
