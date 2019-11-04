@@ -28,9 +28,14 @@ def mapa_teste():
 
 app.run(debug=True, port=8080)
 '''
+import requests
 from planilha import Planilha
 planilha_atual = Planilha()
 planilha_atual.set_Diretorio("teste_leitura_latitude_longitude_leitura_autonoma.xls")
-planilha_atual.set_Latitude_values("Latitude")
-planilha_atual.set_Longitude_values("Longitude")
-print(planilha_atual.get_Latitude_values())
+print(planilha_atual.get_Cabecario_Planilha())
+planilha_atual.set_Nomes_Cient_values("Nome Científico")
+print(planilha_atual.get_Ocorrencia_NC())
+#valores = requests.get('http://api.gbif.org/v1/species/match?name=Anodorhynchus%20hyacinthinus')
+#valores = valores.json()
+#print(type(valores))
+#print(valores)

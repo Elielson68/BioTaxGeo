@@ -5,14 +5,13 @@ from flask import Flask, jsonify, render_template, redirect, url_for, request
 import json
 from werkzeug.utils import secure_filename
 from planilha import Planilha
+
+
 app = Flask(__name__)
-latitude = []
-longitude = []
-nome_especie = ""
-pais = ""
-escrito = []
 occ = pygbif
 Planilha_atual = Planilha()
+
+
 @app.route("/", methods=["GET", "POST"])
 def home():
     return render_template("index.html")
@@ -20,8 +19,6 @@ def home():
 @app.route("/ler_planilha", methods=["GET", "POST"])
 def ler_planilha():
     if request.method == 'POST':
-        latitude.clear()
-        longitude.clear()
         f = request.files['file']
         f.save(secure_filename(f.filename))
         Planilha_atual.set_Diretorio(secure_filename(f.filename))

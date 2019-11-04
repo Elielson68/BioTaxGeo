@@ -1,6 +1,7 @@
 import os
 import xlrd
 import pygbif
+import requests
 class Planilha:
     def __init__(self):
         #Essas variáveis irão ser atribuídas assim que o objeto for criado, pois dizem respeito somente ao arquivo, então já configuro eles automaticamente.
@@ -18,6 +19,9 @@ class Planilha:
         self.valores_na_linha = []
         self.coluna_latitude = []
         self.coluna_longitude = []
+        self.coluna_nomes_cientificos = []
+
+        self.ocorrencias_NC = {} #NC = Nomes Científicos
 
         self.index_planilha = 0
 
@@ -59,7 +63,7 @@ class Planilha:
     def get_Total_de_linhas(self):
         return self.total_de_linhas
 
-    def get_Valor_na_celula(self, linha, coluna):
+    def pegar_Valor_na_celula(self, linha, coluna):
         if(linha > self.get_Total_de_linhas()):
             return print("Linha excede valor total de linhas do arquivo.")
         if(coluna > self.get_Total_de_colunas()):
@@ -68,7 +72,7 @@ class Planilha:
             self.valor_na_celula = self.planilha.cell((linha-1), (coluna-1)).value
             return print(self.valor_na_celula)
 
-    def get_Valores_na_coluna(self, coluna):
+    def pegar_Valores_da_coluna(self, coluna):
         self.Resetar_valores()
         try:
             if(type(coluna)==str):
@@ -84,7 +88,7 @@ class Planilha:
         except:
             return print("Coluna não encontrada.")
 
-    def get_Valores_na_linha(self, linha):
+    def pegar_Valores_da_linha(self, linha):
         if(linha <= self.get_Total_de_linhas() and linha > 0):
             self.Resetar_valores()
             self.valores_na_linha = self.planilha.row_values((linha-1))
@@ -98,8 +102,11 @@ class Planilha:
         self.valores_na_linha = []
         self.coluna_latitude = []
         self.coluna_longitude = []
+        self.coluna_nomes_cientificos = []
+        self.ocorrencias_nomes_cientificos = {}
 
     def set_Latitude_values(self, coluna_lat):
+        Resetar_valores()
         if(type(coluna_lat) == str):
             indice_coluna = self.planilha.row_values(0).index(coluna_lat)
             self.coluna_latitude = self.planilha.col_values(indice_coluna,1)
@@ -107,6 +114,7 @@ class Planilha:
             self.coluna_latitude = self.planilha.col_values(coluna_lat,1)
 
     def set_Longitude_values(self, coluna_lng):
+        Resetar_valores()
         if(type(coluna_lng) == str):
             indice_coluna = self.planilha.row_values(0).index(coluna_lng)
             self.coluna_longitude = self.planilha.col_values(indice_coluna,1)
@@ -124,3 +132,24 @@ class Planilha:
             return "Coluna vazia."
         else:
             return self.coluna_longitude
+
+    def set_Nomes_Cient_values(self, coluna_NC):
+        self.Resetar_valores()
+        if(type(coluna_NC) == str):
+            indice_coluna = self.planilha.row_values(0).index(coluna_NC)
+            self.coluna_nomes_cientificos = self.planilha.col_values(indice_coluna,1)
+        elif(type(coluna_NC) == int):
+            self.coluna_nomes_cientificos = self.planilha.col_values(coluna_NC,1)
+    
+    def get_Nomes_Cient_values(self):
+        return self.coluna_nomes_cientificos
+
+    def get_Ocorrencia_NC(self):
+        NC_value = self.get_Nomes_Cient_values()
+        for nome in NC_value:
+            if nome in self.ocorrencias_NC:
+                pass
+            else:
+                valores = requests.get('http://api.gbif.org/v1/species/match?name='+nome).json()
+                self.ocorrencias_NC[nome] = {"quantidade": NC_value.count(nome), "precisão": valores["confidence"]}
+        return self.ocorrencias_NC

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="" />
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gbif_Testes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gbif_Testes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpecieGeo_App.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpecieGeo_App.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teste_leitura_latitude_longitude_leitura_autonoma.xls" beforeDir="false" afterPath="$PROJECT_DIR$/teste_leitura_latitude_longitude_leitura_autonoma.xls" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -539,7 +545,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572637636168</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Utilizando o objeto de Planilha para pegar latitude e longitude">
+      <created>1572892584946</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1572892584946</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -573,7 +586,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Verificação se marker está dentro de área estabelecida pelo usuário" />
     <MESSAGE value="Lista de markers que estão dentro da área" />
     <MESSAGE value="Modificação no layout, inserção da opção de criar vértices através de inputs" />
     <MESSAGE value="inserido limite para criação de inputs" />
@@ -598,6 +610,7 @@
     <MESSAGE value="Codigo formatado para maneira antiga, porem com as atualizacoes a serem feitas em formato de comentarios" />
     <MESSAGE value="Começando a implementar a API REST pra analise dos dados da planilha" />
     <MESSAGE value="Criacao de arquivo pra ler planilha" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criacao de arquivo pra ler planilha" />
+    <MESSAGE value="Utilizando o objeto de Planilha para pegar latitude e longitude" />
+    <option name="LAST_COMMIT_MESSAGE" value="Utilizando o objeto de Planilha para pegar latitude e longitude" />
   </component>
 </project>
