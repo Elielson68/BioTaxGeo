@@ -106,7 +106,7 @@ class Planilha:
         self.ocorrencias_nomes_cientificos = {}
 
     def set_Latitude_values(self, coluna_lat):
-        Resetar_valores()
+        self.Resetar_valores()
         if(type(coluna_lat) == str):
             indice_coluna = self.planilha.row_values(0).index(coluna_lat)
             self.coluna_latitude = self.planilha.col_values(indice_coluna,1)
@@ -114,7 +114,7 @@ class Planilha:
             self.coluna_latitude = self.planilha.col_values(coluna_lat,1)
 
     def set_Longitude_values(self, coluna_lng):
-        Resetar_valores()
+        self.Resetar_valores()
         if(type(coluna_lng) == str):
             indice_coluna = self.planilha.row_values(0).index(coluna_lng)
             self.coluna_longitude = self.planilha.col_values(indice_coluna,1)
