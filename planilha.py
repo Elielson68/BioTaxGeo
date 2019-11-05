@@ -2,6 +2,7 @@ import os
 import xlrd
 import pygbif
 import requests
+
 class Planilha:
     def __init__(self):
         #Essas variáveis irão ser atribuídas assim que o objeto for criado, pois dizem respeito somente ao arquivo, então já configuro eles automaticamente.
@@ -9,22 +10,16 @@ class Planilha:
         self.arquivo = None 
         self.lista_de_planilhas = None 
         self.planilha = None 
-        
+        self.coordenadas = None
+        self.tratamento_de_dados = None
         self.total_de_colunas = int
         self.total_de_linhas  = int
-
         self.valor_na_celula = str
-
         self.valores_na_coluna = []
         self.valores_na_linha = []
-        self.coluna_latitude = []
-        self.coluna_longitude = []
-        self.coluna_nomes_cientificos = []
-
-        self.ocorrencias_NC = {} #NC = Nomes Científicos
-
         self.index_planilha = 0
-
+    
+    @Diretorio.setter
     def set_Diretorio(self, diretorio):
         self.diretorio = str(os.getcwd())+"/"+diretorio #O comando os.getcwd pega o diretório atual de onde o arquivo python está.
         self.arquivo = xlrd.open_workbook(self.diretorio) #Abre o arquivo com o nome enviado no parâmetro diretorio
@@ -33,8 +28,10 @@ class Planilha:
         #Aqui já vão ser atribuídas no decorrer do processamento.
         self.total_de_colunas = self.planilha.ncols
         self.total_de_linhas  = self.planilha.nrows
-
-    def set_Planilha (self):
+        self.coordenadas = Coordenadas(self.planilha)
+        self.tratamento_de_dados = Tratamento_de_Dados(self.planilha)
+    
+    def Escolher_planilha (self):
         self.index_planilha = input("Digite o nome ou o index da planilha: ")
         try:
             self.index_planilha = int(self.index_planilha)
@@ -46,20 +43,24 @@ class Planilha:
             self.index_planilha = self.lista_de_planilhas.index(self.index_planilha)
             self.planilha = self.arquivo.sheet_loaded(self.index_planilha)
 
+    @property
     def get_Planilha (self):
         return print(self.lista_de_planilhas[self.index_planilha])
 
+    @property
     def get_Lista_de_planilhas (self):
-        self.arquivo.sheet_loaded
         self.lista_de_planilhas = self.arquivo.sheet_names()
         return print(self.lista_de_planilhas)
 
+    @property
     def get_Cabecario_Planilha(self):
         return self.planilha.row_values(0)
 
+    @property
     def get_Total_de_colunas(self):
         return self.total_de_colunas
 
+    @property
     def get_Total_de_linhas(self):
         return self.total_de_linhas
 
@@ -100,13 +101,38 @@ class Planilha:
         self.valor_na_celula = str
         self.valores_na_coluna = []
         self.valores_na_linha = []
-        self.coluna_latitude = []
-        self.coluna_longitude = []
-        self.coluna_nomes_cientificos = []
-        self.ocorrencias_nomes_cientificos = {}
 
+    @property
+    def get_Latitude(self):
+        return self.coordenadas.get_Latitude_values()
+
+    @property
+    def get_Longitude(self):
+        return self.coordenadas.get_Longitude_values()
+
+    @latitude.setter
+    def set_Latitude(self, coluna_lat):
+        self.coordenadas.set_Latitude_values(coluna_lat)
+
+    @longitude.setter
+    def set_Longitude(self, coluna_lng):
+        self.coordenadas.set_Longitude_values(coluna_lng)
+    
+    @col_NC.setter
+    def set_Col_NC(self, coluna_NC):
+        self.tratamento_de_dados.set_Col_NC(coluna_NC)
+    
+    @property
+    def get_NC_Tratado(self):
+        return self.tratamento_de_dados.get_NC_Tratado()
+
+class Coordenadas:
+    def __init__(self, Plan):
+        self.coluna_latitude = None
+        self.coluna_longitude = None
+        self.planilha = Plan
     def set_Latitude_values(self, coluna_lat):
-        Resetar_valores()
+        self.coluna_latitude = []
         if(type(coluna_lat) == str):
             indice_coluna = self.planilha.row_values(0).index(coluna_lat)
             self.coluna_latitude = self.planilha.col_values(indice_coluna,1)
@@ -114,7 +140,7 @@ class Planilha:
             self.coluna_latitude = self.planilha.col_values(coluna_lat,1)
 
     def set_Longitude_values(self, coluna_lng):
-        Resetar_valores()
+        self.coluna_longitude = []
         if(type(coluna_lng) == str):
             indice_coluna = self.planilha.row_values(0).index(coluna_lng)
             self.coluna_longitude = self.planilha.col_values(indice_coluna,1)
@@ -133,8 +159,14 @@ class Planilha:
         else:
             return self.coluna_longitude
 
-    def set_Nomes_Cient_values(self, coluna_NC):
-        self.Resetar_valores()
+class Tratamento_de_Dados:
+    def __init__(self, plan):
+        self.ocorrencias_NC = {} #NC = Nomes Científicos
+        self.coluna_nomes_cientificos = []
+        self.planilha = plan
+    def set_Col_NC(self, coluna_NC):
+        self.ocorrencias_NC = {} #NC = Nomes Científicos
+        self.coluna_nomes_cientificos = []
         if(type(coluna_NC) == str):
             indice_coluna = self.planilha.row_values(0).index(coluna_NC)
             self.coluna_nomes_cientificos = self.planilha.col_values(indice_coluna,1)
@@ -142,9 +174,12 @@ class Planilha:
             self.coluna_nomes_cientificos = self.planilha.col_values(coluna_NC,1)
     
     def get_Nomes_Cient_values(self):
-        return self.coluna_nomes_cientificos
+        if not self.coluna_nomes_cientificos:
+            return "Lista vazia"
+        else:
+            return self.coluna_nomes_cientificos
 
-    def get_Ocorrencia_NC(self):
+    def get_NC_Tratado(self):
         NC_value = self.get_Nomes_Cient_values()
         for nome in NC_value:
             if nome in self.ocorrencias_NC:

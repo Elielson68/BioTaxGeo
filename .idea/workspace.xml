@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="Retornando sugestao de correcao e mostrando precisao do nome cientifico">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.~lock.teste_leitura_latitude_longitude_leitura_autonoma.xls#" beforeDir="false" afterPath="$PROJECT_DIR$/.~lock.teste_leitura_latitude_longitude_leitura_autonoma.xls#" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gbif_Testes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gbif_Testes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/teste_leitura_latitude_longitude_leitura_autonoma.xls" beforeDir="false" afterPath="$PROJECT_DIR$/teste_leitura_latitude_longitude_leitura_autonoma.xls" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -559,7 +555,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572896133707</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Retornando sugestao de correcao e mostrando precisao do nome cientifico">
+      <created>1572897202221</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1572897202222</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -593,7 +596,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Modificação no layout, inserção da opção de criar vértices através de inputs" />
     <MESSAGE value="inserido limite para criação de inputs" />
     <MESSAGE value="Criação de inputs através do click do mouse" />
     <MESSAGE value="Upando os dois html para o git" />
@@ -618,6 +620,7 @@
     <MESSAGE value="Criacao de arquivo pra ler planilha" />
     <MESSAGE value="Utilizando o objeto de Planilha para pegar latitude e longitude" />
     <MESSAGE value="Usando o metodo GET da API REST do GBIF para retornar a precisao dos nomes cientificos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Usando o metodo GET da API REST do GBIF para retornar a precisao dos nomes cientificos" />
+    <MESSAGE value="Retornando sugestao de correcao e mostrando precisao do nome cientifico" />
+    <option name="LAST_COMMIT_MESSAGE" value="Retornando sugestao de correcao e mostrando precisao do nome cientifico" />
   </component>
 </project>
