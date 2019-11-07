@@ -2,7 +2,12 @@
   <dictionary name="nbgi">
     <words>
       <w>cabecario</w>
+      <w>colunas</w>
+      <w>escolher</w>
+      <w>linhas</w>
+      <w>lista</w>
       <w>planilha</w>
+      <w>planilhas</w>
     </words>
   </dictionary>
 </component>
