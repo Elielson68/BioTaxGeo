@@ -158,7 +158,6 @@ class Tratamento_de_Dados:
         self.planilha = plan
 
     def set_Col_NC(self, coluna_G, coluna_NC):
-        self.ocorrencias_NC = {} #NC = Nomes Científicos
         self.coluna_para_verificar = []
         colunas_genus_scientific_name = [[],[]] 
         if(type(coluna_NC) == str and type(coluna_G) == str):
@@ -197,7 +196,7 @@ class Tratamento_de_Dados:
             else:
                 Scientific_Name = NC_value[0][nome]+" "+NC_value[1][nome]
                 print(Scientific_Name)
-                valores = requests.get('http://api.gbif.org/v1/species/match?name='+Scientific_Name).json()
+                valores = requests.get('http://api.gbif.org/v1/species/match?kingdom=&phylum=&order=&family=&genus=&name=Anodorhynchus%20hyacinthinus'+Scientific_Name).json()
                 if(valores["matchType"] != "NONE"):
                     if(valores["matchType"] == "FUZZY"):
                         self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": valores["confidence"], "corretude": valores["matchType"], "sugerirCorrecao": valores["canonicalName"]}
