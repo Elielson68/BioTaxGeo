@@ -124,7 +124,7 @@ class Coordenadas:
         self.coluna_longitude = None
         self.planilha = Plan
     def set_Latitude_values(self, coluna_lat):
-        
+        self.coluna_latitude = []
         if(type(coluna_lat) == str):
             indice_coluna = self.planilha.row_values(0).index(coluna_lat)
             self.coluna_latitude = self.planilha.col_values(indice_coluna,1)
@@ -132,7 +132,7 @@ class Coordenadas:
             self.coluna_latitude = self.planilha.col_values(coluna_lat,1)
 
     def set_Longitude_values(self, coluna_lng):
-        self.Resetar_valores()
+        self.coluna_longitude = []
         if(type(coluna_lng) == str):
             indice_coluna = self.planilha.row_values(0).index(coluna_lng)
             self.coluna_longitude = self.planilha.col_values(indice_coluna,1)

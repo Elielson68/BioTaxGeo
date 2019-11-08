@@ -1,13 +1,17 @@
 import os
-import pygbif as occ
+import pygbif
 import xlrd
 from flask import Flask, jsonify, render_template, redirect, url_for, request
 import json
 from werkzeug.utils import secure_filename
-from planilha import Planilha
+from planilha import Planilha, Coordenadas, Tratamento_de_Dados
+
 
 app = Flask(__name__)
+occ = pygbif
 Planilha_atual = Planilha()
+
+
 @app.route("/", methods=["GET", "POST"])
 def home():
     return render_template("index.html")
@@ -33,7 +37,8 @@ def mapa_desenhar():
 
 #Criar um arquivo onde vai ser a classe de pesquisa, qualquer coisa referente a pesquisa deve ser criado lá
 def Pesquisar(nome, pais, Latitude, Longitude):
-    animal = occ.search(scientificName=nome, country=pais)
+    gbif = pygbif
+    animal = gbif.search(scientificName=nome, country=pais)
     print("\n\n\nAnimal pesquisado: {}".format(nome)+".\nNo país: {}".format(pais)+"\n\n\n")
     impressao = ''  # variável que vai ser usada pra imprimir as informações
     for x in animal['results']:  # dentro da variável que referência os dados buscados pelo gbif, ele busca os dados correspondentes a chave results
