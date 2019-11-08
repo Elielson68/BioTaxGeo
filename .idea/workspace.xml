@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
-    </list>
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/planilha.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1524">
-              <caret line="205" column="40" selection-start-line="205" selection-start-column="40" selection-end-line="205" selection-end-column="40" />
+            <state relative-caret-position="2227">
+              <caret line="131" column="26" lean-forward="true" selection-start-line="131" selection-start-column="26" selection-end-line="131" selection-end-column="26" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -264,12 +261,12 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Gbif_Testes (1)" />
       <item itemvalue="Python.Gbif_Testes" />
-      <item itemvalue="Python.SpecieGeo_App" />
-      <item itemvalue="Python.especify_request (1)" />
       <item itemvalue="Python.especify_request" />
       <item itemvalue="Python.loko" />
+      <item itemvalue="Python.SpecieGeo_App" />
+      <item itemvalue="Python.Gbif_Testes (1)" />
+      <item itemvalue="Python.especify_request (1)" />
     </list>
     <recent_temporary>
       <list>
@@ -606,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572983489086</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="hierarquia upada novamente">
+      <created>1573176547408</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1573176547408</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -669,7 +673,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Criação de inputs através do click do mouse" />
     <MESSAGE value="Upando os dois html para o git" />
     <MESSAGE value="formatações referente a nomes" />
     <MESSAGE value="formatação na pesquisa utilizando quadrados e poligonos" />
@@ -694,6 +697,7 @@
     <MESSAGE value="Usando o metodo GET da API REST do GBIF para retornar a precisao dos nomes cientificos" />
     <MESSAGE value="Retornando sugestao de correcao e mostrando precisao do nome cientifico" />
     <MESSAGE value="reorganzacao do codigo da planilha" />
-    <option name="LAST_COMMIT_MESSAGE" value="reorganzacao do codigo da planilha" />
+    <MESSAGE value="hierarquia upada novamente" />
+    <option name="LAST_COMMIT_MESSAGE" value="hierarquia upada novamente" />
   </component>
 </project>
