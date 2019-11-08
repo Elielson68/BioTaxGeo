@@ -17,9 +17,8 @@ def mapa_teste():
     if request.method == 'POST':
         f = request.files['file']
         f.save(secure_filename(f.filename))
-        print(planilha_atual.get_Total_de_linhas)
         planilha_atual.set_Diretorio(secure_filename(f.filename))
-        planilha_atual.set_Col_NC("Genus1","Species1")
+        planilha_atual.set_ColG_ColNC("Genus1","Species1")
         return planilha_atual.get_NC_Tratado()
 
 #'POLYGON(([longitude ->]-60.2910 [latitude ->]-14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626))'

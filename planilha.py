@@ -112,8 +112,8 @@ class Planilha:
         self.coordenadas.set_Longitude_values(coluna_lng)
     
 
-    def set_Col_NC(self, coluna_G, coluna_NC):
-        self.tratamento_de_dados.set_Col_NC(coluna_G, coluna_NC)
+    def set_ColG_ColNC(self, coluna_G, coluna_NC):
+        self.tratamento_de_dados.set_Colunas_para_verificar(coluna_G, coluna_NC)
     
     def get_NC_Tratado(self):
         return self.tratamento_de_dados.get_NC_Tratado()
@@ -152,32 +152,32 @@ class Coordenadas:
             return self.coluna_longitude
 
 class Tratamento_de_Dados:
+    
     def __init__(self, plan):
         self.ocorrencias_NC = {} #NC = Nomes Científicos
-        self.coluna_para_verificar = []
+        self.colunas_para_verificar = []
         self.planilha = plan
 
-    def set_Col_NC(self, coluna_G, coluna_NC):
-        self.coluna_para_verificar = []
+    def set_Colunas_para_verificar(self, coluna_G, coluna_NC):
+        self.colunas_para_verificar = []
         colunas_genus_scientific_name = [[],[]] 
         if(type(coluna_NC) == str and type(coluna_G) == str):
             indice_coluna_G = self.planilha.row_values(0).index(coluna_G)
             indice_coluna_NC = self.planilha.row_values(0).index(coluna_NC)
             colunas_genus_scientific_name[0] = self.planilha.col_values(indice_coluna_G,1)
             colunas_genus_scientific_name[1] = self.planilha.col_values(indice_coluna_NC,1)
-            self.coluna_para_verificar = colunas_genus_scientific_name
-            return self.coluna_para_verificar
+            self.colunas_para_verificar = colunas_genus_scientific_name
         elif(type(coluna_NC) == int):
             colunas_genus_scientific_name[0] = self.planilha.col_values(coluna_G,1)
             colunas_genus_scientific_name[1] = self.planilha.col_values(coluna_NC,1)
-            self.coluna_para_verificar = colunas_genus_scientific_name
-            return self.coluna_para_verificar
+            self.colunas_para_verificar = colunas_genus_scientific_name
     
-    def get_Nomes_Cient_values(self):
-        if not self.coluna_para_verificar:
+    def get_Colunas_para_verificar(self):
+        if not self.colunas_para_verificar:
             return "Lista vazia"
         else:
-            return self.coluna_para_verificar
+            return self.colunas_para_verificar
+
     def Comparar_String(self, String1, String2):
         Ratio_valor = fuzz.ratio(String1.lower(), String2.lower())
         Partial_Ratio_valor = fuzz.partial_ratio(String1.lower(), String2.lower())
@@ -186,31 +186,43 @@ class Tratamento_de_Dados:
         Media = (Ratio_valor+Partial_Ratio_valor+Token_Sort_Ratio_valor+Token_Set_Ratio_valor)/4
 
         return Media
+    
     def get_NC_Tratado(self):
-        
-        NC_value = self.get_Nomes_Cient_values()
-
+        NC_value = self.get_Colunas_para_verificar()
         for nome in range (0,len(NC_value[0])):
             if (NC_value[0][nome]+" "+NC_value[1][nome]) in self.ocorrencias_NC:
                 pass
             else:
                 Scientific_Name = NC_value[0][nome]+" "+NC_value[1][nome]
-                print(Scientific_Name)
-                #'http://api.gbif.org/v1/species/match?kingdom=''&phylum=''&order=''&family=''&genus=''&name='
-                valores = requests.get('http://api.gbif.org/v1/species/match?kingdom=''&phylum=''&order=''&family=''&genus=''&name='+Scientific_Name).json()
+                valores = requests.get('http://api.gbif.org/v1/species/match?name='+Scientific_Name).json()
                 if(valores["matchType"] != "NONE"):
                     if(valores["matchType"] == "FUZZY"):
-                        self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": valores["confidence"], "corretude": valores["matchType"], "sugerirCorrecao": valores["canonicalName"]}
+                        self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": valores["confidence"], "corretude": valores["matchType"], "Sugestão de Nome": valores["canonicalName"]}
                     else:
-                        self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": valores["confidence"], "corretude": valores["matchType"], "sugerirCorrecao": None}
+                        self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": valores["confidence"], "corretude": valores["matchType"], "Sugestão de Nome": None}
                 else:
-                    self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": 0, "corretude": valores["matchType"], "Sugestão de Nomes": None}
+                    self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": 0, "corretude": valores["matchType"], "Sugestão de Nome": None}
         for nome_errado in self.ocorrencias_NC:
             Media_Valores = {}
             if self.ocorrencias_NC[nome_errado]["corretude"] == "NONE":
-                for nome_certo in self.ocorrencias_NC:
-                    if self.ocorrencias_NC[nome_certo]["corretude"] == "EXACT":
-                        Media_Valores[nome_certo] = self.Comparar_String(nome_certo,nome_errado)
-                self.ocorrencias_NC[nome_errado]["Sugestão de Nomes"] = Media_Valores   
+                sugestao_request = requests.get('http://api.gbif.org/v1/species/suggest?q='+nome_errado).json()
+                sugestoes = []
+                if not sugestao_request:
+                    for nome_certo in self.ocorrencias_NC:
+                        if self.ocorrencias_NC[nome_certo]["corretude"] == "EXACT":
+                            Media_Valores[nome_certo] = self.Comparar_String(nome_certo,nome_errado)
+                    self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = Media_Valores
+                else:
+                    for indice in range(0,len(sugestao_request)):
+                        if "species" in sugestao_request[indice]:
+                            if sugestao_request[indice]["species"] not in sugestoes:
+                                sugestoes.append(sugestao_request[indice]["species"])
+                    if len(sugestoes) > 1:
+                        self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = sugestoes
+                    else:
+                        self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = sugestoes[0]
         return self.ocorrencias_NC
+
+    def Comparar_String_Coluna(self, coluna):
+        tratar_coluna = self.planilha.col_values(coluna,1)
 
