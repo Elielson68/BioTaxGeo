@@ -225,4 +225,11 @@ class Tratamento_de_Dados:
 
     def Comparar_String_Coluna(self, coluna):
         tratar_coluna = self.planilha.col_values(coluna,1)
+        coluna_tratada = {}
+        for nome in tratar_coluna:
+            if nome in coluna_tratada:
+                pass
+            else:
+                coluna_tratada[nome] = {"quantidade":tratar_coluna.count(nome)}
+        return coluna_tratada
 
