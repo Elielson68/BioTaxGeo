@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpecieGeo_App.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpecieGeo_App.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SpecieGeo_App.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+            <state relative-caret-position="493">
+              <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -40,10 +36,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/planilha.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="135">
               <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -69,8 +65,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/planilha.py" />
+        <option value="$PROJECT_DIR$/SpecieGeo_App.py" />
       </list>
     </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="160" />
+    <option name="y" value="88" />
+    <option name="width" value="709" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectId" id="1PL1ilamHjnr18TVtYNDECoyh0Q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -319,12 +322,12 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Gbif_Testes (1)" />
       <item itemvalue="Python.Gbif_Testes" />
-      <item itemvalue="Python.SpecieGeo_App" />
-      <item itemvalue="Python.especify_request (1)" />
       <item itemvalue="Python.especify_request" />
       <item itemvalue="Python.loko" />
+      <item itemvalue="Python.SpecieGeo_App" />
+      <item itemvalue="Python.Gbif_Testes (1)" />
+      <item itemvalue="Python.especify_request (1)" />
     </list>
     <recent_temporary>
       <list>
@@ -647,7 +650,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572896133707</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="inserido alguns 'self' antes de metodos">
+      <created>1572911212720</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1572911212720</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -710,7 +720,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Modificação no layout, inserção da opção de criar vértices através de inputs" />
     <MESSAGE value="inserido limite para criação de inputs" />
     <MESSAGE value="Criação de inputs através do click do mouse" />
     <MESSAGE value="Upando os dois html para o git" />
@@ -735,7 +744,8 @@
     <MESSAGE value="Criacao de arquivo pra ler planilha" />
     <MESSAGE value="Utilizando o objeto de Planilha para pegar latitude e longitude" />
     <MESSAGE value="Usando o metodo GET da API REST do GBIF para retornar a precisao dos nomes cientificos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Usando o metodo GET da API REST do GBIF para retornar a precisao dos nomes cientificos" />
+    <MESSAGE value="inserido alguns 'self' antes de metodos" />
+    <option name="LAST_COMMIT_MESSAGE" value="inserido alguns 'self' antes de metodos" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/templates/criar_poligono_no_mapa.html">
@@ -745,8 +755,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/planilha.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="135">
           <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SpecieGeo_App.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
