@@ -178,15 +178,6 @@ class Tratamento_de_Dados:
         else:
             return self.colunas_para_verificar
 
-    def Comparar_String(self, String1, String2):
-        Ratio_valor = fuzz.ratio(String1.lower(), String2.lower())
-        Partial_Ratio_valor = fuzz.partial_ratio(String1.lower(), String2.lower())
-        Token_Sort_Ratio_valor = fuzz.token_sort_ratio(String1, String2)
-        Token_Set_Ratio_valor = fuzz.token_set_ratio(String1, String2)
-        Media = (Ratio_valor+Partial_Ratio_valor+Token_Sort_Ratio_valor+Token_Set_Ratio_valor)/4
-
-        return Media
-    
     def get_NC_Tratado(self):
         NC_value = self.get_Colunas_para_verificar()
         for nome in range (0,len(NC_value[0])):
@@ -223,7 +214,7 @@ class Tratamento_de_Dados:
                         self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = sugestoes[0]
         return self.ocorrencias_NC
 
-    def Comparar_String_Coluna(self, coluna):
+    def Ocorrencia_de_String_na_Coluna(self, coluna):
         tratar_coluna = self.planilha.col_values(coluna,1)
         coluna_tratada = {}
         for nome in tratar_coluna:
@@ -233,3 +224,21 @@ class Tratamento_de_Dados:
                 coluna_tratada[nome] = {"quantidade":tratar_coluna.count(nome)}
         return coluna_tratada
 
+    def Comparar_String(self, String1, String2):
+        Ratio_valor = fuzz.ratio(String1.lower(), String2.lower())
+        Partial_Ratio_valor = fuzz.partial_ratio(String1.lower(), String2.lower())
+        Token_Sort_Ratio_valor = fuzz.token_sort_ratio(String1, String2)
+        Token_Set_Ratio_valor = fuzz.token_set_ratio(String1, String2)
+        Media = (Ratio_valor+Partial_Ratio_valor+Token_Sort_Ratio_valor+Token_Set_Ratio_valor)/4
+
+        return Media
+    
+    def Verificar_similaridade_de_string(self, coluna):
+        tratar_coluna = self.Ocorrencia_de_String_na_Coluna(coluna)
+        for nome1 in tratar_coluna:
+            sugestoes = []
+            for nome2 in tratar_coluna:
+                if self.Comparar_String(nome1, nome2)>60:
+                  sugestoes.append({"Similaridade de": self.Comparar_String(nome1, nome2), "Sugestão de nome": nome2})
+            tratar_coluna[nome1]["Sugestões"] = sugestoes
+        return tratar_coluna
