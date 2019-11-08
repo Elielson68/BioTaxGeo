@@ -234,11 +234,15 @@ class Tratamento_de_Dados:
         return Media
     
     def Verificar_similaridade_de_string(self, coluna):
-        tratar_coluna = self.Ocorrencia_de_String_na_Coluna(coluna)
+        if type(coluna) == int:
+            tratar_coluna = self.Ocorrencia_de_String_na_Coluna(coluna)
+        elif type(coluna) == str:
+            indice_coluna = self.planilha.row_values(0).index(coluna)
+            tratar_coluna = self.Ocorrencia_de_String_na_Coluna(indice_coluna)
         for nome1 in tratar_coluna:
             sugestoes = []
             for nome2 in tratar_coluna:
-                if self.Comparar_String(nome1, nome2)>60:
-                  sugestoes.append({"Similaridade de": self.Comparar_String(nome1, nome2), "Sugestão de nome": nome2})
+                if self.Comparar_String(nome1, nome2)>60 and nome1 != nome2:
+                    sugestoes.append({"Similaridade de": self.Comparar_String(nome1, nome2), "Sugestão de nome": nome2})
             tratar_coluna[nome1]["Sugestões"] = sugestoes
         return tratar_coluna
