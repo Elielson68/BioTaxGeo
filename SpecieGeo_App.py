@@ -4,10 +4,10 @@ import xlrd
 from flask import Flask, jsonify, render_template, redirect, url_for, request
 import json
 from werkzeug.utils import secure_filename
-from planilha import Planilha as Planilha_atual
+from planilha import Planilha
 
 app = Flask(__name__)
-
+Planilha_atual = Planilha()
 @app.route("/", methods=["GET", "POST"])
 def home():
     return render_template("index.html")
@@ -18,8 +18,8 @@ def ler_planilha():
         f = request.files['file']
         f.save(secure_filename(f.filename))
         Planilha_atual.set_Diretorio(secure_filename(f.filename))
-        Planilha_atual.set_Latitude_values("Latitude")
-        Planilha_atual.set_Longitude_values("Longitude")
+        Planilha_atual.set_Latitude("Latitude")
+        Planilha_atual.set_Longitude("Longitude")
         return redirect(url_for('mapa_desenhar'))
 
 @app.route("/mapa_desenhar",methods=["GET","POST"])
@@ -27,7 +27,7 @@ def mapa_desenhar():
     if request.method == "POST":
         poligonos = request.form['vertices']
         poligonos = eval(poligonos)
-        return render_template("plotar_poligono_no_mapa.html", poligonos=poligonos, latitude=Planilha_atual.get_Latitude_values(), longitude=Planilha_atual.get_Longitude_values())
+        return render_template("plotar_poligono_no_mapa.html", poligonos=poligonos, latitude=Planilha_atual.get_Latitude(), longitude=Planilha_atual.get_Longitude())
     else:
         return render_template("criar_poligono_no_mapa.html")
 

@@ -2,6 +2,8 @@ import os
 import xlrd
 import pygbif
 import requests
+from fuzzywuzzy import fuzz
+from fuzzywuzzy import process
 class Planilha:
     def __init__(self):
         #Essas variáveis irão ser atribuídas assim que o objeto for criado, pois dizem respeito somente ao arquivo, então já configuro eles automaticamente.
@@ -9,22 +11,15 @@ class Planilha:
         self.arquivo = None 
         self.lista_de_planilhas = None 
         self.planilha = None 
-        
+        self.coordenadas = None
+        self.tratamento_de_dados = None
         self.total_de_colunas = int
         self.total_de_linhas  = int
-
         self.valor_na_celula = str
-
         self.valores_na_coluna = []
         self.valores_na_linha = []
-        self.coluna_latitude = []
-        self.coluna_longitude = []
-        self.coluna_nomes_cientificos = []
-
-        self.ocorrencias_NC = {} #NC = Nomes Científicos
-
         self.index_planilha = 0
-
+    
     def set_Diretorio(self, diretorio):
         self.diretorio = str(os.getcwd())+"/"+diretorio #O comando os.getcwd pega o diretório atual de onde o arquivo python está.
         self.arquivo = xlrd.open_workbook(self.diretorio) #Abre o arquivo com o nome enviado no parâmetro diretorio
@@ -33,8 +28,10 @@ class Planilha:
         #Aqui já vão ser atribuídas no decorrer do processamento.
         self.total_de_colunas = self.planilha.ncols
         self.total_de_linhas  = self.planilha.nrows
-
-    def set_Planilha (self):
+        self.coordenadas = Coordenadas(self.planilha)
+        self.tratamento_de_dados = Tratamento_de_Dados(self.planilha)
+    
+    def Escolher_planilha (self):
         self.index_planilha = input("Digite o nome ou o index da planilha: ")
         try:
             self.index_planilha = int(self.index_planilha)
@@ -46,11 +43,10 @@ class Planilha:
             self.index_planilha = self.lista_de_planilhas.index(self.index_planilha)
             self.planilha = self.arquivo.sheet_loaded(self.index_planilha)
 
-    def get_Planilha (self):
+    def Get_Planilha (self):
         return print(self.lista_de_planilhas[self.index_planilha])
 
     def get_Lista_de_planilhas (self):
-        self.arquivo.sheet_loaded
         self.lista_de_planilhas = self.arquivo.sheet_names()
         return print(self.lista_de_planilhas)
 
@@ -100,11 +96,33 @@ class Planilha:
         self.valor_na_celula = str
         self.valores_na_coluna = []
         self.valores_na_linha = []
-        self.coluna_latitude = []
-        self.coluna_longitude = []
-        self.coluna_nomes_cientificos = []
-        self.ocorrencias_nomes_cientificos = {}
 
+    def get_Latitude(self):
+        return self.coordenadas.get_Latitude_values()
+
+    def get_Longitude(self):
+        return self.coordenadas.get_Longitude_values()
+
+
+    def set_Latitude(self, coluna_lat):
+        self.coordenadas.set_Latitude_values(coluna_lat)
+
+
+    def set_Longitude(self, coluna_lng):
+        self.coordenadas.set_Longitude_values(coluna_lng)
+    
+
+    def set_Col_NC(self, coluna_G, coluna_NC):
+        self.tratamento_de_dados.set_Col_NC(coluna_G, coluna_NC)
+    
+    def get_NC_Tratado(self):
+        return self.tratamento_de_dados.get_NC_Tratado()
+
+class Coordenadas:
+    def __init__(self, Plan):
+        self.coluna_latitude = None
+        self.coluna_longitude = None
+        self.planilha = Plan
     def set_Latitude_values(self, coluna_lat):
         self.Resetar_valores()
         if(type(coluna_lat) == str):
@@ -133,29 +151,65 @@ class Planilha:
         else:
             return self.coluna_longitude
 
-    def set_Nomes_Cient_values(self, coluna_NC):
-        self.Resetar_valores()
-        if(type(coluna_NC) == str):
-            indice_coluna = self.planilha.row_values(0).index(coluna_NC)
-            self.coluna_nomes_cientificos = self.planilha.col_values(indice_coluna,1)
+class Tratamento_de_Dados:
+    def __init__(self, plan):
+        self.ocorrencias_NC = {} #NC = Nomes Científicos
+        self.coluna_para_verificar = []
+        self.planilha = plan
+
+    def set_Col_NC(self, coluna_G, coluna_NC):
+        self.coluna_para_verificar = []
+        colunas_genus_scientific_name = [[],[]] 
+        if(type(coluna_NC) == str and type(coluna_G) == str):
+            indice_coluna_G = self.planilha.row_values(0).index(coluna_G)
+            indice_coluna_NC = self.planilha.row_values(0).index(coluna_NC)
+            colunas_genus_scientific_name[0] = self.planilha.col_values(indice_coluna_G,1)
+            colunas_genus_scientific_name[1] = self.planilha.col_values(indice_coluna_NC,1)
+            self.coluna_para_verificar = colunas_genus_scientific_name
+            return self.coluna_para_verificar
         elif(type(coluna_NC) == int):
-            self.coluna_nomes_cientificos = self.planilha.col_values(coluna_NC,1)
+            colunas_genus_scientific_name[0] = self.planilha.col_values(coluna_G,1)
+            colunas_genus_scientific_name[1] = self.planilha.col_values(coluna_NC,1)
+            self.coluna_para_verificar = colunas_genus_scientific_name
+            return self.coluna_para_verificar
     
     def get_Nomes_Cient_values(self):
-        return self.coluna_nomes_cientificos
+        if not self.coluna_para_verificar:
+            return "Lista vazia"
+        else:
+            return self.coluna_para_verificar
+    def Comparar_String(self, String1, String2):
+        Ratio_valor = fuzz.ratio(String1.lower(), String2.lower())
+        Partial_Ratio_valor = fuzz.partial_ratio(String1.lower(), String2.lower())
+        Token_Sort_Ratio_valor = fuzz.token_sort_ratio(String1, String2)
+        Token_Set_Ratio_valor = fuzz.token_set_ratio(String1, String2)
+        Media = (Ratio_valor+Partial_Ratio_valor+Token_Sort_Ratio_valor+Token_Set_Ratio_valor)/4
 
-    def get_Ocorrencia_NC(self):
+        return Media
+    def get_NC_Tratado(self):
+        
         NC_value = self.get_Nomes_Cient_values()
-        for nome in NC_value:
-            if nome in self.ocorrencias_NC:
+
+        for nome in range (0,len(NC_value[0])):
+            if (NC_value[0][nome]+" "+NC_value[1][nome]) in self.ocorrencias_NC:
                 pass
             else:
-                valores = requests.get('http://api.gbif.org/v1/species/match?name='+nome).json()
+                Scientific_Name = NC_value[0][nome]+" "+NC_value[1][nome]
+                print(Scientific_Name)
+                valores = requests.get('http://api.gbif.org/v1/species/match?kingdom=&phylum=&order=&family=&genus=&name=Anodorhynchus%20hyacinthinus'+Scientific_Name).json()
                 if(valores["matchType"] != "NONE"):
                     if(valores["matchType"] == "FUZZY"):
-                        self.ocorrencias_NC[nome] = {"quantidade": NC_value.count(nome), "precisão": valores["confidence"], "corretude": valores["matchType"], "sugerirCorrecao": valores["canonicalName"]}
+                        self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": valores["confidence"], "corretude": valores["matchType"], "sugerirCorrecao": valores["canonicalName"]}
                     else:
-                        self.ocorrencias_NC[nome] = {"quantidade": NC_value.count(nome), "precisão": valores["confidence"], "corretude": valores["matchType"], "sugerirCorrecao": None}
+                        self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": valores["confidence"], "corretude": valores["matchType"], "sugerirCorrecao": None}
                 else:
-                        self.ocorrencias_NC[nome] = {"quantidade": NC_value.count(nome), "precisão": 0, "corretude": valores["matchType"], "sugerirCorrecao": "Não encontrado"}
+                    self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": 0, "corretude": valores["matchType"], "Sugestão de Nomes": None}
+        for nome_errado in self.ocorrencias_NC:
+            Media_Valores = {}
+            if self.ocorrencias_NC[nome_errado]["corretude"] == "NONE":
+                for nome_certo in self.ocorrencias_NC:
+                    if self.ocorrencias_NC[nome_certo]["corretude"] == "EXACT":
+                        Media_Valores[nome_certo] = self.Comparar_String(nome_certo,nome_errado)
+                self.ocorrencias_NC[nome_errado]["Sugestão de Nomes"] = Media_Valores   
         return self.ocorrencias_NC
+
