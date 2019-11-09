@@ -195,7 +195,7 @@ class Tratamento_de_Dados:
                 pass
             else:
                 Scientific_Name = NC_value[0][nome]+" "+NC_value[1][nome]
-                print(Scientific_Name)
+                
                 #'http://api.gbif.org/v1/species/match?kingdom=''&phylum=''&order=''&family=''&genus=''&name=''Anodorhynchus hyacinthinus
                 valores = requests.get('http://api.gbif.org/v1/species/match?name='+Scientific_Name).json()
                 if(valores["matchType"] != "NONE"):
@@ -210,7 +210,8 @@ class Tratamento_de_Dados:
             if self.ocorrencias_NC[nome_errado]["corretude"] == "NONE":
                 for nome_certo in self.ocorrencias_NC:
                     if self.ocorrencias_NC[nome_certo]["corretude"] == "EXACT":
-                        Media_Valores[nome_certo] = self.Comparar_String(nome_certo,nome_errado)
+                        if(self.Comparar_String(nome_certo,nome_errado)>60 and nome_errado != nome_certo):
+                            Media_Valores[nome_certo] =  self.Comparar_String(nome_certo,nome_errado)
                 self.ocorrencias_NC[nome_errado]["Sugestão de Nomes"] = Media_Valores   
         return self.ocorrencias_NC
 
