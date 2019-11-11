@@ -77,3 +77,9 @@
      opacity: 0;
      filter: alpha(opacity=0);
  }
+ #planilha{
+      margin-left: 50%;
+      margin-left: 25%;
+      position: absolute;
+      overflow: auto; 
+ }

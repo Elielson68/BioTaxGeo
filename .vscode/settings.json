@@ -1,11 +1,11 @@
 {
-    "python.pythonPath": "C:\\Users\\eliel\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "python.pythonPath": "/home/nbgi/PycharmProjects/SpeciesGeo/SpeciesGeoEnv/bin",
     "python.testing.unittestArgs": [
         "-v",
         "-s",
         "./SpeciesGeoEnv",
         "-p",
-        "*test.py"
+        "*activate_this.py"
     ],
     "python.testing.pytestEnabled": false,
     "python.testing.nosetestsEnabled": false,
