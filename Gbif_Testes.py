@@ -19,9 +19,8 @@ def mapa_teste():
         f.save(secure_filename(f.filename))
         planilha_atual.set_Diretorio(secure_filename(f.filename))
         #planilha_atual.set_ColG_ColNC("Genus1","Species1")
-        Coluna1 = "Genus1"
-        Coluna2 = "Species1"
-        return render_template("planilha.html", Coluna1 = Coluna1, Coluna2 = Coluna2)
+        titulos = ["Genus1", "Species1"]
+        return render_template("planilha.html", titulos=titulos)
 
 #'POLYGON(([longitude ->]-60.2910 [latitude ->]-14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626))'
 

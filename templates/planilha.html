@@ -20,8 +20,8 @@
         <h1 style="text-align: center;">Verificação dos dados da planilha</h1> <hr>
         <div id="planilha">
           <table class="table" id="tabela_planilha">
-            <thead class="thead-dark">
-              <tr>
+            <thead class="thead-dark" id="thead_tabela">
+              <tr id="tr_thead">
                 <th scope="col">#</th>
                 <th scope="col">Nome Científico</th>
               </tr>
@@ -35,7 +35,18 @@
             </table>
         </div>
         <script>
-        
+          var tabela = document.getElementById("tabela_planilha");
+          var thead = document.getElementById("thead_tabela")
+          var tr = document.getElementById("tr_thead")
+          var titulos = "{{titulos}}"
+          titulos = titulos.replace(/&#39;/g,'"');
+          titulos = JSON.parse(titulos)
+          alert(titulos)
+          function CriarCabecario(titulo){
+            var th = document.createElement("th");
+            th.setAttribute("scope","row");
+            th.innerHTML = titulo;
+          }
         </script>
     </body>
 </html>
