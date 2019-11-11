@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, jsonify, redirect, url_for
 from werkzeug.utils import secure_filename
 from planilha import Planilha
 import requests
-
+import json
 occ = pygbif
 app = Flask(__name__)
 planilha_atual = Planilha()
@@ -18,9 +18,12 @@ def mapa_teste():
         f = request.files['file']
         f.save(secure_filename(f.filename))
         planilha_atual.set_Diretorio(secure_filename(f.filename))
-        #planilha_atual.set_ColG_ColNC("Genus1","Species1")
+        planilha_atual.set_ColG_ColNC("Genus1","Species1")
         titulos = ["Genus1", "Species1"]
-        return render_template("planilha.html", titulos=titulos)
+        verificacao = planilha_atual.get_NC_Tratado()
+        verificacao = json.dumps(verificacao)
+        print(type(verificacao))
+        return render_template("planilha.html", titulos=titulos, verificacao=verificacao)
 
 #'POLYGON(([longitude ->]-60.2910 [latitude ->]-14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626))'
 

@@ -81,4 +81,5 @@
       margin-left: 50%;
       margin-left: 25%;
       position: absolute;
+      overflow: auto; 
  }

@@ -22,30 +22,50 @@
           <table class="table" id="tabela_planilha">
             <thead class="thead-dark" id="thead_tabela">
               <tr id="tr_thead">
-                <th scope="col">#</th>
-                <th scope="col">Nome Científico</th>
+                <th scope="col">Nome</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Anodorhynchus hyacinthinus</td>
+              <tr id="tr_body">
               </tr>
             </tbody>
-            </table>
+          </table>
         </div>
         <script>
           var tabela = document.getElementById("tabela_planilha");
           var thead = document.getElementById("thead_tabela")
-          var tr = document.getElementById("tr_thead")
+          var tr_head = document.getElementById("tr_thead")
+          var tr_body = document.getElementById("tr_body")
           var titulos = "{{titulos}}"
           titulos = titulos.replace(/&#39;/g,'"');
           titulos = JSON.parse(titulos)
-          alert(titulos)
+          verificacao = "{{verificacao}}"
+          verificacao = verificacao.replace(/&#34;/g,'"');
+          verificacao = JSON.parse(verificacao)
+          console.log(verificacao)
           function CriarCabecario(titulo){
             var th = document.createElement("th");
-            th.setAttribute("scope","row");
+            th.setAttribute("scope","col");
             th.innerHTML = titulo;
+            tr_head.appendChild(th);
+          }
+          //CONTINUAR A PARTIR DAQUI
+          function CriarLinhas(){
+            var tr = document.createElement("tr");
+            var td_nome = document.createElement("td");
+            var td_quantidade = document.createElement("td");
+            var td_precisao = document.createElement("td");
+            var td_corretude = document.createElement("td");
+            var td_sugestao = document.createElement("td");
+            th.setAttribute("scope","col");
+            th.innerHTML = titulo;
+            tr_body.appendChild(th);
+          }
+          for(nome in verificacao){
+            for(titu in verificacao[nome]){
+              CriarCabecario(titu)
+            }
+            break;
           }
         </script>
     </body>

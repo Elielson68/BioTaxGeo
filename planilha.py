@@ -202,7 +202,7 @@ class Tratamento_de_Dados:
                     if self.ocorrencias_NC[nome_certo]["corretude"] == "EXACT":
                         if(self.Comparar_String(nome_certo,nome_errado)>60 and nome_errado != nome_certo):
                             Media_Valores[nome_certo] =  self.Comparar_String(nome_certo,nome_errado)
-                self.ocorrencias_NC[nome_errado]["Sugestão de Nomes"] = Media_Valores   
+                self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = Media_Valores   
         return self.ocorrencias_NC
 
     def Ocorrencia_de_String_na_Coluna(self, coluna):
