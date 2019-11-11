@@ -1,11 +1,11 @@
 {
-    "python.pythonPath": "/home/nbgi/miniconda3/bin/python",
+    "python.pythonPath": "/home/nbgi/PycharmProjects/SpeciesGeo/SpeciesGeoEnv2/bin",
     "python.testing.unittestArgs": [
         "-v",
         "-s",
         "./SpeciesGeoEnv",
         "-p",
-        "*test.py"
+        "*activate_this.py"
     ],
     "python.testing.pytestEnabled": false,
     "python.testing.nosetestsEnabled": false,
