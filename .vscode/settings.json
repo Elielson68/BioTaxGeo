@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\eliel\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "python.pythonPath": "/home/nbgi/miniconda3/bin/python",
     "python.testing.unittestArgs": [
         "-v",
         "-s",
