@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/home/nbgi/PycharmProjects/SpeciesGeo/SpeciesGeoEnv2/bin",
+    "python.pythonPath": "/home/nbgi/PycharmProjects/SpeciesGeo/SpeciesGeoEnv/bin",
     "python.testing.unittestArgs": [
         "-v",
         "-s",
