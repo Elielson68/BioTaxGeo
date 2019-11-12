@@ -30,7 +30,6 @@ class Planilha:
         self.total_de_linhas  = self.planilha.nrows
         self.coordenadas = Coordenadas(self.planilha)
         self.tratamento_de_dados = Tratamento_de_Dados(self.planilha)
-    
     def Escolher_planilha (self):
         self.index_planilha = input("Digite o nome ou o index da planilha: ")
         try:

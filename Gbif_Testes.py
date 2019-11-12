@@ -17,6 +17,7 @@ def mapa_teste():
     if request.method == 'POST':
         f = request.files['file']
         f.save(secure_filename(f.filename))
+        
         planilha_atual.set_Diretorio(secure_filename(f.filename))
         planilha_atual.set_ColG_ColNC("Genus1","Species1")
         titulos = ["Genus1", "Species1"]
