@@ -39,6 +39,7 @@
           var tr_head = document.getElementById("tr_thead")
           var tbody = document.getElementById("tbody_tabela")
           var titulos = "{{titulos}}"
+          var celula_errada;
           titulos = titulos.replace(/&#39;/g,'"');
           titulos = JSON.parse(titulos)
           verificacao = "{{verificacao}}"
@@ -79,6 +80,7 @@
               var td_sugestao = document.createElement("td");
               td_sugestao.innerHTML = sugestao;
               td_sugestao.style = "color: green;"
+              td_sugestao.id = nome
             }
             else{
               var td_nome = document.createElement("td");
@@ -107,10 +109,20 @@
           
           function AlterandoDados(){
             texto = document.getElementById("texto_modal")
+            celula_errada = this
             valor_errado = this.innerHTML.replace("/","").replace(/<u>/g,"");
             texto.innerHTML = "Deseja alterar o valor de "+valor_errado+" para "+verificacao[valor_errado]["Sugestão de Nome"]+"?<br>Serão alterados "+verificacao[valor_errado]["quantidade"]+" valores de sua planilha."
           }
-
+          function SalvarAlteracao(){
+            key_objeto = celula_errada.innerHTML.replace("/","").replace(/<u>/g,"");
+            celula_errada.innerHTML = verificacao[key_objeto]["Sugestão de Nome"]
+            celula_errada.style = "color: white;"
+            celula_errada.setAttribute("data-toggle","")
+            celula_errada.setAttribute("data-target","")
+            modificado = document.getElementById(key_objeto)
+            modificado.innerHTML = "Modificado"
+            
+          }
           for(nome in verificacao){
             for(titu in verificacao[nome]){
               CriarCabecario(titu)
@@ -139,7 +151,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Salvar alteração</button>
+          <button type="button" class="btn btn-primary" onclick="SalvarAlteracao()" data-dismiss="modal">Salvar alteração</button>
         </div>
       </div>
     </div>
