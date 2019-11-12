@@ -45,13 +45,14 @@
           verificacao = verificacao.replace(/&#34;/g,'"');
           verificacao = JSON.parse(verificacao)
           console.log(verificacao)
+          
           function CriarCabecario(titulo){
             var th = document.createElement("th");
             th.setAttribute("scope","col");
             th.innerHTML = titulo;
             tr_head.appendChild(th);
           }
-          //CONTINUAR A PARTIR DAQUI
+
           function CriarLinhas(nome, quantidade, precisao, corretude, sugestao){
             var tr_body = document.createElement("tr");
             if(corretude == "NONE"){
@@ -70,7 +71,10 @@
             }
             else if(corretude == "FUZZY"){
               var td_nome = document.createElement("td");
-              td_nome.innerHTML = nome;
+              td_nome.innerHTML = "<u>"+nome+"</u>";
+              td_nome.addEventListener("click",AlterandoDados)
+              td_nome.setAttribute("data-toggle","modal")
+              td_nome.setAttribute("data-target","#exampleModal")
               td_nome.style = "color: red;"
               var td_sugestao = document.createElement("td");
               td_sugestao.innerHTML = sugestao;
@@ -100,15 +104,45 @@
             tr_body.appendChild(td_corretude);
             tr_body.appendChild(td_sugestao);
           }
+          
+          function AlterandoDados(){
+            texto = document.getElementById("texto_modal")
+            valor_errado = this.innerHTML.replace("/","").replace(/<u>/g,"");
+            texto.innerHTML = "Deseja alterar o valor de "+valor_errado+" para "+verificacao[valor_errado]["Sugestão de Nome"]+"?<br>Serão alterados "+verificacao[valor_errado]["quantidade"]+" valores de sua planilha."
+          }
+
           for(nome in verificacao){
             for(titu in verificacao[nome]){
               CriarCabecario(titu)
             }
             break;
           }
+          
           for(nome in verificacao){
             CriarLinhas(nome, verificacao[nome]["quantidade"],verificacao[nome]["precisão"],verificacao[nome]["corretude"],verificacao[nome]["Sugestão de Nome"])
           }
+        
+          
         </script>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Alterar valor</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <label id="texto_modal">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Salvar alteração</button>
+        </div>
+      </div>
+    </div>
+  </div>
     </body>
 </html>
