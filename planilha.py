@@ -198,12 +198,27 @@ class Tratamento_de_Dados:
         for nome_errado in self.ocorrencias_NC:
             Media_Valores = {}
             if self.ocorrencias_NC[nome_errado]["corretude"] == "NONE":
-                for nome_certo in self.ocorrencias_NC:
-                    if self.ocorrencias_NC[nome_certo]["corretude"] == "EXACT":
-                        if(self.Comparar_String(nome_certo,nome_errado)>60 and nome_errado != nome_certo):
-                            Media_Valores[nome_certo] =  self.Comparar_String(nome_certo,nome_errado)
-                self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = Media_Valores   
+                sugestao_request = requests.get('http://api.gbif.org/v1/species/suggest?q='+nome_errado).json()
+                sugestoes = []
+
+                if not sugestao_request:
+                    for nome_certo in self.ocorrencias_NC:
+                        if self.ocorrencias_NC[nome_certo]["corretude"] == "EXACT":
+                            if(self.Comparar_String(nome_certo,nome_errado)>60 and nome_errado != nome_certo):
+                                Media_Valores[nome_certo] =  self.Comparar_String(nome_certo,nome_errado)
+                    self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = Media_Valores
+                else:
+                    self.ocorrencias_NC[nome_errado]["corretude"] = "FUZZY"
+                    for indice in range(0,len(sugestao_request)):
+                        if "species" in sugestao_request[indice]:
+                            if sugestao_request[indice]["species"] not in sugestoes:
+                                sugestoes.append(sugestao_request[indice]["species"])
+                    if len(sugestoes) > 1:
+                        self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = sugestoes 
+                    else:
+                        self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = sugestoes[0]
         return self.ocorrencias_NC
+
 
     def Ocorrencia_de_String_na_Coluna(self, coluna):
         tratar_coluna = self.planilha.col_values(coluna,1)

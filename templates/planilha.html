@@ -18,24 +18,26 @@
         </nav>
         
         <h1 style="text-align: center;">Verificação dos dados da planilha</h1> <hr>
+
+        <!--______________________________________PLANILHA______________________________________________________-->
         <div id="planilha">
-          <table class="table" id="tabela_planilha">
-            <thead class="thead-dark" id="thead_tabela">
+          <table class="table table-dark" id="tabela_planilha">
+            <thead id="thead_tabela">
               <tr id="tr_thead">
                 <th scope="col">Nome</th>
               </tr>
             </thead>
-            <tbody>
-              <tr id="tr_body">
-              </tr>
+            <tbody id="tbody_tabela">
             </tbody>
           </table>
         </div>
+
+
         <script>
           var tabela = document.getElementById("tabela_planilha");
           var thead = document.getElementById("thead_tabela")
           var tr_head = document.getElementById("tr_thead")
-          var tr_body = document.getElementById("tr_body")
+          var tbody = document.getElementById("tbody_tabela")
           var titulos = "{{titulos}}"
           titulos = titulos.replace(/&#39;/g,'"');
           titulos = JSON.parse(titulos)
@@ -50,22 +52,62 @@
             tr_head.appendChild(th);
           }
           //CONTINUAR A PARTIR DAQUI
-          function CriarLinhas(){
-            var tr = document.createElement("tr");
-            var td_nome = document.createElement("td");
+          function CriarLinhas(nome, quantidade, precisao, corretude, sugestao){
+            var tr_body = document.createElement("tr");
+            if(corretude == "NONE"){
+              var td_nome = document.createElement("td");
+              td_nome.innerHTML = nome;
+              td_nome.style = "color: red;vertical-align: middle;";
+
+              var sugestao_formatada = "";
+              
+              for(nominho in sugestao){
+                sugestao_formatada += nominho+": "+sugestao[nominho]+"%<br>"
+              }
+              var td_sugestao = document.createElement("td");
+              td_sugestao.innerHTML = sugestao_formatada;
+              td_sugestao.style = "color: green;vertical-align: middle;";
+            }
+            else if(corretude == "FUZZY"){
+              var td_nome = document.createElement("td");
+              td_nome.innerHTML = nome;
+              td_nome.style = "color: red;"
+              var td_sugestao = document.createElement("td");
+              td_sugestao.innerHTML = sugestao;
+              td_sugestao.style = "color: green;"
+            }
+            else{
+              var td_nome = document.createElement("td");
+              td_nome.innerHTML = nome;
+              var td_sugestao = document.createElement("td");
+              td_sugestao.innerHTML = sugestao;
+            }
+            tbody.appendChild(tr_body);
+            
             var td_quantidade = document.createElement("td");
+            td_quantidade.innerHTML = quantidade;
+            td_quantidade.style = "vertical-align: middle;";
             var td_precisao = document.createElement("td");
+            td_precisao.innerHTML = precisao;
+            td_precisao.style = "vertical-align: middle;";
             var td_corretude = document.createElement("td");
-            var td_sugestao = document.createElement("td");
-            th.setAttribute("scope","col");
-            th.innerHTML = titulo;
-            tr_body.appendChild(th);
+            td_corretude.innerHTML = corretude;
+            td_corretude.style = "vertical-align: middle;";
+
+            tr_body.appendChild(td_nome);
+            tr_body.appendChild(td_quantidade);
+            tr_body.appendChild(td_precisao);
+            tr_body.appendChild(td_corretude);
+            tr_body.appendChild(td_sugestao);
           }
           for(nome in verificacao){
             for(titu in verificacao[nome]){
               CriarCabecario(titu)
             }
             break;
+          }
+          for(nome in verificacao){
+            CriarLinhas(nome, verificacao[nome]["quantidade"],verificacao[nome]["precisão"],verificacao[nome]["corretude"],verificacao[nome]["Sugestão de Nome"])
           }
         </script>
     </body>
