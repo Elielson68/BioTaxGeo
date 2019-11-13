@@ -194,12 +194,15 @@ class Tratamento_de_Dados:
                 #'http://api.gbif.org/v1/species/match?kingdom=''&phylum=''&order=''&family=''&genus=''&name=''Anodorhynchus hyacinthinus
                 valores = requests.get('http://api.gbif.org/v1/species/match?name='+Scientific_Name).json()
                 if(valores["matchType"] != "NONE"):
-                    if(valores["matchType"] == "FUZZY"):
-                        self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": valores["confidence"], "corretude": valores["matchType"], "Sugestão de Nome": valores["canonicalName"]}
-                    else:
-                        self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": valores["confidence"], "corretude": valores["matchType"], "Sugestão de Nome": None}
+                    try:
+                        if(valores["matchType"] == "FUZZY"):
+                            self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": valores["confidence"], "corretude": valores["matchType"], "Sugestão de Nome": valores["canonicalName"], "Genus": valores["genus"] ,"Specie": valores["species"] }
+                        else:
+                            self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": valores["confidence"], "corretude": valores["matchType"], "Sugestão de Nome": None, "Genus": valores["genus"] ,"Specie": valores["species"] }
+                    except:
+                        print("Deu erro nesse aqui: "+NC_value[0][nome])
                 else:
-                    self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": 0, "corretude": valores["matchType"], "Sugestão de Nome": None}
+                    self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": 0, "corretude": valores["matchType"], "Sugestão de Nome": None, "Genus": NC_value[0][nome] ,"Specie": NC_value[1][nome]}
         for nome_errado in self.ocorrencias_NC:
             Media_Valores = {}
             if self.ocorrencias_NC[nome_errado]["corretude"] == "NONE":

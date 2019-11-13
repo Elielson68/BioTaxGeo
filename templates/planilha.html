@@ -31,7 +31,12 @@
             </tbody>
           </table>
         </div>
-
+        <div>
+          <form action="http://localhost:8080/salvar" method = "POST" enctype = "multipart/form-data">
+            <input type="text" name = "dados" value="" hidden="hidden" id="dados"/> 
+            <input id="submit_home" type="submit" value="Salvar alterações" class="btn btn-success"/>
+          </form>
+        </div>
 
         <script>
           var tabela = document.getElementById("tabela_planilha");
@@ -55,7 +60,7 @@
             tr_head.appendChild(th);
           }
 
-          function CriarLinhas(nome, quantidade, precisao, corretude, sugestao){
+          function CriarLinhas(nome, quantidade, precisao, corretude, sugestao, genus, specie){
             var tr_body = document.createElement("tr");
             if(corretude == "NONE"){
               var td_nome = document.createElement("td");
@@ -100,12 +105,18 @@
             var td_corretude = document.createElement("td");
             td_corretude.innerHTML = corretude;
             td_corretude.style = "vertical-align: middle;";
+            var td_genus = document.createElement("td")
+            td_genus.innerHTML = genus
+            var td_specie = document.createElement("td")
+            td_specie = specie
 
             tr_body.appendChild(td_nome);
             tr_body.appendChild(td_quantidade);
             tr_body.appendChild(td_precisao);
             tr_body.appendChild(td_corretude);
             tr_body.appendChild(td_sugestao);
+            tr_body.appendChild(td_genus);
+            tr_body.appendChild(td_specie);
           }
           
           function AlterandoDados(){
@@ -124,7 +135,10 @@
             celula_errada.setAttribute("data-target","");
             modificado = document.getElementById(key_objeto);
             modificado.innerHTML = "Modificado";
-            
+
+            dados = document.getElementById("dados")
+            enviar_valores = JSON.stringify(valores_modificados)
+            dados.innerHTML =  enviar_valores
           }
           for(nome in verificacao){
             for(titu in verificacao[nome]){
@@ -134,9 +148,9 @@
           }
           
           for(nome in verificacao){
-            CriarLinhas(nome, verificacao[nome]["quantidade"],verificacao[nome]["precisão"],verificacao[nome]["corretude"],verificacao[nome]["Sugestão de Nome"])
+            CriarLinhas(nome, verificacao[nome]["quantidade"],verificacao[nome]["precisão"],verificacao[nome]["corretude"],verificacao[nome]["Sugestão de Nome"],verificacao[nome]["Genus"], verificacao[nome]["Specie"])
           }
-        
+          
           
         </script>
   <!-- Modal -->
