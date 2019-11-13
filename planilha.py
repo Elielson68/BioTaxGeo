@@ -25,7 +25,7 @@ class Planilha:
     
     def set_Diretorio(self, diretorio):
         self.diretorio = str(os.getcwd())+"/"+diretorio #O comando os.getcwd pega o diretório atual de onde o arquivo python está.
-        self.arquivo = xlrd.open_workbook(self.diretorio) #Abre o arquivo com o nome enviado no parâmetro diretorio
+        self.arquivo = xlrd.open_workbook(self.diretorio, formatting_info=True) #Abre o arquivo com o nome enviado no parâmetro diretorio
         self.arquivo_escrita = copy(self.arquivo)
         self.lista_de_planilhas = self.arquivo.sheet_names() #Pega o nome das páginas do arquivo
         self.planilha = self.arquivo.sheet_by_index(0) #Pega a página inicial (começa por 0)
@@ -37,7 +37,7 @@ class Planilha:
         
         self.tratamento_de_dados = Tratamento_de_Dados(self.planilha)
 
-        self.arquivo_escrita.save("Teste.xls")
+        self.arquivo_escrita.save("Teste2.xls")
 
     def Escolher_planilha (self):
         self.index_planilha = input("Digite o nome ou o index da planilha: ")
