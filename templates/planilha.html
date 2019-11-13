@@ -116,7 +116,8 @@
           }
           function SalvarAlteracao(){
             key_objeto = celula_errada.innerHTML.replace("/","").replace(/<u>/g,"");
-            valores_modificados.push(key_objeto);
+            valores_modificados[0].push(key_objeto);
+            valores_modificados[1].push(verificacao[key_objeto]["Sugestão de Nome"]);
             celula_errada.innerHTML = verificacao[key_objeto]["Sugestão de Nome"];
             celula_errada.style = "color: white;";
             celula_errada.setAttribute("data-toggle","");

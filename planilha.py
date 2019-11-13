@@ -34,10 +34,7 @@ class Planilha:
         self.total_de_colunas = self.planilha.ncols
         self.total_de_linhas  = self.planilha.nrows
         self.coordenadas = Coordenadas(self.planilha)
-        
         self.tratamento_de_dados = Tratamento_de_Dados(self.planilha)
-
-        self.arquivo_escrita.save("Teste2.xls")
 
     def Escolher_planilha (self):
         self.index_planilha = input("Digite o nome ou o index da planilha: ")
@@ -260,5 +257,10 @@ class Tratamento_de_Dados:
                     sugestoes.append({"Similaridade de": self.Comparar_String(nome1, nome2), "Sugestão de nome": nome2})
             tratar_coluna[nome1]["Sugestões"] = sugestoes
         return tratar_coluna
-    def AlterandoDadosPlanilha(self, coluna=None,dado=None):
-        return
+    def AlterandoDadosPlanilha(self, coluna, dado_errado, dado_certo):
+        index_coluna = self.planilha.row_values(0).index(coluna)
+        for linha in self.planilha.get_Total_de_linhas():
+            if(dado_errado == self.planilha.pegar_Valor_na_celula(linha, index_coluna)):
+                self.planilha_formatada.write(linha,index_coluna, dado_certo)
+    def SalvarPlanilhaFormatada():
+        return self.arquivo_escrita.save("Planilha_Formatada.xls")
