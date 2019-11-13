@@ -1,5 +1,7 @@
 import os
+import openpyxl
 import xlrd
+import xlwt
 import pygbif
 import requests
 from fuzzywuzzy import fuzz
@@ -19,6 +21,12 @@ class Planilha:
         self.valores_na_coluna = []
         self.valores_na_linha = []
         self.index_planilha = 0
+        #Utilizando outra api de leitura de excel pois a antiga fazia somente leitura e não escrita. Começar a trocar todas as coisas da antiga api para a nova.
+        self.OpenPyXl_arquivo = None
+        self.OpenPyXl_total_planilhas = None
+        self.OpenPyXl_planilha = None
+        self.OpenPyXl_total_colunas = None
+        self.OpenPyXl_total_linhas = None
     
     def set_Diretorio(self, diretorio):
         self.diretorio = str(os.getcwd())+"/"+diretorio #O comando os.getcwd pega o diretório atual de onde o arquivo python está.
@@ -29,7 +37,15 @@ class Planilha:
         self.total_de_colunas = self.planilha.ncols
         self.total_de_linhas  = self.planilha.nrows
         self.coordenadas = Coordenadas(self.planilha)
-        self.tratamento_de_dados = Tratamento_de_Dados(self.planilha)
+        
+
+        self.OpenPyXl_arquivo = openpyxl.load_workbook(diretorio)
+        self.OpenPyXl_total_planilhas = self.OpenPyXl_arquivo.get_sheet_names()
+        self.OpenPyXl_planilha = self.OpenPyXl_arquivo.get_sheet_by(self.OpenPyXl_total_planilhas[0])
+        self.OpenPyXl_total_colunas = self.OpenPyXl_planilha.get_highest_column()
+        self.OpenPyXl_total_linhas = self.OpenPyXl_planilha.get_highest_row()
+
+        self.tratamento_de_dados = Tratamento_de_Dados(self.planilha, self.OpenPyXl_planilha)
     def Escolher_planilha (self):
         self.index_planilha = input("Digite o nome ou o index da planilha: ")
         try:
@@ -152,10 +168,11 @@ class Coordenadas:
 
 class Tratamento_de_Dados:
     
-    def __init__(self, plan):
+    def __init__(self, plan, plan2):
         self.ocorrencias_NC = {} #NC = Nomes Científicos
         self.colunas_para_verificar = []
         self.planilha = plan
+        self.OpenPyXl_planilha_write = plan2
 
     def set_Colunas_para_verificar(self, coluna_G, coluna_NC):
         self.colunas_para_verificar = []
@@ -251,3 +268,5 @@ class Tratamento_de_Dados:
                     sugestoes.append({"Similaridade de": self.Comparar_String(nome1, nome2), "Sugestão de nome": nome2})
             tratar_coluna[nome1]["Sugestões"] = sugestoes
         return tratar_coluna
+    def AlterandoDadosPlanilha(self, coluna=None,dado=None):
+        print(self.planilha.formula.cellname(0,0))

@@ -13,6 +13,7 @@ planilha_atual = Planilha()
 @app.route("/", methods=["GET", "POST"])
 def mapa_teste():
     if request.method == 'GET':
+        planilha_atual.tratamento_de_dados.AlterandoDadosPlanilha()
         return render_template("mapa_teste.html")
     if request.method == 'POST':
         f = request.files['file']
@@ -24,6 +25,7 @@ def mapa_teste():
         verificacao = planilha_atual.get_NC_Tratado()
         verificacao = json.dumps(verificacao)
         print(type(verificacao))
+        
         return render_template("planilha.html", titulos=titulos, verificacao=verificacao)
 
 #'POLYGON(([longitude ->]-60.2910 [latitude ->]-14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626))'
