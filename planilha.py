@@ -1,18 +1,18 @@
 import os
-import openpyxl
 import xlrd
 import xlwt
-import pygbif
+from xlutils.copy import copy
 import requests
 from fuzzywuzzy import fuzz
-from fuzzywuzzy import process
 class Planilha:
     def __init__(self):
         #Essas variáveis irão ser atribuídas assim que o objeto for criado, pois dizem respeito somente ao arquivo, então já configuro eles automaticamente.
         self.diretorio = None 
-        self.arquivo = None 
+        self.arquivo = None
+        self.arquivo_escrita = None
         self.lista_de_planilhas = None 
-        self.planilha = None 
+        self.planilha = None
+        self.planilha_formatada = None
         self.coordenadas = None
         self.tratamento_de_dados = None
         self.total_de_colunas = int
@@ -21,31 +21,24 @@ class Planilha:
         self.valores_na_coluna = []
         self.valores_na_linha = []
         self.index_planilha = 0
-        #Utilizando outra api de leitura de excel pois a antiga fazia somente leitura e não escrita. Começar a trocar todas as coisas da antiga api para a nova.
-        self.OpenPyXl_arquivo = None
-        self.OpenPyXl_total_planilhas = None
-        self.OpenPyXl_planilha = None
-        self.OpenPyXl_total_colunas = None
-        self.OpenPyXl_total_linhas = None
+
     
     def set_Diretorio(self, diretorio):
         self.diretorio = str(os.getcwd())+"/"+diretorio #O comando os.getcwd pega o diretório atual de onde o arquivo python está.
         self.arquivo = xlrd.open_workbook(self.diretorio) #Abre o arquivo com o nome enviado no parâmetro diretorio
+        self.arquivo_escrita = copy(self.arquivo)
         self.lista_de_planilhas = self.arquivo.sheet_names() #Pega o nome das páginas do arquivo
         self.planilha = self.arquivo.sheet_by_index(0) #Pega a página inicial (começa por 0)
+        self.planilha_formatada = self.arquivo_escrita.get_sheet(0)
         #Aqui já vão ser atribuídas no decorrer do processamento.
         self.total_de_colunas = self.planilha.ncols
         self.total_de_linhas  = self.planilha.nrows
         self.coordenadas = Coordenadas(self.planilha)
         
+        self.tratamento_de_dados = Tratamento_de_Dados(self.planilha)
 
-        self.OpenPyXl_arquivo = openpyxl.load_workbook(diretorio)
-        self.OpenPyXl_total_planilhas = self.OpenPyXl_arquivo.get_sheet_names()
-        self.OpenPyXl_planilha = self.OpenPyXl_arquivo.get_sheet_by(self.OpenPyXl_total_planilhas[0])
-        self.OpenPyXl_total_colunas = self.OpenPyXl_planilha.get_highest_column()
-        self.OpenPyXl_total_linhas = self.OpenPyXl_planilha.get_highest_row()
+        self.arquivo_escrita.save("Teste.xls")
 
-        self.tratamento_de_dados = Tratamento_de_Dados(self.planilha, self.OpenPyXl_planilha)
     def Escolher_planilha (self):
         self.index_planilha = input("Digite o nome ou o index da planilha: ")
         try:
@@ -168,11 +161,10 @@ class Coordenadas:
 
 class Tratamento_de_Dados:
     
-    def __init__(self, plan, plan2):
+    def __init__(self, plan):
         self.ocorrencias_NC = {} #NC = Nomes Científicos
         self.colunas_para_verificar = []
         self.planilha = plan
-        self.OpenPyXl_planilha_write = plan2
 
     def set_Colunas_para_verificar(self, coluna_G, coluna_NC):
         self.colunas_para_verificar = []
@@ -269,4 +261,4 @@ class Tratamento_de_Dados:
             tratar_coluna[nome1]["Sugestões"] = sugestoes
         return tratar_coluna
     def AlterandoDadosPlanilha(self, coluna=None,dado=None):
-        print(self.planilha.formula.cellname(0,0))
+        return

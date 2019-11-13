@@ -3,7 +3,6 @@ import pygbif
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 from werkzeug.utils import secure_filename
 from planilha import Planilha
-import requests
 import json
 occ = pygbif
 app = Flask(__name__)
@@ -13,7 +12,7 @@ planilha_atual = Planilha()
 @app.route("/", methods=["GET", "POST"])
 def mapa_teste():
     if request.method == 'GET':
-        planilha_atual.tratamento_de_dados.AlterandoDadosPlanilha()
+        #planilha_atual.tratamento_de_dados.AlterandoDadosPlanilha()
         return render_template("mapa_teste.html")
     if request.method == 'POST':
         f = request.files['file']
