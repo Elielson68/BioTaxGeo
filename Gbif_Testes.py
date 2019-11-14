@@ -18,17 +18,15 @@ def mapa_teste():
     if request.method == 'POST':
         f = request.files['file']
         f.save(secure_filename(f.filename))
-        
-        planilha_atual.set_Diretorio(secure_filename(f.filename))
-        planilha_atual.set_ColG_ColNC("Genus1","Species1")
-        titulos = ["Genus1", "Species1"]
-        verificacao = planilha_atual.get_NC_Tratado()
-        verificacao = json.dumps(verificacao)
-        print(type(verificacao))
-        
-        return render_template("planilha.html", titulos=titulos, verificacao=verificacao)
+        planilha_atual.set_Diretorio(secure_filename(f.filename))        
+        return render_template("requerimentos_para_leitura_de_planilha.html", titulos=planilha_atual.get_Cabecario_Planilha())
 
-
+@app.route("/verificacao", methods=["GET", "POST"])
+def verificacao():
+    if request.method == "POST":
+        titulos = request.form["selecao"]
+        print(titulos)
+        return "hm papai"
 
 #'POLYGON(([longitude ->]-60.2910 [latitude ->]-14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626))'
 
