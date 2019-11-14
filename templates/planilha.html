@@ -24,8 +24,17 @@
             <input id="submit_home" type="submit" value="Salvar alterações" class="btn btn-success"/>
           </form>
         </div>
+
         <!--______________________________________PLANILHA______________________________________________________-->
         <div id="planilha">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Visualizar tudo
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="option2" autocomplete="off"> Visualizar apenas os erros
+                </label>
+              </div>
           <table class="table table-dark" id="tabela_planilha">
             <thead id="thead_tabela">
               <tr id="tr_thead">
@@ -50,7 +59,7 @@
           verificacao = "{{verificacao}}"
           verificacao = verificacao.replace(/&#34;/g,'"');
           verificacao = JSON.parse(verificacao)
-          var valores_modificados = []
+          var valores_modificados = [[],[]]
           console.log(verificacao)
           
           function CriarCabecario(titulo){

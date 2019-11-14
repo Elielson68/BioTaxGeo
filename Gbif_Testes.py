@@ -4,8 +4,6 @@ from flask import Flask, render_template, request, send_file, jsonify, redirect,
 from werkzeug.utils import secure_filename
 from planilha import Planilha
 import json
-import  os
-import tkinter.filedialog
 
 occ = pygbif
 app = Flask(__name__)
@@ -29,13 +27,6 @@ def mapa_teste():
         print(type(verificacao))
         
         return render_template("planilha.html", titulos=titulos, verificacao=verificacao)
-
-
-
-@app.route('/salvar', methods=['GET', 'POST'])
-def download():
-    teste = tkinter.filedialog.
-    return "hm"
 
 
 
