@@ -1,11 +1,8 @@
 #'''
-import pygbif
 from flask import Flask, render_template, request, send_file, jsonify, redirect, url_for, current_app, send_from_directory
 from werkzeug.utils import secure_filename
 from planilha import Planilha
 import json
-
-occ = pygbif
 app = Flask(__name__)
 planilha_atual = Planilha()
 
