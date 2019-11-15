@@ -80,12 +80,12 @@ class Planilha:
                 coluna_indice = self.planilha.row_values(0).index(coluna)
                 self.valores_na_coluna = self.planilha.col_values(coluna_indice,1)
                 if(self.valores_na_coluna == []):
-                    return print ("Valor não encontrado.")
+                    return "Valor não encontrado."
                 else:
-                    return print(self.valores_na_coluna)
+                    return self.valores_na_coluna
             elif(type(coluna)==int):
                 self.valores_na_coluna = self.planilha.col_values(coluna,1)
-                return print(self.valores_na_coluna)
+                return self.valores_na_coluna
         except:
             return print("Coluna não encontrada.")
 
@@ -108,14 +108,11 @@ class Planilha:
     def get_Longitude(self):
         return self.coordenadas.get_Longitude_values()
 
-
     def set_Latitude(self, coluna_lat):
         self.coordenadas.set_Latitude_values(coluna_lat)
 
-
     def set_Longitude(self, coluna_lng):
         self.coordenadas.set_Longitude_values(coluna_lng)
-    
 
     def set_ColG_ColNC(self, coluna_G, coluna_NC):
         self.tratamento_de_dados.set_Colunas_para_verificar(coluna_G, coluna_NC)
@@ -123,6 +120,12 @@ class Planilha:
     def get_NC_Tratado(self):
         return self.tratamento_de_dados.get_NC_Tratado()
 
+    def set_Colunas_para_verificar(self, titulos):
+        for coluna in titulos:
+            valores_em_coluna = self.pegar_Valores_da_coluna(titulos[coluna])
+            self.tratamento_de_dados.set_Colunas_para_verificar(titulos[coluna], valores_em_coluna)
+    def get_Colunas_para_verificar(self):
+        return self.tratamento_de_dados.get_Colunas_para_verificar()
 class Coordenadas:
     def __init__(self, Plan):
         self.coluna_latitude = None
@@ -160,22 +163,11 @@ class Tratamento_de_Dados:
     
     def __init__(self, plan):
         self.ocorrencias_NC = {} #NC = Nomes Científicos
-        self.colunas_para_verificar = []
+        self.colunas_para_verificar = {}
         self.planilha = plan
 
-    def set_Colunas_para_verificar(self, coluna_G, coluna_NC):
-        self.colunas_para_verificar = []
-        colunas_genus_scientific_name = [[],[]] 
-        if(type(coluna_NC) == str and type(coluna_G) == str):
-            indice_coluna_G = self.planilha.row_values(0).index(coluna_G)
-            indice_coluna_NC = self.planilha.row_values(0).index(coluna_NC)
-            colunas_genus_scientific_name[0] = self.planilha.col_values(indice_coluna_G,1)
-            colunas_genus_scientific_name[1] = self.planilha.col_values(indice_coluna_NC,1)
-            self.colunas_para_verificar = colunas_genus_scientific_name
-        elif(type(coluna_NC) == int):
-            colunas_genus_scientific_name[0] = self.planilha.col_values(coluna_G,1)
-            colunas_genus_scientific_name[1] = self.planilha.col_values(coluna_NC,1)
-            self.colunas_para_verificar = colunas_genus_scientific_name
+    def set_Colunas_para_verificar(self, titulo, valor):
+            self.colunas_para_verificar[titulo] = valor
     
     def get_Colunas_para_verificar(self):
         if not self.colunas_para_verificar:
@@ -265,5 +257,5 @@ class Tratamento_de_Dados:
         for linha in self.planilha.get_Total_de_linhas():
             if(dado_errado == self.planilha.pegar_Valor_na_celula(linha, index_coluna)):
                 self.planilha_formatada.write(linha,index_coluna, dado_certo)
-    def SalvarPlanilhaFormatada():
+    def SalvarPlanilhaFormatada(self):
         return self.arquivo_escrita.save("Planilha_Formatada.xls")

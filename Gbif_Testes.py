@@ -22,8 +22,9 @@ def mapa_teste():
 def verificacao():
     if request.method == "POST":
         titulos = request.form["selecao"]
-        print(titulos)
-        return "hm papai"
+        titulos = eval(titulos)
+        planilha_atual.set_Colunas_para_verificar(titulos)
+        return planilha_atual.get_Colunas_para_verificar()
 
 #'POLYGON(([longitude ->]-60.2910 [latitude ->]-14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626))'
 
