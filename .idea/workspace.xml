@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="env upada pro git">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Elielson.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="JSON resultando os valores da chave referente a coluna da planilha">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gbif_Testes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gbif_Testes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpecieGeo_App.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpecieGeo_App.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -522,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573787366093</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="JSON resultando os valores da chave referente a coluna da planilha">
+      <created>1573840368779</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1573840368779</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -556,7 +560,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="formatações referente a nomes" />
     <MESSAGE value="formatação na pesquisa utilizando quadrados e poligonos" />
     <MESSAGE value="Alteração das vertices pelos: inputs; markers e clicks." />
     <MESSAGE value="Criando formas automaticamente" />
@@ -581,7 +584,8 @@
     <MESSAGE value="reorganzacao do codigo da planilha" />
     <MESSAGE value="hierarquia upada novamente" />
     <MESSAGE value="env upada pro git" />
-    <option name="LAST_COMMIT_MESSAGE" value="env upada pro git" />
+    <MESSAGE value="JSON resultando os valores da chave referente a coluna da planilha" />
+    <option name="LAST_COMMIT_MESSAGE" value="JSON resultando os valores da chave referente a coluna da planilha" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -590,6 +594,11 @@
           <url>file://$PROJECT_DIR$/SpecieGeo_App.py</url>
           <line>4</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/planilha.py</url>
+          <line>125</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -114,16 +114,13 @@ class Planilha:
     def set_Longitude(self, coluna_lng):
         self.coordenadas.set_Longitude_values(coluna_lng)
 
-    def set_ColG_ColNC(self, coluna_G, coluna_NC):
-        self.tratamento_de_dados.set_Colunas_para_verificar(coluna_G, coluna_NC)
-    
     def get_NC_Tratado(self):
         return self.tratamento_de_dados.get_NC_Tratado()
 
     def set_Colunas_para_verificar(self, titulos):
         for coluna in titulos:
             valores_em_coluna = self.pegar_Valores_da_coluna(titulos[coluna])
-            self.tratamento_de_dados.set_Colunas_para_verificar(titulos[coluna], valores_em_coluna)
+            self.tratamento_de_dados.set_Colunas_para_verificar(coluna, valores_em_coluna)
     def get_Colunas_para_verificar(self):
         return self.tratamento_de_dados.get_Colunas_para_verificar()
 class Coordenadas:
@@ -177,24 +174,30 @@ class Tratamento_de_Dados:
 
     def get_NC_Tratado(self):
         NC_value = self.get_Colunas_para_verificar()
-        for nome in range (0,len(NC_value[0])):
-            if (NC_value[0][nome]+" "+NC_value[1][nome]) in self.ocorrencias_NC:
+        for indice in range(0, len(NC_value["especie"])):
+            Scientific_Name = NC_value["genero"][indice] + " " + NC_value["especie"][indice]
+            reino = NC_value['reino'][indice]
+            filo = NC_value['filo'][indice]
+            ordem = NC_value['ordem'][indice]
+            familia = NC_value['familia'][indice]
+            genero = NC_value['genero'][indice]
+            especie = NC_value['especie'][indice]
+            if Scientific_Name in self.ocorrencias_NC:
                 pass
             else:
-                Scientific_Name = NC_value[0][nome]+" "+NC_value[1][nome]
-                
                 #'http://api.gbif.org/v1/species/match?kingdom=''&phylum=''&order=''&family=''&genus=''&name=''Anodorhynchus hyacinthinus
                 valores = requests.get('http://api.gbif.org/v1/species/match?name='+Scientific_Name).json()
-                if(valores["matchType"] != "NONE"):
+                if(valores["matchType"] != "NONE" and "species" in valores):
                     try:
                         if(valores["matchType"] == "FUZZY"):
-                            self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": valores["confidence"], "corretude": valores["matchType"], "Sugestão de Nome": valores["canonicalName"], "Genus": valores["genus"] ,"Specie": valores["species"] }
+                            self.ocorrencias_NC[Scientific_Name] = {"Reino": {"Tipo": reino, "Corretude": None, "Quantidade": NC_value['reino'].count(reino), "Sugestão": None}, "Filo": {"Tipo": filo, "Corretude": None, "Quantidade": NC_value['filo'].count(filo), "Sugestão": None}, "Ordem": {"Tipo": ordem, "Corretude": None, "Quantidade": NC_value['ordem'].count(ordem), "Sugestão": None}, "Família": {"Tipo": familia, "Corretude": None, "Quantidade": NC_value['familia'].count(familia), "Sugestão": None}, "Gênero": {"Tipo": genero, "Corretude": None, "Quantidade": NC_value['genero'].count(genero), "Sugestão": None}, "Espécie": {"Tipo": especie, "Corretude": None, "Quantidade": NC_value['especie'].count(especie), "Sugestão": None}, "Nome Científico": {"Corretude": None, "Sugestão": None}}
                         else:
-                            self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": valores["confidence"], "corretude": valores["matchType"], "Sugestão de Nome": None, "Genus": valores["genus"] ,"Specie": valores["species"] }
+                            self.ocorrencias_NC[Scientific_Name] = {"Reino": {"Tipo": reino, "Corretude": None, "Quantidade": NC_value['reino'].count(reino), "Sugestão": None}, "Filo": {"Tipo": filo, "Corretude": None, "Quantidade": NC_value['filo'].count(filo), "Sugestão": None}, "Ordem": {"Tipo": ordem, "Corretude": None, "Quantidade": NC_value['ordem'].count(ordem), "Sugestão": None}, "Família": {"Tipo": familia, "Corretude": None, "Quantidade": NC_value['familia'].count(familia), "Sugestão": None}, "Gênero": {"Tipo": genero, "Corretude": None, "Quantidade": NC_value['genero'].count(genero), "Sugestão": None}, "Espécie": {"Tipo": especie, "Corretude": None, "Quantidade": NC_value['especie'].count(especie), "Sugestão": None}, "Nome Científico": {"Corretude": None, "Sugestão": None}}
                     except:
-                        print("Deu erro nesse aqui: "+NC_value[0][nome])
+                        print("Deu erro nesse aqui: "+NC_value["especie"][indice])
                 else:
-                    self.ocorrencias_NC[Scientific_Name] = {"quantidade": NC_value[0].count(NC_value[0][nome]), "precisão": 0, "corretude": valores["matchType"], "Sugestão de Nome": None, "Genus": NC_value[0][nome] ,"Specie": NC_value[1][nome]}
+                    self.ocorrencias_NC[Scientific_Name] = {"Reino": {"Tipo": reino, "Corretude": None, "Quantidade": NC_value['reino'].count(reino), "Sugestão": None}, "Filo": {"Tipo": filo, "Corretude": None, "Quantidade": NC_value['filo'].count(filo), "Sugestão": None}, "Ordem": {"Tipo": ordem, "Corretude": None, "Quantidade": NC_value['ordem'].count(ordem), "Sugestão": None}, "Família": {"Tipo": familia, "Corretude": None, "Quantidade": NC_value['familia'].count(familia), "Sugestão": None}, "Gênero": {"Tipo": genero, "Corretude": None, "Quantidade": NC_value['genero'].count(genero), "Sugestão": None}, "Espécie": {"Tipo": especie, "Corretude": None, "Quantidade": NC_value['especie'].count(especie), "Sugestão": None}, "Nome Científico": {"Corretude": None, "Sugestão": None}}
+
         for nome_errado in self.ocorrencias_NC:
             Media_Valores = {}
             if self.ocorrencias_NC[nome_errado]["corretude"] == "NONE":
