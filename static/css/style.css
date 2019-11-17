@@ -78,8 +78,8 @@
      filter: alpha(opacity=0);
  }
  #planilha{
-      margin-left: 20%;
-      margin-right: 25%;
+      margin-left: 10%;
+      margin-right: 10%;
       position: absolute;
       overflow: auto; 
  }

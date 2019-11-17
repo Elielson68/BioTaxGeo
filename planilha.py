@@ -182,34 +182,73 @@ class Tratamento_de_Dados:
             familia = NC_value['familia'][indice]
             genero = NC_value['genero'][indice]
             especie = NC_value['especie'][indice]
+            corretude_reino = None
+            corretude_filo = None
+            corretude_ordem = None
+            corretude_familia = None
+            corretude_genero = None
+            corretude_especie = None
+            corretude_scientific_name = None
+            sugestao_reino = None
+            sugestao_filo = None
+            sugestao_ordem = None
+            sugestao_familia = None
+            sugestao_genero = None
+            sugestao_especie = None
+            sugestao_scientific_name = None
             if Scientific_Name in self.ocorrencias_NC:
                 pass
             else:
                 #'http://api.gbif.org/v1/species/match?kingdom=''&phylum=''&order=''&family=''&genus=''&name=''Anodorhynchus hyacinthinus
-                valores = requests.get('http://api.gbif.org/v1/species/match?name='+Scientific_Name).json()
-                if(valores["matchType"] != "NONE" and "species" in valores):
-                    try:
-                        if(valores["matchType"] == "FUZZY"):
-                            self.ocorrencias_NC[Scientific_Name] = {"Reino": {"Tipo": reino, "Corretude": None, "Quantidade": NC_value['reino'].count(reino), "Sugestão": None}, "Filo": {"Tipo": filo, "Corretude": None, "Quantidade": NC_value['filo'].count(filo), "Sugestão": None}, "Ordem": {"Tipo": ordem, "Corretude": None, "Quantidade": NC_value['ordem'].count(ordem), "Sugestão": None}, "Família": {"Tipo": familia, "Corretude": None, "Quantidade": NC_value['familia'].count(familia), "Sugestão": None}, "Gênero": {"Tipo": genero, "Corretude": None, "Quantidade": NC_value['genero'].count(genero), "Sugestão": None}, "Espécie": {"Tipo": especie, "Corretude": None, "Quantidade": NC_value['especie'].count(especie), "Sugestão": None}, "Nome Científico": {"Corretude": None, "Sugestão": None}}
-                        else:
-                            self.ocorrencias_NC[Scientific_Name] = {"Reino": {"Tipo": reino, "Corretude": None, "Quantidade": NC_value['reino'].count(reino), "Sugestão": None}, "Filo": {"Tipo": filo, "Corretude": None, "Quantidade": NC_value['filo'].count(filo), "Sugestão": None}, "Ordem": {"Tipo": ordem, "Corretude": None, "Quantidade": NC_value['ordem'].count(ordem), "Sugestão": None}, "Família": {"Tipo": familia, "Corretude": None, "Quantidade": NC_value['familia'].count(familia), "Sugestão": None}, "Gênero": {"Tipo": genero, "Corretude": None, "Quantidade": NC_value['genero'].count(genero), "Sugestão": None}, "Espécie": {"Tipo": especie, "Corretude": None, "Quantidade": NC_value['especie'].count(especie), "Sugestão": None}, "Nome Científico": {"Corretude": None, "Sugestão": None}}
-                    except:
-                        print("Deu erro nesse aqui: "+NC_value["especie"][indice])
+                valores = requests.get('http://api.gbif.org/v1/species/match?name='+Scientific_Name+"&rank=SPECIES&strict=true").json()
+                if(valores["matchType"] != "NONE"):
+                    corretude_reino = "EXACT" if reino == valores["kingdom"] else corretude_reino = "FUZZY"
+                    corretude_filo = "EXACT" if filo == valores["phylum"] else corretude_filo = "FUZZY"
+                    corretude_ordem = "EXACT" if ordem == valores["order"] else corretude_ordem = "FUZZY"
+                    corretude_familia = "EXACT" if familia == valores["family"] else corretude_familia = "FUZZY"
+                    corretude_genero = "EXACT" if genero == valores["genus"] else corretude_genero = "FUZZY"
+                    corretude_especie = "EXACT" if especie == valores["species"].replace(valores["genus"]+" ","") else corretude_especie = "FUZZY"
+                    corretude_scientific_name = "EXACT" if Scientific_Name == valores["especies"] else corretude_scientific_name = "FUZZY"
+                    sugestao_reino = None if corretude_reino == "EXACT" else sugestao_reino = valores["kingdom"]
+                    sugestao_filo = None if corretude_filo == "EXACT" else sugestao_filo = valores["phylum"]
+                    sugestao_ordem = None if corretude_ordem == "EXACT" else sugestao_ordem = valores["order"]
+                    sugestao_familia = None if corretude_familia == "EXACT" else sugestao_familia = valores["family"]
+                    sugestao_genero = None if corretude_genero == "EXACT" else sugestao_genero = valores["genus"]
+                    sugestao_especie = None if corretude_especie == "EXACT" else sugestao_especie = valores["species"].replace(valores["genus"]+" ","")
+                    sugestao_scientific_name = None if corretude_scientific_name == "EXACT" else sugestao_scientific_name = valores["species"]
+                    self.ocorrencias_NC[Scientific_Name] = {"Reino": {"Tipo": reino, "Corretude": corretude_reino, "Quantidade": NC_value['reino'].count(reino), "Sugestão": sugestao_reino}, "Filo": {"Tipo": filo, "Corretude": corretude_filo, "Quantidade": NC_value['filo'].count(filo), "Sugestão": sugestao_filo}, "Ordem": {"Tipo": ordem, "Corretude": corretude_ordem, "Quantidade": NC_value['ordem'].count(ordem), "Sugestão": sugestao_ordem}, "Família": {"Tipo": familia, "Corretude": corretude_familia, "Quantidade": NC_value['familia'].count(familia), "Sugestão": sugestao_familia}, "Gênero": {"Tipo": genero, "Corretude": corretude_genero, "Quantidade": NC_value['genero'].count(genero), "Sugestão": sugestao_genero}, "Espécie": {"Tipo": especie, "Corretude": corretude_especie, "Quantidade": NC_value['especie'].count(especie), "Sugestão": sugestao_especie}, "Nome Científico": {"Corretude": corretude_scientific_name, "Sugestão": sugestao_scientific_name}}
                 else:
-                    self.ocorrencias_NC[Scientific_Name] = {"Reino": {"Tipo": reino, "Corretude": None, "Quantidade": NC_value['reino'].count(reino), "Sugestão": None}, "Filo": {"Tipo": filo, "Corretude": None, "Quantidade": NC_value['filo'].count(filo), "Sugestão": None}, "Ordem": {"Tipo": ordem, "Corretude": None, "Quantidade": NC_value['ordem'].count(ordem), "Sugestão": None}, "Família": {"Tipo": familia, "Corretude": None, "Quantidade": NC_value['familia'].count(familia), "Sugestão": None}, "Gênero": {"Tipo": genero, "Corretude": None, "Quantidade": NC_value['genero'].count(genero), "Sugestão": None}, "Espécie": {"Tipo": especie, "Corretude": None, "Quantidade": NC_value['especie'].count(especie), "Sugestão": None}, "Nome Científico": {"Corretude": None, "Sugestão": None}}
+                    corretude_reino = "NONE"
+                    corretude_filo = "NONE"
+                    corretude_ordem = "NONE"
+                    corretude_familia = "NONE"
+                    corretude_genero = "NONE"
+                    corretude_especie = "NONE"
+                    corretude_scientific_name = "NONE"
+                    self.ocorrencias_NC[Scientific_Name] = {"Reino": {"Tipo": reino, "Corretude": corretude_reino, "Quantidade": NC_value['reino'].count(reino), "Sugestão": None}, "Filo": {"Tipo": filo, "Corretude": corretude_filo, "Quantidade": NC_value['filo'].count(filo), "Sugestão": None}, "Ordem": {"Tipo": ordem, "Corretude": corretude_ordem, "Quantidade": NC_value['ordem'].count(ordem), "Sugestão": None}, "Família": {"Tipo": familia, "Corretude": corretude_familia, "Quantidade": NC_value['familia'].count(familia), "Sugestão": None}, "Gênero": {"Tipo": genero, "Corretude": corretude_genero, "Quantidade": NC_value['genero'].count(genero), "Sugestão": None}, "Espécie": {"Tipo": especie, "Corretude": corretude_especie, "Quantidade": NC_value['especie'].count(especie), "Sugestão": None}, "Nome Científico": {"Corretude": corretude_scientific_name, "Sugestão": None}}
 
         for nome_errado in self.ocorrencias_NC:
-            Media_Valores = {}
-            if self.ocorrencias_NC[nome_errado]["corretude"] == "NONE":
-                sugestao_request = requests.get('http://api.gbif.org/v1/species/suggest?q='+nome_errado).json()
+            Media_Valores_Reino = {}
+            if self.ocorrencias_NC[nome_errado]["Nome Científico"]["Corretude"] == "NONE":
+                sugestao_request = requests.get('http://api.gbif.org/v1/species/suggest?q='+nome_errado+'&rank=SPECIES&strict=true').json()
                 sugestoes = []
-
                 if not sugestao_request:
                     for nome_certo in self.ocorrencias_NC:
-                        if self.ocorrencias_NC[nome_certo]["corretude"] == "EXACT":
-                            if(self.Comparar_String(nome_certo,nome_errado)>60 and nome_errado != nome_certo):
-                                Media_Valores[nome_certo] =  self.Comparar_String(nome_certo,nome_errado)
-                    self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = Media_Valores
+                        if self.ocorrencias_NC[nome_certo]["Reino"]["Corretude"] == "EXACT":
+                            reino_certo = self.ocorrencias_NC[nome_certo]["Reino"]["Tipo"]
+                            reino_errado = self.ocorrencias_NC[nome_errado]["Reino"]["Tipo"]
+                            if(self.Comparar_String(reino_certo, reino_errado)>60 and reino_errado != reino_certo):
+                                Media_Valores_Reino[reino_certo] =  self.Comparar_String(nome_certo,nome_errado)
+                        self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = Media_Valores
+
+
+
+
+
+
+
+
+
                 else:
                     self.ocorrencias_NC[nome_errado]["corretude"] = "FUZZY"
                     for indice in range(0,len(sugestao_request)):
