@@ -223,6 +223,7 @@ class Tratamento_de_Dados:
                                                                                         "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Especie()
                                                                                    },
                                                                 "Nome Científico": {
+                                                                                        "Tipo": self.hierarquia_taxonomiaca.get_Scientific_Name(),
                                                                                         "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Scientific_Name(),
                                                                                         "Sugestão" : self.hierarquia_taxonomiaca.get_Sugestao_Scientific_Name()
                                                                                    }
@@ -266,6 +267,7 @@ class Tratamento_de_Dados:
                             "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Especie()
                         },
                         "Nome Científico": {
+                            "Tipo": self.hierarquia_taxonomiaca.get_Scientific_Name(),
                             "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Scientific_Name(),
                             "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Scientific_Name()
                         }
@@ -276,29 +278,26 @@ class Tratamento_de_Dados:
             if self.ocorrencias_NC[nome_errado]["Nome Científico"]["Corretude"] == "NONE":
                 sugestao_request = requests.get('http://api.gbif.org/v1/species/suggest?q='+nome_errado+'&rank=SPECIES&strict=true').json()
                 sugestoes = []
+                self.hierarquia_taxonomiaca = Hierarquia_Taxonomica(self.ocorrencias_NC[nome_errado]["Reino"]["Tipo"], self.ocorrencias_NC[nome_errado]["Filo"]["Tipo"], self.ocorrencias_NC[nome_errado]["Ordem"]["Tipo"], self.ocorrencias_NC[nome_errado]["Família"]["Tipo"], self.ocorrencias_NC[nome_errado]["Gênero"]["Tipo"], self.ocorrencias_NC[nome_errado]["Nome Científico"]["Tipo"], self.ocorrencias_NC[nome_errado]["Nome Científico"]["Tipo"])
                 if not sugestao_request:
                     for nome_certo in self.ocorrencias_NC:
-                        if self.ocorrencias_NC[nome_certo]["Reino"]["Corretude"] == "EXACT":
-                            reino_certo = self.ocorrencias_NC[nome_certo]["Reino"]["Tipo"]
-                            reino_errado = self.ocorrencias_NC[nome_errado]["Reino"]["Tipo"]
-                            if(self.Comparar_String(reino_certo, reino_errado)>60 and reino_errado != reino_certo):
-                                Media_Valores_Reino[reino_certo] =  self.Comparar_String(nome_certo,nome_errado)
-                        self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = Media_Valores
-
-
-
-
-
-
-
-
-
+                        for key in self.ocorrencias_NC[nome_certo]:
+                            if self.ocorrencias_NC[nome_certo][key]["Corretude"] == "EXACT":
+                                certo = self.ocorrencias_NC[nome_certo][key]["Tipo"]
+                                errado = self.ocorrencias_NC[nome_errado][key]["Tipo"]
+                                if(self.Comparar_String(certo, errado)>60 and errado != certo):
+                                    Media_Valores_Reino[nome_certo][key][certo] =  self.Comparar_String(nome_certo,nome_errado)
+                        self.ocorrencias_NC[nome_errado][key]["Sugestão"] = Media_Valores_Reino[nome_certo]
                 else:
-                    self.ocorrencias_NC[nome_errado]["corretude"] = "FUZZY"
+                    for key in self.ocorrencias_NC[nome_errado]:
+                        self.ocorrencias_NC[nome_errado][key]["Sugestão"] = []
                     for indice in range(0,len(sugestao_request)):
-                        if "species" in sugestao_request[indice]:
+                        self.hierarquia_taxonomiaca.Definir_Corretude_Hierarquica(sugestao_request[indice]["kingdom"], sugestao_request[indice]["phylum"], sugestao_request[indice]["order"], sugestao_request[indice]["family"], sugestao_request[indice]["genus"], sugestao_request[indice]["species"], sugestao_request[indice]["especies"])
+                        self.hierarquia_taxonomiaca.Definir_Sugestao_Hierarquica(sugestao_request[indice]["kingdom"], sugestao_request[indice]["phylum"], sugestao_request[indice]["order"], sugestao_request[indice]["family"], sugestao_request[indice]["genus"], sugestao_request[indice]["species"], sugestao_request[indice]["especies"])
+                        for key in self.ocorrencias_NC[nome_errado]:
                             if sugestao_request[indice]["species"] not in sugestoes:
                                 sugestoes.append(sugestao_request[indice]["species"])
+                            self.ocorrencias_NC[nome_errado][key]["Sugestão"] = []
                     if len(sugestoes) > 1:
                         self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = sugestoes 
                     else:
@@ -315,7 +314,6 @@ class Tratamento_de_Dados:
             else:
                 coluna_tratada[nome] = {"quantidade":tratar_coluna.count(nome)}
         return coluna_tratada
-
     def Comparar_String(self, String1, String2):
         Ratio_valor = fuzz.ratio(String1.lower(), String2.lower())
         Partial_Ratio_valor = fuzz.partial_ratio(String1.lower(), String2.lower())
@@ -324,7 +322,6 @@ class Tratamento_de_Dados:
         Media = (Ratio_valor+Partial_Ratio_valor+Token_Sort_Ratio_valor+Token_Set_Ratio_valor)/4
 
         return Media
-    
     def Verificar_similaridade_de_string(self, coluna):
         if type(coluna) == int:
             tratar_coluna = self.Ocorrencia_de_String_na_Coluna(coluna)
@@ -389,7 +386,7 @@ class Hierarquia_Taxonomica:
         self.corretude_ordem = "EXACT" if self.ordem == ordem else self.corretude_ordem = "FUZZY"
         self.corretude_familia = "EXACT" if self.familia == familia else self.corretude_familia = "FUZZY"
         self.corretude_genero = "EXACT" if self.genero == genero else self.corretude_genero = "FUZZY"
-        self.corretude_especie = "EXACT" if self.especie == especie.replace(especie + " ","") else self.corretude_especie = "FUZZY"
+        self.corretude_especie = "EXACT" if self.especie == especie.replace(genero + " ","") else self.corretude_especie = "FUZZY"
         self.corretude_scientific_name = "EXACT" if self.Scientific_Name == especie else self.corretude_scientific_name = "FUZZY"
 
     def Definir_Sugestao_Hierarquica(self, reino, filo, ordem, familia, genero, especie, Scientific_Name):
@@ -398,7 +395,7 @@ class Hierarquia_Taxonomica:
         self.sugestao_ordem = None if self.corretude_ordem == "EXACT" else self.sugestao_ordem = ordem
         self.sugestao_familia = None if self.corretude_familia == "EXACT" else self.sugestao_familia = familia
         self.sugestao_genero = None if self.corretude_genero == "EXACT" else self.sugestao_genero = genero
-        self.sugestao_especie = None if self.corretude_especie == "EXACT" else self.sugestao_especie = especie.replace(especie + " ", "")
+        self.sugestao_especie = None if self.corretude_especie == "EXACT" else self.sugestao_especie = especie.replace(genero + " ", "")
         self.sugestao_scientific_name = None if self.corretude_scientific_name == "EXACT" else self.sugestao_scientific_name = especie
 
     def get_Reino(self):
