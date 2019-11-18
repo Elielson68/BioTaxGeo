@@ -294,14 +294,13 @@ class Tratamento_de_Dados:
                     for indice in range(0,len(sugestao_request)):
                         self.hierarquia_taxonomiaca.Definir_Corretude_Hierarquica(sugestao_request[indice]["kingdom"], sugestao_request[indice]["phylum"], sugestao_request[indice]["order"], sugestao_request[indice]["family"], sugestao_request[indice]["genus"], sugestao_request[indice]["species"], sugestao_request[indice]["especies"])
                         self.hierarquia_taxonomiaca.Definir_Sugestao_Hierarquica(sugestao_request[indice]["kingdom"], sugestao_request[indice]["phylum"], sugestao_request[indice]["order"], sugestao_request[indice]["family"], sugestao_request[indice]["genus"], sugestao_request[indice]["species"], sugestao_request[indice]["especies"])
-                        for key in self.ocorrencias_NC[nome_errado]:
-                            if sugestao_request[indice]["species"] not in sugestoes:
-                                sugestoes.append(sugestao_request[indice]["species"])
-                            self.ocorrencias_NC[nome_errado][key]["Sugestão"] = []
-                    if len(sugestoes) > 1:
-                        self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = sugestoes 
-                    else:
-                        self.ocorrencias_NC[nome_errado]["Sugestão de Nome"] = sugestoes[0]
+                        self.ocorrencias_NC[nome_errado]["Reino"]["Sugestão"].append(self.hierarquia_taxonomiaca.get_Sugestao_Reino()) if self.hierarquia_taxonomiaca.get_Sugestao_Reino() not in self.ocorrencias_NC[nome_errado]["Reino"]["Sugestão"] else None
+                        self.ocorrencias_NC[nome_errado]["Filo"]["Sugestão"].append(self.hierarquia_taxonomiaca.get_Sugestao_Filo()) if self.hierarquia_taxonomiaca.get_Sugestao_Filo() not in self.ocorrencias_NC[nome_errado]["Filo"]["Sugestão"] else None
+                        self.ocorrencias_NC[nome_errado]["Ordem"]["Sugestão"].append(self.hierarquia_taxonomiaca.get_Sugestao_Ordem()) if self.hierarquia_taxonomiaca.get_Sugestao_Ordem() not in self.ocorrencias_NC[nome_errado]["Ordem"]["Sugestão"] else None
+                        self.ocorrencias_NC[nome_errado]["Família"]["Sugestão"].append(self.hierarquia_taxonomiaca.get_Sugestao_Familia()) if self.hierarquia_taxonomiaca.get_Sugestao_Familia() not in self.ocorrencias_NC[nome_errado]["Família"]["Sugestão"] else None
+                        self.ocorrencias_NC[nome_errado]["Gênero"]["Sugestão"].append(self.hierarquia_taxonomiaca.get_Sugestao_Genero()) if self.hierarquia_taxonomiaca.get_Sugestao_Genero() not in self.ocorrencias_NC[nome_errado]["Gênero"]["Sugestão"] else None
+                        self.ocorrencias_NC[nome_errado]["Espécie"]["Sugestão"].append(self.hierarquia_taxonomiaca.get_Sugestao_Especie()) if self.hierarquia_taxonomiaca.get_Sugestao_Especie() not in self.ocorrencias_NC[nome_errado]["Espécie"]["Sugestão"] else None
+                        self.ocorrencias_NC[nome_errado]["Nome Científico"]["Sugestão"].append(self.hierarquia_taxonomiaca.get_Sugestao_Scientific_Name()) if self.hierarquia_taxonomiaca.get_Sugestao_Scientific_Name() not in self.ocorrencias_NC[nome_errado]["Nome Científico"]["Sugestão"] else None
         return self.ocorrencias_NC
 
 
@@ -381,22 +380,22 @@ class Hierarquia_Taxonomica:
         return self.reino, self.filo, self.ordem, self.familia, self.genero, self.especie, self.Scientific_Name
 
     def Definir_Corretude_Hierarquica(self, reino, filo, ordem, familia, genero, especie, Scientific_Name):
-        self.corretude_reino = "EXACT" if self.reino == reino else self.corretude_reino = "FUZZY"
-        self.corretude_filo = "EXACT" if self.filo == filo else self.corretude_filo = "FUZZY"
-        self.corretude_ordem = "EXACT" if self.ordem == ordem else self.corretude_ordem = "FUZZY"
-        self.corretude_familia = "EXACT" if self.familia == familia else self.corretude_familia = "FUZZY"
-        self.corretude_genero = "EXACT" if self.genero == genero else self.corretude_genero = "FUZZY"
-        self.corretude_especie = "EXACT" if self.especie == especie.replace(genero + " ","") else self.corretude_especie = "FUZZY"
-        self.corretude_scientific_name = "EXACT" if self.Scientific_Name == especie else self.corretude_scientific_name = "FUZZY"
+        self.corretude_reino = "EXACT" if (self.reino == reino) else "FUZZY"
+        self.corretude_filo = "EXACT" if self.filo == filo else "FUZZY"
+        self.corretude_ordem = "EXACT" if self.ordem == ordem else "FUZZY"
+        self.corretude_familia = "EXACT" if self.familia == familia else "FUZZY"
+        self.corretude_genero = "EXACT" if self.genero == genero else "FUZZY"
+        self.corretude_especie = "EXACT" if self.especie == especie.replace(genero + " ","") else "FUZZY"
+        self.corretude_scientific_name = "EXACT" if self.Scientific_Name == especie else "FUZZY"
 
     def Definir_Sugestao_Hierarquica(self, reino, filo, ordem, familia, genero, especie, Scientific_Name):
-        self.sugestao_reino = None if self.corretude_reino == "EXACT" else self.sugestao_reino = reino
-        self.sugestao_filo = None if self.corretude_filo == "EXACT" else self.sugestao_filo = filo
-        self.sugestao_ordem = None if self.corretude_ordem == "EXACT" else self.sugestao_ordem = ordem
-        self.sugestao_familia = None if self.corretude_familia == "EXACT" else self.sugestao_familia = familia
-        self.sugestao_genero = None if self.corretude_genero == "EXACT" else self.sugestao_genero = genero
-        self.sugestao_especie = None if self.corretude_especie == "EXACT" else self.sugestao_especie = especie.replace(genero + " ", "")
-        self.sugestao_scientific_name = None if self.corretude_scientific_name == "EXACT" else self.sugestao_scientific_name = especie
+        self.sugestao_reino = None if self.corretude_reino == "EXACT" else reino
+        self.sugestao_filo = None if self.corretude_filo == "EXACT" else  filo
+        self.sugestao_ordem = None if self.corretude_ordem == "EXACT" else ordem
+        self.sugestao_familia = None if self.corretude_familia == "EXACT" else familia
+        self.sugestao_genero = None if self.corretude_genero == "EXACT" else genero
+        self.sugestao_especie = None if self.corretude_especie == "EXACT" else especie.replace(genero + " ", "")
+        self.sugestao_scientific_name = None if self.corretude_scientific_name == "EXACT" else especie
 
     def get_Reino(self):
         return self.reino

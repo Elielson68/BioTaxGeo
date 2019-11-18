@@ -532,7 +532,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574101763806</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela">
+      <created>1574104944647</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1574104944647</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -566,7 +573,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Alteração das vertices pelos: inputs; markers e clicks." />
     <MESSAGE value="Criando formas automaticamente" />
     <MESSAGE value="Criando circulo" />
     <MESSAGE value="Exclusão de vértice: retirado os inputs, retirado os markers e vertice. Falta configurar os novos inputs a serem plotados pós exclusão" />
@@ -591,7 +597,8 @@
     <MESSAGE value="env upada pro git" />
     <MESSAGE value="JSON resultando os valores da chave referente a coluna da planilha" />
     <MESSAGE value="Criado classe Hierarquia Taxonomica para organizar mais o codigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criado classe Hierarquia Taxonomica para organizar mais o codigo" />
+    <MESSAGE value="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
