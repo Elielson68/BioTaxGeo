@@ -55,7 +55,6 @@
           verificacao = "{{verificacao}}"
           console.log(verificacao)
           verificacao = verificacao.replace(/&#34;/g,`"`);
-          
           verificacao = JSON.parse(verificacao)
           console.log(verificacao)
           var valores_modificados = [[],[]]
@@ -67,63 +66,33 @@
             tr_head.appendChild(th);
           }
 
-          function CriarLinhas(reino, filo, classe, ordem, familia, genero, especie, nome_cientifico){
+          function CriarLinhas(Hierarquia){
             var tr_body = document.createElement("tr");
-            if(corretude == "NONE"){
-              var td_nome = document.createElement("td");
-              td_nome.innerHTML = nome;
-              td_nome.style = "color: red;vertical-align: middle;";
-
-              var sugestao_formatada = "";
-              
-              for(nominho in sugestao){
-                sugestao_formatada += nominho+": "+sugestao[nominho]+"%<br>"
-              }
-              var td_sugestao = document.createElement("td");
-              td_sugestao.innerHTML = sugestao_formatada;
-              td_sugestao.style = "color: green;vertical-align: middle;";
-            }
-            else if(corretude == "FUZZY"){
-              var td_nome = document.createElement("td");
-              td_nome.innerHTML = "<u>"+nome+"</u>";
-              td_nome.addEventListener("click",AlterandoDados)
-              td_nome.setAttribute("data-toggle","modal")
-              td_nome.setAttribute("data-target","#exampleModal")
-              td_nome.style = "color: red;"
-              var td_sugestao = document.createElement("td");
-              td_sugestao.innerHTML = sugestao;
-              td_sugestao.style = "color: green;"
-              td_sugestao.id = nome
-            }
-            else{
-              var td_nome = document.createElement("td");
-              td_nome.innerHTML = nome;
-              var td_sugestao = document.createElement("td");
-              td_sugestao.innerHTML = sugestao;
-            }
             tbody.appendChild(tr_body);
-            
-            var td_quantidade = document.createElement("td");
-            td_quantidade.innerHTML = quantidade;
-            td_quantidade.style = "vertical-align: middle;";
-            var td_precisao = document.createElement("td");
-            td_precisao.innerHTML = precisao;
-            td_precisao.style = "vertical-align: middle;";
-            var td_corretude = document.createElement("td");
-            td_corretude.innerHTML = corretude;
-            td_corretude.style = "vertical-align: middle;";
-            var td_genus = document.createElement("td")
-            td_genus.innerHTML = genus
-            var td_specie = document.createElement("td")
-            td_specie.innerHTML = specie
+             
+            var td_reino = document.createElement("td");
+            var td_filo = document.createElement("td");
+            var td_ordem = document.createElement("td");
+            var td_familia = document.createElement("td");
+            var td_genero = document.createElement("td");
+            var td_especie = document.createElement("td");
+            var td_nome_cientifico = document.createElement("td");
+            console.log(Hierarquia)
+            td_reino.innerHTML = Hierarquia["Reino"]["Tipo"]
+            td_filo.innerHTML = Hierarquia["Filo"]["Tipo"]
+            td_ordem.innerHTML = Hierarquia["Ordem"]["Tipo"]
+            td_familia.innerHTML = Hierarquia["Família"]["Tipo"]
+            td_genero.innerHTML = Hierarquia["Gênero"]["Tipo"]
+            td_especie.innerHTML = Hierarquia["Espécie"]["Tipo"]
+            td_nome_cientifico.innerHTML = Hierarquia["Nome Científico"]["Tipo"]
 
-            tr_body.appendChild(td_nome);
-            tr_body.appendChild(td_quantidade);
-            tr_body.appendChild(td_precisao);
-            tr_body.appendChild(td_corretude);
-            tr_body.appendChild(td_sugestao);
-            tr_body.appendChild(td_genus);
-            tr_body.appendChild(td_specie);
+            tr_body.appendChild(td_reino);
+            tr_body.appendChild(td_filo);
+            tr_body.appendChild(td_ordem);
+            tr_body.appendChild(td_familia);
+            tr_body.appendChild(td_genero);
+            tr_body.appendChild(td_especie);
+            tr_body.appendChild(td_nome_cientifico);
           }
           
           function AlterandoDados(){
@@ -153,10 +122,9 @@
             }
             break;
           }
-          /*
           for(nome in verificacao){
-            CriarLinhas(nome, verificacao[nome]["quantidade"],verificacao[nome]["precisão"],verificacao[nome]["corretude"],verificacao[nome]["Sugestão de Nome"],verificacao[nome]["Genus"], verificacao[nome]["Specie"])
-          }*/
+            CriarLinhas(verificacao[nome])
+          }
           
           
         </script>
