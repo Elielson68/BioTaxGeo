@@ -223,13 +223,6 @@
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
     </task>
-    <task id="LOCAL-00002" summary="Mapa Atualizadaço">
-      <created>1569009201858</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1569009201858</updated>
-    </task>
     <task id="LOCAL-00003" summary="teste">
       <created>1569439907969</created>
       <option name="number" value="00003" />
@@ -566,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574106390649</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Hierarquia sendo analisada por completo, verificar quanto aos genus e species que são sinonimos, se considera o canonicalname ou o genus e specie">
+      <created>1574184935897</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1574184935897</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -600,7 +600,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Criando circulo" />
     <MESSAGE value="Exclusão de vértice: retirado os inputs, retirado os markers e vertice. Falta configurar os novos inputs a serem plotados pós exclusão" />
     <MESSAGE value="Seleção de poligonos para editar(manipular vertices), salvando poligonos novos criados" />
     <MESSAGE value="inserido condições para criação de novos poligonos, foi restrito a ter pelo menos 3 vertices" />
@@ -625,7 +624,8 @@
     <MESSAGE value="Criado classe Hierarquia Taxonomica para organizar mais o codigo" />
     <MESSAGE value="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela" />
     <MESSAGE value="Consertar erro que deu na chave" />
-    <option name="LAST_COMMIT_MESSAGE" value="Consertar erro que deu na chave" />
+    <MESSAGE value="Hierarquia sendo analisada por completo, verificar quanto aos genus e species que são sinonimos, se considera o canonicalname ou o genus e specie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hierarquia sendo analisada por completo, verificar quanto aos genus e species que são sinonimos, se considera o canonicalname ou o genus e specie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
