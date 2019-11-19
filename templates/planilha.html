@@ -51,15 +51,14 @@
           var thead = document.getElementById("thead_tabela")
           var tr_head = document.getElementById("tr_thead")
           var tbody = document.getElementById("tbody_tabela")
-          var titulos = "{{titulos}}"
           var celula_errada;
-          titulos = titulos.replace(/&#39;/g,'"');
-          titulos = JSON.parse(titulos)
           verificacao = "{{verificacao}}"
-          verificacao = verificacao.replace(/&#34;/g,'"');
-          verificacao = JSON.parse(verificacao)
-          var valores_modificados = [[],[]]
           console.log(verificacao)
+          verificacao = verificacao.replace(/&#34;/g,`"`);
+          
+          verificacao = JSON.parse(verificacao)
+          console.log(verificacao)
+          var valores_modificados = [[],[]]
           
           function CriarCabecario(titulo){
             var th = document.createElement("th");
@@ -154,10 +153,10 @@
             }
             break;
           }
-          
+          /*
           for(nome in verificacao){
             CriarLinhas(nome, verificacao[nome]["quantidade"],verificacao[nome]["precisão"],verificacao[nome]["corretude"],verificacao[nome]["Sugestão de Nome"],verificacao[nome]["Genus"], verificacao[nome]["Specie"])
-          }
+          }*/
           
           
         </script>
