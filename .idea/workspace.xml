@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gbif_Testes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gbif_Testes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/planilha.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/planilha.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/requerimentos_para_leitura_de_planilha.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/requerimentos_para_leitura_de_planilha.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -221,13 +224,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Pesquisa nas áreas com plotagem">
-      <created>1569440011727</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1569440011727</updated>
     </task>
     <task id="LOCAL-00006" summary="alterações simples">
       <created>1569440111673</created>
@@ -565,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574191236452</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Imprimindo na tabela os nomes (Ok)">
+      <created>1574192316335</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1574192316335</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -599,7 +602,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="inserido condições para criação de novos poligonos, foi restrito a ter pelo menos 3 vertices" />
     <MESSAGE value="inserido mouseover sobre os inputs na selecao dos poligonos" />
     <MESSAGE value="mouseover foi melhorado para saber em qual poligono a pessoa está editando" />
     <MESSAGE value="Adicionado identificador dos poligonos alem do identificador do dropdown, ao clicar no poligono ele cria uma caixinha informando qual é o poligono clicado" />
@@ -624,7 +626,8 @@
     <MESSAGE value="Hierarquia sendo analisada por completo, verificar quanto aos genus e species que são sinonimos, se considera o canonicalname ou o genus e specie" />
     <MESSAGE value="Verificacao completa da hierarquia, comecar a criar a tela onde mostrara os erros" />
     <MESSAGE value="Passando JSON pro HTML, comecar a leitura dos dados e por na tabela" />
-    <option name="LAST_COMMIT_MESSAGE" value="Passando JSON pro HTML, comecar a leitura dos dados e por na tabela" />
+    <MESSAGE value="Imprimindo na tabela os nomes (Ok)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Imprimindo na tabela os nomes (Ok)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

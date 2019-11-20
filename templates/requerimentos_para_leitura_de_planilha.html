@@ -73,13 +73,11 @@
                   </tr>
                </tbody>
             </table>
+            <form action="http://localhost:8080/verificacao" method = "POST" enctype = "multipart/form-data">
+               <input type="text" name = "selecao" value="" hidden="hidden" id="titulos_selecao"/> 
+               <input id="submit_home" type="submit" value="Iniciar verificação" class="btn btn-success btn-lg btn-block"/>
+             </form>
         </div>
-        <div>
-                <form action="http://localhost:8080/verificacao" method = "POST" enctype = "multipart/form-data">
-                  <input type="text" name = "selecao" value="" hidden="hidden" id="titulos_selecao"/> 
-                  <input id="submit_home" type="submit" value="Iniciar verificação" class="btn btn-success"/>
-                </form>
-              </div>
         <script>
             var titulos = "{{titulos}}";
             titulos = titulos.replace(/&#39;/g,'"');

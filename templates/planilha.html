@@ -53,16 +53,20 @@
           var tbody = document.getElementById("tbody_tabela")
           var celula_errada;
           verificacao = "{{verificacao}}"
-          console.log(verificacao)
           verificacao = verificacao.replace(/&#34;/g,`"`);
           verificacao = JSON.parse(verificacao)
-          console.log(verificacao)
-          var valores_modificados = [[],[]]
+          total_linhas = "{{total_linhas}}"
           
           function CriarCabecario(titulo){
             var th = document.createElement("th");
             th.setAttribute("scope","col");
-            th.innerHTML = titulo;
+            if(titulo != "Nome Científico"){
+              th.innerHTML = `${titulo}: ${total_linhas-1}`;
+            }
+            else{
+              th.innerHTML = `${titulo}: 0`;
+            }
+            
             tr_head.appendChild(th);
           }
 
@@ -77,14 +81,86 @@
             var td_genero = document.createElement("td");
             var td_especie = document.createElement("td");
             var td_nome_cientifico = document.createElement("td");
-            console.log(Hierarquia)
-            td_reino.innerHTML = Hierarquia["Reino"]["Tipo"]
-            td_filo.innerHTML = Hierarquia["Filo"]["Tipo"]
-            td_ordem.innerHTML = Hierarquia["Ordem"]["Tipo"]
-            td_familia.innerHTML = Hierarquia["Família"]["Tipo"]
-            td_genero.innerHTML = Hierarquia["Gênero"]["Tipo"]
-            td_especie.innerHTML = Hierarquia["Espécie"]["Tipo"]
-            td_nome_cientifico.innerHTML = Hierarquia["Nome Científico"]["Tipo"]
+
+            td_reino.innerHTML = `${Hierarquia["Reino"]["Tipo"]}: ${Hierarquia["Reino"]["Quantidade"]}`
+            if(Hierarquia["Reino"]["Corretude"] != "EXACT"){
+              td_reino.style = "color: red" 
+              td_reino.setAttribute("data-target","#exampleModal")
+              td_reino.setAttribute("data-toggle","modal")
+              Hierarquia["Reino"]["Corretude"] == "FUZZY" ? td_reino.addEventListener("click", AlterandoDados1) : td_reino.addEventListener("click", AlterandoDados2)
+              td_reino.className = "Reino"
+              td_reino.id = Hierarquia["Nome Científico"]["Tipo"]+"Reino"
+            }
+            else {
+              td_reino.style = "color: white;" 
+            }
+
+            td_filo.innerHTML = `${Hierarquia["Filo"]["Tipo"]}: ${Hierarquia["Filo"]["Quantidade"]}`
+            if(Hierarquia["Filo"]["Corretude"] != "EXACT"){
+              td_filo.style = "color: red" 
+              td_filo.setAttribute("data-target","#exampleModal")
+              td_filo.setAttribute("data-toggle","modal")
+              Hierarquia["Filo"]["Corretude"] == "FUZZY" ? td_filo.addEventListener("click", AlterandoDados1) : td_filo.addEventListener("click", AlterandoDados2)
+              td_filo.className = "Filo"
+              td_filo.id = Hierarquia["Nome Científico"]["Tipo"]+"Filo"
+            }
+            else {
+              td_filo.style = "color: white;" 
+            }
+
+            td_ordem.innerHTML = `${Hierarquia["Ordem"]["Tipo"]}: ${Hierarquia["Ordem"]["Quantidade"]}`
+            if(Hierarquia["Ordem"]["Corretude"] != "EXACT"){
+              td_ordem.style = "color: red" 
+              td_ordem.setAttribute("data-target","#exampleModal")
+              td_ordem.setAttribute("data-toggle","modal")
+              Hierarquia["Ordem"]["Corretude"] == "FUZZY" ? td_ordem.addEventListener("click", AlterandoDados1) : td_ordem.addEventListener("click", AlterandoDados2)
+              td_ordem.className = "Ordem"
+              td_ordem.id = Hierarquia["Nome Científico"]["Tipo"]+"Ordem"
+            }
+            else {
+              td_ordem.style = "color: white;" 
+            }
+
+            td_familia.innerHTML = `${Hierarquia["Família"]["Tipo"]}: ${Hierarquia["Família"]["Quantidade"]}`
+            if(Hierarquia["Família"]["Corretude"] != "EXACT"){
+              td_familia.style = "color: red" 
+              td_familia.setAttribute("data-target","#exampleModal")
+              td_familia.setAttribute("data-toggle","modal")
+              Hierarquia["Família"]["Corretude"] == "FUZZY" ? td_familia.addEventListener("click", AlterandoDados1) : td_familia.addEventListener("click", AlterandoDados2)
+              td_familia.className = "Família"
+              td_familia.id = Hierarquia["Nome Científico"]["Tipo"]+"Família"
+            }
+            else {
+              td_familia.style = "color: white;" 
+            }
+
+            td_genero.innerHTML = `${Hierarquia["Gênero"]["Tipo"]}: ${Hierarquia["Gênero"]["Quantidade"]}`
+            if(Hierarquia["Gênero"]["Corretude"] != "EXACT"){
+              td_genero.style = "color: red" 
+              td_genero.setAttribute("data-target","#exampleModal")
+              td_genero.setAttribute("data-toggle","modal")
+              Hierarquia["Gênero"]["Corretude"] == "FUZZY" ? td_genero.addEventListener("click", AlterandoDados1) : td_genero.addEventListener("click", AlterandoDados2)
+              td_genero.className = "Gênero"
+              td_genero.id = Hierarquia["Nome Científico"]["Tipo"]+"Gênero"
+            }
+            else {
+              td_genero.style = "color: white;" 
+            }
+
+            td_especie.innerHTML = `${Hierarquia["Espécie"]["Tipo"]}: ${Hierarquia["Espécie"]["Quantidade"]}`
+            if(Hierarquia["Espécie"]["Corretude"] != "EXACT"){
+              td_especie.style = "color: red" 
+              td_especie.setAttribute("data-target","#exampleModal")
+              td_especie.setAttribute("data-toggle","modal")
+              Hierarquia["Espécie"]["Corretude"] == "FUZZY" ? td_especie.addEventListener("click", AlterandoDados1) : td_especie.addEventListener("click", AlterandoDados2)
+              td_especie.className = "Espécie"
+              td_especie.id = Hierarquia["Nome Científico"]["Tipo"]+"Espécie"
+            }
+            else {
+              td_especie.style = "color: white;" 
+            }
+
+            td_nome_cientifico.innerHTML = `${Hierarquia["Nome Científico"]["Tipo"]}: 0<br>Canonical Name`
 
             tr_body.appendChild(td_reino);
             tr_body.appendChild(td_filo);
@@ -95,23 +171,37 @@
             tr_body.appendChild(td_nome_cientifico);
           }
           
-          function AlterandoDados(){
+          function AlterandoDados1(){
+            celula_errada = this;
             texto = document.getElementById("texto_modal")
-            celula_errada = this
-            valor_errado = this.innerHTML.replace("/","").replace(/<u>/g,"");
-            texto.innerHTML = "Deseja alterar o valor de "+valor_errado+" para "+verificacao[valor_errado]["Sugestão de Nome"]+"?<br>Serão alterados "+verificacao[valor_errado]["quantidade"]+" valores de sua planilha."
+            valor_errado = this.innerHTML;
+            key1 = this.id.replace(this.className, "")
+            key2 = this.className
+            quantidade = verificacao[key1][key2]["Quantidade"]
+            valor_errado = valor_errado.replace(": "+quantidade, "");
+            valor_certo = verificacao[key1][key2]["Sugestão"]
+            
+            texto.innerHTML = "Fuzzy.<br>Verificamos que seu dado pode estar possivelmente errado.<br>Deseja alterar o valor de <label style='color: red;'>"+valor_errado+"</label> para <label style='color: green;'>"+valor_certo+"</label>?<br>Serão alterados "+quantidade+" valores de sua planilha."
+          }
+          function AlterandoDados2(){
+            celula_errada = this;
+            texto = document.getElementById("texto_modal")
+            valor_errado = this.innerHTML;
+            key1 = this.id.replace(this.className, "")
+            key2 = this.className
+            quantidade = verificacao[key1][key2]["Quantidade"]
+            valor_errado = valor_errado.replace(": "+quantidade, "");
+            valor_certo = verificacao[key1][key2]["Sugestão"]
+            
+            texto.innerHTML = "None.<br>Verificamos que seu dado pode estar possivelmente errado.<br>Deseja alterar o valor de <label style='color: red;'>"+valor_errado+"</label> para <label style='color: green;'>"+valor_certo+"</label>?<br>Serão alterados "+quantidade+" valores de sua planilha."
           }
           function SalvarAlteracao(){
-            key_objeto = celula_errada.innerHTML.replace("/","").replace(/<u>/g,"");
-            valores_modificados[0].push(key_objeto);
-            valores_modificados[1].push(verificacao[key_objeto]["Sugestão de Nome"]);
-            celula_errada.innerHTML = verificacao[key_objeto]["Sugestão de Nome"];
+            key1 = celula_errada.id.replace(celula_errada.className, "")
+            key2 = celula_errada.className
+            celula_errada.innerHTML = verificacao[key1][key2]["Sugestão"]+": "+verificacao[key1][key2]["Quantidade"];
             celula_errada.style = "color: white;";
             celula_errada.setAttribute("data-toggle","");
             celula_errada.setAttribute("data-target","");
-            modificado = document.getElementById(key_objeto);
-            modificado.innerHTML = "Modificado";
-
             dados = document.getElementById("dados")
             enviar_valores = JSON.stringify(valores_modificados)
             dados.innerHTML =  enviar_valores
