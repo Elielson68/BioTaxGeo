@@ -120,6 +120,7 @@ class Planilha:
     def set_Colunas_para_verificar(self, titulos):
         for coluna in titulos:
             valores_em_coluna = self.pegar_Valores_da_coluna(titulos[coluna])
+            self.tratamento_de_dados.set_Titulos_Originais(titulos[coluna])
             self.tratamento_de_dados.set_Colunas_para_verificar(coluna, valores_em_coluna)
     def get_Colunas_para_verificar(self):
         return self.tratamento_de_dados.get_Colunas_para_verificar()
@@ -162,10 +163,14 @@ class Tratamento_de_Dados:
         self.ocorrencias_NC = {} #NC = Nomes Científicos
         self.colunas_para_verificar = {}
         self.planilha = plan
+        self.titulos_originais = []
         self.hierarquia_taxonomiaca = None
     def set_Colunas_para_verificar(self, titulo, valor):
             self.colunas_para_verificar[titulo] = valor
-    
+    def set_Titulos_Originais(self, titulo):
+        self.titulos_originais.append(titulo)
+    def get_Titulos_Originais(self):
+        return self.titulos_originais
     def get_Colunas_para_verificar(self):
         if not self.colunas_para_verificar:
             return "Lista vazia"
@@ -190,37 +195,43 @@ class Tratamento_de_Dados:
                                                                                         "Tipo"      : self.hierarquia_taxonomiaca.get_Reino(),
                                                                                         "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Reino(),
                                                                                         "Quantidade": NC_value['reino'].count(self.hierarquia_taxonomiaca.get_Reino()),
-                                                                                        "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Reino()
+                                                                                        "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Reino(),
+                                                                                        "Titulo": self.get_Titulos_Originais()[0]
                                                                                    },
                                                                 "Filo"           : {
                                                                                         "Tipo"      : self.hierarquia_taxonomiaca.get_Filo(),
                                                                                         "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Filo(),
                                                                                         "Quantidade": NC_value['filo'].count(self.hierarquia_taxonomiaca.get_Filo()),
-                                                                                        "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Filo()
+                                                                                        "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Filo(),
+                                                                                        "Titulo": self.get_Titulos_Originais()[1]
                                                                                    },
                                                                 "Ordem"          : {
                                                                                         "Tipo"      : self.hierarquia_taxonomiaca.get_Ordem(),
                                                                                         "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Ordem(),
                                                                                         "Quantidade": NC_value['ordem'].count(self.hierarquia_taxonomiaca.get_Ordem()),
-                                                                                        "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Ordem()
+                                                                                        "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Ordem(),
+                                                                                        "Titulo": self.get_Titulos_Originais()[3]
                                                                                    },
                                                                 "Família"        : {
                                                                                         "Tipo"      : self.hierarquia_taxonomiaca.get_Familia(),
                                                                                         "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Familia(),
                                                                                         "Quantidade": NC_value['familia'].count(self.hierarquia_taxonomiaca.get_Familia()),
-                                                                                        "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Familia()
+                                                                                        "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Familia(),
+                                                                                        "Titulo": self.get_Titulos_Originais()[4]
                                                                                    },
                                                                 "Gênero"         : {
                                                                                         "Tipo"      : self.hierarquia_taxonomiaca.get_Genero(),
                                                                                         "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Genero(),
                                                                                         "Quantidade": NC_value['genero'].count(self.hierarquia_taxonomiaca.get_Genero()),
-                                                                                        "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Genero()
+                                                                                        "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Genero(),
+                                                                                        "Titulo": self.get_Titulos_Originais()[5]
                                                                                    },
                                                                 "Espécie"        : {
                                                                                         "Tipo"      : self.hierarquia_taxonomiaca.get_Especie(),
                                                                                         "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Especie(),
                                                                                         "Quantidade": NC_value['especie'].count(self.hierarquia_taxonomiaca.get_Especie()),
-                                                                                        "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Especie()
+                                                                                        "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Especie(),
+                                                                                        "Titulo": self.get_Titulos_Originais()[6]
                                                                                    },
                                                                 "Nome Científico": {
                                                                                         "Tipo": self.hierarquia_taxonomiaca.get_Scientific_Name(),
@@ -327,6 +338,8 @@ class Tratamento_de_Dados:
 
         return self.ocorrencias_NC
 
+    def pegar_NC_Tratado(self):
+        return self.ocorrencias_NC
 
     def Ocorrencia_de_String_na_Coluna(self, coluna):
         tratar_coluna = self.planilha.col_values(coluna,1)
@@ -358,11 +371,14 @@ class Tratamento_de_Dados:
                     sugestoes.append({"Similaridade de": self.Comparar_String(nome1, nome2), "Sugestão de nome": nome2})
             tratar_coluna[nome1]["Sugestões"] = sugestoes
         return tratar_coluna
-    def AlterandoDadosPlanilha(self, coluna, dado_errado, dado_certo):
-        index_coluna = self.planilha.row_values(0).index(coluna)
-        for linha in self.planilha.get_Total_de_linhas():
-            if(dado_errado == self.planilha.pegar_Valor_na_celula(linha, index_coluna)):
-                self.planilha_formatada.write(linha,index_coluna, dado_certo)
+    def AlterandoDadosPlanilha(self, dados_para_alterar):
+        for valores in dados_para_alterar:
+            print(self.planilha.get_Total_de_linhas())
+            index_coluna = self.planilha.row_values(0).index(self.pegar_NC_Tratado()[valores][list(dados_para_alterar[valores])[0]]["Titulo"])
+            for linha in range(0, self.planilha.get_Total_de_linhas()):
+                if(self.pegar_NC_Tratado()[valores][list(dados_para_alterar[valores])[0]]["Tipo"] == self.planilha.pegar_Valor_na_celula(linha, index_coluna)):
+                    for valor in dados_para_alterar[valores]:
+                        self.planilha_formatada.write(valor)
     def SalvarPlanilhaFormatada(self):
         return self.arquivo_escrita.save("Planilha_Formatada.xls")
 

@@ -21,7 +21,7 @@
         <div>
           <form action="http://localhost:8080/salvar" method = "POST" enctype = "multipart/form-data">
             <input type="text" name = "dados" value="" hidden="hidden" id="dados"/> 
-            <input id="submit_home" type="submit" value="Salvar alterações" class="btn btn-success"/>
+            <input id="submit_planilha" type="submit" value="Salvar alterações" class="btn btn-success"/>
           </form>
         </div>
 
@@ -52,11 +52,11 @@
           var tr_head = document.getElementById("tr_thead")
           var tbody = document.getElementById("tbody_tabela")
           var celula_errada;
-          verificacao = "{{verificacao}}"
+          var verificacao = "{{verificacao}}"
           verificacao = verificacao.replace(/&#34;/g,`"`);
           verificacao = JSON.parse(verificacao)
-          total_linhas = "{{total_linhas}}"
-          
+          var total_linhas = "{{total_linhas}}"
+          var Alterar_Dados = {}
           function CriarCabecario(titulo){
             var th = document.createElement("th");
             th.setAttribute("scope","col");
@@ -203,8 +203,10 @@
             celula_errada.setAttribute("data-toggle","");
             celula_errada.setAttribute("data-target","");
             dados = document.getElementById("dados")
-            enviar_valores = JSON.stringify(valores_modificados)
-            dados.innerHTML =  enviar_valores
+            Alterar_Dados[key1] = {}
+            Alterar_Dados[key1][key2] =  verificacao[key1][key2]["Sugestão"]
+            enviar_valores = JSON.stringify(Alterar_Dados)
+            dados.value =  enviar_valores
           }
           for(nome in verificacao){
             for(titu in verificacao[nome]){
