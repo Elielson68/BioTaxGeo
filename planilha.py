@@ -124,6 +124,16 @@ class Planilha:
             self.tratamento_de_dados.set_Colunas_para_verificar(coluna, valores_em_coluna)
     def get_Colunas_para_verificar(self):
         return self.tratamento_de_dados.get_Colunas_para_verificar()
+    def AlterandoDadosPlanilha(self, dados_para_alterar):
+        for valores in dados_para_alterar:
+            key1 = valores
+            key2 = list(dados_para_alterar[valores])[0]
+            index_coluna = self.planilha.row_values(0).index(self.tratamento_de_dados.pegar_NC_Tratado()[key1][key2]["Titulo"])
+            for linha in range(0, self.get_Total_de_linhas()):
+                if(self.tratamento_de_dados.pegar_NC_Tratado()[key1][key2]["Tipo"] == self.pegar_Valor_na_celula(linha, index_coluna)):
+                    self.planilha_formatada.write(dados_para_alterar[key1][key2])
+    def SalvarPlanilhaFormatada(self):
+        return self.arquivo_escrita.save("Planilha_Formatada.xls")
 class Coordenadas:
     def __init__(self, Plan):
         self.coluna_latitude = None
@@ -371,16 +381,7 @@ class Tratamento_de_Dados:
                     sugestoes.append({"Similaridade de": self.Comparar_String(nome1, nome2), "Sugestão de nome": nome2})
             tratar_coluna[nome1]["Sugestões"] = sugestoes
         return tratar_coluna
-    def AlterandoDadosPlanilha(self, dados_para_alterar):
-        for valores in dados_para_alterar:
-            print(self.planilha.nrows)
-            index_coluna = self.planilha.row_values(0).index(self.pegar_NC_Tratado()[valores][list(dados_para_alterar[valores])[0]]["Titulo"])
-            for linha in range(0, self.planilha.nrows):
-                if(self.pegar_NC_Tratado()[valores][list(dados_para_alterar[valores])[0]]["Tipo"] == self.planilha.pegar_Valor_na_celula(linha, index_coluna)):
-                    for valor in dados_para_alterar[valores]:
-                        self.planilha_formatada.write(valor)
-    def SalvarPlanilhaFormatada(self):
-        return self.arquivo_escrita.save("Planilha_Formatada.xls")
+
 
 
 class Hierarquia_Taxonomica:

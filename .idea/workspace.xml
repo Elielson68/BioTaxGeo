@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,8 +36,8 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NovaEnv" />
-    <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/NovaEnv/Windows" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -221,6 +225,55 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Atualizado">
+      <created>1569001129869</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1569001129869</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Mapa Atualizadaço">
+      <created>1569009201858</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1569009201858</updated>
+    </task>
+    <task id="LOCAL-00003" summary="teste">
+      <created>1569439907969</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1569439907969</updated>
+    </task>
+    <task id="LOCAL-00004" summary="teste">
+      <created>1569439916274</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1569439916274</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Pesquisa nas áreas com plotagem">
+      <created>1569440011727</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1569440011727</updated>
+    </task>
+    <task id="LOCAL-00006" summary="alterações simples">
+      <created>1569440111673</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1569440111673</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Projeto Configurado">
+      <created>1569440504142</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1569440504142</updated>
     </task>
     <task id="LOCAL-00008" summary="Marker personalizado">
       <created>1569521499353</created>
@@ -516,56 +569,7 @@
       <option name="project" value="LOCAL" />
       <updated>1574104944647</updated>
     </task>
-    <task id="LOCAL-00050" summary="Consertar erro que deu na chave">
-      <created>1574106390649</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1574106390649</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Hierarquia sendo analisada por completo, verificar quanto aos genus e species que são sinonimos, se considera o canonicalname ou o genus e specie">
-      <created>1574184935897</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1574184935897</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Verificacao completa da hierarquia, comecar a criar a tela onde mostrara os erros">
-      <created>1574189697550</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1574189697550</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Passando JSON pro HTML, comecar a leitura dos dados e por na tabela">
-      <created>1574191236452</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1574191236452</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Imprimindo na tabela os nomes (Ok)">
-      <created>1574192316335</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1574192316335</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Configuracao da hierarquia na tabela (OK), falta enviar dados alterados para o servidor">
-      <created>1574277172158</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1574277172159</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Configuracao da hierarquia na tabela (OK), falta enviar dados alterados para o servidor">
-      <created>1574280869054</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1574280869054</updated>
-    </task>
-    <option name="localTasksCounter" value="57" />
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -599,6 +603,12 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
+    <MESSAGE value="Criando formas automaticamente" />
+    <MESSAGE value="Criando circulo" />
+    <MESSAGE value="Exclusão de vértice: retirado os inputs, retirado os markers e vertice. Falta configurar os novos inputs a serem plotados pós exclusão" />
+    <MESSAGE value="Seleção de poligonos para editar(manipular vertices), salvando poligonos novos criados" />
+    <MESSAGE value="inserido condições para criação de novos poligonos, foi restrito a ter pelo menos 3 vertices" />
+    <MESSAGE value="inserido mouseover sobre os inputs na selecao dos poligonos" />
     <MESSAGE value="mouseover foi melhorado para saber em qual poligono a pessoa está editando" />
     <MESSAGE value="Adicionado identificador dos poligonos alem do identificador do dropdown, ao clicar no poligono ele cria uma caixinha informando qual é o poligono clicado" />
     <MESSAGE value="focando em analisar os dados" />
@@ -618,13 +628,7 @@
     <MESSAGE value="JSON resultando os valores da chave referente a coluna da planilha" />
     <MESSAGE value="Criado classe Hierarquia Taxonomica para organizar mais o codigo" />
     <MESSAGE value="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela" />
-    <MESSAGE value="Consertar erro que deu na chave" />
-    <MESSAGE value="Hierarquia sendo analisada por completo, verificar quanto aos genus e species que são sinonimos, se considera o canonicalname ou o genus e specie" />
-    <MESSAGE value="Verificacao completa da hierarquia, comecar a criar a tela onde mostrara os erros" />
-    <MESSAGE value="Passando JSON pro HTML, comecar a leitura dos dados e por na tabela" />
-    <MESSAGE value="Imprimindo na tabela os nomes (Ok)" />
-    <MESSAGE value="Configuracao da hierarquia na tabela (OK), falta enviar dados alterados para o servidor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Configuracao da hierarquia na tabela (OK), falta enviar dados alterados para o servidor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

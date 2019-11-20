@@ -3,8 +3,10 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/venv/Lib" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/NovaEnv/Windows" />
+      <excludeFolder url="file://$MODULE_DIR$/Venvenv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.7 (SpeciesGeo)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.8 (Windows)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">
