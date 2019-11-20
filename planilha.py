@@ -373,9 +373,9 @@ class Tratamento_de_Dados:
         return tratar_coluna
     def AlterandoDadosPlanilha(self, dados_para_alterar):
         for valores in dados_para_alterar:
-            print(self.planilha.get_Total_de_linhas())
+            print(self.planilha.nrows)
             index_coluna = self.planilha.row_values(0).index(self.pegar_NC_Tratado()[valores][list(dados_para_alterar[valores])[0]]["Titulo"])
-            for linha in range(0, self.planilha.get_Total_de_linhas()):
+            for linha in range(0, self.planilha.nrows):
                 if(self.pegar_NC_Tratado()[valores][list(dados_para_alterar[valores])[0]]["Tipo"] == self.planilha.pegar_Valor_na_celula(linha, index_coluna)):
                     for valor in dados_para_alterar[valores]:
                         self.planilha_formatada.write(valor)
