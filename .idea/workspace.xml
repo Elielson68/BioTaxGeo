@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gbif_Testes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gbif_Testes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Teste2.xls" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -225,13 +224,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Atualizado">
-      <created>1569001129869</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1569001129869</updated>
     </task>
     <task id="LOCAL-00002" summary="Mapa Atualizadaço">
       <created>1569009201858</created>
@@ -569,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574104944647</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Acredito que agora ta funcionando">
+      <created>1574283605157</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1574283605157</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -603,7 +602,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Criando formas automaticamente" />
     <MESSAGE value="Criando circulo" />
     <MESSAGE value="Exclusão de vértice: retirado os inputs, retirado os markers e vertice. Falta configurar os novos inputs a serem plotados pós exclusão" />
     <MESSAGE value="Seleção de poligonos para editar(manipular vertices), salvando poligonos novos criados" />
@@ -628,7 +626,8 @@
     <MESSAGE value="JSON resultando os valores da chave referente a coluna da planilha" />
     <MESSAGE value="Criado classe Hierarquia Taxonomica para organizar mais o codigo" />
     <MESSAGE value="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela" />
+    <MESSAGE value="Acredito que agora ta funcionando" />
+    <option name="LAST_COMMIT_MESSAGE" value="Acredito que agora ta funcionando" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

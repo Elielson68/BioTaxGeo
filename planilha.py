@@ -66,12 +66,12 @@ class Planilha:
 
     def pegar_Valor_na_celula(self, linha, coluna):
         if(linha > self.get_Total_de_linhas()):
-            return print("Linha excede valor total de linhas do arquivo.")
+            return "Linha excede valor total de linhas do arquivo."
         if(coluna > self.get_Total_de_colunas()):
-            return print("Coluna excede valor total de colunas do arquivo.")
+            return "Coluna excede valor total de colunas do arquivo."
         if(linha <= self.get_Total_de_linhas() and coluna <= self.get_Total_de_colunas()):
-            self.valor_na_celula = self.planilha.cell((linha-1), (coluna-1)).value
-            return print(self.valor_na_celula)
+            self.valor_na_celula = self.planilha.cell(linha, coluna).value
+            return self.valor_na_celula
 
     def pegar_Valores_da_coluna(self, coluna):
         self.Resetar_valores()
@@ -93,7 +93,7 @@ class Planilha:
         if(linha <= self.get_Total_de_linhas() and linha > 0):
             self.Resetar_valores()
             self.valores_na_linha = self.planilha.row_values((linha-1))
-            return print(self.valores_na_linha)
+            return self.valores_na_linha
         else:
             return print("Linha excede limite de linhas do documento.")
     
@@ -129,9 +129,12 @@ class Planilha:
             key1 = valores
             key2 = list(dados_para_alterar[valores])[0]
             index_coluna = self.planilha.row_values(0).index(self.tratamento_de_dados.pegar_NC_Tratado()[key1][key2]["Titulo"])
+            print("Index: "+str(index_coluna))
             for linha in range(0, self.get_Total_de_linhas()):
+                print("Tipo: "+self.tratamento_de_dados.pegar_NC_Tratado()[key1][key2]["Tipo"]+"\nCélula: "+self.pegar_Valor_na_celula(linha, index_coluna))
                 if(self.tratamento_de_dados.pegar_NC_Tratado()[key1][key2]["Tipo"] == self.pegar_Valor_na_celula(linha, index_coluna)):
-                    self.planilha_formatada.write(dados_para_alterar[key1][key2])
+                    self.planilha_formatada.write(linha, index_coluna, dados_para_alterar[key1][key2])
+                    print(dados_para_alterar[key1][key2])
     def SalvarPlanilhaFormatada(self):
         return self.arquivo_escrita.save("Planilha_Formatada.xls")
 class Coordenadas:

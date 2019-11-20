@@ -20,19 +20,23 @@ def mapa_teste():
 
 @app.route("/verificacao", methods=["GET", "POST"])
 def verificacao():
-    if request.method == "POST":
-        titulos = request.form["selecao"]
-        titulos = eval(titulos)
-        planilha_atual.set_Colunas_para_verificar(titulos)
-        verificacao = json.dumps(planilha_atual.get_NC_Tratado())
-        return render_template("planilha.html", verificacao=verificacao, total_linhas = planilha_atual.get_Total_de_linhas())
+    try:
+        if request.method == "POST":
+            titulos = request.form["selecao"]
+            titulos = eval(titulos)
+            planilha_atual.set_Colunas_para_verificar(titulos)
+            verificacao = json.dumps(planilha_atual.get_NC_Tratado())
+            return render_template("planilha.html", verificacao=verificacao, total_linhas = planilha_atual.get_Total_de_linhas())
+    except:
+        return redirect(url_for('verificacao'), code=307)
 @app.route("/salvar", methods=["GET", "POST"])
 def salvar():
     if request.method == "POST":
         dados = request.form["dados"]
         dados = eval(dados)
-        planilha_atual.tratamento_de_dados.AlterandoDadosPlanilha(dados)
-        return dados
+        planilha_atual.AlterandoDadosPlanilha(dados)
+        planilha_atual.SalvarPlanilhaFormatada()
+        return "Arquivo Salvo!"
 
 #'POLYGON(([longitude ->]-60.2910 [latitude ->]-14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626))'
 
