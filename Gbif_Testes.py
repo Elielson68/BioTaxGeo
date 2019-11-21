@@ -25,7 +25,8 @@ def verificacao():
             titulos = request.form["selecao"]
             titulos = eval(titulos)
             planilha_atual.set_Colunas_para_verificar(titulos)
-            verificacao = json.dumps(planilha_atual.get_NC_Tratado())
+            planilha_atual.tratamento_de_dados.set_Hierarquia_verificada(planilha_atual.get_Colunas_para_verificar())
+            verificacao = json.dumps(planilha_atual.tratamento_de_dados.get_Hierarquia_verificada())
             return render_template("planilha.html", verificacao=verificacao, total_linhas = planilha_atual.get_Total_de_linhas())
     except:
         return redirect(url_for('verificacao'), code=307)
