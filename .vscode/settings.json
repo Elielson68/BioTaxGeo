@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/usr/local/bin/python3.8",
+    "python.pythonPath": "/home/nbgi/miniconda3/bin/python",
     "python.testing.unittestArgs": [
         "-v",
         "-s",
