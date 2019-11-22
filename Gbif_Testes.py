@@ -38,8 +38,7 @@ def salvar():
         planilha_atual.SalvarPlanilhaFormatada()
         return "Arquivo Salvo!"
 
-#'POLYGON(([longitude ->]-60.2910 [latitude ->]-14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626))'
-
+#'POLYGON(([longitude ->]-60.2910 [latitude ->]-14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626)
 app.run(debug=True, port=8080)
 #'''
 

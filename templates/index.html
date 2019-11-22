@@ -5,6 +5,7 @@
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -13,30 +14,39 @@
         
         <div id=fundo_home></div>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-            <a class="navbar-brand" href="#">SpecieGeo <span class="sr-only">(current)</span></a>
+        <nav style="background: rgb(3,38,4); background: linear-gradient(90deg, rgba(3,38,4,1) 0%, rgba(29,121,32,1) 72%, rgba(33,171,199,1) 100%);" class="navbar sticky-top navbar-expand-lg navbar-light bg-light" >
+            <a style="font-family: 'Tomorrow', sans-serif; color: #ffff; font-size: 30px; letter-spacing:5px" class="navbar-brand" href="#">SpecieGeo <span class="sr-only">(current)</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </nav>
         
-        <div class="card mb-3 shadow p-3 mb-5 bg-white rounded" id="card">
+        <div style="box-shadow: 2px 2px 27px 4px rgba(0,0,0,0.60)" class="card center" id="card">
             <img src="https://www.infoescola.com/wp-content/uploads/2018/02/floresta-amazonica-343759751.jpg" class="card-img-top" alt="Responsive image">
             <div class="card-body">
                 <h5 class="card-title">SpecieGeo - Qualidade de dados</h5>
                 <p class="card-text">Esse software-web permite a análise de arquivos com dados referentes a ocorrência de Espécies. Os tipos de verificações realizadas por ele são: Análise das coordenadas, <strike>Verificação de erros de digitação</strike>, <strike>verificação de erros na localização</strike>.</p>
                 <p class="card-text">Para utilizar o software basta enviar logo abaixo seu arquivo que deve ser verificado.</p>
                 <form action = "http://localhost:8080/ler_planilha" method = "POST" enctype = "multipart/form-data">
-                    <input id="uploadFile" placeholder="Escolha o arquivo" disabled="disabled" />
-                    <div class="fileUpload btn btn-primary">
-                        <span>Selecionar</span>
-                        <input id="uploadBtn" type="file" name="file" class="upload" />
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input class="form-control" id="uploadFile" placeholder="Escolha o arquivo" disabled="disabled" />
+                        </div>
+                        <div class="col-md-4">
+                            <div style="margin-top:0px" class="fileUpload btn btn-primary">
+                                <span>Selecionar</span>
+                                <input id="uploadBtn" type="file" name="file" class="upload" />
+                            </div>
+                        </div>
                     </div>
-                <input id="submit_home" type="submit" value="Enviar arquivo" class="btn btn-success" disabled />
+                    <div class="text-center text-muted">
+                        <input id="submit_home" type="submit" value="Enviar arquivo" class="btn btn-success" disabled />
+                    </div>
                 </form>
+            </div>
+            <div class="card-footer text-muted">
                 <p class="card-text"><small class="text-muted">Atualizado em 24 outubro de 2019</small></p>
-                
-            </div> 
+            </div>
         </div>
         <script>
            document.getElementById("uploadBtn").onchange = function () {

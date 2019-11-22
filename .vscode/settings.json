@@ -1,11 +1,11 @@
 {
-    "python.pythonPath": "/home/nbgi/PycharmProjects/SpeciesGeo/SpeciesGeoEnv/bin",
+    "python.pythonPath": "RenanEnv/bin/python",
     "python.testing.unittestArgs": [
         "-v",
         "-s",
-        "./SpeciesGeoEnv",
+        "./RenanEnv",
         "-p",
-        "*activate_this.py"
+        "python.py"
     ],
     "python.testing.pytestEnabled": false,
     "python.testing.nosetestsEnabled": false,
