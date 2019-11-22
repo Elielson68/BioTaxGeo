@@ -20,16 +20,18 @@ def mapa_teste():
 
 @app.route("/verificacao", methods=["GET", "POST"])
 def verificacao():
-    try:
-        if request.method == "POST":
-            titulos = request.form["selecao"]
-            titulos = eval(titulos)
-            planilha_atual.set_Colunas_para_verificar(titulos)
-            planilha_atual.tratamento_de_dados.set_Hierarquia_verificada(planilha_atual.get_Colunas_para_verificar())
-            verificacao = json.dumps(planilha_atual.tratamento_de_dados.get_Hierarquia_verificada())
-            return render_template("planilha.html", verificacao=verificacao, total_linhas = planilha_atual.get_Total_de_linhas())
-    except:
-        return redirect(url_for('verificacao'), code=307)
+    #try:
+    if request.method == "POST":
+        titulos = request.form["selecao"]
+        if("null" in titulos):
+            titulos = titulos.replace("null","None")
+        titulos = eval(titulos)
+        planilha_atual.set_Colunas_para_verificar(titulos)
+        planilha_atual.tratamento_de_dados.set_Hierarquia_verificada(planilha_atual.get_Colunas_para_verificar())
+        verificacao = json.dumps(planilha_atual.tratamento_de_dados.get_Hierarquia_verificada())
+        return render_template("planilha.html", verificacao=verificacao, total_linhas = planilha_atual.get_Total_de_linhas())
+#except:
+     #   return redirect(url_for('verificacao'), code=307)
 @app.route("/salvar", methods=["GET", "POST"])
 def salvar():
     if request.method == "POST":

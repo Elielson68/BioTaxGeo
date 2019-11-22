@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "RenanEnv/bin/python",
+    "python.pythonPath": "/usr/bin/python3",
     "python.testing.unittestArgs": [
         "-v",
         "-s",
