@@ -116,11 +116,15 @@ class Planilha:
         for valores in dados_para_alterar:
             key1 = valores
             key2 = list(dados_para_alterar[valores])[0]
+            nivel = list(dados_para_alterar[valores]["nivel"])[0]
             index_coluna = self.planilha.row_values(0).index(self.tratamento_de_dados.get_Hierarquia_verificada()[key1][key2]["Titulo"])
-            print("Index: "+str(index_coluna))
+            index_coluna_nivel = self.planilha.row_values(0).index(self.tratamento_de_dados.get_Hierarquia_verificada()[key1][nivel]["Titulo"])
             for linha in range(0, self.get_Total_de_linhas()):
-                print("Tipo: "+self.tratamento_de_dados.get_Hierarquia_verificada()[key1][key2]["Tipo"]+"\nCélula: "+self.pegar_Valor_na_celula(linha, index_coluna))
-                if(self.tratamento_de_dados.get_Hierarquia_verificada()[key1][key2]["Tipo"] == self.pegar_Valor_na_celula(linha, index_coluna)):
+                valor1 = self.tratamento_de_dados.get_Hierarquia_verificada()[key1][key2]["Tipo"]
+                valor2 = self.pegar_Valor_na_celula(linha, index_coluna)
+                valor1_nivel = dados_para_alterar[valores]["nivel"][nivel]
+                valor2_nivel = self.pegar_Valor_na_celula(linha, index_coluna_nivel)
+                if((valor1 == valor2) and (valor1_nivel == valor2_nivel)):
                     self.planilha_formatada.write(linha, index_coluna, dados_para_alterar[key1][key2])
                     print(dados_para_alterar[key1][key2])
 

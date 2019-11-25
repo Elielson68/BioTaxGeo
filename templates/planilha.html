@@ -60,7 +60,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Cancel_Buttom">Cancelar</button>
-                <button type="button" class="btn btn-primary" onclick="SalvarAlteracao()" data-dismiss="modal" id="Confirm_Buttom">Salvar alteração</button>
+                <button type="button" class="btn btn-primary" onclick="SalvarAlteracao()" data-dismiss="modal" id="Confirm_Buttom" >Salvar alteração</button>
               </div>
             </div>
           </div>
@@ -78,15 +78,20 @@
           var total_linhas = "{{total_linhas}}"
           var Alterar_Dados = {}
           var contador;
+          var contador2
           var Cancel_Buttom = document.getElementById("Cancel_Buttom")
           var Confirm_Buttom = document.getElementById("Confirm_Buttom")
           var mais_de_um = false
           var escolhido = 0;
           var Apenas_Errados = false;
+          var escolhido_quant = 0
           Cancel_Buttom.addEventListener("click", Remover_Inputs)
           Confirm_Buttom.addEventListener("click", Remover_Inputs)
           document.getElementById("option1").setAttribute("onchange","Visualizar_Errados('option1')")
           document.getElementById("option2").setAttribute("onchange","Visualizar_Errados('option2')")
+
+          
+
           function Visualizar_Errados(quem){
             if(quem == "option1"){
               Apenas_Errados = false
@@ -274,6 +279,7 @@
           function AlterandoDados1(){
             mais_de_um = false
             celula_errada = this;
+            modal = document.getElementById("body_modal")
             texto = document.getElementById("texto_modal")
             valor_errado = this.innerHTML;
             key1 = this.id.replace(this.className, "")
@@ -281,8 +287,31 @@
             quantidade = verificacao[key1][key2]["Quantidade"]
             valor_errado = valor_errado.replace(": "+quantidade, "");
             valor_certo = verificacao[key1][key2]["Sugestão"]
-            
-            texto.innerHTML = "Fuzzy.<br>Verificamos que seu dado pode estar possivelmente errado.<br>Deseja alterar o valor de <label style='color: red;'>"+valor_errado+"</label> para <label style='color: green;'>"+valor_certo+"</label>?<br>Serão alterados "+quantidade+" valores de sua planilha."
+            chaves = Object.keys(verificacao[key1])
+            comeco = chaves.indexOf(key2)
+            texto.innerHTML = "Fuzzy.<br>Verificamos que seu dado pode estar possivelmente errado.<br>Deseja alterar o valor de <label style='color: red;'>"+valor_errado+"</label> para <label style='color: green;'>"+valor_certo+"</label>?<br>Selecione a quantidade de valores que deseja alterar: <br>"
+            contador2 = 0
+            for (chave=comeco; chave<chaves.length-1; chave++){
+              console.log(chaves[chave])
+              div = document.createElement("div")
+              div.className = "form-check"
+              div.id = "inputs_quant"+contador2
+              input = document.createElement("input")
+              input.className = "form-check-input"
+              input.type = "radio"
+              input.name = "Radio"
+              input.id = chaves[chave]
+              input.value = chaves[chave]
+              input.addEventListener("click", Valor_Escolhido_Quant)
+              label = document.createElement("label")
+              label.className = "form-check-label"
+              label.for = contador
+              label.innerHTML = "<label style='color: green;'>"+verificacao[key1][chaves[chave]]["Quantidade"]+"</label>"+" a nível de "+chaves[chave]
+              div.appendChild(input)
+              div.appendChild(label)
+              modal.appendChild(div)
+              contador2++
+            }
           }
           function AlterandoDados2(){
             mais_de_um = true
@@ -319,8 +348,33 @@
             }
             texto2 = document.createElement("label")
             texto2.id = "texto_aux"
-            texto2.innerHTML += "<br>Serão alterados "+quantidade+" valores de sua planilha."
+            texto2.innerHTML += "<br>Selecione a quantidade de valores que serão alterados de sua planilha:<br>"
             modal.appendChild(texto2)
+            chaves = Object.keys(verificacao[key1])
+            comeco = chaves.indexOf(key2)
+            contador2 = 0
+            for (chave=comeco; chave<chaves.length-1; chave++){
+              console.log(chaves[chave])
+              div = document.createElement("div")
+              div.className = "form-check"
+              div.id = "inputs_quant"+contador2
+              input = document.createElement("input")
+              input.className = "form-check-input"
+              input.type = "radio"
+              input.name = "Radio2"
+              input.id = chaves[chave]
+              input.value = "option2"
+              input.addEventListener("click", Valor_Escolhido_Quant)
+              label = document.createElement("label")
+              label.className = "form-check-label"
+              label.for = contador
+              label.innerHTML = "<label style='color: green;'>"+verificacao[key1][chaves[chave]]["Quantidade"]+"</label>"+" a nível de "+chaves[chave]
+              div.appendChild(input)
+              div.appendChild(label)
+              modal.appendChild(div)
+              contador2++
+            }
+            
           }
           function Remover_Inputs(){
             if(mais_de_um){
@@ -329,8 +383,21 @@
                 var excluir = document.getElementById("inputs"+x)
                 modal.removeChild(excluir)
               }
+              for(x=0; x<contador2; x++){
+                var excluir2 = document.getElementById("inputs_quant"+x)
+                modal.removeChild(excluir2)
+              }
               modal.removeChild(document.getElementById("texto_aux"))
             }
+            else{
+              for(x=0; x<contador2; x++){
+                var excluir2 = document.getElementById("inputs_quant"+x)
+                modal.removeChild(excluir2)
+              }
+            }
+            escolhido = 0
+            escolhido_quant = 0
+
           }
           function SalvarAlteracao(){
             key1 = celula_errada.id.replace(celula_errada.className, "")
@@ -343,20 +410,45 @@
             Alterar_Dados[key1] = {}
             if(!mais_de_um){
               Alterar_Dados[key1][key2] =  verificacao[key1][key2]["Sugestão"]
+              Alterar_Dados[key1]["nivel"] = {}
+              Alterar_Dados[key1]["nivel"][escolhido_quant] = verificacao[key1][escolhido_quant]["Tipo"]
               celula_errada.innerHTML = verificacao[key1][key2]["Sugestão"]+": "+verificacao[key1][key2]["Quantidade"];
             }
             else{
               Remover_Inputs()
               Alterar_Dados[key1][key2] =  verificacao[key1][key2]["Sugestão"][escolhido]
+              Alterar_Dados[key1]["nivel"] = {}
+              Alterar_Dados[key1]["nivel"][escolhido_quant] = verificacao[key1][escolhido_quant]["Tipo"]
               celula_errada.innerHTML = verificacao[key1][key2]["Sugestão"][escolhido]+": "+verificacao[key1][key2]["Quantidade"];
               mais_de_um = false
             }
             enviar_valores = JSON.stringify(Alterar_Dados)
             dados.value =  enviar_valores
+
           }
           function Valor_Escolhido(){
             escolhido = this.id;
-            console.log(escolhido)
+            if(mais_de_um){
+              if(escolhido != 0 && escolhido_quant != 0){
+                Confirm_Buttom.setAttribute("disabled","")
+              }
+            }
+            else{
+              if(escolhido_quant != 0){
+                Confirm_Buttom.setAttribute("disabled","")
+              }
+            }
+          }
+          function Valor_Escolhido_Quant(){
+            escolhido_quant = this.id;
+            if(escolhido != 0 && escolhido_quant != 0){
+              Confirm_Buttom.disabled = false
+            }
+            else{
+              if(escolhido_quant != 0){
+                Confirm_Buttom.disabled = false
+              }
+            }
           }
           
           function Criando_Linhas(){
