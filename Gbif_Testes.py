@@ -20,7 +20,6 @@ def mapa_teste():
 
 @app.route("/verificacao", methods=["GET", "POST"])
 def verificacao():
-    #try:
     if request.method == "POST":
         titulos = request.form["selecao"]
         if("null" in titulos):
@@ -30,8 +29,6 @@ def verificacao():
         planilha_atual.tratamento_de_dados.set_Hierarquia_verificada(planilha_atual.get_Colunas_para_verificar())
         verificacao = json.dumps(planilha_atual.tratamento_de_dados.get_Hierarquia_verificada())
         return render_template("planilha.html", verificacao=verificacao, total_linhas = planilha_atual.get_Total_de_linhas())
-#except:
-     #   return redirect(url_for('verificacao'), code=307)
 @app.route("/salvar", methods=["GET", "POST"])
 def salvar():
     if request.method == "POST":
@@ -43,12 +40,5 @@ def salvar():
 
 #'POLYGON(([longitude ->]-60.2910 [latitude ->]-14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626)
 app.run(debug=True, port=8080)
-#'''
 
-'''
-import requests
-from planilha import Planilha
-planilha_atual = Planilha()
-planilha_atual.set_Diretorio("teste_leitura_latitude_longitude_leitura_autonoma.xls")
-print(planilha_atual.__dict__)
-'''
+
