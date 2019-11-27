@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/Gbif_Testes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Gbif_Testes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gbif_Testes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/pyvenv.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/NovaEnv/pyvenv.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/planilha.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/planilha.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/requerimentos_para_leitura_de_planilha.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/requerimentos_para_leitura_de_planilha.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +36,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NovaEnv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -72,6 +68,27 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.Gbif_Testes">
+    <configuration name="Gbif_Testes" type="PythonConfigurationType" factoryName="Python">
+      <module name="teste" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Gbif_Testes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Gbif_Testes" type="PythonConfigurationType" factoryName="Python">
       <module name="teste" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -156,7 +173,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="planilha" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="planilha" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="teste" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -182,6 +199,11 @@
       <item itemvalue="Python.SpecieGeo_App" />
       <item itemvalue="Python.planilha" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.planilha" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
@@ -203,6 +225,83 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
+    </task>
+    <task id="LOCAL-00003" summary="teste">
+      <created>1569439907969</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1569439907969</updated>
+    </task>
+    <task id="LOCAL-00004" summary="teste">
+      <created>1569439916274</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1569439916274</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Pesquisa nas áreas com plotagem">
+      <created>1569440011727</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1569440011727</updated>
+    </task>
+    <task id="LOCAL-00006" summary="alterações simples">
+      <created>1569440111673</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1569440111673</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Projeto Configurado">
+      <created>1569440504142</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1569440504142</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Marker personalizado">
+      <created>1569521499353</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1569521499353</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Marker personalizado + Botões personalizados">
+      <created>1569529369235</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1569529369254</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Plotagem do poligono no mapa após ser criado">
+      <created>1569610872623</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1569610872623</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Personalização da área plotada">
+      <created>1569611658830</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1569611658830</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Código de testes passado para o arquivo principal De GBIF Testes.py Para Loko.py">
+      <created>1569612319179</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1569612319179</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Inserção da leitura de planilha e seleção de área pelo usuário">
+      <created>1569867171562</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1569867171562</updated>
     </task>
     <task id="LOCAL-00014" summary="Verificação se marker está dentro de área estabelecida pelo usuário">
       <created>1569870054691</created>
@@ -456,98 +555,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574104944647</updated>
     </task>
-    <task id="LOCAL-00050" summary="Consertar erro que deu na chave">
-      <created>1574106390649</created>
+    <task id="LOCAL-00050" summary="Acredito que agora ta funcionando">
+      <created>1574283605157</created>
       <option name="number" value="00050" />
       <option name="presentableId" value="LOCAL-00050" />
       <option name="project" value="LOCAL" />
-      <updated>1574106390649</updated>
+      <updated>1574283605157</updated>
     </task>
-    <task id="LOCAL-00051" summary="Hierarquia sendo analisada por completo, verificar quanto aos genus e species que são sinonimos, se considera o canonicalname ou o genus e specie">
-      <created>1574184935897</created>
+    <task id="LOCAL-00051" summary="Salvando planilha formatada, verificacao hierarquia pela API (OK), verificar pelos dados da propria planilha">
+      <created>1574287102430</created>
       <option name="number" value="00051" />
       <option name="presentableId" value="LOCAL-00051" />
       <option name="project" value="LOCAL" />
-      <updated>1574184935897</updated>
+      <updated>1574287102430</updated>
     </task>
-    <task id="LOCAL-00052" summary="Verificacao completa da hierarquia, comecar a criar a tela onde mostrara os erros">
-      <created>1574189697550</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1574189697550</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Passando JSON pro HTML, comecar a leitura dos dados e por na tabela">
-      <created>1574191236452</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1574191236452</updated>
-    </task>
-    <task id="LOCAL-00054" summary="Imprimindo na tabela os nomes (Ok)">
-      <created>1574192316335</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1574192316335</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Configuracao da hierarquia na tabela (OK), falta enviar dados alterados para o servidor">
-      <created>1574277172158</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1574277172159</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Configuracao da hierarquia na tabela (OK), falta enviar dados alterados para o servidor">
-      <created>1574280869054</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1574280869054</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Configuracao da hierarquia na tabela (OK), falta enviar dados alterados para o servidor">
-      <created>1574280972098</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1574280972098</updated>
-    </task>
-    <task id="LOCAL-00058" summary="mudando nome da coisa">
-      <created>1574355029462</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1574355029462</updated>
-    </task>
-    <task id="LOCAL-00059" summary="mudando nome da coisa">
-      <created>1574357406457</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1574357406458</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Perfeito">
-      <created>1574365641726</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1574365641726</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Filtrando dados totais e somente dados errados">
-      <created>1574452467370</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1574452467370</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Filtrando por nível de hierarquia">
-      <created>1574711620608</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1574711620609</updated>
-    </task>
-    <option name="localTasksCounter" value="63" />
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -581,6 +603,14 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
+    <MESSAGE value="Exclusão de vértice: retirado os inputs, retirado os markers e vertice. Falta configurar os novos inputs a serem plotados pós exclusão" />
+    <MESSAGE value="Seleção de poligonos para editar(manipular vertices), salvando poligonos novos criados" />
+    <MESSAGE value="inserido condições para criação de novos poligonos, foi restrito a ter pelo menos 3 vertices" />
+    <MESSAGE value="inserido mouseover sobre os inputs na selecao dos poligonos" />
+    <MESSAGE value="mouseover foi melhorado para saber em qual poligono a pessoa está editando" />
+    <MESSAGE value="Adicionado identificador dos poligonos alem do identificador do dropdown, ao clicar no poligono ele cria uma caixinha informando qual é o poligono clicado" />
+    <MESSAGE value="focando em analisar os dados" />
+    <MESSAGE value="enviando para o servidor formatado e convertendo no backend pra json" />
     <MESSAGE value="Formatado layout do home e da tela de plotagem para ficar um padrão" />
     <MESSAGE value="Formatado layout da tela de plotagem, tabela agora indica os poligonos que contém ou não markers" />
     <MESSAGE value="formatado algumas coisas e mudando a forma de se selecionar o poligono" />
@@ -596,17 +626,9 @@
     <MESSAGE value="JSON resultando os valores da chave referente a coluna da planilha" />
     <MESSAGE value="Criado classe Hierarquia Taxonomica para organizar mais o codigo" />
     <MESSAGE value="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela" />
-    <MESSAGE value="Consertar erro que deu na chave" />
-    <MESSAGE value="Hierarquia sendo analisada por completo, verificar quanto aos genus e species que são sinonimos, se considera o canonicalname ou o genus e specie" />
-    <MESSAGE value="Verificacao completa da hierarquia, comecar a criar a tela onde mostrara os erros" />
-    <MESSAGE value="Passando JSON pro HTML, comecar a leitura dos dados e por na tabela" />
-    <MESSAGE value="Imprimindo na tabela os nomes (Ok)" />
-    <MESSAGE value="Configuracao da hierarquia na tabela (OK), falta enviar dados alterados para o servidor" />
-    <MESSAGE value="mudando nome da coisa" />
-    <MESSAGE value="Perfeito" />
-    <MESSAGE value="Filtrando dados totais e somente dados errados" />
-    <MESSAGE value="Filtrando por nível de hierarquia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filtrando por nível de hierarquia" />
+    <MESSAGE value="Acredito que agora ta funcionando" />
+    <MESSAGE value="Salvando planilha formatada, verificacao hierarquia pela API (OK), verificar pelos dados da propria planilha" />
+    <option name="LAST_COMMIT_MESSAGE" value="Salvando planilha formatada, verificacao hierarquia pela API (OK), verificar pelos dados da propria planilha" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

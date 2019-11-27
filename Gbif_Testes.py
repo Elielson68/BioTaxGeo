@@ -20,6 +20,7 @@ def mapa_teste():
 
 @app.route("/verificacao", methods=["GET", "POST"])
 def verificacao():
+
     if request.method == "POST":
         titulos = request.form["selecao"]
         if("null" in titulos):

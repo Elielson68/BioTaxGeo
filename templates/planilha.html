@@ -433,7 +433,10 @@
             celula_errada.setAttribute("data-target","");
             dados = document.getElementById("dados")
             //achar uma forma dele criar mais de uma chave sem precisar excluir tudo
-            Alterar_Dados[key1] = {}
+            if(Alterar_Dados[key1] == null){
+               Alterar_Dados[key1] = {}
+            }
+
             if(!mais_de_um){
               Alterar_Dados[key1][key2] =  verificacao[key1][key2]["Sugestão"]
               Alterar_Dados[key1]["nivel"] = {}
