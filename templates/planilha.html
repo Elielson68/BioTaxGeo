@@ -359,49 +359,7 @@
               contador2++
             }
           }
-          function AlterandoDados2(){
-            mais_de_um = true
-            celula_errada = this;
-            modal = document.getElementById("body_modal")
-            texto = document.getElementById("texto_modal") 
-            valor_errado = this.innerHTML;
-            key1 = this.id.replace(this.className, "")
-            key2 = this.className
-            quantidade = verificacao[key1][key2]["Quantidade"]
-            valor_errado = valor_errado.replace(": "+quantidade, "");
-            valor_certo = verificacao[key1][key2]["Sugestão"]
-            alert(Array.isArray(valor_certo))
-            texto.innerHTML = "Verificamos que seu dado pode estar possivelmente errado.<br>Deseja alterar o valor de <label style='color: red;'>"+valor_errado+"</label> para: <br>"
 
-            texto2 = document.createElement("label")
-            texto2.id = "texto_aux"
-            texto2.innerHTML += "<br>Selecione a quantidade de valores que serão alterados de sua planilha:<br>"
-            modal.appendChild(texto2)
-            chaves = Object.keys(verificacao[key1])
-            comeco = chaves.indexOf(key2)
-            contador2 = 0
-            for (chave=comeco; chave<chaves.length-1; chave++){
-              div = document.createElement("div")
-              div.className = "form-check"
-              div.id = "inputs_quant"+contador2
-              input = document.createElement("input")
-              input.className = "form-check-input"
-              input.type = "radio"
-              input.name = "Radio2"
-              input.id = chaves[chave]
-              input.value = "option2"
-              input.addEventListener("click", Valor_Escolhido_Quant)
-              label = document.createElement("label")
-              label.className = "form-check-label"
-              label.for = contador
-              label.innerHTML = "<label style='color: green;'>"+verificacao[key1][chaves[chave]]["Quantidade"]+"</label>"+" a nível de "+chaves[chave]
-              div.appendChild(input)
-              div.appendChild(label)
-              modal.appendChild(div)
-              contador2++
-            }
-            
-          }
           function Remover_Inputs(){
             if(mais_de_um){
               modal = document.getElementById("body_modal")
@@ -450,8 +408,9 @@
               }
               Alterar_Dados[key1][key2] =  {"sugestao": verificacao[key1][key2]["Sugestão"][escolhido], "nivel": [escolhido_quant, verificacao[key1][escolhido_quant]["Tipo"]]}
               celula_errada.innerHTML = verificacao[key1][key2]["Sugestão"][escolhido]+": "+verificacao[key1][key2]["Quantidade"];
-              mais_de_um = false
               Remover_Inputs()
+              mais_de_um = false
+              
             }
             enviar_valores = JSON.stringify(Alterar_Dados)
             dados.value =  enviar_valores
