@@ -438,17 +438,17 @@
             }
 
             if(!mais_de_um){
-              Alterar_Dados[key1][key2] =  verificacao[key1][key2]["Sugestão"]
-              Alterar_Dados[key1]["nivel"] = {}
-              Alterar_Dados[key1]["nivel"][escolhido_quant] = verificacao[key1][escolhido_quant]["Tipo"]
-              console.log(Alterar_Dados[key1])
+              if(Alterar_Dados[key1][key2] == null){
+                Alterar_Dados[key1][key2] = {}
+              }
+              Alterar_Dados[key1][key2] =  {"sugestao":verificacao[key1][key2]["Sugestão"], "nivel": [escolhido_quant, verificacao[key1][escolhido_quant]["Tipo"]]}
               celula_errada.innerHTML = verificacao[key1][key2]["Sugestão"]+": "+verificacao[key1][key2]["Quantidade"];
             }
             else{
-              Alterar_Dados[key1][key2] =  verificacao[key1][key2]["Sugestão"][escolhido]
-              Alterar_Dados[key1]["nivel"] = {}
-              Alterar_Dados[key1]["nivel"][escolhido_quant] = verificacao[key1][escolhido_quant]["Tipo"]
-              console.log("Salvo: "+Alterar_Dados[key1]["nivel"][escolhido_quant]+"\nValor: "+verificacao[key1][escolhido_quant]["Tipo"]+"\n")
+              if(Alterar_Dados[key1][key2] == null){
+                Alterar_Dados[key1][key2] = {}
+              }
+              Alterar_Dados[key1][key2] =  {"sugestao": verificacao[key1][key2]["Sugestão"][escolhido], "nivel": [escolhido_quant, verificacao[key1][escolhido_quant]["Tipo"]]}
               celula_errada.innerHTML = verificacao[key1][key2]["Sugestão"][escolhido]+": "+verificacao[key1][key2]["Quantidade"];
               mais_de_um = false
               Remover_Inputs()

@@ -115,19 +115,17 @@ class Planilha:
     def AlterandoDadosPlanilha(self, dados_para_alterar):
         for valores in dados_para_alterar:
             key1 = valores
-            key2 = list(dados_para_alterar[valores])[0]
-            print(list(dados_para_alterar[valores]["nivel"]))
-            nivel = list(dados_para_alterar[valores]["nivel"])[0]
-
-            index_coluna = self.planilha.row_values(0).index(self.tratamento_de_dados.get_Hierarquia_verificada()[key1][key2]["Titulo"])
-            index_coluna_nivel = self.planilha.row_values(0).index(self.tratamento_de_dados.get_Hierarquia_verificada()[key1][nivel]["Titulo"])
-            for linha in range(0, self.get_Total_de_linhas()):
-                valor1 = self.tratamento_de_dados.get_Hierarquia_verificada()[key1][key2]["Tipo"]
-                valor2 = self.pegar_Valor_na_celula(linha, index_coluna)
-                valor1_nivel = dados_para_alterar[valores]["nivel"][nivel]
-                valor2_nivel = self.pegar_Valor_na_celula(linha, index_coluna_nivel)
-                if((valor1 == valor2) and (valor1_nivel == valor2_nivel)):
-                    self.planilha_formatada.write(linha, index_coluna, dados_para_alterar[key1][key2])
+            for dado in dados_para_alterar[valores]:
+                nivel = dados_para_alterar[valores][dado]["nivel"][0]
+                index_coluna = self.planilha.row_values(0).index(self.tratamento_de_dados.get_Hierarquia_verificada()[key1][dado]["Titulo"])
+                index_coluna_nivel = self.planilha.row_values(0).index(self.tratamento_de_dados.get_Hierarquia_verificada()[key1][nivel]["Titulo"])
+                for linha in range(0, self.get_Total_de_linhas()):
+                    valor1 = self.tratamento_de_dados.get_Hierarquia_verificada()[key1][dado]["Tipo"]
+                    valor2 = self.pegar_Valor_na_celula(linha, index_coluna)
+                    valor1_nivel = dados_para_alterar[valores][dado]["nivel"][1]
+                    valor2_nivel = self.pegar_Valor_na_celula(linha, index_coluna_nivel)
+                    if((valor1 == valor2) and (valor1_nivel == valor2_nivel)):
+                        self.planilha_formatada.write(linha, index_coluna, dados_para_alterar[key1][dado]["sugestao"])
 
     def SalvarPlanilhaFormatada(self):
         return self.arquivo_escrita.save("Planilha_Formatada.xls")
