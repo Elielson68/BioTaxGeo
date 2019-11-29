@@ -137,6 +137,7 @@
           }
           //Função para Criar todas as linhas com os valores em cada coluna.
           function CriarLinhas(Hierarquia){
+  
             var criar = false
             var tr_body = document.createElement("tr");
             if(Apenas_Errados){
@@ -169,10 +170,10 @@
             
             if(Hierarquia["Reino"]["Corretude"] != "EXACT"){
               
-              td_reino.style = "color: red" 
+              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_reino.style = "color: orange" : td_reino.style = "color: red" 
               td_reino.setAttribute("data-target","#exampleModal")
               td_reino.setAttribute("data-toggle","modal")
-              Hierarquia["Reino"]["Corretude"] == "FUZZY" ? td_reino.addEventListener("click", AlterandoDados1) : td_reino.addEventListener("click", AlterandoDados1)
+              td_reino.addEventListener("click", AlterandoDados1)
               td_reino.className = "Reino"
               td_reino.id = Hierarquia["Nome Científico"]["Tipo"]+"Reino"
               td_reino.innerHTML = `${Hierarquia["Reino"]["Tipo"]}: ${Hierarquia["Reino"]["Quantidade"]}`
@@ -186,11 +187,11 @@
 
             
             if(Hierarquia["Filo"]["Corretude"] != "EXACT"){
-              
-              td_filo.style = "color: red" 
+              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_filo.style = "color: orange" : td_filo.style = "color: red"
+              //td_filo.style = "color: red" 
               td_filo.setAttribute("data-target","#exampleModal")
               td_filo.setAttribute("data-toggle","modal")
-              Hierarquia["Filo"]["Corretude"] == "FUZZY" ? td_filo.addEventListener("click", AlterandoDados1) : td_filo.addEventListener("click", AlterandoDados1)
+              td_filo.addEventListener("click", AlterandoDados1)
               td_filo.className = "Filo"
               td_filo.id = Hierarquia["Nome Científico"]["Tipo"]+"Filo"
               td_filo.innerHTML = `${Hierarquia["Filo"]["Tipo"]}: ${Hierarquia["Filo"]["Quantidade"]}`
@@ -204,11 +205,11 @@
 
             
             if(Hierarquia["Ordem"]["Corretude"] != "EXACT"){
-              
-              td_ordem.style = "color: red" 
+              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_ordem.style = "color: orange" : td_ordem.style = "color: red"
+              //td_ordem.style = "color: red" 
               td_ordem.setAttribute("data-target","#exampleModal")
               td_ordem.setAttribute("data-toggle","modal")
-              Hierarquia["Ordem"]["Corretude"] == "FUZZY" ? td_ordem.addEventListener("click", AlterandoDados1) : td_ordem.addEventListener("click", AlterandoDados1)
+              td_ordem.addEventListener("click", AlterandoDados1)
               td_ordem.className = "Ordem"
               td_ordem.id = Hierarquia["Nome Científico"]["Tipo"]+"Ordem"
               td_ordem.innerHTML = `${Hierarquia["Ordem"]["Tipo"]}: ${Hierarquia["Ordem"]["Quantidade"]}`
@@ -222,17 +223,18 @@
 
             
             if(Hierarquia["Família"]["Corretude"] != "EXACT"){
-              
-              td_familia.style = "color: red" 
+              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_familia.style = "color: orange" : td_familia.style = "color: red"
+              //td_familia.style = "color: red" 
               td_familia.setAttribute("data-target","#exampleModal")
               td_familia.setAttribute("data-toggle","modal")
-              Hierarquia["Família"]["Corretude"] == "FUZZY" ? td_familia.addEventListener("click", AlterandoDados1) : td_familia.addEventListener("click", AlterandoDados1)
+              td_familia.addEventListener("click", AlterandoDados1)
               td_familia.className = "Família"
               td_familia.id = Hierarquia["Nome Científico"]["Tipo"]+"Família"
               td_familia.innerHTML = `${Hierarquia["Família"]["Tipo"]}: ${Hierarquia["Família"]["Quantidade"]}`
               tr_body.appendChild(td_familia);
             }
             else if (!Apenas_Errados || criar) {
+
               td_familia.innerHTML = `${Hierarquia["Família"]["Tipo"]}: ${Hierarquia["Família"]["Quantidade"]}`
               td_familia.style = "color: white;" 
               tr_body.appendChild(td_familia);
@@ -240,17 +242,18 @@
 
             
             if(Hierarquia["Gênero"]["Corretude"] != "EXACT"){
-              
-              td_genero.style = "color: red" 
+              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_genero.style = "color: orange" : td_genero.style = "color: red"
+              //td_genero.style = "color: red" 
               td_genero.setAttribute("data-target","#exampleModal")
               td_genero.setAttribute("data-toggle","modal")
-              Hierarquia["Gênero"]["Corretude"] == "FUZZY" ? td_genero.addEventListener("click", AlterandoDados1) : td_genero.addEventListener("click", AlterandoDados1)
+              td_genero.addEventListener("click", AlterandoDados1)
               td_genero.className = "Gênero"
               td_genero.id = Hierarquia["Nome Científico"]["Tipo"]+"Gênero"
               td_genero.innerHTML = `${Hierarquia["Gênero"]["Tipo"]}: ${Hierarquia["Gênero"]["Quantidade"]}`
               tr_body.appendChild(td_genero);
             }
             else if (!Apenas_Errados || criar){
+
               td_genero.innerHTML = `${Hierarquia["Gênero"]["Tipo"]}: ${Hierarquia["Gênero"]["Quantidade"]}`
               td_genero.style = "color: white;" 
               tr_body.appendChild(td_genero);
@@ -258,11 +261,11 @@
 
            
             if(Hierarquia["Espécie"]["Corretude"] != "EXACT"){
-                       
-              td_especie.style = "color: red" 
+              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_especie.style = "color: orange" : td_especie.style = "color: red"        
+              //td_especie.style = "color: red" 
               td_especie.setAttribute("data-target","#exampleModal")
               td_especie.setAttribute("data-toggle","modal")
-              Hierarquia["Espécie"]["Corretude"] == "FUZZY" ? td_especie.addEventListener("click", AlterandoDados1) : td_especie.addEventListener("click", AlterandoDados1)
+              td_especie.addEventListener("click", AlterandoDados1)
               td_especie.className = "Espécie"
               td_especie.id = Hierarquia["Nome Científico"]["Tipo"]+"Espécie"
               td_especie.innerHTML = `${Hierarquia["Espécie"]["Tipo"]}: ${Hierarquia["Espécie"]["Quantidade"]}`
@@ -304,11 +307,23 @@
             comeco = chaves.indexOf(key2)
             if(!(Array.isArray(valor_certo))){
               mais_de_um = false
-              texto.innerHTML = "Verificamos que seu dado pode estar possivelmente errado.<br>Deseja alterar o valor de <label style='color: red;'>"+valor_errado+"</label> para <label style='color: green;'>"+valor_certo+"</label>?<br>Selecione a quantidade de valores que deseja alterar: <br>"
+              if(verificacao[key1]["Nome Científico"]["Sinônimo"]){
+                texto.innerHTML = "Verificamos que seu dado pode se tratar de um <b>sinônimo</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a quantidade de valores que deseja alterar: <br>"
+
+              }
+              else{
+                texto.innerHTML = "Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a quantidade de valores que deseja alterar: <br>"
+              }
             }
             else{
               mais_de_um = true
-              texto.innerHTML = "Verificamos que seu dado pode estar possivelmente errado.<br>Deseja alterar o valor de <label style='color: red;'>"+valor_errado+"</label> para: <br>"
+              if(verificacao[key1]["Nome Científico"]["Sinônimo"]){
+                texto.innerHTML = "Verificamos que seu dado pode se tratar de um <b>sinônimo</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</b>"
+
+              }
+              else{
+                texto.innerHTML = "Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</b>"
+              }
               contador = 0
               for (nomes of valor_certo){
                 div = document.createElement("div")
@@ -333,7 +348,7 @@
               }
               texto2 = document.createElement("label")
               texto2.id = "texto_aux"
-              texto2.innerHTML += "<br>Selecione a quantidade de valores que serão alterados de sua planilha:<br>"
+              texto2.innerHTML += "<br>Abaixo está a quantidade de valores que deseja alterar: <br>"
               modal.appendChild(texto2)
             }
   
@@ -352,14 +367,13 @@
               label = document.createElement("label")
               label.className = "form-check-label"
               label.for = contador
-              label.innerHTML = "<label style='color: green;'>"+verificacao[key1][chaves[chave]]["Quantidade"]+"</label>"+" a nível de "+chaves[chave]
+              label.innerHTML = "Deseja alterar <b>"+verificacao[key1][chaves[chave]]["Quantidade"]+"</b> valores em sua planilha a nível de "+chaves[chave]+"?"
               div.appendChild(input)
               div.appendChild(label)
               modal.appendChild(div)
               contador2++
             }
           }
-
           function Remover_Inputs(){
             if(mais_de_um){
               modal = document.getElementById("body_modal")
@@ -441,7 +455,6 @@
             }
           }
           
-
 
           Iniciando_Tabela()
           Criando_Linhas()

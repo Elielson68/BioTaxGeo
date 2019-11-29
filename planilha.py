@@ -183,7 +183,7 @@ class Tratamento_de_Dados:
             return "Lista vazia"
         else:
             return self.colunas_para_verificar
-
+    
     def set_Hierarquia_verificada(self, hierarquia):
         NC_value = hierarquia
         for indice in range(0, len(NC_value["especie"])):
@@ -204,6 +204,7 @@ class Tratamento_de_Dados:
                                                                                             "Quantidade": NC_value['reino'].count(self.hierarquia_taxonomiaca.get_Reino()),
                                                                                             "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Reino(),
                                                                                             "Titulo": self.get_Titulos_Originais()[0]
+                                                                                            
                                                                                        },
                                                                     "Filo"           : {
                                                                                             "Tipo"      : self.hierarquia_taxonomiaca.get_Filo(),
@@ -243,7 +244,8 @@ class Tratamento_de_Dados:
                                                                     "Nome Científico": {
                                                                                             "Tipo": self.hierarquia_taxonomiaca.get_Scientific_Name(),
                                                                                             "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Scientific_Name(),
-                                                                                            "Sugestão" : self.hierarquia_taxonomiaca.get_Sugestao_Scientific_Name()
+                                                                                            "Sugestão" : self.hierarquia_taxonomiaca.get_Sugestao_Scientific_Name(),
+                                                                                            "Sinônimo": valores["synonym"]
                                                                                        }
                                                                   }
                 else:
@@ -294,6 +296,7 @@ class Tratamento_de_Dados:
                                                                                         "Tipo": self.hierarquia_taxonomiaca.get_Scientific_Name(),
                                                                                         "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Scientific_Name(),
                                                                                         "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Scientific_Name(),
+                                                                                        "Sinônimo": ""
                                                                                        }
                                                                 }
         for nome_errado in self.hierarquia_verificada:
@@ -360,6 +363,7 @@ class Tratamento_de_Dados:
             else:
                 coluna_tratada[nome] = {"quantidade":tratar_coluna.count(nome)}
         return coluna_tratada
+   
     def Comparar_String(self, String1, String2):
         Ratio_valor = fuzz.ratio(String1.lower(), String2.lower())
         Partial_Ratio_valor = fuzz.partial_ratio(String1.lower(), String2.lower())
@@ -368,6 +372,7 @@ class Tratamento_de_Dados:
         Media = (Ratio_valor+Partial_Ratio_valor+Token_Sort_Ratio_valor+Token_Set_Ratio_valor)/4
 
         return Media
+    
     def Verificar_similaridade_de_string(self, coluna):
         if type(coluna) == int:
             tratar_coluna = self.Ocorrencia_de_String_na_Coluna(coluna)
