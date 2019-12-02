@@ -14,17 +14,42 @@ Planilha_atual = Planilha()
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-    return render_template("index.html")
-
-@app.route("/ler_planilha", methods=["GET", "POST"])
-def ler_planilha():
-    if request.method == 'POST':
+    if request.method == "GET":
+        return render_template("index.html")
+    if request.method == "POST":
         f = request.files['file']
         f.save(secure_filename(f.filename))
-        Planilha_atual.set_Diretorio(secure_filename(f.filename))
-        Planilha_atual.set_Latitude("Latitude")
-        Planilha_atual.set_Longitude("Longitude")
-        return redirect(url_for('mapa_desenhar'))
+        Planilha_atual.set_Diretorio(secure_filename(f.filename))        
+        return render_template("Selecionar_Rota.html")
+
+
+@app.route("/requerimento_planilha", methods=["GET", "POST"])
+def ler_planilha():
+    if request.method == 'GET':
+        return render_template("requerimentos_para_leitura_de_planilha.html", titulos=Planilha_atual.get_Cabecario_Planilha())
+
+
+@app.route("/verificacao_planilha", methods=["GET", "POST"])
+def verificacao():
+    if request.method == "POST":
+        titulos = request.form["selecao"]
+        if("null" in titulos):
+            titulos = titulos.replace("null","None")
+        titulos = eval(titulos)
+        Planilha_atual.set_Colunas_para_verificar(titulos)
+        Planilha_atual.tratamento_de_dados.set_Hierarquia_verificada(Planilha_atual.get_Colunas_para_verificar())
+        verificacao = json.dumps(Planilha_atual.tratamento_de_dados.get_Hierarquia_verificada())
+        return render_template("planilha.html", verificacao=verificacao, total_linhas = Planilha_atual.get_Total_de_linhas())
+
+@app.route("/salvar", methods=["GET", "POST"])
+def salvar():
+    if request.method == "POST":
+        dados = request.form["dados"]
+        dados = eval(dados)
+        Planilha_atual.AlterandoDadosPlanilha(dados)
+        Planilha_atual.SalvarPlanilhaFormatada()
+        return redirect(url_for("home"))
+
 
 @app.route("/mapa_desenhar",methods=["GET","POST"])
 def mapa_desenhar():

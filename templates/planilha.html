@@ -149,6 +149,7 @@
               if (criar){
                 var td_reino = document.createElement("td");
                 var td_filo = document.createElement("td");
+                var td_classe = document.createElement("td");
                 var td_ordem = document.createElement("td");
                 var td_familia = document.createElement("td");
                 var td_genero = document.createElement("td");
@@ -160,6 +161,7 @@
             else{
               var td_reino = document.createElement("td");
               var td_filo = document.createElement("td");
+              var td_classe = document.createElement("td");
               var td_ordem = document.createElement("td");
               var td_familia = document.createElement("td");
               var td_genero = document.createElement("td");
@@ -203,7 +205,23 @@
               tr_body.appendChild(td_filo);
             }
 
-            
+            if(Hierarquia["Classe"]["Corretude"] != "EXACT"){
+              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_classe.style = "color: orange" : td_classe.style = "color: red"
+              td_classe.setAttribute("data-target","#exampleModal")
+              td_classe.setAttribute("data-toggle","modal")
+              td_classe.addEventListener("click", AlterandoDados1)
+              td_classe.className = "Classe"
+              td_classe.id = Hierarquia["Nome Científico"]["Tipo"]+"Classe"
+              td_classe.innerHTML = `${Hierarquia["Classe"]["Tipo"]}: ${Hierarquia["Classe"]["Quantidade"]}`
+              tr_body.appendChild(td_classe);
+            }
+            else if (!Apenas_Errados || criar) {
+              td_classe.innerHTML = `${Hierarquia["Classe"]["Tipo"]}: ${Hierarquia["Classe"]["Quantidade"]}`
+              td_classe.style = "color: white;" 
+              tr_body.appendChild(td_classe);
+            }
+
+
             if(Hierarquia["Ordem"]["Corretude"] != "EXACT"){
               Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_ordem.style = "color: orange" : td_ordem.style = "color: red"
               //td_ordem.style = "color: red" 

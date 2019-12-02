@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/planilha.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/planilha.html" afterDir="false" />
-    </list>
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,13 +219,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Pesquisa nas áreas com plotagem">
-      <created>1569440011727</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1569440011727</updated>
     </task>
     <task id="LOCAL-00006" summary="alterações simples">
       <created>1569440111673</created>
@@ -567,7 +556,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574965176905</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Hierarquia tudo OK, falta só inserir a classe e tratamento de erro">
+      <created>1575056345409</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1575056345410</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -601,7 +597,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Seleção de poligonos para editar(manipular vertices), salvando poligonos novos criados" />
     <MESSAGE value="inserido condições para criação de novos poligonos, foi restrito a ter pelo menos 3 vertices" />
     <MESSAGE value="inserido mouseover sobre os inputs na selecao dos poligonos" />
     <MESSAGE value="mouseover foi melhorado para saber em qual poligono a pessoa está editando" />
@@ -626,7 +621,8 @@
     <MESSAGE value="Acredito que agora ta funcionando" />
     <MESSAGE value="Salvando planilha formatada, verificacao hierarquia pela API (OK), verificar pelos dados da propria planilha" />
     <MESSAGE value="Alteracao dos dados de errados para corretos na planilha esta tudo OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alteracao dos dados de errados para corretos na planilha esta tudo OK" />
+    <MESSAGE value="Hierarquia tudo OK, falta só inserir a classe e tratamento de erro" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hierarquia tudo OK, falta só inserir a classe e tratamento de erro" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
