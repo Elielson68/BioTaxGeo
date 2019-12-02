@@ -142,6 +142,8 @@ class Coordenadas:
             self.coluna_latitude = self.planilha.col_values(indice_coluna,1)
         elif(type(coluna_lat) == int):
             self.coluna_latitude = self.planilha.col_values(coluna_lat,1)
+        elif(type(coluna_lat) == dict):
+            self.coluna_latitude = coluna_lat
 
     def set_Longitude_values(self, coluna_lng):
         self.coluna_longitude = []
@@ -150,6 +152,8 @@ class Coordenadas:
             self.coluna_longitude = self.planilha.col_values(indice_coluna,1)
         elif(type(coluna_lng) == int):
             self.coluna_longitude = self.planilha.col_values(coluna_lng,1)
+        elif(type(coluna_lng) == dict):
+            self.coluna_longitude = coluna_lng
     
     def get_Latitude_values(self):
         if(self.coluna_latitude == []):
@@ -162,6 +166,19 @@ class Coordenadas:
             return "Coluna vazia."
         else:
             return self.coluna_longitude
+
+    def Converter_para_decimal(self, coordenada):
+        for coord in coordenada:
+            print(coord)
+        return
+    def Converter_para_grau(self):
+        return None
+
+    def is_Decimal(self, coordenada):
+        if type(coordenada)==str:
+            return False
+        elif type(coordenada)==float:
+            return True
 
 class Tratamento_de_Dados:
     
