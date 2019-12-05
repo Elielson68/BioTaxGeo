@@ -25,7 +25,11 @@ class Planilha:
 
     def set_Diretorio(self, diretorio):
         self.diretorio = str(os.getcwd())+"/"+diretorio #O comando os.getcwd pega o diretório atual de onde o arquivo python está.
-        self.arquivo = xlrd.open_workbook(self.diretorio, formatting_info=True) #Abre o arquivo com o nome enviado no parâmetro diretorio
+
+        try:
+            self.arquivo = xlrd.open_workbook(self.diretorio, formatting_info=True) #Abre o arquivo com o nome enviado no parâmetro diretorio
+        except:
+            self.arquivo = xlrd.open_workbook(self.diretorio)  # Abre o arquivo com o nome enviado no parâmetro diretorio
         self.arquivo_escrita = copy(self.arquivo)
         self.lista_de_planilhas = self.arquivo.sheet_names() #Pega o nome das páginas do arquivo
         self.planilha = self.arquivo.sheet_by_index(0) #Pega a página inicial (começa por 0)
@@ -180,6 +184,25 @@ class Coordenadas:
         elif type(coordenada)==float:
             return True
 
+    def isNumeros(self, valor):
+        apenas_numeros = False
+        if (valor.isdigit()):
+            apenas_numeros = True
+        return apenas_numeros
+
+    def isNumeros_Letras(self, valor):
+        apenas_numeros = False
+        if (valor.isalnum()):
+            apenas_numeros = True
+        return apenas_numeros
+
+    def isNumeros_Letras_Caracter(self, valor):
+        apenas_numeros = False
+        if (not (valor.isalnum())):
+            apenas_numeros = True
+        return apenas_numeros
+
+
 class Tratamento_de_Dados:
     
     def __init__(self, plan):
@@ -204,132 +227,133 @@ class Tratamento_de_Dados:
     def set_Hierarquia_verificada(self, hierarquia):
         NC_value = hierarquia
         for indice in range(0, len(NC_value["especie"])):
-            Scientific_Name = NC_value["genero"][indice] + " " + NC_value["especie"][indice]
-            self.hierarquia_taxonomiaca = Hierarquia_Taxonomica(NC_value['reino'][indice], NC_value['filo'][indice],NC_value['classe'][indice] , NC_value['ordem'][indice], NC_value['familia'][indice], NC_value['genero'][indice], NC_value['especie'][indice], Scientific_Name)
-            if Scientific_Name in self.hierarquia_verificada:
-                pass
-            else:
-                #'http://api.gbif.org/v1/species/match?kingdom=''&phylum=''&order=''&family=''&genus=''&name=''Anodorhynchus hyacinthinus
-                valores = requests.get('http://api.gbif.org/v1/species/match?name='+Scientific_Name+"&rank=SPECIES&strict=true").json()
-                if(valores["matchType"] != "NONE"):
-                    self.hierarquia_taxonomiaca.Definir_Corretude_Hierarquica(valores["kingdom"], valores["phylum"],valores["class"], valores["order"], valores["family"], valores["genus"], valores["species"], valores["canonicalName"])
-                    self.hierarquia_taxonomiaca.Definir_Sugestao_Hierarquica(valores["kingdom"], valores["phylum"], valores["class"], valores["order"], valores["family"], valores["genus"], valores["species"], valores["canonicalName"])
-                    self.hierarquia_verificada[Scientific_Name] = {
-                                                                    "Reino"          : {
-                                                                                            "Tipo"      : self.hierarquia_taxonomiaca.get_Reino(),
-                                                                                            "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Reino(),
-                                                                                            "Quantidade": NC_value['reino'].count(self.hierarquia_taxonomiaca.get_Reino()),
-                                                                                            "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Reino(),
-                                                                                            "Titulo"    : self.get_Titulos_Originais()[0]
-                                                                                            
-                                                                                       },
-                                                                    "Filo"           : {
-                                                                                            "Tipo"      : self.hierarquia_taxonomiaca.get_Filo(),
-                                                                                            "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Filo(),
-                                                                                            "Quantidade": NC_value['filo'].count(self.hierarquia_taxonomiaca.get_Filo()),
-                                                                                            "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Filo(),
-                                                                                            "Titulo"    : self.get_Titulos_Originais()[1]
-                                                                                       },
-                                                                    "Classe"           : {
-                                                                                            "Tipo"      : self.hierarquia_taxonomiaca.get_Classe(),
-                                                                                            "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Classe(),
-                                                                                            "Quantidade": NC_value['classe'].count(self.hierarquia_taxonomiaca.get_Classe()),
-                                                                                            "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Classe(),
-                                                                                            "Titulo"    : self.get_Titulos_Originais()[2]
-                                                                                       },
-                                                                    "Ordem"          : {
-                                                                                            "Tipo"      : self.hierarquia_taxonomiaca.get_Ordem(),
-                                                                                            "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Ordem(),
-                                                                                            "Quantidade": NC_value['ordem'].count(self.hierarquia_taxonomiaca.get_Ordem()),
-                                                                                            "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Ordem(),
-                                                                                            "Titulo"    : self.get_Titulos_Originais()[3]
-                                                                                       },
-                                                                    "Família"        : {
-                                                                                            "Tipo"      : self.hierarquia_taxonomiaca.get_Familia(),
-                                                                                            "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Familia(),
-                                                                                            "Quantidade": NC_value['familia'].count(self.hierarquia_taxonomiaca.get_Familia()),
-                                                                                            "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Familia(),
-                                                                                            "Titulo"    : self.get_Titulos_Originais()[4]
-                                                                                       },
-                                                                    "Gênero"         : {
-                                                                                            "Tipo"      : self.hierarquia_taxonomiaca.get_Genero(),
-                                                                                            "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Genero(),
-                                                                                            "Quantidade": NC_value['genero'].count(self.hierarquia_taxonomiaca.get_Genero()),
-                                                                                            "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Genero(),
-                                                                                            "Titulo"    : self.get_Titulos_Originais()[5]
-                                                                                       },
-                                                                    "Espécie"        : {
-                                                                                            "Tipo"      : self.hierarquia_taxonomiaca.get_Especie(),
-                                                                                            "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Especie(),
-                                                                                            "Quantidade": NC_value['especie'].count(self.hierarquia_taxonomiaca.get_Especie()),
-                                                                                            "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Especie(),
-                                                                                            "Titulo"    : self.get_Titulos_Originais()[6]
-                                                                                       },
-                                                                    "Nome Científico": {
-                                                                                            "Tipo"     : self.hierarquia_taxonomiaca.get_Scientific_Name(),
-                                                                                            "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Scientific_Name(),
-                                                                                            "Sugestão" : self.hierarquia_taxonomiaca.get_Sugestao_Scientific_Name(),
-                                                                                            "Sinônimo" : valores["synonym"]
-                                                                                       }
-                                                                  }
+            if(NC_value["genero"][indice] != ""):
+                Scientific_Name = NC_value["genero"][indice] + " " + NC_value["especie"][indice]
+                self.hierarquia_taxonomiaca = Hierarquia_Taxonomica(NC_value['reino'][indice], NC_value['filo'][indice],NC_value['classe'][indice] , NC_value['ordem'][indice], NC_value['familia'][indice], NC_value['genero'][indice], NC_value['especie'][indice], Scientific_Name)
+                if Scientific_Name in self.hierarquia_verificada:
+                    pass
                 else:
-                    self.hierarquia_verificada[Scientific_Name] = {
-                                                                    "Reino"         : {
-                                                                                        "Tipo": self.hierarquia_taxonomiaca.get_Reino(),
-                                                                                        "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Reino(),
-                                                                                        "Quantidade": NC_value['reino'].count(self.hierarquia_taxonomiaca.get_Reino()),
-                                                                                        "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Reino(),
-                                                                                        "Titulo": self.get_Titulos_Originais()[0]
-                                                                                      },
-                                                                    "Filo"          : {
-                                                                                        "Tipo": self.hierarquia_taxonomiaca.get_Filo(),
-                                                                                        "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Filo(),
-                                                                                        "Quantidade": NC_value['filo'].count(self.hierarquia_taxonomiaca.get_Filo()),
-                                                                                        "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Filo(),
-                                                                                        "Titulo": self.get_Titulos_Originais()[1]
-                                                                                      },
-                                                                    "Classe"          : {
-                                                                                        "Tipo": self.hierarquia_taxonomiaca.get_Classe(),
-                                                                                        "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Classe(),
-                                                                                        "Quantidade": NC_value['classe'].count(self.hierarquia_taxonomiaca.get_Classe()),
-                                                                                        "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Classe(),
-                                                                                        "Titulo": self.get_Titulos_Originais()[2]
-                                                                                      },
-                                                                    "Ordem"         : {
-                                                                                        "Tipo": self.hierarquia_taxonomiaca.get_Ordem(),
-                                                                                        "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Ordem(),
-                                                                                        "Quantidade": NC_value['ordem'].count(self.hierarquia_taxonomiaca.get_Ordem()),
-                                                                                        "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Ordem(),
-                                                                                        "Titulo": self.get_Titulos_Originais()[3]
-                                                                                      },
-                                                                    "Família"       : {
-                                                                                        "Tipo": self.hierarquia_taxonomiaca.get_Familia(),
-                                                                                        "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Familia(),
-                                                                                        "Quantidade": NC_value['familia'].count(self.hierarquia_taxonomiaca.get_Familia()),
-                                                                                        "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Familia(),
-                                                                                        "Titulo": self.get_Titulos_Originais()[4]
-                                                                                      },
-                                                                    "Gênero"        : {
-                                                                                        "Tipo": self.hierarquia_taxonomiaca.get_Genero(),
-                                                                                        "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Genero(),
-                                                                                        "Quantidade": NC_value['genero'].count(self.hierarquia_taxonomiaca.get_Genero()),
-                                                                                        "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Genero(),
-                                                                                        "Titulo": self.get_Titulos_Originais()[5]
-                                                                                      },
-                                                                    "Espécie"       : {
-                                                                                        "Tipo": self.hierarquia_taxonomiaca.get_Especie(),
-                                                                                        "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Especie(),
-                                                                                        "Quantidade": NC_value['especie'].count(self.hierarquia_taxonomiaca.get_Especie()),
-                                                                                        "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Especie(),
-                                                                                        "Titulo": self.get_Titulos_Originais()[6]
-                                                                                       },
-                                                                    "Nome Científico": {
-                                                                                        "Tipo": self.hierarquia_taxonomiaca.get_Scientific_Name(),
-                                                                                        "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Scientific_Name(),
-                                                                                        "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Scientific_Name(),
-                                                                                        "Sinônimo": ""
-                                                                                       }
-                                                                }
+                    #'http://api.gbif.org/v1/species/match?kingdom=''&phylum=''&order=''&family=''&genus=''&name=''Anodorhynchus hyacinthinus
+                    valores = requests.get('http://api.gbif.org/v1/species/match?name='+Scientific_Name+"&rank=SPECIES&strict=true").json()
+                    if(valores["matchType"] != "NONE"):
+                        self.hierarquia_taxonomiaca.Definir_Corretude_Hierarquica(valores["kingdom"], valores["phylum"],valores["class"], valores["order"], valores["family"], valores["genus"], valores["species"], valores["canonicalName"])
+                        self.hierarquia_taxonomiaca.Definir_Sugestao_Hierarquica(valores["kingdom"], valores["phylum"], valores["class"], valores["order"], valores["family"], valores["genus"], valores["species"], valores["canonicalName"])
+                        self.hierarquia_verificada[Scientific_Name] = {
+                                                                        "Reino"          : {
+                                                                                                "Tipo"      : self.hierarquia_taxonomiaca.get_Reino(),
+                                                                                                "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Reino(),
+                                                                                                "Quantidade": NC_value['reino'].count(self.hierarquia_taxonomiaca.get_Reino()),
+                                                                                                "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Reino(),
+                                                                                                "Titulo"    : self.get_Titulos_Originais()[0]
+
+                                                                                           },
+                                                                        "Filo"           : {
+                                                                                                "Tipo"      : self.hierarquia_taxonomiaca.get_Filo(),
+                                                                                                "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Filo(),
+                                                                                                "Quantidade": NC_value['filo'].count(self.hierarquia_taxonomiaca.get_Filo()),
+                                                                                                "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Filo(),
+                                                                                                "Titulo"    : self.get_Titulos_Originais()[1]
+                                                                                           },
+                                                                        "Classe"           : {
+                                                                                                "Tipo"      : self.hierarquia_taxonomiaca.get_Classe(),
+                                                                                                "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Classe(),
+                                                                                                "Quantidade": NC_value['classe'].count(self.hierarquia_taxonomiaca.get_Classe()),
+                                                                                                "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Classe(),
+                                                                                                "Titulo"    : self.get_Titulos_Originais()[2]
+                                                                                           },
+                                                                        "Ordem"          : {
+                                                                                                "Tipo"      : self.hierarquia_taxonomiaca.get_Ordem(),
+                                                                                                "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Ordem(),
+                                                                                                "Quantidade": NC_value['ordem'].count(self.hierarquia_taxonomiaca.get_Ordem()),
+                                                                                                "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Ordem(),
+                                                                                                "Titulo"    : self.get_Titulos_Originais()[3]
+                                                                                           },
+                                                                        "Família"        : {
+                                                                                                "Tipo"      : self.hierarquia_taxonomiaca.get_Familia(),
+                                                                                                "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Familia(),
+                                                                                                "Quantidade": NC_value['familia'].count(self.hierarquia_taxonomiaca.get_Familia()),
+                                                                                                "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Familia(),
+                                                                                                "Titulo"    : self.get_Titulos_Originais()[4]
+                                                                                           },
+                                                                        "Gênero"         : {
+                                                                                                "Tipo"      : self.hierarquia_taxonomiaca.get_Genero(),
+                                                                                                "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Genero(),
+                                                                                                "Quantidade": NC_value['genero'].count(self.hierarquia_taxonomiaca.get_Genero()),
+                                                                                                "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Genero(),
+                                                                                                "Titulo"    : self.get_Titulos_Originais()[5]
+                                                                                           },
+                                                                        "Espécie"        : {
+                                                                                                "Tipo"      : self.hierarquia_taxonomiaca.get_Especie(),
+                                                                                                "Corretude" : self.hierarquia_taxonomiaca.get_Corretude_Especie(),
+                                                                                                "Quantidade": NC_value['especie'].count(self.hierarquia_taxonomiaca.get_Especie()),
+                                                                                                "Sugestão"  : self.hierarquia_taxonomiaca.get_Sugestao_Especie(),
+                                                                                                "Titulo"    : self.get_Titulos_Originais()[6]
+                                                                                           },
+                                                                        "Nome Científico": {
+                                                                                                "Tipo"     : self.hierarquia_taxonomiaca.get_Scientific_Name(),
+                                                                                                "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Scientific_Name(),
+                                                                                                "Sugestão" : self.hierarquia_taxonomiaca.get_Sugestao_Scientific_Name(),
+                                                                                                "Sinônimo" : valores["synonym"]
+                                                                                           }
+                                                                      }
+                    else:
+                        self.hierarquia_verificada[Scientific_Name] = {
+                                                                        "Reino"         : {
+                                                                                            "Tipo": self.hierarquia_taxonomiaca.get_Reino(),
+                                                                                            "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Reino(),
+                                                                                            "Quantidade": NC_value['reino'].count(self.hierarquia_taxonomiaca.get_Reino()),
+                                                                                            "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Reino(),
+                                                                                            "Titulo": self.get_Titulos_Originais()[0]
+                                                                                          },
+                                                                        "Filo"          : {
+                                                                                            "Tipo": self.hierarquia_taxonomiaca.get_Filo(),
+                                                                                            "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Filo(),
+                                                                                            "Quantidade": NC_value['filo'].count(self.hierarquia_taxonomiaca.get_Filo()),
+                                                                                            "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Filo(),
+                                                                                            "Titulo": self.get_Titulos_Originais()[1]
+                                                                                          },
+                                                                        "Classe"          : {
+                                                                                            "Tipo": self.hierarquia_taxonomiaca.get_Classe(),
+                                                                                            "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Classe(),
+                                                                                            "Quantidade": NC_value['classe'].count(self.hierarquia_taxonomiaca.get_Classe()),
+                                                                                            "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Classe(),
+                                                                                            "Titulo": self.get_Titulos_Originais()[2]
+                                                                                          },
+                                                                        "Ordem"         : {
+                                                                                            "Tipo": self.hierarquia_taxonomiaca.get_Ordem(),
+                                                                                            "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Ordem(),
+                                                                                            "Quantidade": NC_value['ordem'].count(self.hierarquia_taxonomiaca.get_Ordem()),
+                                                                                            "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Ordem(),
+                                                                                            "Titulo": self.get_Titulos_Originais()[3]
+                                                                                          },
+                                                                        "Família"       : {
+                                                                                            "Tipo": self.hierarquia_taxonomiaca.get_Familia(),
+                                                                                            "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Familia(),
+                                                                                            "Quantidade": NC_value['familia'].count(self.hierarquia_taxonomiaca.get_Familia()),
+                                                                                            "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Familia(),
+                                                                                            "Titulo": self.get_Titulos_Originais()[4]
+                                                                                          },
+                                                                        "Gênero"        : {
+                                                                                            "Tipo": self.hierarquia_taxonomiaca.get_Genero(),
+                                                                                            "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Genero(),
+                                                                                            "Quantidade": NC_value['genero'].count(self.hierarquia_taxonomiaca.get_Genero()),
+                                                                                            "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Genero(),
+                                                                                            "Titulo": self.get_Titulos_Originais()[5]
+                                                                                          },
+                                                                        "Espécie"       : {
+                                                                                            "Tipo": self.hierarquia_taxonomiaca.get_Especie(),
+                                                                                            "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Especie(),
+                                                                                            "Quantidade": NC_value['especie'].count(self.hierarquia_taxonomiaca.get_Especie()),
+                                                                                            "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Especie(),
+                                                                                            "Titulo": self.get_Titulos_Originais()[6]
+                                                                                           },
+                                                                        "Nome Científico": {
+                                                                                            "Tipo": self.hierarquia_taxonomiaca.get_Scientific_Name(),
+                                                                                            "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Scientific_Name(),
+                                                                                            "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Scientific_Name(),
+                                                                                            "Sinônimo": ""
+                                                                                           }
+                                                                    }
         for nome_errado in self.hierarquia_verificada:
 
             if self.hierarquia_verificada[nome_errado]["Nome Científico"]["Corretude"] == "NONE":
@@ -365,8 +389,11 @@ class Tratamento_de_Dados:
                     for key in self.hierarquia_verificada[nome_errado]:
                         self.hierarquia_verificada[nome_errado][key]["Sugestão"] = []
                     for indice in range(0,len(sugestao_request)):
-                        self.hierarquia_taxonomiaca.Definir_Corretude_Hierarquica(sugestao_request[indice]["kingdom"], sugestao_request[indice]["phylum"], sugestao_request[indice]["class"], sugestao_request[indice]["order"], sugestao_request[indice]["family"], sugestao_request[indice]["genus"], sugestao_request[indice]["species"], sugestao_request[indice]["canonicalName"])
-                        self.hierarquia_taxonomiaca.Definir_Sugestao_Hierarquica(sugestao_request[indice]["kingdom"], sugestao_request[indice]["phylum"], sugestao_request[indice]["class"], sugestao_request[indice]["order"], sugestao_request[indice]["family"], sugestao_request[indice]["genus"], sugestao_request[indice]["species"], sugestao_request[indice]["canonicalName"])
+                        try:
+                            self.hierarquia_taxonomiaca.Definir_Corretude_Hierarquica(sugestao_request[indice]["kingdom"], sugestao_request[indice]["phylum"], sugestao_request[indice]["class"], sugestao_request[indice]["order"], sugestao_request[indice]["family"], sugestao_request[indice]["genus"], sugestao_request[indice]["species"], sugestao_request[indice]["canonicalName"])
+                            self.hierarquia_taxonomiaca.Definir_Sugestao_Hierarquica(sugestao_request[indice]["kingdom"], sugestao_request[indice]["phylum"], sugestao_request[indice]["class"], sugestao_request[indice]["order"], sugestao_request[indice]["family"], sugestao_request[indice]["genus"], sugestao_request[indice]["species"], sugestao_request[indice]["canonicalName"])
+                        except:
+                            print('http://api.gbif.org/v1/species/suggest?q=' + nome_errado + '&rank=SPECIES&strict=true')
                         self.hierarquia_verificada[nome_errado]["Reino"]["Sugestão"].append(self.hierarquia_taxonomiaca.get_Sugestao_Reino()) if self.hierarquia_taxonomiaca.get_Sugestao_Reino() not in self.hierarquia_verificada[nome_errado]["Reino"]["Sugestão"] else None
                         self.hierarquia_verificada[nome_errado]["Filo"]["Sugestão"].append(self.hierarquia_taxonomiaca.get_Sugestao_Filo()) if self.hierarquia_taxonomiaca.get_Sugestao_Filo() not in self.hierarquia_verificada[nome_errado]["Filo"]["Sugestão"] else None
                         self.hierarquia_verificada[nome_errado]["Classe"]["Sugestão"].append(self.hierarquia_taxonomiaca.get_Sugestao_Classe()) if self.hierarquia_taxonomiaca.get_Sugestao_Classe() not in self.hierarquia_verificada[nome_errado]["Classe"]["Sugestão"] else None
