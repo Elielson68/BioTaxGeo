@@ -139,6 +139,11 @@ class Coordenadas:
         self.coluna_latitude = None
         self.coluna_longitude = None
         self.planilha = Plan
+        self.grau = ""
+        self.minuto = ""
+        self.segundo = ""
+        self.decimal = ""
+        self.emisferios = ["W", "w", "S", "s", "N", "n", "e", "E"]
     def set_Latitude_values(self, coluna_lat):
         self.coluna_latitude = []
         if(type(coluna_lat) == str):
@@ -172,8 +177,102 @@ class Coordenadas:
             return self.coluna_longitude
 
     def Converter_para_decimal(self, coordenada):
-        for coord in coordenada:
-            print(coord)
+        coordenada = "-1.4847° 42.243'"
+        if isNumeros_Letras(coordenada):
+            print(coordenada.split())
+
+        if isNumeros_Letras_Caracter(coordenada):
+            valor_separado = coordenada.split()
+            espacos = coordenada.count(" ")
+
+            if ("W" in coordenada) or ("w" in coordenada) or ("S" in coordenada) or ("s" in coordenada) or ("-" in coordenada):
+                self.decimal+= "-"
+            for coordenada in valor_separado:
+                if (espacos == 3):  # Converte de graus, minutos e segundos para decimal
+                    if "°" in coordenada:
+                        grau += coordenada.replace("°", "")
+                        if "-" in grau:
+                            grau = grau.replace("-", "")
+                        grau = float(grau)
+                        print(str(grau))
+                    elif grau == "" and not "°" in coordenada:
+                        grau += coordenada
+                        if "-" in grau:
+                            grau = grau.replace("-", "")
+                        grau = float(grau)
+                    if "'" in coordenada:
+                        minuto += coordenada.replace("'", "")
+                        minuto = float(minuto)
+                    elif minuto == "" and not "'" in coordenada:
+                        minuto += coordenada
+                        minuto = float(minuto)
+                    if '"' in coordenada:
+                        segundo += coordenada.replace('"', "")
+                        segundo = float(segundo)
+                    elif segundo == "":
+                        segundo += coordenada
+                        segundo = float(segundo)
+
+                    if (grau != "") and (minuto != "") and (segundo != ""):
+                        segundo /= 60
+                        minuto = (minuto + segundo) / 60
+                        grau = grau + minuto
+                        break
+                if (espacos == 2):  # Converte de Graus e minutos para decimal
+                    if "°" in coordenada:
+                        grau += coordenada.replace("°", "")
+                        if "-" in grau:
+                            grau = grau.replace("-", "")
+                        grau = float(grau)
+                        continue
+                    elif grau == "" and "°" not in coordenada and coordenada not in emisferios:
+                        grau += coordenada
+                        if "-" in grau:
+                            grau = grau.replace("-", "")
+                        grau = float(grau)
+                        continue
+
+                    if "'" in coordenada:
+                        minuto += coordenada.replace("'", "")
+                        minuto = float(minuto)
+                    elif minuto == "" and "'" not in coordenada and coordenada not in emisferios:
+                        minuto += coordenada
+                        minuto = float(minuto)
+                    if (grau != "") and (minuto != ""):
+                        minuto /= 60
+                        grau = grau + minuto
+
+                if (espacos == 1):
+
+                    if "°" in coordenada:
+                        grau = coordenada.replace("°", "")
+                        if "-" in grau:
+                            grau = grau.replace("-", "")
+                        grau = float(grau)
+
+                    elif grau == "" and coordenada not in emisferios:
+                        grau = coordenada
+                        if "-" in grau:
+                            grau = grau.replace("-", "")
+                        grau = float(grau)
+
+                if (espacos == 0):
+                    if "°" in coordenada:
+                        grau = coordenada.replace("°", "")
+                        if "-" in grau:
+                            grau = grau.replace("-", "")
+                        grau = float(grau)
+                    elif grau == "":
+                        grau = coordenada
+                        if "-" in grau:
+                            grau = grau.replace("-", "")
+                        grau = float(grau)
+            if "-" in self.decimal:
+                grau *= -1
+                novo_valor = str(grau)
+            elif coordenada not in self.emisferios:
+                novo_valor = str(grau)
+
         return
     def Converter_para_grau(self):
         return None
@@ -293,7 +392,8 @@ class Tratamento_de_Dados:
                                                                                                 "Tipo"     : self.hierarquia_taxonomiaca.get_Scientific_Name(),
                                                                                                 "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Scientific_Name(),
                                                                                                 "Sugestão" : self.hierarquia_taxonomiaca.get_Sugestao_Scientific_Name(),
-                                                                                                "Sinônimo" : valores["synonym"]
+                                                                                                "Sinônimo" : valores["synonym"],
+                                                                                                "Fonte": "GBIF"
                                                                                            }
                                                                       }
                     else:
@@ -351,7 +451,8 @@ class Tratamento_de_Dados:
                                                                                             "Tipo": self.hierarquia_taxonomiaca.get_Scientific_Name(),
                                                                                             "Corretude": self.hierarquia_taxonomiaca.get_Corretude_Scientific_Name(),
                                                                                             "Sugestão": self.hierarquia_taxonomiaca.get_Sugestao_Scientific_Name(),
-                                                                                            "Sinônimo": ""
+                                                                                            "Sinônimo": "",
+                                                                                            "Fonte:": "Planilha"
                                                                                            }
                                                                     }
         for nome_errado in self.hierarquia_verificada:

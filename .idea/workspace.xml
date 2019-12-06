@@ -223,13 +223,6 @@
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
     </task>
-    <task id="LOCAL-00008" summary="Marker personalizado">
-      <created>1569521499353</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1569521499353</updated>
-    </task>
     <task id="LOCAL-00009" summary="Marker personalizado + Botões personalizados">
       <created>1569529369235</created>
       <option name="number" value="00009" />
@@ -566,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575316443378</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="comecando coordenadas">
+      <created>1575574851603</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1575574851604</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -600,7 +600,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="mouseover foi melhorado para saber em qual poligono a pessoa está editando" />
     <MESSAGE value="Adicionado identificador dos poligonos alem do identificador do dropdown, ao clicar no poligono ele cria uma caixinha informando qual é o poligono clicado" />
     <MESSAGE value="focando em analisar os dados" />
     <MESSAGE value="enviando para o servidor formatado e convertendo no backend pra json" />
@@ -625,7 +624,8 @@
     <MESSAGE value="Hierarquia tudo OK, falta só inserir a classe e tratamento de erro" />
     <MESSAGE value="Incluso a análise de hierarquia ao SpecieGeo original" />
     <MESSAGE value="Iniciando conversao de coordenadas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Iniciando conversao de coordenadas" />
+    <MESSAGE value="comecando coordenadas" />
+    <option name="LAST_COMMIT_MESSAGE" value="comecando coordenadas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
