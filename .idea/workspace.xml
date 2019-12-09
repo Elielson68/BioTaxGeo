@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpecieGeo_App.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpecieGeo_App.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -222,13 +223,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Marker personalizado + Botões personalizados">
-      <created>1569529369235</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1569529369254</updated>
     </task>
     <task id="LOCAL-00010" summary="Plotagem do poligono no mapa após ser criado">
       <created>1569610872623</created>
@@ -566,7 +560,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575574851604</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Coordenadas, conversão para decimal">
+      <created>1575660215346</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1575660215346</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -600,7 +601,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Adicionado identificador dos poligonos alem do identificador do dropdown, ao clicar no poligono ele cria uma caixinha informando qual é o poligono clicado" />
     <MESSAGE value="focando em analisar os dados" />
     <MESSAGE value="enviando para o servidor formatado e convertendo no backend pra json" />
     <MESSAGE value="Formatado layout do home e da tela de plotagem para ficar um padrão" />
@@ -625,7 +625,8 @@
     <MESSAGE value="Incluso a análise de hierarquia ao SpecieGeo original" />
     <MESSAGE value="Iniciando conversao de coordenadas" />
     <MESSAGE value="comecando coordenadas" />
-    <option name="LAST_COMMIT_MESSAGE" value="comecando coordenadas" />
+    <MESSAGE value="Coordenadas, conversão para decimal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Coordenadas, conversão para decimal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

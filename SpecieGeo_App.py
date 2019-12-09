@@ -15,7 +15,10 @@ Planilha_atual = Planilha()
 @app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "GET":
-        return render_template("index.html")
+        if(Planilha_atual.get_Diretorio() == None):
+            return render_template("index.html")
+        else:
+            return  render_template("Selecionar_Rota.html")
     if request.method == "POST":
         f = request.files['file']
         f.save(secure_filename(f.filename))
