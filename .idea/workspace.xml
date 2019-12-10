@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpecieGeo_App.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpecieGeo_App.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,7 +64,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.SpecieGeo_App">
+  <component name="RunManager" selected="Python.Coordenadas_Testes">
+    <configuration name="Coordenadas_Testes" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="teste" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../tratamento_dados_specify/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Coordenadas_Testes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Gbif_Testes" type="PythonConfigurationType" factoryName="Python">
       <module name="teste" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -196,9 +216,11 @@
       <item itemvalue="Python.Gbif_Testes" />
       <item itemvalue="Python.SpecieGeo_App" />
       <item itemvalue="Python.planilha" />
+      <item itemvalue="Python.Coordenadas_Testes" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Coordenadas_Testes" />
         <item itemvalue="Python.planilha" />
       </list>
     </recent_temporary>
@@ -223,13 +245,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Plotagem do poligono no mapa após ser criado">
-      <created>1569610872623</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1569610872623</updated>
     </task>
     <task id="LOCAL-00011" summary="Personalização da área plotada">
       <created>1569611658830</created>
@@ -567,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575660215346</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Criado objeto Coordenadas onde recebe os valores de latitude e longitude e suas formas">
+      <created>1575920610797</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1575920610797</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -601,7 +623,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="focando em analisar os dados" />
     <MESSAGE value="enviando para o servidor formatado e convertendo no backend pra json" />
     <MESSAGE value="Formatado layout do home e da tela de plotagem para ficar um padrão" />
     <MESSAGE value="Formatado layout da tela de plotagem, tabela agora indica os poligonos que contém ou não markers" />
@@ -626,7 +647,8 @@
     <MESSAGE value="Iniciando conversao de coordenadas" />
     <MESSAGE value="comecando coordenadas" />
     <MESSAGE value="Coordenadas, conversão para decimal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Coordenadas, conversão para decimal" />
+    <MESSAGE value="Criado objeto Coordenadas onde recebe os valores de latitude e longitude e suas formas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criado objeto Coordenadas onde recebe os valores de latitude e longitude e suas formas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
