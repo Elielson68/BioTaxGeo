@@ -47,7 +47,7 @@ class Planilha:
         try:
             self.index_planilha = int(self.index_planilha)
             if(self.index_planilha >= len(self.lista_de_planilhas)):
-                return print("Index de planilha excede ao limite de planilhas do arquivo.")
+                return "Index de planilha excede ao limite de planilhas do arquivo."
             else:
                 self.planilha = self.arquivo.sheet_loaded(self.index_planilha)
         except:
@@ -55,11 +55,11 @@ class Planilha:
             self.planilha = self.arquivo.sheet_loaded(self.index_planilha)
 
     def Get_Planilha (self):
-        return print(self.lista_de_planilhas[self.index_planilha])
+        return self.lista_de_planilhas[self.index_planilha]
 
     def get_Lista_de_planilhas (self):
         self.lista_de_planilhas = self.arquivo.sheet_names()
-        return print(self.lista_de_planilhas)
+        return self.lista_de_planilhas
 
     def get_Cabecario_Planilha(self):
         return self.planilha.row_values(0)
@@ -101,7 +101,7 @@ class Planilha:
             self.valores_na_linha = self.planilha.row_values((linha-1))
             return self.valores_na_linha
         else:
-            return print("Linha excede limite de linhas do documento.")
+            return "Linha excede limite de linhas do documento."
     
     def Resetar_valores(self):
         self.valor_na_celula = str
@@ -204,7 +204,6 @@ class Coordenadas:
                         self.coordenadas["latitude"]["emisferio"] = coordenada
                         if (coordenada == "s") or (coordenada == "S"):
                             self.coordenadas["latitude"]["grau"] = self.coordenadas["latitude"]["grau"] * -1
-                            self.coordenadas["latitude"]["decimal"] = self.coordenadas["latitude"]["grau"]
 
                     elif (coordenada in self.emisferios) and (valor_separado.index(coordenada) == 0):
                         self.coordenadas["latitude"]["emisferio"] = coordenada
@@ -306,6 +305,7 @@ class Coordenadas:
                         self.coordenadas["latitude"]["minuto"] = float(self.coordenadas["latitude"]["minuto"])
                         if ("s" in lat) or ("S" in lat):
                              self.coordenadas["latitude"]["minuto"] =  self.coordenadas["latitude"]["minuto"] * -1
+                
                 if espacos == 1:
                     if (coordenada in self.emisferios) and (valor_separado.index(coordenada) != 0):
                         self.coordenadas["latitude"]["emisferio"] = coordenada
@@ -393,7 +393,6 @@ class Coordenadas:
                         self.coordenadas["longitude"]["emisferio"] = coordenada
                         if (coordenada == "w") or (coordenada == "W"):
                             self.coordenadas["longitude"]["grau"] = self.coordenadas["longitude"]["grau"] * -1
-                            self.coordenadas["longitude"]["decimal"] = self.coordenadas["longitude"]["grau"]
 
                     elif (coordenada in self.emisferios) and (valor_separado.index(coordenada) == 0):
                         self.coordenadas["longitude"]["emisferio"] = coordenada
@@ -583,10 +582,101 @@ class Coordenadas:
     
     def get_Latitude(self):
         return self.coordenadas["latitude"]
-    
+
     def get_Longitude(self):
         return self.coordenadas["longitude"]
 
+    def Resetar_Valores_Coordenadas(self):
+        self.coordenadas = {
+                    "latitude":
+                                {
+                                    "grau"     : None,
+                                    "minuto"   : None,
+                                    "segundo"  : None,
+                                    "emisferio": None,
+                                    "decimal"  : None
+                                },
+                    "longitude":
+                                {
+                                    "grau"     : None,
+                                    "minuto"   : None,
+                                    "segundo"  : None,
+                                    "emisferio": None,
+                                    "decimal"  : None
+                                }
+                    }
+
+    def Adicionar_Coordenada(self, lat, lng):
+        self.Resetar_Valores_Coordenadas()
+        self.set_Latitude(lat)
+        self.set_Longitude(lng)
+        self.lista_coordenadas.append(self.coordenadas)
+    
+    def Listar_Coordenadas(self):
+        return self.lista_coordenadas
+
+    def Converter_Lat_Decimal(self, lat):
+        lat_convertida = "Nada"
+        lista_lat_convertida = []
+        if type(lat) == str:
+            self.Resetar_Valores_Coordenadas()
+            self.set_Latitude(lat)
+            if self.get_Latitude()["decimal"] == None:
+                if self.get_Latitude()["segundo"] == None:
+                    lat_convertida = self.get_Latitude()["grau"]
+                    valor_aux_seg = self.get_Latitude()["minuto"]/60
+                    if "-" in str(self.get_Latitude()["grau"]):
+                        lat_convertida *= -1
+                        lat_convertida = lat_convertida+valor_aux_seg
+                        lat_convertida *= -1
+                    else:
+                        lat_convertida += valor_aux_seg
+                else:
+                    lat_convertida = self.get_Latitude()["grau"]
+                    valor_aux_seg = self.get_Latitude()["segundo"]/60
+                    valor_aux_min = self.get_Latitude()["minuto"] + valor_aux_seg
+                    valor_aux_min /= 60
+
+                    if "-" in str(lat_convertida):
+                        lat_convertida *= -1
+                        lat_convertida = lat_convertida+valor_aux_min
+                        lat_convertida *= -1
+                    else:
+                        lat_convertida += valor_aux_min
+            else:
+                lat_convertida = self.get_Latitude()["decimal"]
+            return lat_convertida
+        elif type(lat) == list:
+            for l in lat:
+                self.Resetar_Valores_Coordenadas()
+                self.set_Latitude(l)
+                if self.get_Latitude()["decimal"] == None:
+                    if self.get_Latitude()["segundo"] == None:
+                        lat_convertida = self.get_Latitude()["grau"]
+                        valor_aux_seg = self.get_Latitude()["minuto"]/60
+                        if "-" in str(self.get_Latitude()["grau"]):
+                            lat_convertida *= -1
+                            lat_convertida = lat_convertida+valor_aux_seg
+                            lat_convertida *= -1
+                        else:
+                            lat_convertida += valor_aux_seg
+                    else:
+                        lat_convertida = self.get_Latitude()["grau"]
+                        valor_aux_seg = self.get_Latitude()["segundo"]/60
+                        valor_aux_min = self.get_Latitude()["minuto"] + valor_aux_seg
+                        valor_aux_min /= 60
+                        if "-" in str(lat_convertida):
+                            lat_convertida *= -1
+                            lat_convertida = lat_convertida+valor_aux_min
+                            lat_convertida *= -1
+                            
+                        else:
+                            
+                            lat_convertida += valor_aux_min
+                else:
+                    lat_convertida = self.get_Latitude()["decimal"]
+                lista_lat_convertida.append(lat_convertida)
+            return lista_lat_convertida
 class Tratamento_de_Dados:
     
     def __init__(self, plan):
