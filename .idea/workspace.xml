@@ -246,13 +246,6 @@
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
     </task>
-    <task id="LOCAL-00012" summary="Código de testes passado para o arquivo principal De GBIF Testes.py Para Loko.py">
-      <created>1569612319179</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1569612319179</updated>
-    </task>
     <task id="LOCAL-00013" summary="Inserção da leitura de planilha e seleção de área pelo usuário">
       <created>1569867171562</created>
       <option name="number" value="00013" />
@@ -589,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576000122533</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Convertendo de DDMMSS,ss , DDMM,mmm para DD,dddd">
+      <created>1576004067015</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1576004067015</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -623,7 +623,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Formatado layout do home e da tela de plotagem para ficar um padrão" />
     <MESSAGE value="Formatado layout da tela de plotagem, tabela agora indica os poligonos que contém ou não markers" />
     <MESSAGE value="formatado algumas coisas e mudando a forma de se selecionar o poligono" />
     <MESSAGE value="Codigo formatado para maneira antiga, porem com as atualizacoes a serem feitas em formato de comentarios" />
@@ -648,7 +647,8 @@
     <MESSAGE value="Coordenadas, conversão para decimal" />
     <MESSAGE value="Criado objeto Coordenadas onde recebe os valores de latitude e longitude e suas formas" />
     <MESSAGE value="Convertendo string de coordenadas e inserindo em um objeto. Ela identifica onde esta o grau, minutos e segundos e insere automaticamente no objeto em seus respectivo campo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Convertendo string de coordenadas e inserindo em um objeto. Ela identifica onde esta o grau, minutos e segundos e insere automaticamente no objeto em seus respectivo campo" />
+    <MESSAGE value="Convertendo de DDMMSS,ss , DDMM,mmm para DD,dddd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Convertendo de DDMMSS,ss , DDMM,mmm para DD,dddd" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

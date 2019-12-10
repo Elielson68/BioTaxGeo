@@ -162,10 +162,12 @@ class Coordenadas:
         self.lista_coordenadas = []
         self.emisferios = [ "w", "W", "s", "S", "e", "E", "n", "N" ]
 
-    def set_Latitude__Column_values(self, coluna_lat):
+    def set_Latitude_Column_values(self, coluna_lat):
         if(type(coluna_lat) == str):
             indice_coluna = self.planilha.row_values(0).index(coluna_lat)
             self.coluna_latitude_plan = self.planilha.col_values(indice_coluna, 1)
+            print( self.coluna_latitude_plan)
+            self.coluna_latitude_plan = filter(None, self.coluna_latitude_plan)
         elif(type(coluna_lat) == int):
             self.coluna_latitude_plan = self.planilha.col_values(coluna_lat, 1)
         elif(type(coluna_lat) == dict):
@@ -175,6 +177,7 @@ class Coordenadas:
         if(type(coluna_lng) == str):
             indice_coluna = self.planilha.row_values(0).index(coluna_lng)
             self.coluna_longitude_plan = self.planilha.col_values(indice_coluna,1)
+            self.coluna_longitude_plan = filter(None, self.coluna_longitude_plan)
         elif(type(coluna_lng) == int):
             self.coluna_longitude_plan = self.planilha.col_values(coluna_lng,1)
         elif(type(coluna_lng) == dict):
@@ -304,8 +307,7 @@ class Coordenadas:
                         self.coordenadas["latitude"]["minuto"] = coordenada
                         self.coordenadas["latitude"]["minuto"] = float(self.coordenadas["latitude"]["minuto"])
                         if ("s" in lat) or ("S" in lat):
-                             self.coordenadas["latitude"]["minuto"] =  self.coordenadas["latitude"]["minuto"] * -1
-                
+                             self.coordenadas["latitude"]["minuto"] =  self.coordenadas["latitude"]["minuto"] * -1         
                 if espacos == 1:
                     if (coordenada in self.emisferios) and (valor_separado.index(coordenada) != 0):
                         self.coordenadas["latitude"]["emisferio"] = coordenada
@@ -335,7 +337,6 @@ class Coordenadas:
                         if ("s" in lat) or ("S" in lat):
                             self.coordenadas["latitude"]["grau"] =  self.coordenadas["latitude"]["grau"] * -1
                         self.coordenadas["latitude"]["decimal"] = self.coordenadas["latitude"]["grau"]
-
         else:
             espacos = lat.count(" ")
             for coordenada in valor_separado:
@@ -677,6 +678,70 @@ class Coordenadas:
                     lat_convertida = self.get_Latitude()["decimal"]
                 lista_lat_convertida.append(lat_convertida)
             return lista_lat_convertida
+    
+    def Converter_Lng_Decimal(self, lng):
+        lng_convertida = "Nada"
+        lista_lng_convertida = []
+        if type(lng) == str:
+            self.Resetar_Valores_Coordenadas()
+            self.set_Longitude(lng)
+            if self.get_Longitude()["decimal"] == None:
+                if self.get_Longitude()["segundo"] == None:
+                    lng_convertida = self.get_Longitude()["grau"]
+                    valor_aux_seg = self.get_Longitude()["minuto"]/60
+                    if "-" in str(self.get_Longitude()["grau"]):
+                        lng_convertida *= -1
+                        lng_convertida = lng_convertida+valor_aux_seg
+                        lng_convertida *= -1
+                    else:
+                        lng_convertida += valor_aux_seg
+                else:
+                    lng_convertida = self.get_Longitude()["grau"]
+                    valor_aux_seg = self.get_Longitude()["segundo"]/60
+                    valor_aux_min = self.get_Longitude()["minuto"] + valor_aux_seg
+                    valor_aux_min /= 60
+
+                    if "-" in str(lng_convertida):
+                        lng_convertida *= -1
+                        lng_convertida = lng_convertida+valor_aux_min
+                        lng_convertida *= -1
+                    else:
+                        lng_convertida += valor_aux_min
+            else:
+                lng_convertida = self.get_Longitude()["decimal"]
+            return lng_convertida
+        elif type(lng) == list:
+            for l in lng:
+                self.Resetar_Valores_Coordenadas()
+                self.set_Longitude(l)
+                if self.get_Longitude()["decimal"] == None:
+                    if self.get_Longitude()["segundo"] == None:
+                        lng_convertida = self.get_Longitude()["grau"]
+                        valor_aux_seg = self.get_Longitude()["minuto"]/60
+                        if "-" in str(self.get_Longitude()["grau"]):
+                            lng_convertida *= -1
+                            lng_convertida = lng_convertida+valor_aux_seg
+                            lng_convertida *= -1
+                        else:
+                            lng_convertida += valor_aux_seg
+                    else:
+                        lng_convertida = self.get_Longitude()["grau"]
+                        valor_aux_seg = self.get_Longitude()["segundo"]/60
+                        valor_aux_min = self.get_Longitude()["minuto"] + valor_aux_seg
+                        valor_aux_min /= 60
+                        if "-" in str(lng_convertida):
+                            lng_convertida *= -1
+                            lng_convertida = lng_convertida+valor_aux_min
+                            lng_convertida *= -1
+                            
+                        else:
+                            
+                            lng_convertida += valor_aux_min
+                else:
+                    lng_convertida = self.get_Longitude()["decimal"]
+                lista_lng_convertida.append(lng_convertida)
+            return lista_lng_convertida
+
 class Tratamento_de_Dados:
     
     def __init__(self, plan):
