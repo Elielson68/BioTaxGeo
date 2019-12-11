@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpecieGeo_App.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpecieGeo_App.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/planilha.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/planilha.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +66,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Coordenadas_Testes">
+  <component name="RunManager" selected="Python.SpecieGeo_App">
     <configuration name="Coordenadas_Testes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="teste" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -245,13 +247,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Inserção da leitura de planilha e seleção de área pelo usuário">
-      <created>1569867171562</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1569867171562</updated>
     </task>
     <task id="LOCAL-00014" summary="Verificação se marker está dentro de área estabelecida pelo usuário">
       <created>1569870054691</created>
@@ -589,7 +584,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576004067015</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="conversao sendo feita com sucesso">
+      <created>1576007459300</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1576007459300</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -623,7 +625,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Formatado layout da tela de plotagem, tabela agora indica os poligonos que contém ou não markers" />
     <MESSAGE value="formatado algumas coisas e mudando a forma de se selecionar o poligono" />
     <MESSAGE value="Codigo formatado para maneira antiga, porem com as atualizacoes a serem feitas em formato de comentarios" />
     <MESSAGE value="Começando a implementar a API REST pra analise dos dados da planilha" />
@@ -648,7 +649,8 @@
     <MESSAGE value="Criado objeto Coordenadas onde recebe os valores de latitude e longitude e suas formas" />
     <MESSAGE value="Convertendo string de coordenadas e inserindo em um objeto. Ela identifica onde esta o grau, minutos e segundos e insere automaticamente no objeto em seus respectivo campo" />
     <MESSAGE value="Convertendo de DDMMSS,ss , DDMM,mmm para DD,dddd" />
-    <option name="LAST_COMMIT_MESSAGE" value="Convertendo de DDMMSS,ss , DDMM,mmm para DD,dddd" />
+    <MESSAGE value="conversao sendo feita com sucesso" />
+    <option name="LAST_COMMIT_MESSAGE" value="conversao sendo feita com sucesso" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

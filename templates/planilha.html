@@ -19,10 +19,7 @@
         
         <h1 style="text-align: center;">Verificação dos dados da planilha</h1> <hr>
         <div>
-          <form action="http://localhost:8080/salvar" method = "POST" enctype = "multipart/form-data">
-            <input type="text" name = "dados" value="" hidden="hidden" id="dados"/> 
-            <input id="submit_planilha" type="submit" value="Salvar alterações" class="btn btn-success"/>
-          </form>
+
         </div>
 
         <!--______________________________________PLANILHA______________________________________________________-->
@@ -34,6 +31,10 @@
                 <label class="btn btn-secondary rounded-0">
                   <input type="radio" name="options" id="option2" autocomplete="on"> Visualizar apenas os erros
                 </label>
+                <form action="http://localhost:8080/salvar" method = "POST" enctype = "multipart/form-data">
+                    <input type="text" name = "dados" value="" hidden="hidden" id="dados"/>
+                    <input id="submit_planilha" type="submit" value="Salvar alterações" class="btn btn-success rounded-0"/>
+                </form>
               </div>
           <table class="table table-dark" id="tabela_planilha">
             <thead id="thead_tabela">
@@ -323,24 +324,25 @@
             valor_certo = verificacao[key1][key2]["Sugestão"]
             chaves = Object.keys(verificacao[key1])
             comeco = chaves.indexOf(key2)
+            console.log(verificacao[key1]["Nome Científico"]["Fonte"])
             if(!(Array.isArray(valor_certo))){
               mais_de_um = false
               if(verificacao[key1]["Nome Científico"]["Sinônimo"]){
-                texto.innerHTML = "Verificamos que seu dado pode se tratar de um <b>sinônimo</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a quantidade de valores que deseja alterar: <br>"
+                texto.innerHTML = "Fonte: "+verificacao[key1]["Nome Científico"]["Fonte"]+"<br>Verificamos que seu dado pode se tratar de um <b>sinônimo</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a quantidade de valores que deseja alterar: <br>"
 
               }
               else{
-                texto.innerHTML = "Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a quantidade de valores que deseja alterar: <br>"
+                texto.innerHTML = "Fonte: "+verificacao[key1]["Nome Científico"]["Fonte"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a quantidade de valores que deseja alterar: <br>"
               }
             }
             else{
               mais_de_um = true
               if(verificacao[key1]["Nome Científico"]["Sinônimo"]){
-                texto.innerHTML = "Verificamos que seu dado pode se tratar de um <b>sinônimo</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</b>"
+                texto.innerHTML = "Fonte: "+verificacao[key1]["Nome Científico"]["Fonte"]+"<br>Verificamos que seu dado pode se tratar de um <b>sinônimo</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</b>"
 
               }
               else{
-                texto.innerHTML = "Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</b>"
+                texto.innerHTML = "Fonte: "+verificacao[key1]["Nome Científico"]["Fonte"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</b>"
               }
               contador = 0
               for (nomes of valor_certo){
