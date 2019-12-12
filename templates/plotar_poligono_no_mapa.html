@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&libraries=geometry"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+
 </head>
 <body>
     <!--NAVBAR inserido no caralho do git-->
@@ -24,8 +26,8 @@
     <div id="mapa_plotar" class="border border-secondary"></div>
 <div>
   <script type="text/javascript" src="../static/js/markers.js"></script>
-  <script src="../static/js/Jquery.js" type="text/javascript"></script>
   <script>
+
     var map;
     function MapaDois() {
       var belem = {lat:-1.44502, lng: -48.4650};
@@ -61,6 +63,8 @@
         Criar_THead(parseInt(poli)+1);
       }
       Detectar_Marks(latitude, longitude, markers, poligonos);
+      opt_options = {imagePath:'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m', gridSize: 60, maxZoom: 14, minimumClusterSize: 2}
+      var markerCluster = new MarkerClusterer(map, markers, opt_options);
   }
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&callback=MapaDois"></script>

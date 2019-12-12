@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="Corrigido bug que quando a coordenada possuia mais de 1 espaco ela crashava. Agora ela confere os numeros de espacos normalmente">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpecieGeo_App.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpecieGeo_App.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/planilha.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/planilha.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -247,20 +246,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Verificação se marker está dentro de área estabelecida pelo usuário">
-      <created>1569870054691</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1569870054691</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Lista de markers que estão dentro da área">
-      <created>1569873027460</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1569873027460</updated>
     </task>
     <task id="LOCAL-00016" summary="Modificação no layout, inserção da opção de criar vértices através de inputs">
       <created>1569954963464</created>
@@ -591,7 +576,21 @@
       <option name="project" value="LOCAL" />
       <updated>1576007459300</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Corrigido bug que quando a coordenada possuia mais de 1 espaco ela crashava. Agora ela confere os numeros de espacos normalmente">
+      <created>1576092587503</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1576092587504</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Nova planilha e templates">
+      <created>1576168989818</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1576168989819</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -625,8 +624,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="formatado algumas coisas e mudando a forma de se selecionar o poligono" />
-    <MESSAGE value="Codigo formatado para maneira antiga, porem com as atualizacoes a serem feitas em formato de comentarios" />
     <MESSAGE value="Começando a implementar a API REST pra analise dos dados da planilha" />
     <MESSAGE value="Criacao de arquivo pra ler planilha" />
     <MESSAGE value="Utilizando o objeto de Planilha para pegar latitude e longitude" />
@@ -650,7 +647,9 @@
     <MESSAGE value="Convertendo string de coordenadas e inserindo em um objeto. Ela identifica onde esta o grau, minutos e segundos e insere automaticamente no objeto em seus respectivo campo" />
     <MESSAGE value="Convertendo de DDMMSS,ss , DDMM,mmm para DD,dddd" />
     <MESSAGE value="conversao sendo feita com sucesso" />
-    <option name="LAST_COMMIT_MESSAGE" value="conversao sendo feita com sucesso" />
+    <MESSAGE value="Corrigido bug que quando a coordenada possuia mais de 1 espaco ela crashava. Agora ela confere os numeros de espacos normalmente" />
+    <MESSAGE value="Nova planilha e templates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nova planilha e templates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
