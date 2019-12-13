@@ -53,11 +53,22 @@
             titulos = titulos.replace(/&#39;/g,'"');
             titulos = JSON.parse(titulos)
             var coordenadas = {"latitude": null, "longitude": null}
+            var regiao = {"continente": null, "estado": null, "distrito": null, "local": null}
+            //tentar fazer isso aqui dá certo
+            valor1 = Object.keys(coordenadas)
+            valor2 = Object.keys(regiao)
+            options = valor1.concat(valor2);
+            console.log(options)
+
             AtribuindoTitulos()
             function AtribuindoTitulos(){
                 var select_latitude = document.getElementById("select_latitude");
                 var select_longitude = document.getElementById("select_longitude");
-                
+                var select_continente = document.getElementById("select_continente");
+                var select_estado = document.getElementById("select_estado")
+                var select_distrito = document.getElementById("select_distrito")
+                var select_local = document.getElementById("select_local")
+
                 for (titulo of titulos){
                     novo_option1 = document.createElement("option");
                     novo_option1.innerHTML = titulo;
@@ -69,17 +80,22 @@
                     novo_option2.addEventListener("click",Selecionado);
                     novo_option2.id = "longitude"
 
-
                     select_latitude.appendChild(novo_option1);
                     select_longitude.appendChild(novo_option2);
                 }
             }
             function Selecionado(){
-                coordenadas[this.id] = this.value;
-                console.log(coordenadas)
-                var coordenadas_formatada = JSON.stringify(coordenadas);
-                var input_text = document.getElementById("titulos_selecao");
-                input_text.value = coordenadas_formatada;
+                if(this.id in coordenadas){
+                    coordenadas[this.id] = this.value;
+                    console.log(coordenadas)
+                    var coordenadas_formatada = JSON.stringify(coordenadas);
+                    var input_text = document.getElementById("titulos_selecao");
+                    input_text.value = coordenadas_formatada;
+                }
+                if(this.id in regiao){
+
+                }
+
             }
         </script>
     </body>
