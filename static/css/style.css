@@ -10,6 +10,16 @@
      background-repeat:no-repeat;
      filter: blur(3px);
 }
+#NavBar{
+    background: rgb(3,38,4);
+    background: linear-gradient(90deg, rgba(3,38,4,1) 0%, rgba(29,121,32,1) 72%, rgba(33,171,199,1) 100%);
+}
+#TextoNav{
+    font-family: 'Tomorrow', sans-serif;
+    color: #ffff;
+    font-size: 30px;
+    letter-spacing:5px
+}
 #card{
      position: relative;
      left: 30%;
