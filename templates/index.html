@@ -3,15 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <title>Home</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
 
         <div id=fundo_home></div>
 
-    {% block navbar %}{% endblock %}
+        {% extends "navbar.html" %}
 
+        {% block content %}
         <div class="card mb-3 shadow p-3 mb-5 bg-white rounded" id="card">
             <img src="https://www.infoescola.com/wp-content/uploads/2018/02/floresta-amazonica-343759751.jpg" class="card-img-top" alt="Responsive image">
             <div class="card-body">
@@ -30,6 +31,7 @@
 
             </div>
         </div>
+        {% endblock %}
     </body>
         <script>
            document.getElementById("uploadBtn").onchange = function () {
