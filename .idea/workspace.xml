@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="Corrigido bug que quando a coordenada possuia mais de 1 espaco ela crashava. Agora ela confere os numeros de espacos normalmente">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/plotar_poligono_no_mapa.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -246,20 +244,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Modificação no layout, inserção da opção de criar vértices através de inputs">
-      <created>1569954963464</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1569954963464</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Modificação no layout, inserção da opção de criar vértices através de inputs">
-      <created>1569955571042</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1569955571042</updated>
     </task>
     <task id="LOCAL-00018" summary="inserido limite para criação de inputs">
       <created>1569956448998</created>
@@ -590,7 +574,21 @@
       <option name="project" value="LOCAL" />
       <updated>1576168989819</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="usando marker cluster">
+      <created>1576179639150</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1576179639151</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Melhorar front-end do criar_poligono_mapa.html e plotar_poligono_mapa.html">
+      <created>1576262013443</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1576262013444</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -624,8 +622,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Começando a implementar a API REST pra analise dos dados da planilha" />
-    <MESSAGE value="Criacao de arquivo pra ler planilha" />
     <MESSAGE value="Utilizando o objeto de Planilha para pegar latitude e longitude" />
     <MESSAGE value="Usando o metodo GET da API REST do GBIF para retornar a precisao dos nomes cientificos" />
     <MESSAGE value="Retornando sugestao de correcao e mostrando precisao do nome cientifico" />
@@ -649,7 +645,9 @@
     <MESSAGE value="conversao sendo feita com sucesso" />
     <MESSAGE value="Corrigido bug que quando a coordenada possuia mais de 1 espaco ela crashava. Agora ela confere os numeros de espacos normalmente" />
     <MESSAGE value="Nova planilha e templates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nova planilha e templates" />
+    <MESSAGE value="usando marker cluster" />
+    <MESSAGE value="Melhorar front-end do criar_poligono_mapa.html e plotar_poligono_mapa.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="Melhorar front-end do criar_poligono_mapa.html e plotar_poligono_mapa.html" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

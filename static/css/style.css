@@ -1,4 +1,6 @@
 
+
+/* Tela inicial | index.html */
 #fundo_home{
      background: url("https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2019/06/formacao_igreja-e-meio-ambiente-olhos-voltados-para-a-amazonia.jpg");
      position: absolute;
@@ -13,53 +15,6 @@
      left: 30%;
      width: 40%;
      margin-top: 5px; 
-}
-#arquivo{
-     border: #696969;
-     border-style: dashed;
-     margin-bottom: 2%;
-}
-#body{
-     width: 100%;
-     height: 100%;
-     margin: 0px;
-     padding: 0px;
-}
-#mapa_criar {
-     position: absolute;
-     width: 66%;
-     height: 100%;
-     float: left;
-}
-#mapa_plotar {
-     position: absolute;
-     width: 66%;
-     height: 100%;
-     float: left;  
-}
-
-#inserir_poligono{
-     margin-left: 66%;
-     position: absolute;
-     width: 34%;
-     height: 100%;
-     background-color: #696969;
-     float: right;
-}
-#input_vertices{
-     overflow: auto; 
-     height: 45%;
-}
-#dropdown_poligonos{
-     margin-bottom: 2%;
-}
-#Tabelita{
-     margin-left: 66%;
-     position: absolute;
-     width: 34%;
-     height: 100%;
-     float: right;
-     overflow: auto; 
 }
 .fileUpload {
      position: relative;
@@ -77,6 +32,55 @@
      opacity: 0;
      filter: alpha(opacity=0);
  }
+ /*_________________________________________________________*/
+
+/* Mapa 1 | criar_poligono_no_mapa.html*/
+#body{
+     width: 100%;
+     height: 100%;
+     margin: 0px;
+     padding: 0px;
+}
+#mapa_criar {
+     position: absolute;
+     width: 66%;
+     height: 100%;
+     float: left;
+}
+#inserir_poligono{
+     margin-left: 66%;
+     position: absolute;
+     width: 34%;
+     height: 100%;
+     background-color: #696969;
+     float: right;
+}
+#dropdown_poligonos{
+     margin-bottom: 2%;
+}
+#input_vertices{
+     overflow: auto; 
+     height: 45%;
+}
+ /*_________________________________________________________*/
+
+/* Mapa 2 | plotar_poligono_no_mapa.html*/
+ #mapa_plotar {
+     position: absolute;
+     width: 100%;
+     height: 50%; 
+}
+#Tabelita{
+     margin-top: 368px;
+     position: absolute;
+     width: 100%;
+     height: 50%;
+     float: right;
+     overflow: auto; 
+}
+ /*_________________________________________________________*/
+
+ /* Planilha com hierarquia taxonômica | planilha.html*/
  #planilha{
       margin-left: 10%;
       margin-right: 10%;
