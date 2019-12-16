@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
     </list>
@@ -33,7 +35,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/OficialEnv" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -216,8 +218,8 @@
     </configuration>
     <list>
       <item itemvalue="Python.Gbif_Testes" />
-      <item itemvalue="Python.Coordenadas_Testes" />
       <item itemvalue="Python.SpecieGeo_App" />
+      <item itemvalue="Python.Coordenadas_Testes" />
       <item itemvalue="Python.planilha" />
     </list>
     <recent_temporary>
@@ -247,13 +249,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00021" summary="formatações referente a nomes">
-      <created>1570036108243</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1570036108243</updated>
     </task>
     <task id="LOCAL-00022" summary="formatação na pesquisa utilizando quadrados e poligonos">
       <created>1570036897071</created>
@@ -591,7 +586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576365057328</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="refatorando verificação de coordenada">
+      <created>1576524200564</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1576524200565</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -628,7 +630,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Retornando sugestao de correcao e mostrando precisao do nome cientifico" />
     <MESSAGE value="reorganzacao do codigo da planilha" />
     <MESSAGE value="hierarquia upada novamente" />
     <MESSAGE value="env upada pro git" />
@@ -653,7 +654,8 @@
     <MESSAGE value="Melhorar front-end do criar_poligono_mapa.html e plotar_poligono_mapa.html" />
     <MESSAGE value="Padrão de projeto Python" />
     <MESSAGE value="navbar estilizada utilizando o block e content do flask" />
-    <option name="LAST_COMMIT_MESSAGE" value="navbar estilizada utilizando o block e content do flask" />
+    <MESSAGE value="refatorando verificação de coordenada" />
+    <option name="LAST_COMMIT_MESSAGE" value="refatorando verificação de coordenada" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

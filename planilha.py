@@ -198,12 +198,14 @@ class Coordenadas:
             return self.coluna_longitude_plan
     #Precisa ser melhorado o método que os valores são inseridos no dicionario coordenadas. Mas por enquanto vai ser feito assim.
 
-    def set_Lat_Lng(self, lat): #Bem vindo a loucura de Elielson. Ta grande, mas funciona.
-        valor_separado = str(lat).split()
+    def set_Lat_Lng(self, coord, nome_coord): #Bem vindo a loucura de Elielson. Ta grande, mas funciona.
+        valor_separado = str(coord).split()
         valor_juntado = " ".join(valor_separado)
         espacos = valor_juntado.count(" ")
         emisferio_ultimo = False
+        emisferios_negativos = ["w", "W", "s", "S"]
         possui_emisf = True if list(set(self.emisferios).intersection(valor_separado)) != [] else False
+        emisf_neg = True if list(set(valor_separado).intersection(emisferios_negativos)) != [] else False
         #Caso a coordenada tenha alguma letra, significa que o decimal dela será descrito como positivo ou negativo com base no emisfério descrito
         if possui_emisf:
             for coordenada in valor_separado:
@@ -212,140 +214,140 @@ class Coordenadas:
 
                     #Referente ao emisfério
                     if (coordenada in self.emisferios) and (valor_separado.index(coordenada) != 0):
-                        self.coordenadas["latitude"]["emisferio"] = coordenada
-                        if (coordenada == "s") or (coordenada == "S"):
-                            self.coordenadas["latitude"]["grau"] = self.coordenadas["latitude"]["grau"] * -1
+                        self.coordenadas[nome_coord]["emisferio"] = coordenada
+                        if (emisf_neg):
+                            self.coordenadas[nome_coord]["grau"] = self.coordenadas[nome_coord]["grau"] * -1
                     elif (coordenada in self.emisferios) and (valor_separado.index(coordenada) == 0):
-                        self.coordenadas["latitude"]["emisferio"] = coordenada
+                        self.coordenadas[nome_coord]["emisferio"] = coordenada
 
                     #Referente ao grau
                     if ("°" in coordenada):
                         if valor_separado.index(coordenada) == 0:
                             emisferio_ultimo = True
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace("°", "").replace(",",".")
-                        if "-" in self.coordenadas["latitude"]["grau"]:
-                            self.coordenadas["latitude"]["grau"] = self.coordenadas["latitude"]["grau"].replace("-","")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace("°", "").replace(",",".")
+                        if "-" in self.coordenadas[nome_coord]["grau"]:
+                            self.coordenadas[nome_coord]["grau"] = self.coordenadas[nome_coord]["grau"].replace("-","")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
                     elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 0):
                         emisferio_ultimo = True
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace(",",".")
-                        if "-" in self.coordenadas["latitude"]["grau"]:
-                            self.coordenadas["latitude"]["grau"] = self.coordenadas["latitude"]["grau"].replace("-","")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace(",",".")
+                        if "-" in self.coordenadas[nome_coord]["grau"]:
+                            self.coordenadas[nome_coord]["grau"] = self.coordenadas[nome_coord]["grau"].replace("-","")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
                     elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 1) and emisferio_ultimo==False:
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace(",",".")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
-                        if ("s" in lat) or ("S" in lat):
-                             self.coordenadas["latitude"]["grau"] =  self.coordenadas["latitude"]["grau"] * -1
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace(",",".")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
+                        if emisf_neg:
+                             self.coordenadas[nome_coord]["grau"] =  self.coordenadas[nome_coord]["grau"] * -1
 
                     #Referente aos minutos
                     if ("'" in coordenada):
-                        self.coordenadas["latitude"]["minuto"] = coordenada.replace("'", "").replace(",",".")
-                        self.coordenadas["latitude"]["minuto"] = float(self.coordenadas["latitude"]["minuto"])
+                        self.coordenadas[nome_coord]["minuto"] = coordenada.replace("'", "").replace(",",".")
+                        self.coordenadas[nome_coord]["minuto"] = float(self.coordenadas[nome_coord]["minuto"])
                     elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 1) and emisferio_ultimo:
-                        self.coordenadas["latitude"]["minuto"] = coordenada.replace(",",".")
-                        if "-" in self.coordenadas["latitude"]["minuto"]:
-                            self.coordenadas["latitude"]["minuto"] = self.coordenadas["latitude"]["minuto"].replace("-","")
-                        self.coordenadas["latitude"]["minuto"] = float(self.coordenadas["latitude"]["minuto"])
+                        self.coordenadas[nome_coord]["minuto"] = coordenada.replace(",",".")
+                        if "-" in self.coordenadas[nome_coord]["minuto"]:
+                            self.coordenadas[nome_coord]["minuto"] = self.coordenadas[nome_coord]["minuto"].replace("-","")
+                        self.coordenadas[nome_coord]["minuto"] = float(self.coordenadas[nome_coord]["minuto"])
                     elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 2) and emisferio_ultimo==False:
-                        self.coordenadas["latitude"]["minuto"] = coordenada.replace(",",".")
-                        self.coordenadas["latitude"]["minuto"] = float(self.coordenadas["latitude"]["minuto"])
-                        if ("s" in lat) or ("S" in lat):
-                             self.coordenadas["latitude"]["minuto"] =  self.coordenadas["latitude"]["minuto"] * -1
+                        self.coordenadas[nome_coord]["minuto"] = coordenada.replace(",",".")
+                        self.coordenadas[nome_coord]["minuto"] = float(self.coordenadas[nome_coord]["minuto"])
+                        if emisf_neg:
+                             self.coordenadas[nome_coord]["minuto"] =  self.coordenadas[nome_coord]["minuto"] * -1
 
                     #Referente aos segundos
                     if ('"' in coordenada):
-                        self.coordenadas["latitude"]["segundo"] = coordenada.replace('"', "").replace(",",".")
-                        self.coordenadas["latitude"]["segundo"] = float(self.coordenadas["latitude"]["segundo"])
+                        self.coordenadas[nome_coord]["segundo"] = coordenada.replace('"', "").replace(",",".")
+                        self.coordenadas[nome_coord]["segundo"] = float(self.coordenadas[nome_coord]["segundo"])
                     elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 2) and emisferio_ultimo:
-                        self.coordenadas["latitude"]["segundo"] = coordenada.replace(",",".")
-                        if "-" in self.coordenadas["latitude"]["segundo"]:
-                            self.coordenadas["latitude"]["segundo"] = self.coordenadas["latitude"]["segundo"].replace("-","")
-                        self.coordenadas["latitude"]["segundo"] = float(self.coordenadas["latitude"]["segundo"])
+                        self.coordenadas[nome_coord]["segundo"] = coordenada.replace(",",".")
+                        if "-" in self.coordenadas[nome_coord]["segundo"]:
+                            self.coordenadas[nome_coord]["segundo"] = self.coordenadas[nome_coord]["segundo"].replace("-","")
+                        self.coordenadas[nome_coord]["segundo"] = float(self.coordenadas[nome_coord]["segundo"])
                     elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 3) and emisferio_ultimo==False:
-                        self.coordenadas["latitude"]["segundo"] = coordenada.replace(",",".")
-                        self.coordenadas["latitude"]["segundo"] = float(self.coordenadas["latitude"]["segundo"])
-                        if ("s" in lat) or ("S" in lat):
-                             self.coordenadas["latitude"]["segundo"] =  self.coordenadas["latitude"]["segundo"] * -1
+                        self.coordenadas[nome_coord]["segundo"] = coordenada.replace(",",".")
+                        self.coordenadas[nome_coord]["segundo"] = float(self.coordenadas[nome_coord]["segundo"])
+                        if emisf_neg:
+                             self.coordenadas[nome_coord]["segundo"] =  self.coordenadas[nome_coord]["segundo"] * -1
                 
                 #Caso a coordenada esteja em formato Grau por minuto.
                 if espacos == 2:
 
                     #Referente ao emisfério
                     if (coordenada in self.emisferios) and (valor_separado.index(coordenada) != 0):
-                        self.coordenadas["latitude"]["emisferio"] = coordenada.replace(",",".")
-                        if (coordenada == "s") or (coordenada == "S"):
-                            self.coordenadas["latitude"]["grau"] = self.coordenadas["latitude"]["grau"] * -1
+                        self.coordenadas[nome_coord]["emisferio"] = coordenada.replace(",",".")
+                        if (emisf_neg):
+                            self.coordenadas[nome_coord]["grau"] = self.coordenadas[nome_coord]["grau"] * -1
                     elif (coordenada in self.emisferios) and (valor_separado.index(coordenada) == 0):
-                        self.coordenadas["latitude"]["emisferio"] = coordenada.replace(",",".")
+                        self.coordenadas[nome_coord]["emisferio"] = coordenada.replace(",",".")
 
                     #Referente ao grau
                     if "°" in coordenada:
                         if(valor_separado.index(coordenada) == 0):
                             emisferio_ultimo = True
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace("°", "")
-                        if "-" in self.coordenadas["latitude"]["grau"]:
-                            self.coordenadas["latitude"]["grau"] = self.coordenadas["latitude"]["grau"].replace("-","")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace("°", "")
+                        if "-" in self.coordenadas[nome_coord]["grau"]:
+                            self.coordenadas[nome_coord]["grau"] = self.coordenadas[nome_coord]["grau"].replace("-","")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
                     elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 0):
                         emisferio_ultimo = True
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace(",",".")
-                        if "-" in self.coordenadas["latitude"]["grau"]:
-                            self.coordenadas["latitude"]["grau"] = self.coordenadas["latitude"]["grau"].replace("-","")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace(",",".")
+                        if "-" in self.coordenadas[nome_coord]["grau"]:
+                            self.coordenadas[nome_coord]["grau"] = self.coordenadas[nome_coord]["grau"].replace("-","")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
                     elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 1) and emisferio_ultimo==False:
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace(",",".")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
-                        if ("s" in lat) or ("S" in lat):
-                             self.coordenadas["latitude"]["grau"] =  self.coordenadas["latitude"]["grau"] * -1
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace(",",".")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
+                        if emisf_neg:
+                             self.coordenadas[nome_coord]["grau"] =  self.coordenadas[nome_coord]["grau"] * -1
 
                     #Referente ao minuto
                     if "'" in coordenada:
-                        self.coordenadas["latitude"]["minuto"] = coordenada.replace("'", "").replace(",",".")
-                        self.coordenadas["latitude"]["minuto"] = float(self.coordenadas["latitude"]["minuto"])              
+                        self.coordenadas[nome_coord]["minuto"] = coordenada.replace("'", "").replace(",",".")
+                        self.coordenadas[nome_coord]["minuto"] = float(self.coordenadas[nome_coord]["minuto"])              
                     elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 1) and emisferio_ultimo:
-                        self.coordenadas["latitude"]["minuto"] = coordenada.replace(",",".")
-                        if "-" in self.coordenadas["latitude"]["minuto"]:
-                            self.coordenadas["latitude"]["minuto"] = self.coordenadas["latitude"]["minuto"].replace("-","")
-                        self.coordenadas["latitude"]["minuto"] = float(self.coordenadas["latitude"]["minuto"])
+                        self.coordenadas[nome_coord]["minuto"] = coordenada.replace(",",".")
+                        if "-" in self.coordenadas[nome_coord]["minuto"]:
+                            self.coordenadas[nome_coord]["minuto"] = self.coordenadas[nome_coord]["minuto"].replace("-","")
+                        self.coordenadas[nome_coord]["minuto"] = float(self.coordenadas[nome_coord]["minuto"])
                     elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 2) and emisferio_ultimo==False:
-                        self.coordenadas["latitude"]["minuto"] = coordenada.replace(",",".")
-                        self.coordenadas["latitude"]["minuto"] = float(self.coordenadas["latitude"]["minuto"])
-                        if ("s" in lat) or ("S" in lat):
-                             self.coordenadas["latitude"]["minuto"] =  self.coordenadas["latitude"]["minuto"] * -1         
+                        self.coordenadas[nome_coord]["minuto"] = coordenada.replace(",",".")
+                        self.coordenadas[nome_coord]["minuto"] = float(self.coordenadas[nome_coord]["minuto"])
+                        if emisf_neg:
+                             self.coordenadas[nome_coord]["minuto"] =  self.coordenadas[nome_coord]["minuto"] * -1         
                 
                 #Caso a coordenada esteja em Grau/Decimal somente
                 if espacos == 1:
 
                     #Referente ao emisfério
                     if (coordenada in self.emisferios) and (valor_separado.index(coordenada) != 0):
-                        self.coordenadas["latitude"]["emisferio"] = coordenada.replace(",",".")
-                        if (coordenada == "s") or (coordenada == "S"):
-                            self.coordenadas["latitude"]["grau"] = self.coordenadas["latitude"]["grau"] * -1
-                            self.coordenadas["latitude"]["decimal"] = self.coordenadas["latitude"]["grau"]
+                        self.coordenadas[nome_coord]["emisferio"] = coordenada.replace(",",".")
+                        if (emisf_neg):
+                            self.coordenadas[nome_coord]["grau"] = self.coordenadas[nome_coord]["grau"] * -1
+                            self.coordenadas[nome_coord]["decimal"] = self.coordenadas[nome_coord]["grau"]
                     elif (coordenada in self.emisferios) and (valor_separado.index(coordenada) == 0):
-                        self.coordenadas["latitude"]["emisferio"] = coordenada.replace(",",".")
+                        self.coordenadas[nome_coord]["emisferio"] = coordenada.replace(",",".")
                     
                     #Referente ao grau
                     if "°" in coordenada:
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace("°", "").replace(",",".")
-                        if "-" in self.coordenadas["latitude"]["grau"]:
-                            self.coordenadas["latitude"]["grau"] = self.coordenadas["latitude"]["grau"].replace("-",
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace("°", "").replace(",",".")
+                        if "-" in self.coordenadas[nome_coord]["grau"]:
+                            self.coordenadas[nome_coord]["grau"] = self.coordenadas[nome_coord]["grau"].replace("-",
                                                                                                                   "")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
-                        self.coordenadas["latitude"]["decimal"] = self.coordenadas["latitude"]["grau"]
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
+                        self.coordenadas[nome_coord]["decimal"] = self.coordenadas[nome_coord]["grau"]
                     elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 0):
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace(",",".")
-                        if "-" in self.coordenadas["latitude"]["grau"]:
-                            self.coordenadas["latitude"]["grau"] = self.coordenadas["latitude"]["grau"].replace("-","")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
-                        self.coordenadas["latitude"]["decimal"] = self.coordenadas["latitude"]["grau"]
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace(",",".")
+                        if "-" in self.coordenadas[nome_coord]["grau"]:
+                            self.coordenadas[nome_coord]["grau"] = self.coordenadas[nome_coord]["grau"].replace("-","")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
+                        self.coordenadas[nome_coord]["decimal"] = self.coordenadas[nome_coord]["grau"]
                     elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 1):
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace(",",".")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
-                        if ("s" in lat) or ("S" in lat):
-                            self.coordenadas["latitude"]["grau"] =  self.coordenadas["latitude"]["grau"] * -1
-                        self.coordenadas["latitude"]["decimal"] = self.coordenadas["latitude"]["grau"]
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace(",",".")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
+                        if emisf_neg:
+                            self.coordenadas[nome_coord]["grau"] =  self.coordenadas[nome_coord]["grau"] * -1
+                        self.coordenadas[nome_coord]["decimal"] = self.coordenadas[nome_coord]["grau"]
         #Caso não tenha nenhuma letra, o emisfério e descrito apenas pelo sinal de '-', se for positivo é norte, se for negativo é sul.
         else:
 
@@ -356,262 +358,60 @@ class Coordenadas:
                     
                     #Referente ao grau.
                     if "°" in coordenada:
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace("°", "").replace(",",".")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace("°", "").replace(",",".")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
                     elif valor_separado.index(coordenada) == 0:
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace(",",".")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace(",",".")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
                     
                     #Referente ao minuto
                     if "'" in coordenada:
-                        self.coordenadas["latitude"]["minuto"] = coordenada.replace("'", "").replace(",",".")
-                        self.coordenadas["latitude"]["minuto"] = float(self.coordenadas["latitude"]["minuto"])
+                        self.coordenadas[nome_coord]["minuto"] = coordenada.replace("'", "").replace(",",".")
+                        self.coordenadas[nome_coord]["minuto"] = float(self.coordenadas[nome_coord]["minuto"])
                     elif valor_separado.index(coordenada) == 1:
-                        self.coordenadas["latitude"]["minuto"] = coordenada.replace(",",".")
-                        self.coordenadas["latitude"]["minuto"] = float(self.coordenadas["latitude"]["minuto"])
+                        self.coordenadas[nome_coord]["minuto"] = coordenada.replace(",",".")
+                        self.coordenadas[nome_coord]["minuto"] = float(self.coordenadas[nome_coord]["minuto"])
                     
                     #Referente ao segundo
                     if '"' in coordenada:
-                        self.coordenadas["latitude"]["segundo"] = coordenada.replace('"', "").replace(",",".")
-                        self.coordenadas["latitude"]["segundo"] = float(self.coordenadas["latitude"]["segundo"])
+                        self.coordenadas[nome_coord]["segundo"] = coordenada.replace('"', "").replace(",",".")
+                        self.coordenadas[nome_coord]["segundo"] = float(self.coordenadas[nome_coord]["segundo"])
                     elif valor_separado.index(coordenada) == 2:
-                        self.coordenadas["latitude"]["segundo"] = coordenada.replace(",",".")
-                        self.coordenadas["latitude"]["segundo"] = float(self.coordenadas["latitude"]["segundo"])
+                        self.coordenadas[nome_coord]["segundo"] = coordenada.replace(",",".")
+                        self.coordenadas[nome_coord]["segundo"] = float(self.coordenadas[nome_coord]["segundo"])
                 
                 #Caso a coordenada esteja em formato Grau por minuto.
                 if espacos == 1:
 
                     #Referente ao grau.
                     if "°" in coordenada:
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace("°", "").replace(",",".")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace("°", "").replace(",",".")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
                     elif valor_separado.index(coordenada) == 0:
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace(",",".")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace(",",".")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
 
                     #Referente ao minuto.
                     if "'" in coordenada:
-                        self.coordenadas["latitude"]["minuto"] = coordenada.replace("'", "").replace(",",".")
-                        self.coordenadas["latitude"]["minuto"] = float(self.coordenadas["latitude"]["minuto"])
+                        self.coordenadas[nome_coord]["minuto"] = coordenada.replace("'", "").replace(",",".")
+                        self.coordenadas[nome_coord]["minuto"] = float(self.coordenadas[nome_coord]["minuto"])
                     elif valor_separado.index(coordenada) == 1:
-                        self.coordenadas["latitude"]["minuto"] = coordenada.replace(",",".")
-                        self.coordenadas["latitude"]["minuto"] = float(self.coordenadas["latitude"]["minuto"])
+                        self.coordenadas[nome_coord]["minuto"] = coordenada.replace(",",".")
+                        self.coordenadas[nome_coord]["minuto"] = float(self.coordenadas[nome_coord]["minuto"])
                 
                 #Caso a coordenada esteja em formato de Grau/Decimal
                 if espacos == 0:
 
                     #Referente ao grau/decimal
                     if "°" in coordenada:
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace("°", "").replace(",",".")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
-                        self.coordenadas["latitude"]["decimal"] = self.coordenadas["latitude"]["grau"]
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace("°", "").replace(",",".")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
+                        self.coordenadas[nome_coord]["decimal"] = self.coordenadas[nome_coord]["grau"]
                     else:
-                        self.coordenadas["latitude"]["grau"] = coordenada.replace("°", "").replace(",",".")
-                        self.coordenadas["latitude"]["grau"] = float(self.coordenadas["latitude"]["grau"])
-                        self.coordenadas["latitude"]["decimal"] = self.coordenadas["latitude"]["grau"]
+                        self.coordenadas[nome_coord]["grau"] = coordenada.replace("°", "").replace(",",".")
+                        self.coordenadas[nome_coord]["grau"] = float(self.coordenadas[nome_coord]["grau"])
+                        self.coordenadas[nome_coord]["decimal"] = self.coordenadas[nome_coord]["grau"]
 
-    def set_Longitude(self, lng):
-
-        valor_separado = str(lng).split()
-        valor_juntado = " ".join(valor_separado)
-        espacos = valor_juntado.count(" ")
-        emisferio_ultimo = False
-
-        if ("w" in lng) or ("W" in lng) or ("e" in lng) or ("E" in lng):
-
-            for coordenada in valor_separado:
-
-                if espacos == 3:
-
-                    if (coordenada in self.emisferios) and (valor_separado.index(coordenada) != 0):
-                        self.coordenadas["longitude"]["emisferio"] = coordenada
-                        if (coordenada == "w") or (coordenada == "W"):
-                            self.coordenadas["longitude"]["grau"] = self.coordenadas["longitude"]["grau"] * -1
-                    elif (coordenada in self.emisferios) and (valor_separado.index(coordenada) == 0):
-                        self.coordenadas["longitude"]["emisferio"] = coordenada
-
-                    if ("°" in coordenada):
-                        if valor_separado.index(coordenada) == 0:
-                            emisferio_ultimo = True
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace("°", "").replace(",",".")
-                        if "-" in self.coordenadas["longitude"]["grau"]:
-                            self.coordenadas["longitude"]["grau"] = self.coordenadas["longitude"]["grau"].replace("-", "")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                    elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 0):
-                        emisferio_ultimo = True
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace(",",".")
-                        if "-" in self.coordenadas["longitude"]["grau"]:
-                            self.coordenadas["longitude"]["grau"] = self.coordenadas["longitude"]["grau"].replace("-", "")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                    elif (coordenada not in self.emisferios) and (
-                            valor_separado.index(coordenada) == 1) and emisferio_ultimo == False:
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace(",",".")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                        if ("w" in lng) or ("W" in lng):
-                            self.coordenadas["longitude"]["grau"] = self.coordenadas["longitude"]["grau"] * -1
-
-                    if ("'" in coordenada):
-                        self.coordenadas["longitude"]["minuto"] = coordenada.replace("'", "").replace(",",".")
-                        self.coordenadas["longitude"]["minuto"] = float(self.coordenadas["longitude"]["minuto"])
-                    elif (coordenada not in self.emisferios) and (
-                            valor_separado.index(coordenada) == 1) and emisferio_ultimo:
-                        self.coordenadas["longitude"]["minuto"] = coordenada.replace(",",".")
-                        if "-" in self.coordenadas["longitude"]["minuto"]:
-                            self.coordenadas["longitude"]["minuto"] = self.coordenadas["longitude"]["minuto"].replace("-",
-                                                                                                                    "")
-                        self.coordenadas["longitude"]["minuto"] = float(self.coordenadas["longitude"]["minuto"])
-                    elif (coordenada not in self.emisferios) and (
-                            valor_separado.index(coordenada) == 2) and emisferio_ultimo == False:
-                        self.coordenadas["longitude"]["minuto"] = coordenada.replace(",",".")
-                        self.coordenadas["longitude"]["minuto"] = float(self.coordenadas["longitude"]["minuto"])
-                        if ("w" in lng) or ("W" in lng):
-                            self.coordenadas["longitude"]["minuto"] = self.coordenadas["longitude"]["minuto"] * -1
-
-                    if ('"' in coordenada):
-                        self.coordenadas["longitude"]["segundo"] = coordenada.replace('"', "").replace(",",".")
-                        self.coordenadas["longitude"]["segundo"] = float(self.coordenadas["longitude"]["segundo"])
-                    elif (coordenada not in self.emisferios) and (
-                            valor_separado.index(coordenada) == 2) and emisferio_ultimo:
-                        self.coordenadas["longitude"]["segundo"] = coordenada.replace(",",".")
-                        if "-" in self.coordenadas["longitude"]["segundo"]:
-                            self.coordenadas["longitude"]["segundo"] = self.coordenadas["longitude"]["segundo"].replace(
-                                "-", "")
-                        self.coordenadas["longitude"]["segundo"] = float(self.coordenadas["longitude"]["segundo"])
-                    elif (coordenada not in self.emisferios) and (
-                            valor_separado.index(coordenada) == 3) and emisferio_ultimo == False:
-                        self.coordenadas["longitude"]["segundo"] = coordenada.replace(",",".")
-                        self.coordenadas["longitude"]["segundo"] = float(self.coordenadas["longitude"]["segundo"])
-                        if ("w" in lng) or ("W" in lng):
-                            self.coordenadas["longitude"]["segundo"] = self.coordenadas["longitude"]["segundo"] * -1
-                
-                if espacos == 2:
-
-                    if (coordenada in self.emisferios) and (valor_separado.index(coordenada) != 0):
-                        self.coordenadas["longitude"]["emisferio"] = coordenada.replace(",",".")
-                        if (coordenada == "w") or (coordenada == "W"):
-                            self.coordenadas["longitude"]["grau"] = self.coordenadas["longitude"]["grau"] * -1
-                    elif (coordenada in self.emisferios) and (valor_separado.index(coordenada) == 0):
-                        self.coordenadas["longitude"]["emisferio"] = coordenada.replace(",",".")
-
-                    if "°" in coordenada:
-                        if (valor_separado.index(coordenada) == 0):
-                            emisferio_ultimo = True
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace("°", "").replace(",",".")
-                        if "-" in self.coordenadas["longitude"]["grau"]:
-                            self.coordenadas["longitude"]["grau"] = self.coordenadas["longitude"]["grau"].replace("-", "")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                    elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 0):
-                        emisferio_ultimo = True
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace(",",".")
-                        if "-" in self.coordenadas["longitude"]["grau"]:
-                            self.coordenadas["longitude"]["grau"] = self.coordenadas["longitude"]["grau"].replace("-", "")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                    elif (coordenada not in self.emisferios) and (
-                            valor_separado.index(coordenada) == 1) and emisferio_ultimo == False:
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace(",",".")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                        if ("w" in lng) or ("W" in lng):
-                            self.coordenadas["longitude"]["grau"] = self.coordenadas["longitude"]["grau"] * -1
-
-                    if "'" in coordenada:
-                        self.coordenadas["longitude"]["minuto"] = coordenada.replace("'", "").replace(",",".")
-                        self.coordenadas["longitude"]["minuto"] = float(self.coordenadas["longitude"]["minuto"])
-                    elif (coordenada not in self.emisferios) and (
-                            valor_separado.index(coordenada) == 1) and emisferio_ultimo:
-                        self.coordenadas["longitude"]["minuto"] = coordenada.replace(",",".")
-                        if "-" in self.coordenadas["longitude"]["minuto"]:
-                            self.coordenadas["longitude"]["minuto"] = self.coordenadas["longitude"]["minuto"].replace("-","")
-                        self.coordenadas["longitude"]["minuto"] = float(self.coordenadas["longitude"]["minuto"])
-                    elif (coordenada not in self.emisferios) and (
-                            valor_separado.index(coordenada) == 2) and emisferio_ultimo == False:
-                        self.coordenadas["longitude"]["minuto"] = coordenada.replace(",",".")
-                        self.coordenadas["longitude"]["minuto"] = float(self.coordenadas["longitude"]["minuto"])
-                        if ("w" in lng) or ("W" in lng):
-                            self.coordenadas["longitude"]["minuto"] = self.coordenadas["longitude"]["minuto"] * -1
-                
-                if espacos == 1:
-
-                    if (coordenada in self.emisferios) and (valor_separado.index(coordenada) != 0):
-                        self.coordenadas["longitude"]["emisferio"] = coordenada.replace(",",".")
-                        if (coordenada == "w") or (coordenada == "W"):
-                            self.coordenadas["longitude"]["grau"] = self.coordenadas["longitude"]["grau"] * -1
-                            self.coordenadas["longitude"]["decimal"] = self.coordenadas["longitude"]["grau"]
-                    elif (coordenada in self.emisferios) and (valor_separado.index(coordenada) == 0):
-                        self.coordenadas["longitude"]["emisferio"] = coordenada
-                    
-                    if "°" in coordenada:
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace("°", "").replace(",",".")
-                        if "-" in self.coordenadas["longitude"]["grau"]:
-                            self.coordenadas["longitude"]["grau"] = self.coordenadas["longitude"]["grau"].replace("-","")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                        self.coordenadas["longitude"]["decimal"] = self.coordenadas["longitude"]["grau"]
-                    elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 0):
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace(",",".")
-                        if "-" in self.coordenadas["longitude"]["grau"]:
-                            self.coordenadas["longitude"]["grau"] = self.coordenadas["longitude"]["grau"].replace("-", "")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                        self.coordenadas["longitude"]["decimal"] = self.coordenadas["longitude"]["grau"]
-                    elif (coordenada not in self.emisferios) and (valor_separado.index(coordenada) == 1):
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace(",",".")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                        if ("w" in lng) or ("W" in lng):
-                            self.coordenadas["longitude"]["grau"] = self.coordenadas["longitude"]["grau"] * -1
-                        self.coordenadas["longitude"]["decimal"] = self.coordenadas["longitude"]["grau"]
-
-        else:
-
-            for coordenada in valor_separado:
-
-                if espacos == 2: 
-
-                    if "°" in coordenada:
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace("°", "").replace(",",".")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                    elif valor_separado.index(coordenada) == 0:
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace(",",".")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                    
-                    if "'" in coordenada:
-                        self.coordenadas["longitude"]["minuto"] = coordenada.replace("'", "").replace(",",".")
-                        self.coordenadas["longitude"]["minuto"] = float(self.coordenadas["longitude"]["minuto"])
-                    elif valor_separado.index(coordenada) == 1:
-                        self.coordenadas["longitude"]["minuto"] = coordenada.replace(",",".")
-                        self.coordenadas["longitude"]["minuto"] = float(self.coordenadas["longitude"]["minuto"])
-                    
-                    if '"' in coordenada:
-                        self.coordenadas["longitude"]["segundo"] = coordenada.replace('"', "").replace(",",".")
-                        self.coordenadas["longitude"]["segundo"] = float(self.coordenadas["longitude"]["segundo"])
-                    elif valor_separado.index(coordenada) == 2:
-                        self.coordenadas["longitude"]["segundo"] = coordenada.replace(",",".")
-                        self.coordenadas["longitude"]["segundo"] = float(self.coordenadas["longitude"]["segundo"])
-                
-                if espacos == 1:
-
-                    if "°" in coordenada:
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace("°", "").replace(",",".")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                    elif valor_separado.index(coordenada) == 0:
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace(",",".")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-
-                    if "'" in coordenada:
-                        self.coordenadas["longitude"]["minuto"] = coordenada.replace("'", "").replace(",",".")
-                        self.coordenadas["longitude"]["minuto"] = float(self.coordenadas["longitude"]["minuto"])
-                    elif valor_separado.index(coordenada) == 1:
-                        self.coordenadas["longitude"]["minuto"] = coordenada.replace(",",".")
-                        self.coordenadas["longitude"]["minuto"] = float(self.coordenadas["longitude"]["minuto"])
-                
-                if espacos == 0:
-                    
-                    if "°" in coordenada:
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace("°", "").replace(",",".")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                        self.coordenadas["longitude"]["decimal"] = self.coordenadas["longitude"]["grau"]
-                    else:
-                        self.coordenadas["longitude"]["grau"] = coordenada.replace("°", "").replace(",",".")
-                        self.coordenadas["longitude"]["grau"] = float(self.coordenadas["longitude"]["grau"])
-                        self.coordenadas["longitude"]["decimal"] = self.coordenadas["longitude"]["grau"]
-    
     def get_Latitude(self):
         return self.coordenadas["latitude"]
 
@@ -637,12 +437,6 @@ class Coordenadas:
                                     "decimal"  : None
                                 }
                     }
-
-    def Adicionar_Coordenada(self, lat, lng):
-        self.Resetar_Valores_Coordenadas()
-        self.set_Latitude(lat)
-        self.set_Longitude(lng)
-        self.lista_coordenadas.append(self.coordenadas)
     
     def Listar_Coordenadas(self):
         return self.lista_coordenadas
@@ -653,7 +447,7 @@ class Coordenadas:
         lista_lat_convertida = []
         if type(lat) == str:
             self.Resetar_Valores_Coordenadas()
-            self.set_Latitude(lat)
+            self.set_Lat_Lng(lat, "latitude")
             
             if self.get_Latitude()["decimal"] == None:
                 
@@ -742,7 +536,7 @@ class Coordenadas:
         if type(lng) == str:
             
             self.Resetar_Valores_Coordenadas()
-            self.set_Longitude(lng)
+            self.set_Lat_Lng(lng, "longitude")
             
             if self.get_Longitude()["decimal"] == None:
                 
