@@ -198,13 +198,14 @@ class Coordenadas:
             return self.coluna_longitude_plan
     #Precisa ser melhorado o método que os valores são inseridos no dicionario coordenadas. Mas por enquanto vai ser feito assim.
 
-    def set_Latitude(self, lat): #Bem vindo a loucura de Elielson. Ta grande, mas funciona.
+    def set_Lat_Lng(self, lat): #Bem vindo a loucura de Elielson. Ta grande, mas funciona.
         valor_separado = str(lat).split()
         valor_juntado = " ".join(valor_separado)
         espacos = valor_juntado.count(" ")
         emisferio_ultimo = False
+        possui_emisf = True if list(set(self.emisferios).intersection(valor_separado)) != [] else False
         #Caso a coordenada tenha alguma letra, significa que o decimal dela será descrito como positivo ou negativo com base no emisfério descrito
-        if ("n" in lat) or ("N" in lat) or ("S" in lat) or ("s" in lat):
+        if possui_emisf:
             for coordenada in valor_separado:
                 #Caso a coordenada esteja em formato Grau, minuto por segundo.
                 if espacos == 3:
