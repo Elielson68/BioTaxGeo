@@ -1,4 +1,4 @@
-
+'''
 from flask import Flask, render_template, request, send_file, jsonify, redirect, url_for, current_app, send_from_directory
 from werkzeug.utils import secure_filename
 from planilha import Planilha
@@ -16,7 +16,7 @@ def mapa_teste():
         f = request.files['file']
         f.save(secure_filename(f.filename))
         Planilha_atual.set_Diretorio(secure_filename(f.filename))        
-        return render_template("requerimento_selecao_coordenadas.html", titulos=Planilha_atual.get_Cabecario_Planilha())
+        return render_template("coord_form.html", titulos=Planilha_atual.get_Cabecario_Planilha())
 
 @app.route("/verificacao_planilha", methods=["GET", "POST"])
 def verificacao():
@@ -36,9 +36,9 @@ def mapa_desenhar():
         coord_lng = Planilha_atual.coordenadas.get_Longitude_Column_values()
         coord_lat = Planilha_atual.coordenadas.Converter_Lat_Decimal(coord_lat)
         coord_lng = Planilha_atual.coordenadas.Converter_Lng_Decimal(coord_lng)
-        return render_template("plotar_poligono_no_mapa.html", poligonos=poligonos, latitude=coord_lat, longitude=coord_lng)
+        return render_template("markers_list.html", poligonos=poligonos, latitude=coord_lat, longitude=coord_lng)
     else:
-        return render_template("criar_poligono_no_mapa.html")
+        return render_template("markers_form.html")
 
 #'POLYGON(([longitude ->]-60.2910 [latitude ->]-14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626)
 app.run(debug=True, port=8080)
@@ -57,6 +57,5 @@ Coordenadas = Planilha_atual.coordenadas
 #Coordenadas.set_Longitude_Column_values("Longitude1")
 #coord_lat = Coordenadas.get_Latitude_Column_values()
 #coord_lng = Coordenadas.get_Longitude_Column_values()
-
-print(Coordenadas.Converter_Lat_Decimal("1° 44' 53,94\" S"))
-'''
+latitudes = ["1° 44' 53,94\" S", "-1° 44' 53,94\"", "S 1° 44' 53,94\"", "1° 44' 53,94\" N", "1° 44.899' S", "1 44.899' S", "1° 44.899 S", "1 44.899 S"]
+print(Coordenadas.Converter_Lat_Decimal(latitudes))

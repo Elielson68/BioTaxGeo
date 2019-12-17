@@ -488,7 +488,7 @@ class Coordenadas:
             for l in lat:
                 
                 self.Resetar_Valores_Coordenadas()
-                self.set_Lat_Lng(l, "latitude")
+                self.Formatar_Lat_Lng(l, "latitude")
                 if self.get_Latitude()["decimal"] == None:
                     
                     if self.get_Latitude()["segundo"] == None:
@@ -525,6 +525,8 @@ class Coordenadas:
                     
                     lat_convertida = self.get_Latitude()["decimal"]
                 lista_lat_convertida.append(lat_convertida)
+                if(lat_convertida == -72.95):
+                    print (self.get_Latitude())
             return lista_lat_convertida
     
     def Converter_Lng_Decimal(self, lng):
@@ -580,7 +582,7 @@ class Coordenadas:
             for l in lng:
                 
                 self.Resetar_Valores_Coordenadas()
-                self.set_Lat_Lng(l, "longitude")
+                self.Formatar_Lat_Lng(l, "longitude")
                 
                 if self.get_Longitude()["decimal"] == None:
                     
@@ -620,7 +622,7 @@ class Coordenadas:
                     lng_convertida = self.get_Longitude()["decimal"]
                 
                 lista_lng_convertida.append(lng_convertida)
-            
+
             return lista_lng_convertida
 
 class Tratamento_de_Dados:
