@@ -489,7 +489,7 @@ class Coordenadas:
             for l in lat:
                 
                 self.Resetar_Valores_Coordenadas()
-                self.set_Latitude(l)
+                self.set_Lat_Lng(l, "latitude")
                 if self.get_Latitude()["decimal"] == None:
                     
                     if self.get_Latitude()["segundo"] == None:
@@ -581,7 +581,7 @@ class Coordenadas:
             for l in lng:
                 
                 self.Resetar_Valores_Coordenadas()
-                self.set_Longitude(l)
+                self.set_Lat_Lng(l, "longitude")
                 
                 if self.get_Longitude()["decimal"] == None:
                     

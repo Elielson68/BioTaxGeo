@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -249,13 +247,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00022" summary="formatação na pesquisa utilizando quadrados e poligonos">
-      <created>1570036897071</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1570036897071</updated>
     </task>
     <task id="LOCAL-00023" summary="Alteração das vertices pelos: inputs; markers e clicks.">
       <created>1570130603909</created>
@@ -593,7 +584,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576367013164</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Atualizada rota do envio da planilha">
+      <created>1576544149379</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1576544149379</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -630,7 +628,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="reorganzacao do codigo da planilha" />
     <MESSAGE value="hierarquia upada novamente" />
     <MESSAGE value="env upada pro git" />
     <MESSAGE value="JSON resultando os valores da chave referente a coluna da planilha" />
@@ -655,7 +652,8 @@
     <MESSAGE value="Padrão de projeto Python" />
     <MESSAGE value="navbar estilizada utilizando o block e content do flask" />
     <MESSAGE value="Movido o style do NavBar pro Style.css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Movido o style do NavBar pro Style.css" />
+    <MESSAGE value="Atualizada rota do envio da planilha" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualizada rota do envio da planilha" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
