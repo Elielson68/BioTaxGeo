@@ -198,7 +198,7 @@ class Coordenadas:
             return self.coluna_longitude_plan
     #Precisa ser melhorado o método que os valores são inseridos no dicionario coordenadas. Mas por enquanto vai ser feito assim.
 
-    def set_Lat_Lng(self, coord, nome_coord): #Bem vindo a loucura de Elielson. Ta grande, mas funciona.
+    def Formatar_Lat_Lng(self, coord, nome_coord): #Bem vindo a loucura de Elielson. Ta grande, mas funciona.
         valor_separado = str(coord).split()
         valor_juntado = " ".join(valor_separado)
         espacos = valor_juntado.count(" ")
@@ -442,12 +442,11 @@ class Coordenadas:
         return self.lista_coordenadas
 
     def Converter_Lat_Decimal(self, lat):
-        
         lat_convertida = "Nada"
         lista_lat_convertida = []
         if type(lat) == str:
             self.Resetar_Valores_Coordenadas()
-            self.set_Lat_Lng(lat, "latitude")
+            self.Formatar_Lat_Lng(lat, "latitude")
             
             if self.get_Latitude()["decimal"] == None:
                 
@@ -536,7 +535,7 @@ class Coordenadas:
         if type(lng) == str:
             
             self.Resetar_Valores_Coordenadas()
-            self.set_Lat_Lng(lng, "longitude")
+            self.Formatar_Lat_Lng(lng, "longitude")
             
             if self.get_Longitude()["decimal"] == None:
                 
