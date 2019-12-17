@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/planilha.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +35,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/OficialEnv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -586,12 +586,12 @@
       <option name="project" value="LOCAL" />
       <updated>1576365057328</updated>
     </task>
-    <task id="LOCAL-00070" summary="refatorando verificação de coordenada">
-      <created>1576524200564</created>
+    <task id="LOCAL-00070" summary="Movido o style do NavBar pro Style.css">
+      <created>1576367013164</created>
       <option name="number" value="00070" />
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
-      <updated>1576524200565</updated>
+      <updated>1576367013164</updated>
     </task>
     <option name="localTasksCounter" value="71" />
     <servers />
@@ -654,8 +654,8 @@
     <MESSAGE value="Melhorar front-end do criar_poligono_mapa.html e plotar_poligono_mapa.html" />
     <MESSAGE value="Padrão de projeto Python" />
     <MESSAGE value="navbar estilizada utilizando o block e content do flask" />
-    <MESSAGE value="refatorando verificação de coordenada" />
-    <option name="LAST_COMMIT_MESSAGE" value="refatorando verificação de coordenada" />
+    <MESSAGE value="Movido o style do NavBar pro Style.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Movido o style do NavBar pro Style.css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
