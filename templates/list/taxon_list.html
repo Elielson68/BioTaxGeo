@@ -24,6 +24,10 @@
 
         <!--______________________________________PLANILHA______________________________________________________-->
         <div id="planilha">
+            <form action="taxon_validation" method = "POST" enctype = "multipart/form-data">
+                    <input type="text" name = "dados" value="" hidden="hidden" id="dados"/>
+                    <input id="submit_planilha" type="submit" value="Salvar alterações" class="btn btn-success rounded-0"/>
+            </form>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-secondary active rounded-0"  >
                   <input type="radio" name="options" id="option1" autocomplete="on" checked> Visualizar tudo
@@ -31,11 +35,8 @@
                 <label class="btn btn-secondary rounded-0">
                   <input type="radio" name="options" id="option2" autocomplete="on"> Visualizar apenas os erros
                 </label>
-                <form action="http://localhost:8080/salvar" method = "POST" enctype = "multipart/form-data">
-                    <input type="text" name = "dados" value="" hidden="hidden" id="dados"/>
-                    <input id="submit_planilha" type="submit" value="Salvar alterações" class="btn btn-success rounded-0"/>
-                </form>
-              </div>
+            </div>
+
           <table class="table table-dark" id="tabela_planilha">
             <thead id="thead_tabela">
               <tr id="tr_thead">
