@@ -85,7 +85,7 @@ function addLatLng(event){
       title: "Vértice: "+(identificador_input+1),
       position: event.latLng,
       map: map,
-      icon: "../static/green_marker.png",
+      icon: "../static/image/green_marker.png",
       draggable: true
     });
     markers.push(marker);
@@ -122,7 +122,7 @@ function Modificando_vertice_input(){
     title: "Vértice: "+focado.toString(),
     position: nova_coordenada_map,
     map: map,
-    icon: "../static/green_marker.png",
+    icon: "../static/image/green_marker.png",
     draggable: true
   });
   marker.addListener('position_changed', Modificando_vertice_marker);//Pra cada objeto marker criado é adicionado o evento que possibilita ele de alterar o vértice por quem ele é responsável
@@ -155,7 +155,7 @@ function CriarVerticesButton(){
         title: "Vértice: "+identificador_input,
         position: nova_coordenada_map,
         map: map,
-        icon: "../static/green_marker.png",
+        icon: "../static/image/green_marker.png",
         draggable: true
       });
       markers.push(marker);
@@ -314,7 +314,7 @@ function Poligono_Escolhido(plotar_poligono){
       title: "Vértice: "+(indice+1),
       position:  poligono_editando[indice],
       map: map,
-      icon: "../static/green_marker.png",
+      icon: "../static/image/green_marker.png",
       draggable: true
     });
     //E tudo isso aqui embaixo é atribuição de eventos para os markers de cada vértice e pra cada input criado novamente.

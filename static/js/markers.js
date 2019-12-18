@@ -22,13 +22,13 @@ function Detectar_Marks(latitude, longitude, markers, poligono){
         vazio = false //Caso ele encontre alguma marca dentro ele já se torna falso e não cria problemas.
         contador++
         //Caso ele esteja dentro de algum poligono então ele se torna azul e o looping para e vai pro próximo marker
-        markers[marker].icon = "../static/blue_marker2.png"
+        markers[marker].icon = "../static/image/blue_marker2.png"
         markers[marker].setMap(map)
         Criar_TBody(markers[marker].position["lat"](), markers[marker].position["lng"](), (parseInt(poli)+1), contador, isWithinPolygon)
       }
-      else if(markers[marker].icon != "../static/blue_marker2.png"){
+      else if(markers[marker].icon != "../static/image/blue_marker2.png"){
         //Se não ele continua verificando e inserindo o marker vermelho
-        markers[marker].icon = "../static/red_marker2.png"
+        markers[marker].icon = "../static/image/red_marker2.png"
         markers[marker].setMap(map)
       }
     }

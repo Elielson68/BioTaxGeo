@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Planilha_Formatada.xls" beforeDir="false" afterPath="$PROJECT_DIR$/Planilha_Formatada.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/coord_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/coord_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/markers_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/markers_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list/planilha.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/markers.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/markers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/poligonos.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/poligonos.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -253,13 +250,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Exclusão de vértice: retirado os inputs, retirado os markers e vertice. Falta configurar os novos inputs a serem plotados pós exclusão">
-      <created>1570650011060</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1570650011060</updated>
     </task>
     <task id="LOCAL-00027" summary="Seleção de poligonos para editar(manipular vertices), salvando poligonos novos criados">
       <created>1571162224710</created>
@@ -597,7 +587,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576687761620</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="rotas organizadas">
+      <created>1576688819409</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1576688819409</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -634,7 +631,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="hierarquia upada novamente" />
     <MESSAGE value="env upada pro git" />
     <MESSAGE value="JSON resultando os valores da chave referente a coluna da planilha" />
     <MESSAGE value="Criado classe Hierarquia Taxonomica para organizar mais o codigo" />
@@ -659,6 +655,7 @@
     <MESSAGE value="navbar estilizada utilizando o block e content do flask" />
     <MESSAGE value="refatorando verificação de coordenada" />
     <MESSAGE value="Renomeando rotas e separando arquivos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renomeando rotas e separando arquivos" />
+    <MESSAGE value="rotas organizadas" />
+    <option name="LAST_COMMIT_MESSAGE" value="rotas organizadas" />
   </component>
 </project>
