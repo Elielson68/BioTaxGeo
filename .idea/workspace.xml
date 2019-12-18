@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/home_controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/form_controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/validation_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Planilha_Formatada.xls" beforeDir="false" afterPath="$PROJECT_DIR$/Planilha_Formatada.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/home_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/home_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -250,13 +253,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00028" summary="inserido condições para criação de novos poligonos, foi restrito a ter pelo menos 3 vertices">
-      <created>1571172462090</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1571172462090</updated>
     </task>
     <task id="LOCAL-00029" summary="inserido mouseover sobre os inputs na selecao dos poligonos">
       <created>1571176694437</created>
@@ -594,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576689661678</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="utilizando blueprint para separar as rotas do arquivo principal">
+      <created>1576692018148</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1576692018148</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -631,7 +634,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="JSON resultando os valores da chave referente a coluna da planilha" />
     <MESSAGE value="Criado classe Hierarquia Taxonomica para organizar mais o codigo" />
     <MESSAGE value="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela" />
     <MESSAGE value="Acredito que agora ta funcionando" />
@@ -656,6 +658,7 @@
     <MESSAGE value="Renomeando rotas e separando arquivos" />
     <MESSAGE value="rotas organizadas" />
     <MESSAGE value="atualizado o Path das funções" />
-    <option name="LAST_COMMIT_MESSAGE" value="atualizado o Path das funções" />
+    <MESSAGE value="utilizando blueprint para separar as rotas do arquivo principal" />
+    <option name="LAST_COMMIT_MESSAGE" value="utilizando blueprint para separar as rotas do arquivo principal" />
   </component>
 </project>

@@ -1,6 +1,7 @@
-from flask import Flask, jsonify, render_template, redirect, url_for, request, Blueprint
+from flask import render_template, request, Blueprint
 from planilha import Planilha
 from werkzeug.utils import secure_filename
+
 Planilha_atual = Planilha()
 
 home_blueprint = Blueprint('home', __name__, template_folder='templates')
