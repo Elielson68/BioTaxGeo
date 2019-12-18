@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mapa</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+  </head>
+  <body id="body">
+    <!--NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">SpecieGeo</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <!--NAVBAR -->
+    <div>
+      <div id="mapa_criar" class="border border-dark"></div>
+      <div id="inserir_poligono" class="card">
+        <div class="rounded-0 alert-primary card-header" role="alert">
+          <label style="text-align='center'" id="contador"><img src="../static/green_marker.png"> Vértices disponíveis: 99</label>
+        </div>
+        <div class="card-body" style="background-color: #ffff;">
+          <div class="dropdown" id="dropdown_poligonos">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Poligonos criados <span class="badge badge-light" id="numero_poligonos_criados"></span>
+          </button>
+          <div id="div_buttons_poligonos" class="dropdown-menu" aria-labelledby="dropdownMenu2"></div>
+          </div>
+          <!-- MUDAR DEPOIS O CÓDIGO PARA ELE UTILIZAR O SELECT
+                    <select class="custom-select" id="selecionar_poligono" style="margin-bottom: 5px;">
+                      <option selected>Selecionar poligono...</option>
+                    </select>
+          -->
+          <div class="input-group mb-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="vertice_criar">Vértice</span>
+              </div>
+              <input type="number" aria-label="Latitude" class="form-control" placeholder="Latitude" id="Latitude">
+              <input type="number" aria-label="Longitude" class="form-control" placeholder="Longitude" id="Longitude">
+              <button class="btn btn-primary" type="button" id="button-addon2">Criar vértice</button>
+            </div>
+          </div>
+
+          <div id="input_vertices"></div>
+
+          <div>
+            <button id="botao_criar_novo_poligono" type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Adicionar +1 Poligono</button>
+            <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px" id="button_salvar">Salvar coordenadas</button>
+            <form id="formulario" action = "http://localhost:8080/mapa_desenhar" method="POST" enctype="application/json">
+              <input id="submit" type = "submit" value="Verificar áreas" class="btn btn-primary btn-lg btn-block"/>
+              <input type="text" name = "vertices" value="" hidden="hidden" id="vert"/>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div>
+      <!--SCRIPT PARA CRIAR CAIXAS DE INPUT PARA INSERIR VÉRTICES-->
+      <script type="text/javascript" src="../static/js/poligonos.js"></script>
+      <script type="text/javascript" src="../static/js/map.js"></script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&callback=initMap"></script>
+    </div>
+  </body>
+</html>

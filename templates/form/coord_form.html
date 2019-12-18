@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Planilha</title>
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+            <a class="navbar-brand" href="#">SpecieGeo <span class="sr-only">(current)</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+        <h1 style="text-align: center;">Formulário</h1><hr>
+
+        <div class="container">
+            <table class="table table-striped">
+            <tbody>
+                <tr align="center">
+                    <td>
+                        <form class="well form-horizontal">
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Selecione a coluna onde está a Latitude</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><select class="form-control" id="select_latitude"><option>Selecionar latitude...</option></select></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Selecione a coluna onde está a Longitude</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="select_longitude"><option>Selecionar longitude...</option></select></div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+            <form action="http://localhost:8080/verificacao_planilha_mapa" method = "POST" enctype = "multipart/form-data">
+            <input type="text" name = "selecao" value="" hidden="hidden" id="titulos_selecao"/> 
+            <input id="submit_requerimento" type="submit" value="Iniciar verificação" class="btn btn-success btn-lg btn-block"/>
+            </form>
+        </div>
+        <script>
+            var titulos = "{{titulos}}";
+            titulos = titulos.replace(/&#39;/g,'"');
+            titulos = JSON.parse(titulos)
+            var coordenadas = {"latitude": null, "longitude": null}
+            var regiao = {"continente": null, "estado": null, "distrito": null, "local": null}
+            //tentar fazer isso aqui dá certo
+            valor1 = Object.keys(coordenadas)
+            valor2 = Object.keys(regiao)
+            options = valor1.concat(valor2);
+            console.log(options)
+
+            AtribuindoTitulos()
+            function AtribuindoTitulos(){
+                var select_latitude = document.getElementById("select_latitude");
+                var select_longitude = document.getElementById("select_longitude");
+                var select_continente = document.getElementById("select_continente");
+                var select_estado = document.getElementById("select_estado")
+                var select_distrito = document.getElementById("select_distrito")
+                var select_local = document.getElementById("select_local")
+
+                for (titulo of titulos){
+                    novo_option1 = document.createElement("option");
+                    novo_option1.innerHTML = titulo;
+                    novo_option1.addEventListener("click",Selecionado);
+                    novo_option1.id = "latitude"
+
+                    novo_option2 = document.createElement("option");
+                    novo_option2.innerHTML = titulo;
+                    novo_option2.addEventListener("click",Selecionado);
+                    novo_option2.id = "longitude"
+
+                    select_latitude.appendChild(novo_option1);
+                    select_longitude.appendChild(novo_option2);
+                }
+            }
+            function Selecionado(){
+                if(this.id in coordenadas){
+                    coordenadas[this.id] = this.value;
+                    console.log(coordenadas)
+                    var coordenadas_formatada = JSON.stringify(coordenadas);
+                    var input_text = document.getElementById("titulos_selecao");
+                    input_text.value = coordenadas_formatada;
+                }
+                if(this.id in regiao){
+
+                }
+
+            }
+        </script>
+    </body>
+</html>
