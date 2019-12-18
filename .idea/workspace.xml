@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/controller/home_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/markers.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/markers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/poligonos.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/poligonos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -250,13 +250,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Seleção de poligonos para editar(manipular vertices), salvando poligonos novos criados">
-      <created>1571162224710</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1571162224710</updated>
     </task>
     <task id="LOCAL-00028" summary="inserido condições para criação de novos poligonos, foi restrito a ter pelo menos 3 vertices">
       <created>1571172462090</created>
@@ -594,7 +587,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576688819409</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="atualizado o Path das funções">
+      <created>1576689661678</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1576689661678</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -631,7 +631,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="env upada pro git" />
     <MESSAGE value="JSON resultando os valores da chave referente a coluna da planilha" />
     <MESSAGE value="Criado classe Hierarquia Taxonomica para organizar mais o codigo" />
     <MESSAGE value="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela" />
@@ -656,6 +655,7 @@
     <MESSAGE value="refatorando verificação de coordenada" />
     <MESSAGE value="Renomeando rotas e separando arquivos" />
     <MESSAGE value="rotas organizadas" />
-    <option name="LAST_COMMIT_MESSAGE" value="rotas organizadas" />
+    <MESSAGE value="atualizado o Path das funções" />
+    <option name="LAST_COMMIT_MESSAGE" value="atualizado o Path das funções" />
   </component>
 </project>

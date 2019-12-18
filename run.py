@@ -3,23 +3,13 @@ import json
 from werkzeug.utils import secure_filename
 from planilha import Planilha
 from planilha import Planilha
-
+from controller.home_controller import home_blueprint
 Planilha_atual = Planilha()
 
 app = Flask(__name__)
+app.register_blueprint(home_blueprint)
+
 #home
-@app.route("/", methods=["GET", "POST"])
-def home():
-    if request.method == "GET":
-        if(Planilha_atual.get_Diretorio() == None):
-            return render_template("index.html")
-        else:
-            return  render_template("Selecionar_Rota.html")
-    if request.method == "POST":
-        f = request.files['file']
-        f.save(secure_filename(f.filename))
-        Planilha_atual.set_Diretorio(secure_filename(f.filename))
-        return render_template("Selecionar_Rota.html")
 
 #Readers
 @app.route("/taxon_form", methods=["GET", "POST"])
