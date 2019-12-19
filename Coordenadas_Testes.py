@@ -44,10 +44,10 @@ def mapa_desenhar():
 app.run(debug=True, port=8080)
 
 '''
-from model.planilha import Planilha
-Planilha_atual = Planilha()
-Planilha_atual.set_Diretorio("Planilha_Formatada.xls")
-Coordenadas = Planilha_atual.coordenadas
+from model.sheet_treatment import Sheet
+Planilha_atual = Sheet()
+Planilha_atual.set_Path("Planilha_Formatada.xls")
+Coordenadas = Planilha_atual.coordinate
 #Planilha_atual.coordenadas.set_Latitude("03° 20' 16.44\" S")
 #print(Coordenadas.get_Latitude())
 #Planilha_atual.coordenadas.set_Longitude("e 42 41.546 58.648")
@@ -58,4 +58,4 @@ Coordenadas = Planilha_atual.coordenadas
 #coord_lat = Coordenadas.get_Latitude_Column_values()
 #coord_lng = Coordenadas.get_Longitude_Column_values()
 latitudes = ["1° 44' 53,94\" S", "-1° 44' 53,94\"", "S 1° 44' 53,94\"", "1° 44' 53,94\" N", "1° 44.899' S", "1 44.899' S", "1° 44.899 S", "1 44.899 S"]
-print(Coordenadas.Converter_Lat_Decimal(latitudes))
+print(Coordenadas.Convert_Lat_Decimal(latitudes))

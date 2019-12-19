@@ -93,7 +93,7 @@
           var Apenas_Errados = false; //Se false aparece todos os elementos na tabela (certos e errados), se true aparece somente os errados.
 
           var escolhido = 0; //armazena o valor escolhido na primeira opção de rádio, referente ao nome.
-          var escolhido_quant = 0; //armazena a quantidade de itens que devem ser alterados, referente ao nível hierarquico.
+          var escolhido_quant = 0; //armazena a amount de itens que devem ser alterados, referente ao nível hierarquico.
           var celula_errada;
           var contador;
           var contador2;
@@ -119,7 +119,7 @@
           function CriarCabecario(titulo){
             var th = document.createElement("th");
             th.setAttribute("scope","col");
-            if(titulo != "Nome Científico"){
+            if(titulo != "scientific name"){
               th.innerHTML = `${titulo}: ${total_linhas-1}`;
             }
             else{
@@ -144,162 +144,162 @@
             var tr_body = document.createElement("tr");
             if(Apenas_Errados){
               for (key in Hierarquia){
-                if(Hierarquia[key]["Corretude"] != "EXACT"){
+                if(Hierarquia[key]["correctness"] != "EXACT"){
                   criar = true
                 }
               }
               if (criar){
-                var td_reino = document.createElement("td");
-                var td_filo = document.createElement("td");
-                var td_classe = document.createElement("td");
-                var td_ordem = document.createElement("td");
-                var td_familia = document.createElement("td");
-                var td_genero = document.createElement("td");
-                var td_especie = document.createElement("td");
-                var td_nome_cientifico = document.createElement("td");
+                var td_kingdom = document.createElement("td");
+                var td_phylum = document.createElement("td");
+                var td_class = document.createElement("td");
+                var td_order = document.createElement("td");
+                var td_family = document.createElement("td");
+                var td_genus = document.createElement("td");
+                var td_specie = document.createElement("td");
+                var td_scientific_name = document.createElement("td");
                 tbody.appendChild(tr_body);
               }
             }
             else{
-              var td_reino = document.createElement("td");
-              var td_filo = document.createElement("td");
-              var td_classe = document.createElement("td");
-              var td_ordem = document.createElement("td");
-              var td_familia = document.createElement("td");
-              var td_genero = document.createElement("td");
-              var td_especie = document.createElement("td");
-              var td_nome_cientifico = document.createElement("td");
+              var td_kingdom = document.createElement("td");
+              var td_phylum = document.createElement("td");
+              var td_class = document.createElement("td");
+              var td_order = document.createElement("td");
+              var td_family = document.createElement("td");
+              var td_genus = document.createElement("td");
+              var td_specie = document.createElement("td");
+              var td_scientific_name = document.createElement("td");
               tbody.appendChild(tr_body);
             }
             
-            if(Hierarquia["Reino"]["Corretude"] != "EXACT"){
+            if(Hierarquia["kingdom"]["correctness"] != "EXACT"){
               
-              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_reino.style = "color: orange" : td_reino.style = "color: red" 
-              td_reino.setAttribute("data-target","#exampleModal")
-              td_reino.setAttribute("data-toggle","modal")
-              td_reino.addEventListener("click", AlterandoDados1)
-              td_reino.className = "Reino"
-              td_reino.id = Hierarquia["Nome Científico"]["Tipo"]+"Reino"
-              td_reino.innerHTML = `${Hierarquia["Reino"]["Tipo"]}: ${Hierarquia["Reino"]["Quantidade"]}`
-              tr_body.appendChild(td_reino);
+              Hierarquia["scientific name"]["synonymous"] == true ? td_kingdom.style = "color: orange" : td_kingdom.style = "color: red" 
+              td_kingdom.setAttribute("data-target","#exampleModal")
+              td_kingdom.setAttribute("data-toggle","modal")
+              td_kingdom.addEventListener("click", AlterandoDados1)
+              td_kingdom.className = "Reino"
+              td_kingdom.id = Hierarquia["scientific name"]["type"]+"Reino"
+              td_kingdom.innerHTML = `${Hierarquia["kingdom"]["type"]}: ${Hierarquia["kingdom"]["amount"]}`
+              tr_body.appendChild(td_kingdom);
             }
             else if (!Apenas_Errados || criar) {
-              td_reino.innerHTML = `${Hierarquia["Reino"]["Tipo"]}: ${Hierarquia["Reino"]["Quantidade"]}`
-              td_reino.style = "color: white;" 
-              tr_body.appendChild(td_reino);
+              td_kingdom.innerHTML = `${Hierarquia["kingdom"]["type"]}: ${Hierarquia["kingdom"]["amount"]}`
+              td_kingdom.style = "color: white;" 
+              tr_body.appendChild(td_kingdom);
             }
 
             
-            if(Hierarquia["Filo"]["Corretude"] != "EXACT"){
-              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_filo.style = "color: orange" : td_filo.style = "color: red"
-              //td_filo.style = "color: red" 
-              td_filo.setAttribute("data-target","#exampleModal")
-              td_filo.setAttribute("data-toggle","modal")
-              td_filo.addEventListener("click", AlterandoDados1)
-              td_filo.className = "Filo"
-              td_filo.id = Hierarquia["Nome Científico"]["Tipo"]+"Filo"
-              td_filo.innerHTML = `${Hierarquia["Filo"]["Tipo"]}: ${Hierarquia["Filo"]["Quantidade"]}`
-              tr_body.appendChild(td_filo);
+            if(Hierarquia["phylum"]["correctness"] != "EXACT"){
+              Hierarquia["scientific name"]["synonymous"] == true ? td_phylum.style = "color: orange" : td_phylum.style = "color: red"
+              //td_phylum.style = "color: red" 
+              td_phylum.setAttribute("data-target","#exampleModal")
+              td_phylum.setAttribute("data-toggle","modal")
+              td_phylum.addEventListener("click", AlterandoDados1)
+              td_phylum.className = "phylum"
+              td_phylum.id = Hierarquia["scientific name"]["type"]+"phylum"
+              td_phylum.innerHTML = `${Hierarquia["phylum"]["type"]}: ${Hierarquia["phylum"]["amount"]}`
+              tr_body.appendChild(td_phylum);
             }
             else if (!Apenas_Errados || criar) {
-              td_filo.innerHTML = `${Hierarquia["Filo"]["Tipo"]}: ${Hierarquia["Filo"]["Quantidade"]}`
-              td_filo.style = "color: white;" 
-              tr_body.appendChild(td_filo);
+              td_phylum.innerHTML = `${Hierarquia["phylum"]["type"]}: ${Hierarquia["phylum"]["amount"]}`
+              td_phylum.style = "color: white;" 
+              tr_body.appendChild(td_phylum);
             }
 
-            if(Hierarquia["Classe"]["Corretude"] != "EXACT"){
-              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_classe.style = "color: orange" : td_classe.style = "color: red"
-              td_classe.setAttribute("data-target","#exampleModal")
-              td_classe.setAttribute("data-toggle","modal")
-              td_classe.addEventListener("click", AlterandoDados1)
-              td_classe.className = "Classe"
-              td_classe.id = Hierarquia["Nome Científico"]["Tipo"]+"Classe"
-              td_classe.innerHTML = `${Hierarquia["Classe"]["Tipo"]}: ${Hierarquia["Classe"]["Quantidade"]}`
-              tr_body.appendChild(td_classe);
+            if(Hierarquia["class"]["correctness"] != "EXACT"){
+              Hierarquia["scientific name"]["synonymous"] == true ? td_class.style = "color: orange" : td_class.style = "color: red"
+              td_class.setAttribute("data-target","#exampleModal")
+              td_class.setAttribute("data-toggle","modal")
+              td_class.addEventListener("click", AlterandoDados1)
+              td_class.className = "class"
+              td_class.id = Hierarquia["scientific name"]["type"]+"class"
+              td_class.innerHTML = `${Hierarquia["class"]["type"]}: ${Hierarquia["class"]["amount"]}`
+              tr_body.appendChild(td_class);
             }
             else if (!Apenas_Errados || criar) {
-              td_classe.innerHTML = `${Hierarquia["Classe"]["Tipo"]}: ${Hierarquia["Classe"]["Quantidade"]}`
-              td_classe.style = "color: white;" 
-              tr_body.appendChild(td_classe);
+              td_class.innerHTML = `${Hierarquia["class"]["type"]}: ${Hierarquia["class"]["amount"]}`
+              td_class.style = "color: white;" 
+              tr_body.appendChild(td_class);
             }
 
 
-            if(Hierarquia["Ordem"]["Corretude"] != "EXACT"){
-              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_ordem.style = "color: orange" : td_ordem.style = "color: red"
-              //td_ordem.style = "color: red" 
-              td_ordem.setAttribute("data-target","#exampleModal")
-              td_ordem.setAttribute("data-toggle","modal")
-              td_ordem.addEventListener("click", AlterandoDados1)
-              td_ordem.className = "Ordem"
-              td_ordem.id = Hierarquia["Nome Científico"]["Tipo"]+"Ordem"
-              td_ordem.innerHTML = `${Hierarquia["Ordem"]["Tipo"]}: ${Hierarquia["Ordem"]["Quantidade"]}`
-              tr_body.appendChild(td_ordem);
+            if(Hierarquia["order"]["correctness"] != "EXACT"){
+              Hierarquia["scientific name"]["synonymous"] == true ? td_order.style = "color: orange" : td_order.style = "color: red"
+              //td_order.style = "color: red" 
+              td_order.setAttribute("data-target","#exampleModal")
+              td_order.setAttribute("data-toggle","modal")
+              td_order.addEventListener("click", AlterandoDados1)
+              td_order.className = "order"
+              td_order.id = Hierarquia["scientific name"]["type"]+"order"
+              td_order.innerHTML = `${Hierarquia["order"]["type"]}: ${Hierarquia["order"]["amount"]}`
+              tr_body.appendChild(td_order);
             }
             else if (!Apenas_Errados || criar) {
-              td_ordem.innerHTML = `${Hierarquia["Ordem"]["Tipo"]}: ${Hierarquia["Ordem"]["Quantidade"]}`
-              td_ordem.style = "color: white;" 
-              tr_body.appendChild(td_ordem);
+              td_order.innerHTML = `${Hierarquia["order"]["type"]}: ${Hierarquia["order"]["amount"]}`
+              td_order.style = "color: white;" 
+              tr_body.appendChild(td_order);
             }
 
             
-            if(Hierarquia["Família"]["Corretude"] != "EXACT"){
-              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_familia.style = "color: orange" : td_familia.style = "color: red"
-              //td_familia.style = "color: red" 
-              td_familia.setAttribute("data-target","#exampleModal")
-              td_familia.setAttribute("data-toggle","modal")
-              td_familia.addEventListener("click", AlterandoDados1)
-              td_familia.className = "Família"
-              td_familia.id = Hierarquia["Nome Científico"]["Tipo"]+"Família"
-              td_familia.innerHTML = `${Hierarquia["Família"]["Tipo"]}: ${Hierarquia["Família"]["Quantidade"]}`
-              tr_body.appendChild(td_familia);
+            if(Hierarquia["family"]["correctness"] != "EXACT"){
+              Hierarquia["scientific name"]["synonymous"] == true ? td_family.style = "color: orange" : td_family.style = "color: red"
+              //td_family.style = "color: red" 
+              td_family.setAttribute("data-target","#exampleModal")
+              td_family.setAttribute("data-toggle","modal")
+              td_family.addEventListener("click", AlterandoDados1)
+              td_family.className = "family"
+              td_family.id = Hierarquia["scientific name"]["type"]+"family"
+              td_family.innerHTML = `${Hierarquia["family"]["type"]}: ${Hierarquia["family"]["amount"]}`
+              tr_body.appendChild(td_family);
             }
             else if (!Apenas_Errados || criar) {
 
-              td_familia.innerHTML = `${Hierarquia["Família"]["Tipo"]}: ${Hierarquia["Família"]["Quantidade"]}`
-              td_familia.style = "color: white;" 
-              tr_body.appendChild(td_familia);
+              td_family.innerHTML = `${Hierarquia["family"]["type"]}: ${Hierarquia["family"]["amount"]}`
+              td_family.style = "color: white;" 
+              tr_body.appendChild(td_family);
             }
 
             
-            if(Hierarquia["Gênero"]["Corretude"] != "EXACT"){
-              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_genero.style = "color: orange" : td_genero.style = "color: red"
-              //td_genero.style = "color: red" 
-              td_genero.setAttribute("data-target","#exampleModal")
-              td_genero.setAttribute("data-toggle","modal")
-              td_genero.addEventListener("click", AlterandoDados1)
-              td_genero.className = "Gênero"
-              td_genero.id = Hierarquia["Nome Científico"]["Tipo"]+"Gênero"
-              td_genero.innerHTML = `${Hierarquia["Gênero"]["Tipo"]}: ${Hierarquia["Gênero"]["Quantidade"]}`
-              tr_body.appendChild(td_genero);
+            if(Hierarquia["genus"]["correctness"] != "EXACT"){
+              Hierarquia["scientific name"]["synonymous"] == true ? td_genus.style = "color: orange" : td_genus.style = "color: red"
+              //td_genus.style = "color: red" 
+              td_genus.setAttribute("data-target","#exampleModal")
+              td_genus.setAttribute("data-toggle","modal")
+              td_genus.addEventListener("click", AlterandoDados1)
+              td_genus.className = "genus"
+              td_genus.id = Hierarquia["scientific name"]["type"]+"genus"
+              td_genus.innerHTML = `${Hierarquia["genus"]["type"]}: ${Hierarquia["genus"]["amount"]}`
+              tr_body.appendChild(td_genus);
             }
             else if (!Apenas_Errados || criar){
 
-              td_genero.innerHTML = `${Hierarquia["Gênero"]["Tipo"]}: ${Hierarquia["Gênero"]["Quantidade"]}`
-              td_genero.style = "color: white;" 
-              tr_body.appendChild(td_genero);
+              td_genus.innerHTML = `${Hierarquia["genus"]["type"]}: ${Hierarquia["genus"]["amount"]}`
+              td_genus.style = "color: white;" 
+              tr_body.appendChild(td_genus);
             }
 
            
-            if(Hierarquia["Espécie"]["Corretude"] != "EXACT"){
-              Hierarquia["Nome Científico"]["Sinônimo"] == true ? td_especie.style = "color: orange" : td_especie.style = "color: red"        
-              //td_especie.style = "color: red" 
-              td_especie.setAttribute("data-target","#exampleModal")
-              td_especie.setAttribute("data-toggle","modal")
-              td_especie.addEventListener("click", AlterandoDados1)
-              td_especie.className = "Espécie"
-              td_especie.id = Hierarquia["Nome Científico"]["Tipo"]+"Espécie"
-              td_especie.innerHTML = `${Hierarquia["Espécie"]["Tipo"]}: ${Hierarquia["Espécie"]["Quantidade"]}`
-              td_nome_cientifico.innerHTML = `${Hierarquia["Nome Científico"]["Tipo"]}: 0<br>Canonical Name`
-              tr_body.appendChild(td_especie);
-              tr_body.appendChild(td_nome_cientifico);
+            if(Hierarquia["specie"]["correctness"] != "EXACT"){
+              Hierarquia["scientific name"]["synonymous"] == true ? td_specie.style = "color: orange" : td_specie.style = "color: red"        
+              //td_specie.style = "color: red" 
+              td_specie.setAttribute("data-target","#exampleModal")
+              td_specie.setAttribute("data-toggle","modal")
+              td_specie.addEventListener("click", AlterandoDados1)
+              td_specie.className = "specie"
+              td_specie.id = Hierarquia["scientific name"]["type"]+"specie"
+              td_specie.innerHTML = `${Hierarquia["specie"]["type"]}: ${Hierarquia["specie"]["amount"]}`
+              td_scientific_name.innerHTML = `${Hierarquia["scientific name"]["type"]}: 0<br>Canonical Name`
+              tr_body.appendChild(td_specie);
+              tr_body.appendChild(td_scientific_name);
               
             }
             else if (!Apenas_Errados || criar) {
-              td_especie.innerHTML = `${Hierarquia["Espécie"]["Tipo"]}: ${Hierarquia["Espécie"]["Quantidade"]}`
-              td_nome_cientifico.innerHTML = `${Hierarquia["Nome Científico"]["Tipo"]}: 0<br>Canonical Name`
-              td_especie.style = "color: white;" 
-              tr_body.appendChild(td_especie);
-              tr_body.appendChild(td_nome_cientifico);
+              td_specie.innerHTML = `${Hierarquia["specie"]["type"]}: ${Hierarquia["specie"]["amount"]}`
+              td_scientific_name.innerHTML = `${Hierarquia["scientific name"]["type"]}: 0<br>Canonical Name`
+              td_specie.style = "color: white;" 
+              tr_body.appendChild(td_specie);
+              tr_body.appendChild(td_scientific_name);
             }
 
             
@@ -320,30 +320,30 @@
             valor_errado = this.innerHTML;
             key1 = this.id.replace(this.className, "")
             key2 = this.className
-            quantidade = verificacao[key1][key2]["Quantidade"]
-            valor_errado = valor_errado.replace(": "+quantidade, "");
+            amount = verificacao[key1][key2]["amount"]
+            valor_errado = valor_errado.replace(": "+amount, "");
             valor_certo = verificacao[key1][key2]["Sugestão"]
             chaves = Object.keys(verificacao[key1])
             comeco = chaves.indexOf(key2)
-            console.log(verificacao[key1]["Nome Científico"]["Fonte"])
+            console.log(verificacao[key1]["scientific name"]["Fonte"])
             if(!(Array.isArray(valor_certo))){
               mais_de_um = false
-              if(verificacao[key1]["Nome Científico"]["Sinônimo"]){
-                texto.innerHTML = "Fonte: "+verificacao[key1]["Nome Científico"]["Fonte"]+"<br>Verificamos que seu dado pode se tratar de um <b>sinônimo</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a quantidade de valores que deseja alterar: <br>"
+              if(verificacao[key1]["scientific name"]["synonymous"]){
+                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["Fonte"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
 
               }
               else{
-                texto.innerHTML = "Fonte: "+verificacao[key1]["Nome Científico"]["Fonte"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a quantidade de valores que deseja alterar: <br>"
+                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["Fonte"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
               }
             }
             else{
               mais_de_um = true
-              if(verificacao[key1]["Nome Científico"]["Sinônimo"]){
-                texto.innerHTML = "Fonte: "+verificacao[key1]["Nome Científico"]["Fonte"]+"<br>Verificamos que seu dado pode se tratar de um <b>sinônimo</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</b>"
+              if(verificacao[key1]["scientific name"]["synonymous"]){
+                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["Fonte"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</b>"
 
               }
               else{
-                texto.innerHTML = "Fonte: "+verificacao[key1]["Nome Científico"]["Fonte"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</b>"
+                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["Fonte"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</b>"
               }
               contador = 0
               for (nomes of valor_certo){
@@ -369,7 +369,7 @@
               }
               texto2 = document.createElement("label")
               texto2.id = "texto_aux"
-              texto2.innerHTML += "<br>Abaixo está a quantidade de valores que deseja alterar: <br>"
+              texto2.innerHTML += "<br>Abaixo está a amount de valores que deseja alterar: <br>"
               modal.appendChild(texto2)
             }
   
@@ -388,7 +388,7 @@
               label = document.createElement("label")
               label.className = "form-check-label"
               label.for = contador
-              label.innerHTML = "Deseja alterar <b>"+verificacao[key1][chaves[chave]]["Quantidade"]+"</b> valores em sua planilha a nível de "+chaves[chave]+"?"
+              label.innerHTML = "Deseja alterar <b>"+verificacao[key1][chaves[chave]]["amount"]+"</b> valores em sua planilha a nível de "+chaves[chave]+"?"
               div.appendChild(input)
               div.appendChild(label)
               modal.appendChild(div)
@@ -434,15 +434,15 @@
               if(Alterar_Dados[key1][key2] == null){
                 Alterar_Dados[key1][key2] = {}
               }
-              Alterar_Dados[key1][key2] =  {"sugestao":verificacao[key1][key2]["Sugestão"], "nivel": [escolhido_quant, verificacao[key1][escolhido_quant]["Tipo"]]}
-              celula_errada.innerHTML = verificacao[key1][key2]["Sugestão"]+": "+verificacao[key1][key2]["Quantidade"];
+              Alterar_Dados[key1][key2] =  {"sugestao":verificacao[key1][key2]["Sugestão"], "nivel": [escolhido_quant, verificacao[key1][escolhido_quant]["type"]]}
+              celula_errada.innerHTML = verificacao[key1][key2]["Sugestão"]+": "+verificacao[key1][key2]["amount"];
             }
             else{
               if(Alterar_Dados[key1][key2] == null){
                 Alterar_Dados[key1][key2] = {}
               }
-              Alterar_Dados[key1][key2] =  {"sugestao": verificacao[key1][key2]["Sugestão"][escolhido], "nivel": [escolhido_quant, verificacao[key1][escolhido_quant]["Tipo"]]}
-              celula_errada.innerHTML = verificacao[key1][key2]["Sugestão"][escolhido]+": "+verificacao[key1][key2]["Quantidade"];
+              Alterar_Dados[key1][key2] =  {"sugestao": verificacao[key1][key2]["Sugestão"][escolhido], "nivel": [escolhido_quant, verificacao[key1][escolhido_quant]["type"]]}
+              celula_errada.innerHTML = verificacao[key1][key2]["Sugestão"][escolhido]+": "+verificacao[key1][key2]["amount"];
               Remover_Inputs()
               mais_de_um = false
               

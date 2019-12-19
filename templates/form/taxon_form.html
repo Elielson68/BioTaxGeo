@@ -28,43 +28,43 @@
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está o Reino</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><select class="form-control" id="select_reino"><option>Selecionar reino...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><select class="form-control" id="select_kingdom"><option>Selecionar reino...</option></select></div>
                                  </div>
                               </div>
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está o Filo</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="select_filo"><option>Selecionar filo...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="select_phylum"><option>Selecionar filo...</option></select></div>
                                  </div>
                               </div>
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está a Classe</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="select_classe"><option>Selecionar classe...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="select_class"><option>Selecionar classe...</option></select></div>
                                  </div>
                               </div>
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está a Ordem</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="select_ordem"><option>Selecionar ordem...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="select_order"><option>Selecionar ordem...</option></select></div>
                                  </div>
                               </div>
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está a Família</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="select_familia"><option>Selecionar família...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="select_family"><option>Selecionar família...</option></select></div>
                                  </div>
                               </div>
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está o Gênero</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="select_genero"><option>Selecionar gênero...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="select_genus"><option>Selecionar gênero...</option></select></div>
                                  </div>
                               </div>
                               <div class="form-group">
                                 <label class="col-md-4 control-label">Selecione a coluna onde está a Espécie</label>
                                 <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="select_especie"><option>Selecionar espécie...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="select_specie"><option>Selecionar espécie...</option></select></div>
                                 </div>
                               </div>
                            </fieldset>
@@ -74,76 +74,76 @@
                </tbody>
             </table>
             <form action="taxon_list" method = "POST" enctype = "multipart/form-data">
-               <input type="text" name = "selecao" value="" hidden="hidden" id="titulos_selecao"/> 
+               <input type="text" name="selection" value="" hidden="hidden" id="selection_titles"/> 
                <input id="submit_requerimento" type="submit" value="Iniciar verificação" class="btn btn-success btn-lg btn-block"/>
              </form>
         </div>
         <script>
-            var titulos = "{{titulos}}";
-            titulos = titulos.replace(/&#39;/g,'"');
-            titulos = JSON.parse(titulos)
-            titulos_selecionados = {"reino": null, "filo": null, "classe": null, "ordem": null, "familia": null, "genero": null, "especie": null}
-            AtribuindoTitulos()
+            var titles = "{{titles}}";
+            titles = titles.replace(/&#39;/g,'"');
+            titles = JSON.parse(titles)
+            selected_titles = {"kingdom": null, "phylum": null, "class": null, "order": null, "family": null, "genus": null, "specie": null}
+            Assign_Titles()
 
-            function AtribuindoTitulos(){
-                var select_reino = document.getElementById("select_reino");
-                var select_filo = document.getElementById("select_filo");
-                var select_classe = document.getElementById("select_classe");
-                var select_ordem = document.getElementById("select_ordem");
-                var select_familia = document.getElementById("select_familia");
-                var select_genero = document.getElementById("select_genero");
-                var select_especie = document.getElementById("select_especie");
+            function Assign_Titles(){
+                var select_kingdom = document.getElementById("select_kingdom");
+                var select_phylum = document.getElementById("select_phylum");
+                var select_class = document.getElementById("select_class");
+                var select_order = document.getElementById("select_order");
+                var select_family = document.getElementById("select_family");
+                var select_genus = document.getElementById("select_genus");
+                var select_specie = document.getElementById("select_specie");
 
-                for (titulo of titulos){
-                    novo_option1 = document.createElement("option");
-                    novo_option1.innerHTML = titulo;
-                    novo_option1.addEventListener("click",Selecionado);
-                    novo_option1.id = "reino"
+                for (title of titles){
+                    new_option1 = document.createElement("option");
+                    new_option1.innerHTML = title;
+                    new_option1.addEventListener("click", Selected);
+                    new_option1.id = "kingdom"
 
-                    novo_option2 = document.createElement("option");
-                    novo_option2.innerHTML = titulo;
-                    novo_option2.addEventListener("click",Selecionado);
-                    novo_option2.id = "filo"
+                    new_option2 = document.createElement("option");
+                    new_option2.innerHTML = title;
+                    new_option2.addEventListener("click",Selected);
+                    new_option2.id = "phylum"
 
-                    novo_option3 = document.createElement("option");
-                    novo_option3.innerHTML = titulo;
-                    novo_option3.addEventListener("click",Selecionado);
-                    novo_option3.id = "classe"
+                    new_option3 = document.createElement("option");
+                    new_option3.innerHTML = title;
+                    new_option3.addEventListener("click",Selected);
+                    new_option3.id = "class"
 
-                    novo_option4 = document.createElement("option");
-                    novo_option4.innerHTML = titulo;
-                    novo_option4.addEventListener("click",Selecionado);
-                    novo_option4.id = "ordem"
+                    new_option4 = document.createElement("option");
+                    new_option4.innerHTML = title;
+                    new_option4.addEventListener("click",Selected);
+                    new_option4.id = "order"
                     
-                    novo_option5 = document.createElement("option");
-                    novo_option5.innerHTML = titulo;
-                    novo_option5.addEventListener("click",Selecionado);
-                    novo_option5.id = "familia"
+                    new_option5 = document.createElement("option");
+                    new_option5.innerHTML = title;
+                    new_option5.addEventListener("click",Selected);
+                    new_option5.id = "family"
 
-                    novo_option6 = document.createElement("option");
-                    novo_option6.innerHTML = titulo;
-                    novo_option6.addEventListener("click",Selecionado);
-                    novo_option6.id = "genero"
+                    new_option6 = document.createElement("option");
+                    new_option6.innerHTML = title;
+                    new_option6.addEventListener("click",Selected);
+                    new_option6.id = "genus"
 
-                    novo_option7 = document.createElement("option");
-                    novo_option7.innerHTML = titulo;
-                    novo_option7.addEventListener("click",Selecionado);
-                    novo_option7.id = "especie"
+                    new_option7 = document.createElement("option");
+                    new_option7.innerHTML = title;
+                    new_option7.addEventListener("click",Selected);
+                    new_option7.id = "specie"
 
-                    select_reino.appendChild(novo_option1);
-                    select_filo.appendChild(novo_option2);
-                    select_classe.appendChild(novo_option3);
-                    select_ordem.appendChild(novo_option4);
-                    select_familia.appendChild(novo_option5);
-                    select_genero.appendChild(novo_option6);
-                    select_especie.appendChild(novo_option7);
+                    select_kingdom.appendChild(new_option1);
+                    select_phylum.appendChild(new_option2);
+                    select_class.appendChild(new_option3);
+                    select_order.appendChild(new_option4);
+                    select_family.appendChild(new_option5);
+                    select_genus.appendChild(new_option6);
+                    select_specie.appendChild(new_option7);
                 }
             }
-            function Selecionado(){
-                titulos_selecionados[this.id] = this.value;
-                var titulos_formatados = JSON.stringify(titulos_selecionados);
-                var input_text = document.getElementById("titulos_selecao");
-                input_text.value = titulos_formatados;
+            function Selected(){
+                selected_titles[this.id] = this.value;
+                var formated_titles = JSON.stringify(selected_titles);
+                var input_text = document.getElementById("selection_titles");
+                input_text.value = formated_titles;
             }
 
         </script>

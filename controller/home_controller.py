@@ -1,20 +1,20 @@
 from flask import render_template, request, Blueprint
-from model.planilha import Planilha
+from model.sheet_treatment import Sheet
 from werkzeug.utils import secure_filename
 
-Planilha_atual = Planilha()
+used_sheet = Sheet()
 
 home_blueprint = Blueprint('home', __name__, template_folder='templates')
 
 @home_blueprint.route('/', methods=["GET", "POST"])
 def home():
     if request.method == "GET":
-        if(Planilha_atual.get_Diretorio() == None):
+        if(used_sheet.get_Path() == None):
             return render_template("index.html")
         else:
             return  render_template("Selecionar_Rota.html")
     if request.method == "POST":
         f = request.files['file']
         f.save("files/"+secure_filename(f.filename))
-        Planilha_atual.set_Diretorio(secure_filename(f.filename))
+        used_sheet.set_Path(secure_filename(f.filename))
         return render_template("Selecionar_Rota.html")

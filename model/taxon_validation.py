@@ -1,140 +1,138 @@
-class Hierarquia_Taxonomica:
+class Taxon_Validation:
 
-    def __init__(self, r, fi, c, o, fa, g, e, SN):
+    def __init__(self, k, p, c, o, f, g, e, SN):
         self.Scientific_Name = SN
-        self.reino = r
-        self.filo = fi
-        self.classe = c
-        self.ordem = o
-        self.familia = fa
-        self.genero = g
-        self.especie = e
-        self.corretude_reino = "NONE"
-        self.corretude_filo = "NONE"
-        self.corretude_classe = "NONE"
-        self.corretude_ordem = "NONE"
-        self.corretude_familia = "NONE"
-        self.corretude_genero = "NONE"
-        self.corretude_especie = "NONE"
-        self.corretude_scientific_name = "NONE"
-        self.sugestao_reino = []
-        self.sugestao_filo = []
-        self.sugestao_classe = []
-        self.sugestao_ordem = []
-        self.sugestao_familia = []
-        self.sugestao_genero = []
-        self.sugestao_especie = []
-        self.sugestao_scientific_name = []
+        self.kingdom = k
+        self.phylum = p
+        self.classs = c
+        self.order = o
+        self.family = f
+        self.genus = g
+        self.specie = e
+        self.kingdom_correctness = "NONE"
+        self.phylum_correctness = "NONE"
+        self.class_correctness = "NONE"
+        self.order_correctness = "NONE"
+        self.family_correctness = "NONE"
+        self.genus_correctness = "NONE"
+        self.specie_correctness = "NONE"
+        self.scientific_name_correctness = "NONE"
+        self.kingdom_suggestion = []
+        self.phylum_suggestion = []
+        self.classs_suggestion = []
+        self.order_suggestion = []
+        self.family_suggestion = []
+        self.genus_suggestion = []
+        self.specie_suggestion = []
+        self.scientific_name_suggestion = []
 
-    def set_Hierarquia(self, r, fi, c, o, fa, g, e, SN):
+    def set_Hierarchy (self, k, p, c, o, f, g, e, SN):
         self.Scientific_Name = SN
-        self.reino = r
-        self.filo = fi
-        self.classe = c
-        self.ordem = o
-        self.familia = fa
-        self.genero = g
-        self.especie = e
+        self.kingdom = k
+        self.phylum = p
+        self.classs = c
+        self.order = o
+        self.family = f
+        self.genus = g
+        self.specie = e
 
-    def get_Hierarquia(self):
-        return self.reino, self.filo, self.ordem, self.familia, self.genero, self.especie, self.Scientific_Name
+    def get_Hierarchy (self):
+        return self.kingdom, self.phylum, self.order, self.family, self.genus, self.specie, self.Scientific_Name
 
-    def Definir_Corretude_Hierarquica(self, reino, filo, classe, ordem, familia, genero, especie, Scientific_Name):
-        self.corretude_reino = "EXACT" if (self.reino == reino) else "FUZZY"
-        self.corretude_filo = "EXACT" if self.filo == filo else "FUZZY"
-        self.corretude_classe = "EXACT" if self.classe == classe else "FUZZY"
-        self.corretude_ordem = "EXACT" if self.ordem == ordem else "FUZZY"
-        self.corretude_familia = "EXACT" if self.familia == familia else "FUZZY"
-        self.corretude_genero = "EXACT" if self.genero == genero else "FUZZY"
-        if (self.especie == especie.replace(genero + " ", "")) or (
-                self.especie == especie.replace(self.genero + " ", "")):
-            self.corretude_especie = "EXACT"
+    def set_Hierarchy_Correctness (self, kingdom, phylum, classs, order, family, genus, specie, Scientific_Name):
+        self.kingdom_correctness = "EXACT" if (self.kingdom == kingdom) else "FUZZY"
+        self.phylum_correctness = "EXACT" if self.phylum == phylum else "FUZZY"
+        self.class_correctness = "EXACT" if self.classs == classs else "FUZZY"
+        self.order_correctness = "EXACT" if self.order == order else "FUZZY"
+        self.family_correctness = "EXACT" if self.family == family else "FUZZY"
+        self.genus_correctness = "EXACT" if self.genus == genus else "FUZZY"
+        if (self.specie == specie.replace(genus + " ", "")) or (self.specie == specie.replace(self.genus + " ", "")):
+            self.specie_correctness = "EXACT"
         else:
-            self.corretude_especie = "FUZZY"
-        self.corretude_scientific_name = "EXACT" if self.Scientific_Name == Scientific_Name else "FUZZY"
+            self.specie_correctness = "FUZZY"
+        self.scientific_name_correctness = "EXACT" if self.Scientific_Name == Scientific_Name else "FUZZY"
 
-    def Definir_Sugestao_Hierarquica(self, reino, filo, classe, ordem, familia, genero, especie, Scientific_Name):
-        self.sugestao_reino = None if self.corretude_reino == "EXACT" else reino
-        self.sugestao_filo = None if self.corretude_filo == "EXACT" else filo
-        self.sugestao_classe = None if self.corretude_classe == "EXACT" else classe
-        self.sugestao_ordem = None if self.corretude_ordem == "EXACT" else ordem
-        self.sugestao_familia = None if self.corretude_familia == "EXACT" else familia
-        self.sugestao_genero = None if self.corretude_genero == "EXACT" else genero
-        if self.corretude_especie == "EXACT":
-            self.sugestao_especie = None
+    def set_Hierarchy_Suggestion (self, kingdom, phylum, classs, order, family, genus, specie, Scientific_Name):
+        self.kingdom_suggestion = None if self.kingdom_correctness == "EXACT" else kingdom
+        self.phylum_suggestion = None if self.phylum_correctness == "EXACT" else phylum
+        self.classs_suggestion = None if self.class_correctness == "EXACT" else classs
+        self.order_suggestion = None if self.order_correctness == "EXACT" else order
+        self.family_suggestion = None if self.family_correctness == "EXACT" else family
+        self.genus_suggestion = None if self.genus_correctness == "EXACT" else genus
+        if self.specie_correctness == "EXACT":
+            self.specie_suggestion = None
         else:
-            self.sugestao_especie = especie.replace(genero + " ", "") if genero in especie else especie.replace(
-                self.genero + " ", "")
-        self.sugestao_scientific_name = None if self.corretude_scientific_name == "EXACT" else Scientific_Name
+            self.specie_suggestion = specie.replace(genus + " ", "") if genus in specie else specie.replace(self.genus + " ", "")
+        self.scientific_name_suggestion = None if self.scientific_name_correctness == "EXACT" else Scientific_Name
 
-    def get_Reino(self):
-        return self.reino
+    def get_Kingdom(self):
+        return self.kingdom
 
-    def get_Filo(self):
-        return self.filo
+    def get_Phylum(self):
+        return self.phylum
 
-    def get_Classe(self):
-        return self.classe
+    def get_Classs(self):
+        return self.classs
 
-    def get_Ordem(self):
-        return self.ordem
+    def get_Order(self):
+        return self.order
 
-    def get_Familia(self):
-        return self.familia
+    def get_Family(self):
+        return self.family
 
-    def get_Genero(self):
-        return self.genero
+    def get_Genus(self):
+        return self.genus
 
-    def get_Especie(self):
-        return self.especie
+    def get_Specie(self):
+        return self.specie
 
     def get_Scientific_Name(self):
         return self.Scientific_Name
 
-    def get_Corretude_Reino(self):
-        return self.corretude_reino
+    def get_Kingdom_Correctness(self):
+        return self.kingdom_correctness
 
-    def get_Corretude_Filo(self):
-        return self.corretude_filo
+    def get_Phylum_Correctness(self):
+        return self.phylum_correctness
 
-    def get_Corretude_Classe(self):
-        return self.corretude_classe
+    def get_Classs_Correctness(self):
+        return self.class_correctness
 
-    def get_Corretude_Ordem(self):
-        return self.corretude_ordem
+    def get_Order_Correctness(self):
+        return self.order_correctness
 
-    def get_Corretude_Familia(self):
-        return self.corretude_familia
+    def get_Family_Correctness(self):
+        return self.family_correctness
 
-    def get_Corretude_Genero(self):
-        return self.corretude_genero
+    def get_Genus_Correctness(self):
+        return self.genus_correctness
 
-    def get_Corretude_Especie(self):
-        return self.corretude_especie
+    def get_Specie_Correctness(self):
+        return self.specie_correctness
 
-    def get_Corretude_Scientific_Name(self):
-        return self.corretude_scientific_name
+    def get_Scientific_Name_Correctness(self):
+        return self.scientific_name_correctness
 
-    def get_Sugestao_Reino(self):
-        return self.sugestao_reino
+    def get_Kingdom_Suggestion(self):
+        return self.kingdom_suggestion
 
-    def get_Sugestao_Filo(self):
-        return self.sugestao_filo
+    def get_Phylum_Suggestion(self):
+        return self.phylum_suggestion
 
-    def get_Sugestao_Classe(self):
-        return self.sugestao_classe
+    def get_Classs_Suggestion(self):
+        return self.classs_suggestion
 
-    def get_Sugestao_Ordem(self):
-        return self.sugestao_ordem
+    def get_Order_Suggestion(self):
+        return self.order_suggestion
 
-    def get_Sugestao_Familia(self):
-        return self.sugestao_familia
+    def get_Family_Suggestion(self):
+        return self.family_suggestion
 
-    def get_Sugestao_Genero(self):
-        return self.sugestao_genero
+    def get_Genus_Suggestion(self):
+        return self.genus_suggestion
 
-    def get_Sugestao_Especie(self):
-        return self.sugestao_especie
+    def get_Specie_Suggestion(self):
+        return self.specie_suggestion
 
-    def get_Sugestao_Scientific_Name(self):
-        return self.sugestao_scientific_name
+    def get_Scientific_Name_Suggestion(self):
+        return self.scientific_name_suggestion
