@@ -44,7 +44,7 @@ def mapa_desenhar():
 app.run(debug=True, port=8080)
 
 '''
-from planilha import Planilha
+from model.planilha import Planilha
 Planilha_atual = Planilha()
 Planilha_atual.set_Diretorio("Planilha_Formatada.xls")
 Coordenadas = Planilha_atual.coordenadas

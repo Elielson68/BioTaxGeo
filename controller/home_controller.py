@@ -1,5 +1,5 @@
 from flask import render_template, request, Blueprint
-from planilha import Planilha
+from model.planilha import Planilha
 from werkzeug.utils import secure_filename
 
 Planilha_atual = Planilha()
