@@ -15,6 +15,6 @@ def home():
             return  render_template("Selecionar_Rota.html")
     if request.method == "POST":
         f = request.files['file']
-        f.save(secure_filename(f.filename))
+        f.save("files/"+secure_filename(f.filename))
         Planilha_atual.set_Diretorio(secure_filename(f.filename))
         return render_template("Selecionar_Rota.html")

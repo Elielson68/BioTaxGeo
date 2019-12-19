@@ -25,7 +25,7 @@ class Planilha:
         self.index_planilha = 0
 
     def set_Diretorio(self, diretorio):
-        self.diretorio = str(os.getcwd())+"/"+diretorio #O comando os.getcwd pega o diretório atual de onde o arquivo python está.
+        self.diretorio = str(os.getcwd())+"/files/"+diretorio #O comando os.getcwd pega o diretório atual de onde o arquivo python está.
 
         try:
             self.arquivo = xlrd.open_workbook(self.diretorio, formatting_info=True) #Abre o arquivo com o nome enviado no parâmetro diretorio
@@ -136,7 +136,7 @@ class Planilha:
                         self.planilha_formatada.write(linha, index_coluna, dados_para_alterar[key1][dado]["sugestao"])
 
     def SalvarPlanilhaFormatada(self):
-        return self.arquivo_escrita.save("Planilha_Formatada.xls")
+        return self.arquivo_escrita.save("files/Planilha_Formatada.xls")
 
 class Coordenadas:
    
