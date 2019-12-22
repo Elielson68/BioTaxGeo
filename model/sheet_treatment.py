@@ -69,7 +69,7 @@ class Sheet:
             return self.cell_value
 
     def Value_in_Column (self, column):
-        self.Reset_values()
+        self.Reset_Values()
         try:
             if(type(column)==str):
                 index_column = self.sheet.row_values(0).index(column)
@@ -86,7 +86,7 @@ class Sheet:
 
     def Value_in_Row (self, row):
         if(row <= self.get_Row_Total() and row > 0):
-            self.Resetar_values()
+            self.Resetar_Values()
             self.values_row = self.sheet.row_values((row-1))
             return self.values_row
         else:
@@ -101,11 +101,11 @@ class Sheet:
         for column in titles:
             if titles[column] != None:
                 values_column = self.Value_in_Column(titles[column])
-                self.data_treatment.set_Titulos_Originais(titles[column])
+                self.data_treatment.set_Original_Titles(titles[column])
                 self.data_treatment.set_Check_Columns(column, values_column)
 
     def get_Columns_Checked(self):
-        return self.data_treatment.get_Colunas_para_verificar()
+        return self.data_treatment.get_Validate_Columns()
 
     def Change_Data_Spreadsheet(self, data_to_change):
         for values in data_to_change:
@@ -116,9 +116,9 @@ class Sheet:
                 column_index_level = self.sheet.row_values(0).index(self.data_treatment.get_Verified_Hierarchy()[key1][level]["title"])
                 for row in range(0, self.get_Row_Total()):
                     value1 = self.data_treatment.get_Verified_Hierarchy()[key1][data]["type"]
-                    value2 = self.pegar_value_na_celula(row, column_index)
+                    value2 = self.Value_in_Cell(row, column_index)
                     value1_level = data_to_change[values][data]["level"][1]
-                    value2_level = self.pegar_value_na_celula(row, column_index_level)
+                    value2_level = self.Value_in_Cell(row, column_index_level)
                     if((value1 == value2) and (value1_level == value2_level)):
                         self.formated_sheet.write(row, column_index, data_to_change[key1][data]["suggestion"])
 

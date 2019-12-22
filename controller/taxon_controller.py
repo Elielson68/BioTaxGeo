@@ -4,7 +4,7 @@ import json
 
 used_sheet = home_controller.used_sheet
 taxon_blueprint = Blueprint('taxon', __name__, template_folder='templates')
-used_sheet.
+
 @taxon_blueprint.route("/taxon_list", methods=["GET", "POST"])
 def taxon_list():
     if request.method == "POST":

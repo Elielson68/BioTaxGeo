@@ -204,10 +204,10 @@ class Data_Treatment:
                             if self.verified_hierarchy[correct_name][key]["correctness"] == "EXACT":
                                 correct = self.verified_hierarchy[correct_name][key]["type"]
                                 wrong = self.verified_hierarchy[wrong_name][key]["type"]
-                                average_hirarchy_values[correct_name][key][certo] = None
-                                if (self.Compare_String (correct, wrong) > 60 and wrong != corect):
+                                average_hirarchy_values[correct_name][key][correct] = None
+                                if (self.Compare_String (correct, wrong) > 60 and wrong != correct):
 
-                                    average_hirarchy_values[correct_name][key][correct] = self.Comparar_String(correct_name, wrong_name)
+                                    average_hirarchy_values[correct_name][key][correct] = self.Compare_String(correct_name, wrong_name)
                                     self.verified_hierarchy[wrong_name][key]["suggestion"].append(average_hirarchy_values[correct_name][key])
                                     self.verified_hierarchy[wrong_name]["specie"]["suggestion"].append(self.verified_hierarchy[correct_name]["specie"]["type"])
                                     self.verified_hierarchy[wrong_name]["scientific name"]["font"] = "Planilha"

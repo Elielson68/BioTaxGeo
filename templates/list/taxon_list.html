@@ -178,8 +178,8 @@
               td_kingdom.setAttribute("data-target","#exampleModal")
               td_kingdom.setAttribute("data-toggle","modal")
               td_kingdom.addEventListener("click", AlterandoDados1)
-              td_kingdom.className = "Reino"
-              td_kingdom.id = Hierarquia["scientific name"]["type"]+"Reino"
+              td_kingdom.className = "kingdom"
+              td_kingdom.id = Hierarquia["scientific name"]["type"]+"kingdom"
               td_kingdom.innerHTML = `${Hierarquia["kingdom"]["type"]}: ${Hierarquia["kingdom"]["amount"]}`
               tr_body.appendChild(td_kingdom);
             }
@@ -322,28 +322,28 @@
             key2 = this.className
             amount = verificacao[key1][key2]["amount"]
             valor_errado = valor_errado.replace(": "+amount, "");
-            valor_certo = verificacao[key1][key2]["Sugestão"]
+            valor_certo = verificacao[key1][key2]["suggestion"]
             chaves = Object.keys(verificacao[key1])
             comeco = chaves.indexOf(key2)
-            console.log(verificacao[key1]["scientific name"]["Fonte"])
+            console.log(verificacao[key1]["scientific name"]["font"])
             if(!(Array.isArray(valor_certo))){
               mais_de_um = false
               if(verificacao[key1]["scientific name"]["synonymous"]){
-                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["Fonte"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
+                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
 
               }
               else{
-                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["Fonte"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
+                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
               }
             }
             else{
               mais_de_um = true
               if(verificacao[key1]["scientific name"]["synonymous"]){
-                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["Fonte"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</b>"
+                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</b>"
 
               }
               else{
-                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["Fonte"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</b>"
+                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</b>"
               }
               contador = 0
               for (nomes of valor_certo){
@@ -434,15 +434,15 @@
               if(Alterar_Dados[key1][key2] == null){
                 Alterar_Dados[key1][key2] = {}
               }
-              Alterar_Dados[key1][key2] =  {"sugestao":verificacao[key1][key2]["Sugestão"], "nivel": [escolhido_quant, verificacao[key1][escolhido_quant]["type"]]}
-              celula_errada.innerHTML = verificacao[key1][key2]["Sugestão"]+": "+verificacao[key1][key2]["amount"];
+              Alterar_Dados[key1][key2] =  {"suggestion":verificacao[key1][key2]["suggestion"], "level": [escolhido_quant, verificacao[key1][escolhido_quant]["type"]]}
+              celula_errada.innerHTML = verificacao[key1][key2]["suggestion"]+": "+verificacao[key1][key2]["amount"];
             }
             else{
               if(Alterar_Dados[key1][key2] == null){
                 Alterar_Dados[key1][key2] = {}
               }
-              Alterar_Dados[key1][key2] =  {"sugestao": verificacao[key1][key2]["Sugestão"][escolhido], "nivel": [escolhido_quant, verificacao[key1][escolhido_quant]["type"]]}
-              celula_errada.innerHTML = verificacao[key1][key2]["Sugestão"][escolhido]+": "+verificacao[key1][key2]["amount"];
+              Alterar_Dados[key1][key2] =  {"suggestion": verificacao[key1][key2]["suggestion"][escolhido], "level": [escolhido_quant, verificacao[key1][escolhido_quant]["type"]]}
+              celula_errada.innerHTML = verificacao[key1][key2]["suggestion"][escolhido]+": "+verificacao[key1][key2]["amount"];
               Remover_Inputs()
               mais_de_um = false
               

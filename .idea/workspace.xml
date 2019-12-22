@@ -2,19 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coordenadas_Testes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Coordenadas_Testes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/form_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/form_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/home_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/home_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/markers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/markers_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/taxon_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/taxon_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/coordinate.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/coordinate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/Lepidoptera_-_Importacao_IX_lote_1.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Lepidoptera_-_Importacao_IX_lote_1.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/Planilha_Formatada.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Planilha_Formatada.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/data_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/data_treatment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/planilha.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/sheet_treatment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/taxon_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/taxon_validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/planilha.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/sheet_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/sheet_treatment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/coord_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/coord_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list.html" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -37,19 +38,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1PL1ilamHjnr18TVtYNDECoyh0Q" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/OficialEnv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -65,13 +59,24 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/model" />
-      <recent name="$PROJECT_DIR$/templates" />
       <recent name="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\SpecieGeo\static\css" />
       <recent name="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\SpecieGeo\static" />
+      <recent name="$PROJECT_DIR$/templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.SpecieGeo_App">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.run">
     <configuration name="Coordenadas_Testes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="teste" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -168,7 +173,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SpecieGeo_App.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -210,7 +215,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model/sheet_treatment.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/planilha.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="teste" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../tratamento_dados_specify/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -220,28 +246,28 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Coordenadas_Testes" />
       <item itemvalue="Python.Gbif_Testes" />
       <item itemvalue="Python.SpecieGeo_App" />
+      <item itemvalue="Python.Coordenadas_Testes" />
       <item itemvalue="Python.planilha" />
+      <item itemvalue="Python.run" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.run" />
         <item itemvalue="Python.Coordenadas_Testes" />
         <item itemvalue="Python.planilha" />
       </list>
     </recent_temporary>
   </component>
   <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -254,6 +280,48 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Criando circulo">
+      <created>1570564327217</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1570564327217</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Exclusão de vértice: retirado os inputs, retirado os markers e vertice. Falta configurar os novos inputs a serem plotados pós exclusão">
+      <created>1570650011060</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1570650011060</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Seleção de poligonos para editar(manipular vertices), salvando poligonos novos criados">
+      <created>1571162224710</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1571162224710</updated>
+    </task>
+    <task id="LOCAL-00028" summary="inserido condições para criação de novos poligonos, foi restrito a ter pelo menos 3 vertices">
+      <created>1571172462090</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1571172462090</updated>
+    </task>
+    <task id="LOCAL-00029" summary="inserido mouseover sobre os inputs na selecao dos poligonos">
+      <created>1571176694437</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1571176694437</updated>
+    </task>
+    <task id="LOCAL-00030" summary="mouseover foi melhorado para saber em qual poligono a pessoa está editando">
+      <created>1571179384580</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1571179384580</updated>
     </task>
     <task id="LOCAL-00031" summary="Adicionado identificador dos poligonos alem do identificador do dropdown, ao clicar no poligono ele cria uma caixinha informando qual é o poligono clicado">
       <created>1571186022580</created>
@@ -528,77 +596,35 @@
       <option name="project" value="LOCAL" />
       <updated>1576365057328</updated>
     </task>
-    <task id="LOCAL-00070" summary="refatorando verificação de coordenada">
-      <created>1576524200564</created>
+    <task id="LOCAL-00070" summary="Movido o style do NavBar pro Style.css">
+      <created>1576367013164</created>
       <option name="number" value="00070" />
       <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
-      <updated>1576524200565</updated>
+      <updated>1576367013164</updated>
     </task>
-    <task id="LOCAL-00071" summary="refatorando verificação de coordenada">
-      <created>1576525390891</created>
+    <task id="LOCAL-00071" summary="Atualizada rota do envio da planilha">
+      <created>1576544149379</created>
       <option name="number" value="00071" />
       <option name="presentableId" value="LOCAL-00071" />
       <option name="project" value="LOCAL" />
-      <updated>1576525390891</updated>
+      <updated>1576544149379</updated>
     </task>
-    <task id="LOCAL-00072" summary="refatorando verificação de coordenada">
-      <created>1576600866628</created>
+    <task id="LOCAL-00072" summary="Fatorado a maneira de conversão entre latitude e longitude. Continuar refatoramento dos demais métodos">
+      <created>1576544447496</created>
       <option name="number" value="00072" />
       <option name="presentableId" value="LOCAL-00072" />
       <option name="project" value="LOCAL" />
-      <updated>1576600866628</updated>
+      <updated>1576544447496</updated>
     </task>
-    <task id="LOCAL-00073" summary="Renomeando rotas e separando arquivos">
-      <created>1576611982233</created>
+    <task id="LOCAL-00073" summary="Organizando arquivos da pasta principal">
+      <created>1576719615468</created>
       <option name="number" value="00073" />
       <option name="presentableId" value="LOCAL-00073" />
       <option name="project" value="LOCAL" />
-      <updated>1576611982234</updated>
+      <updated>1576719615468</updated>
     </task>
-    <task id="LOCAL-00074" summary="Renomeando rotas e separando arquivos">
-      <created>1576687761620</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1576687761620</updated>
-    </task>
-    <task id="LOCAL-00075" summary="rotas organizadas">
-      <created>1576688819409</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1576688819409</updated>
-    </task>
-    <task id="LOCAL-00076" summary="atualizado o Path das funções">
-      <created>1576689661678</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1576689661678</updated>
-    </task>
-    <task id="LOCAL-00077" summary="utilizando blueprint para separar as rotas do arquivo principal">
-      <created>1576692018148</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1576692018148</updated>
-    </task>
-    <task id="LOCAL-00078" summary="utilizando blueprint para separar as rotas do arquivo principal">
-      <created>1576693346541</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1576693346541</updated>
-    </task>
-    <task id="LOCAL-00079" summary="Refatoramento model">
-      <created>1576761117558</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1576761117559</updated>
-    </task>
-    <option name="localTasksCounter" value="80" />
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -635,6 +661,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
+    <MESSAGE value="JSON resultando os valores da chave referente a coluna da planilha" />
+    <MESSAGE value="Criado classe Hierarquia Taxonomica para organizar mais o codigo" />
     <MESSAGE value="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela" />
     <MESSAGE value="Acredito que agora ta funcionando" />
     <MESSAGE value="Salvando planilha formatada, verificacao hierarquia pela API (OK), verificar pelos dados da propria planilha" />
@@ -654,12 +682,10 @@
     <MESSAGE value="Melhorar front-end do criar_poligono_mapa.html e plotar_poligono_mapa.html" />
     <MESSAGE value="Padrão de projeto Python" />
     <MESSAGE value="navbar estilizada utilizando o block e content do flask" />
-    <MESSAGE value="refatorando verificação de coordenada" />
-    <MESSAGE value="Renomeando rotas e separando arquivos" />
-    <MESSAGE value="rotas organizadas" />
-    <MESSAGE value="atualizado o Path das funções" />
-    <MESSAGE value="utilizando blueprint para separar as rotas do arquivo principal" />
-    <MESSAGE value="Refatoramento model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refatoramento model" />
+    <MESSAGE value="Movido o style do NavBar pro Style.css" />
+    <MESSAGE value="Atualizada rota do envio da planilha" />
+    <MESSAGE value="Fatorado a maneira de conversão entre latitude e longitude. Continuar refatoramento dos demais métodos" />
+    <MESSAGE value="Organizando arquivos da pasta principal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Organizando arquivos da pasta principal" />
   </component>
 </project>
