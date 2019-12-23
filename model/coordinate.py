@@ -48,13 +48,13 @@ class Coordinate:
 
     def get_Latitude_Column_values(self):
         if (self.latitude_column == []):
-            return "Coluna vazia."
+            return "Empty column."
         else:
             return self.latitude_column
 
     def get_Longitude_Column_values(self):
         if (self.longitude_column == []):
-            return "Coluna vazia."
+            return "Empty column."
         else:
             return self.longitude_column
 
