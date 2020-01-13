@@ -12,6 +12,7 @@ function initMap() {
 
         header_table = new ComponentHTML()
         header_table.createHeaderTable(list_poly.length)
+        header_table.createTitleTable()
         list_componentsHTML.push(header_table)
     }
     for(i=0;i<latitudes.length;i++){
@@ -23,6 +24,7 @@ function initMap() {
         for(p=0; p<list_poly.length; p++){
             if(list_poly[p].haveMarker(list_marker[i].getPosition())){
                 list_marker[i].setIcon("../static/image/blue_marker2.png")
+                
             }
         }
     }

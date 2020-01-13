@@ -48,8 +48,8 @@ function initMap() {
         var vertex = this
         var index_vertex = parseInt(vertex.getIndex())
         selected_polygon.setVertexPosition(index_vertex, vertex.getPosition())
-        list_componentsHTML[index_vertex].setInputLat(vertex.getLatitude())
-        list_componentsHTML[index_vertex].setInputLng(vertex.getLongitude())
+        list_componentsHTML[index_vertex].setValueInputLat(vertex.getLatitude())
+        list_componentsHTML[index_vertex].setValueInputLng(vertex.getLongitude())
     } 
     function InputMovedVertex(){
         var input = this

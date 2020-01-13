@@ -80,10 +80,10 @@ ComponentHTML.prototype.getDeleteButton = function(){
 ComponentHTML.prototype.getSpan = function(){
     return this.span
 }
-ComponentHTML.prototype.setInputLat = function(lat){
+ComponentHTML.prototype.setValueInputLat = function(lat){
     this.input_1.value = lat
 }
-ComponentHTML.prototype.setInputLng = function(lng){
+ComponentHTML.prototype.setValueInputLng = function(lng){
     this.input_2.value = lng
 }
 ComponentHTML.prototype.setIDSuperDiv = function(id){
@@ -185,4 +185,33 @@ ComponentHTML.prototype.createBodyTable = function (latitude, longitude, indice,
       this.tbody.appendChild(linha)
       latitude_coluna.innerHTML = latitude
       longitude_coluna.innerHTML = longitude
+}
+ComponentHTML.prototype.createTitleTable = function (){
+    //Criando os dados de cada tabela referente aos poligonos
+    this.tr_titulos = document.createElement("tr")
+    this.th_indice = document.createElement("th")
+    this.th_nome = document.createElement("th")
+    this.th_latitude = document.createElement("th")
+    this.th_longitude = document.createElement("th")
+
+    //Títulos de cada coluna
+    this.th_indice.setAttribute("scope","col")
+    this.th_indice.innerHTML = "#"
+    this.th_nome.setAttribute("scope","col")
+    this.th_nome.innerHTML = "Nome Científico"
+    this.th_latitude.setAttribute("scope","col")
+    this.th_latitude.innerHTML = "Latitude"
+    this.th_longitude.setAttribute("scope","col")
+    this.th_longitude.innerHTML = "Longitude"
+    //Anexando todos eles a coluna principal
+    this.tr_titulos.appendChild(this.th_indice)
+    this.tr_titulos.appendChild(this.th_nome)
+    this.tr_titulos.appendChild(this.th_latitude)
+    this.tr_titulos.appendChild(this.th_longitude)
+    this.tr_titulos.id = "tr_poligono"+this.indice
+    this.tr_titulos.setAttribute("class","collapse tab_poligono"+this.indice)
+    //anexando ao cabeçário da tabela
+    this.thead.append(this.tr_titulos)
+
+
   }
