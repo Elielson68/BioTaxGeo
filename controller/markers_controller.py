@@ -17,12 +17,12 @@ def markers_validation():
 @markers_blueprint .route("/markers_list",methods=["GET","POST"])
 def markers_list():
     if request.method == "POST":
-        poligonos = request.form['vertices']
-        poligonos = eval(poligonos)
+        polygons = request.form['vertices']
+        polygons = eval(polygons)
         coord_lat = used_sheet.coordinate.get_Latitude_Column_values()
         coord_lng = used_sheet.coordinate.get_Longitude_Column_values()
         coord_lat = used_sheet.coordinate.Convert_Lat_Decimal(coord_lat)
         coord_lng = used_sheet.coordinate.Convert_Lng_Decimal(coord_lng)
-        return render_template("list/markers_list.html", poligonos=poligonos, latitude=coord_lat, longitude=coord_lng)
+        return render_template("list/markers_list.html", polygons=polygons, latitude=coord_lat, longitude=coord_lng)
     else:
         return render_template("form/markers_form.html")

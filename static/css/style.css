@@ -57,7 +57,7 @@
      height: 100%;
      float: left;
 }
-#inserir_poligono{
+#column_right{
      margin-left: 66%;
      position: absolute;
      width: 34%;
@@ -65,17 +65,17 @@
      background-color: #696969;
      float: right;
 }
+#insert_inputs{
+     overflow: auto; 
+     height: 250px;
+}
 #dropdown_poligonos{
      margin-bottom: 2%;
-}
-#input_vertices{
-     overflow: auto; 
-     height: 45%;
 }
  /*_________________________________________________________*/
 
 /* Mapa 2 | plotar_poligono_no_mapa.html*/
- #mapa_plotar {
+ #plot_map {
      position: absolute;
      width: 100%;
      height: 50%; 

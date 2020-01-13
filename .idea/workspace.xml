@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/Lepidoptera_-_Importacao_IX_lote_1.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Lepidoptera_-_Importacao_IX_lote_1.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/Planilha_Formatada.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Planilha_Formatada.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/coordinate.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/coordinate.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +39,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/OficialEnv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -215,9 +210,9 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.Coordenadas_Testes" />
       <item itemvalue="Python.Gbif_Testes" />
       <item itemvalue="Python.SpecieGeo_App" />
-      <item itemvalue="Python.Coordenadas_Testes" />
       <item itemvalue="Python.planilha" />
     </list>
     <recent_temporary>
@@ -249,13 +244,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00032" summary="focando em analisar os dados">
-      <created>1571341556014</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1571341556014</updated>
     </task>
     <task id="LOCAL-00033" summary="enviando para o servidor formatado e convertendo no backend pra json">
       <created>1571609037962</created>
@@ -593,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576785271991</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="traduzindo codigo">
+      <created>1577128880143</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1577128880143</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -662,22 +657,26 @@
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1577128877894" />
-    <state width="807" height="184" key="GridCell.Tab.0.bottom" timestamp="1577127278697">
+    <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1577380023147">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="807" height="184" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1577127278697" />
-    <state width="807" height="184" key="GridCell.Tab.0.center" timestamp="1577127278694">
+    <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl/0.0.1440.859@0.0.1440.859" timestamp="1577380023147" />
+    <state width="1417" height="184" key="GridCell.Tab.0.bottom" timestamp="1577128954003">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="807" height="184" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1577127278694" />
-    <state width="807" height="184" key="GridCell.Tab.0.left" timestamp="1577127278694">
+    <state width="1417" height="184" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1577128954003" />
+    <state width="1417" height="184" key="GridCell.Tab.0.center" timestamp="1577128954002">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="807" height="184" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1577127278694" />
-    <state width="807" height="184" key="GridCell.Tab.0.right" timestamp="1577127278694">
+    <state width="1417" height="184" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1577128954002" />
+    <state width="1417" height="184" key="GridCell.Tab.0.left" timestamp="1577128954002">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="807" height="184" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1577127278694" />
+    <state width="1417" height="184" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1577128954002" />
+    <state width="1417" height="184" key="GridCell.Tab.0.right" timestamp="1577128954003">
+      <screen x="0" y="0" width="1440" height="859" />
+    </state>
+    <state width="1417" height="184" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1577128954003" />
     <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1577127239115">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
@@ -686,13 +685,13 @@
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1577127261082" />
-    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1576785280262">
+    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1577128946765">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1576785280262" />
-    <state x="520" y="348" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577127188949">
+    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1577128946765" />
+    <state x="520" y="348" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577379341764">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="520" y="348" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.859@0.0.1440.859" timestamp="1577127188949" />
+    <state x="520" y="348" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.859@0.0.1440.859" timestamp="1577379341764" />
   </component>
 </project>

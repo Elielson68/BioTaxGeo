@@ -1,0 +1,150 @@
+function initMap() {
+
+    var belem = {lat:-1.44502, lng: -48.4650};
+    var map = new google.maps.Map(document.getElementById('mapa_criar'), {zoom: 4, center: belem});
+    var selected_polygon = new Polygon(map)
+
+    var div_component = document.getElementById("insert_inputs")
+    var btn_create_poly = document.getElementById("Btn_Create_Poly")
+    var select_poly_component = document.getElementById("select_poly")
+    var btn_create_vertex = document.getElementById("btn_create_vertex")
+    var input_lat = document.getElementById("Latitude")
+    var input_lng = document.getElementById("Longitude")
+    var btn_save_coordinate = document.getElementById("btn_save_coord")
+    var input_send_polygons = document.getElementById("send_polygons")
+
+    var list_componentsHTML = []
+    var list_polygons = []
+    var polygon_components = {}
+    var index_polygon = 0
+    list_polygons.push(selected_polygon)
+
+    function addVerticesPolygonClick(event){
+        var new_components = new ComponentHTML()
+        var vertex_lat = event.latLng.lat()
+        var vertex_lng = event.latLng.lng()
+        selected_polygon.createVertices(event.latLng)
+        var index = selected_polygon.TotalVertices()-1
+        selected_polygon.getLastVertex().addListener('position_changed', MouseMovedVertex);
+        selected_polygon.getLastVertex().setIndex(index)
+        new_components.createInputGroup(vertex_lat, vertex_lng, index, div_component, InputMovedVertex, DeleteVertex)
+        list_componentsHTML.push(new_components)
+        polygon_components[`polygon${index_polygon}`] = {"polygon": selected_polygon, "components": list_componentsHTML}
+    }
+    function addVerticesPolygonInput(){
+        var new_components = new ComponentHTML()
+        var vertex_lat = input_lat.value
+        var vertex_lng = input_lng.value
+        var coord =  new google.maps.LatLng(vertex_lat, vertex_lng)
+        selected_polygon.createVertices(coord)
+        var index = selected_polygon.TotalVertices()-1
+        selected_polygon.getLastVertex().addListener('position_changed', MouseMovedVertex);
+        selected_polygon.getLastVertex().setIndex(index)
+        new_components.createInputGroup(vertex_lat, vertex_lng, index, div_component, InputMovedVertex, DeleteVertex)
+        list_componentsHTML.push(new_components)
+        polygon_components[`polygon${index_polygon}`] = {"polygon": selected_polygon, "components": list_componentsHTML}
+    }
+    function MouseMovedVertex(){
+        var vertex = this
+        var index_vertex = parseInt(vertex.getIndex())
+        selected_polygon.setVertexPosition(index_vertex, vertex.getPosition())
+        list_componentsHTML[index_vertex].setInputLat(vertex.getLatitude())
+        list_componentsHTML[index_vertex].setInputLng(vertex.getLongitude())
+    } 
+    function InputMovedVertex(){
+        var input = this
+        var index = input.id.includes("Lat") ? input.id.replace("Lat", "") : input.id.replace("Lng", "")
+        var vertex = selected_polygon.findVertex(index)
+        selected_polygon.setVertexPosition(index, vertex.getPosition())
+        if(input.id.includes("Lat")){
+            vertex.setLatitude(parseFloat(input.value))
+        }
+        else{
+            vertex.setLongitude(parseFloat(input.value))
+        }
+    }
+    function DeleteVertex(){
+        index = this.id.replace("Excluir","")
+        delete_input_group = list_componentsHTML[index].getSuperDiv()
+        div_component.removeChild(delete_input_group)
+        selected_polygon.removeVertex(index)
+        RenameIDComponentsHTML(index)
+        list_componentsHTML.splice(index,1)    
+    }
+    function CreatePolygon(){
+        var last_created_polygon = list_polygons[list_polygons.length-1]
+        if(last_created_polygon.TotalVertices() >= 3){
+            var new_polygon = new Polygon(map)
+            list_polygons.push(new_polygon)
+            selected_polygon.setActive(false)
+            selected_polygon = new_polygon
+            index_polygon = list_polygons.length-1
+            ClearDivComponent()
+            list_componentsHTML = []
+            polygon_components[`polygon${index_polygon}`] = {"polygon": selected_polygon, "components": list_componentsHTML}
+            
+            var new_components = new ComponentHTML()
+            total_polygon = list_polygons.length
+            new_components.createOption(index_polygon, "Poligono "+total_polygon, select_poly_component)
+
+
+        }
+        else{
+            alert("Para criar novo polígono é necessário que o atual tenha mais de 2 vértices!")
+        }
+
+    }
+    function SelectPolygon(){
+        if(this.value >=0){
+            
+            index_polygon = this.value
+            var selected_poly = Object.keys(polygon_components)[index_polygon]
+            selected_polygon.setActive(false);
+            ClearDivComponent()
+            list_componentsHTML = []
+            selected_polygon = list_polygons[this.value];
+            list_componentsHTML = polygon_components[selected_poly]["components"]
+            for (x=0;x<list_componentsHTML.length;x++){
+                div_component.appendChild(list_componentsHTML[x].getSuperDiv())
+            }
+            selected_polygon.setActive(true);
+        }
+    }
+
+    function ClearDivComponent(){
+        if(list_componentsHTML != []){
+            for (x=0; x<list_componentsHTML.length; x++){
+                child = list_componentsHTML[x].getSuperDiv()
+                div_component.removeChild(child)
+            }
+        }
+    }
+    function RenameIDComponentsHTML(index){
+        for (i=index;i<selected_polygon.TotalVertices();i++){
+            ind = parseInt(i)
+            list_componentsHTML[ind+1].setIDSuperDiv("input_vertice"+i)
+            list_componentsHTML[ind+1].setIDInputLat("Lat"+i)
+            list_componentsHTML[ind+1].setIDInputLng("Lng"+i)
+            list_componentsHTML[ind+1].setIDButton("Excluir"+i)
+            list_componentsHTML[ind+1].setIDSpan("span"+i)
+            list_componentsHTML[ind+1].setTextSpan(i+"ª. "+"Vértice")
+            selected_polygon.getListVertices()[ind].setIndex(ind)
+        }
+    }
+
+    function SavePolygonsVertices(){
+        var send_polygons = {}
+        for (polygon in polygon_components){
+            send_polygons[polygon] = polygon_components[polygon]["polygon"].getVertices()
+        }
+        send_polygons = JSON.stringify(send_polygons)
+        input_send_polygons.value = send_polygons
+        alert("Coordenadas salvas!")
+    }
+
+    map.addListener('click', addVerticesPolygonClick);
+    btn_create_poly.addEventListener('click', CreatePolygon);
+    btn_create_vertex.addEventListener('click', addVerticesPolygonInput);
+    btn_save_coordinate.addEventListener('click', SavePolygonsVertices);
+    select_poly_component.addEventListener('change', SelectPolygon);
+}
