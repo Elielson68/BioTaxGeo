@@ -23,7 +23,7 @@
         </div>
 
         <!--______________________________________PLANILHA______________________________________________________-->
-        <div id="planilha">
+        <div id="spreadsheet">
             <form action="taxon_validation" method = "POST" enctype = "multipart/form-data">
                     <input type="text" name = "dados" value="" hidden="hidden" id="dados"/>
                     <input id="submit_planilha" type="submit" value="Salvar alterações" class="btn btn-success rounded-0"/>
@@ -37,12 +37,12 @@
                 </label>
             </div>
 
-          <table class="table table-dark" id="tabela_planilha">
-            <thead id="thead_tabela">
+          <table class="table table-dark" id="spreadsheet_table">
+            <thead id="thead_table">
               <tr id="tr_thead">
               </tr>
             </thead>
-            <tbody id="tbody_tabela">
+            <tbody id="tbody_table">
             </tbody>
           </table>
         </div>
@@ -70,85 +70,84 @@
 
         <script>
           //Pegando os componentens HTML que irão ser manipulados
-          var tabela = document.getElementById("tabela_planilha");
-          var thead = document.getElementById("thead_tabela")
+          var table = document.getElementById("spreadsheet_table");
+          var thead = document.getElementById("thead_table")
           var tr_head = document.getElementById("tr_thead")
-          var tbody = document.getElementById("tbody_tabela")
+          var tbody = document.getElementById("tbody_table")
           var Cancel_Buttom = document.getElementById("Cancel_Buttom")
           var Confirm_Buttom = document.getElementById("Confirm_Buttom")
           //Atribuindo alguns eventos pro botão de confirm e Cancel do Modal, e pros botões radios do modal.
           Cancel_Buttom.addEventListener("click", Remover_Inputs)
           Confirm_Buttom.addEventListener("click", Remover_Inputs)
-          document.getElementById("option1").setAttribute("onchange","Visualizar_Errados('option1')")
-          document.getElementById("option2").setAttribute("onchange","Visualizar_Errados('option2')")
-          //Pegando os valores de verificacao e total de linhas que vem do servidor, usando o Jinja2
-          var verificacao = "{{verificacao}}"
-          verificacao = verificacao.replace(/&#34;/g,`"`);
-          verificacao = JSON.parse(verificacao)
-          var total_linhas = "{{total_linhas}}"
+          document.getElementById("option1").setAttribute("onchange", "ShowOnlyWrong('option1')")
+          document.getElementById("option2").setAttribute("onchange", "ShowOnlyWrong('option2')")
+          //Pegando os valores de verified_hierarchy e total de linhas que vem do servidor, usando o Jinja2
+          var verified_hierarchy = "{{verification}}"
+          verified_hierarchy = verified_hierarchy.replace(/&#34;/g,`"`);
+          verified_hierarchy = JSON.parse(verified_hierarchy)
+          var total_rows = "{{total_rows}}"
           //Objeto que irar armazernar todos os dados que devem ser alterados e que irão ser enviados pro servidor
-          var Alterar_Dados = {}
+          var changed_data = {}
           //condições de verificações, se a pessoa clicou em um item onde tem mais de um elemento a ser sugerido para ela
-          var mais_de_um = false
-          var Apenas_Errados = false; //Se false aparece todos os elementos na tabela (certos e errados), se true aparece somente os errados.
+          var more_one = false
+          var only_wrong = false; //Se false aparece todos os elementos na table (certos e errados), se true aparece somente os errados.
 
-          var escolhido = 0; //armazena o valor escolhido na primeira opção de rádio, referente ao nome.
-          var escolhido_quant = 0; //armazena a amount de itens que devem ser alterados, referente ao nível hierarquico.
-          var celula_errada;
-          var contador;
-          var contador2;
+          var selected = 0; //armazena o valor selected na primeira opção de rádio, referente ao name.
+          var selected_amount = 0; //armazena a amount de itens que devem ser alterados, referente ao nível hierarquico.
+          var wrong_cell;
+          var count;
+          var count2;
 
 
-          //Função que faz a tabela mostrar apenas os errados ou os certos.
-          function Visualizar_Errados(quem){
-            if(quem == "option1"){
-              Apenas_Errados = false
+          //Função que faz a table mostrar apenas os errados ou os certos.
+          function ShowOnlyWrong(who){
+            if(who == "option1"){
+              only_wrong = false
             }
-            if(quem == "option2"){
-              Apenas_Errados = true
+            if(who == "option2"){
+              only_wrong = true
             }
-            tirar = document.getElementById("tr")
-            console.log(tirar)
-            tabela.removeChild(tbody)
+
+            table.removeChild(tbody)
             tbody = document.createElement("tbody")
-            tbody.id = "tbody_tabela"
-            tabela.appendChild(tbody)
-            Criando_Linhas()
+            tbody.id = "tbody_table"
+            table.appendChild(tbody)
+            CreatingRows()
           }
-          //Função PARA Criar o cabeçario da tabela
-          function CriarCabecario(titulo){
+          //Função PARA create o cabeçario da table
+          function CreateHeader(title){
             var th = document.createElement("th");
             th.setAttribute("scope","col");
-            if(titulo != "scientific name"){
-              th.innerHTML = `${titulo}: ${total_linhas-1}`;
+            if(title != "scientific name"){
+              th.innerHTML = `${title}: ${total_rows-1}`;
             }
             else{
-              th.innerHTML = `${titulo}: 0`;
+              th.innerHTML = `${title}: 0`;
             }
             
             tr_head.appendChild(th);
           }
-          //Cria o corpo da tabela
-          function Iniciando_Tabela(){
-            for(nome in verificacao){
-              for(titu in verificacao[nome]){
-                CriarCabecario(titu)
+          //Cria o corpo da table
+          function InitTable(){
+            for(name in verified_hierarchy){
+              for(title in verified_hierarchy[name]){
+                CreateHeader(title)
               }
             break;
             }
           }
-          //Função para Criar todas as linhas com os valores em cada coluna.
-          function CriarLinhas(Hierarquia){
+          //Função para create todas as linhas com os valores em cada coluna.
+          function CreateRows(hierarchy){
   
-            var criar = false
+            var create = false
             var tr_body = document.createElement("tr");
-            if(Apenas_Errados){
-              for (key in Hierarquia){
-                if(Hierarquia[key]["correctness"] != "EXACT"){
-                  criar = true
+            if(only_wrong){
+              for (key in hierarchy){
+                if(hierarchy[key]["correctness"] != "EXACT"){
+                  create = true
                 }
               }
-              if (criar){
+              if (create){
                 var td_kingdom = document.createElement("td");
                 var td_phylum = document.createElement("td");
                 var td_class = document.createElement("td");
@@ -172,131 +171,131 @@
               tbody.appendChild(tr_body);
             }
             
-            if(Hierarquia["kingdom"]["correctness"] != "EXACT"){
+            if(hierarchy["kingdom"]["correctness"] != "EXACT"){
               
-              Hierarquia["scientific name"]["synonymous"] == true ? td_kingdom.style = "color: orange" : td_kingdom.style = "color: red" 
+              hierarchy["scientific name"]["synonymous"] == true ? td_kingdom.style = "color: orange" : td_kingdom.style = "color: red" 
               td_kingdom.setAttribute("data-target","#exampleModal")
               td_kingdom.setAttribute("data-toggle","modal")
-              td_kingdom.addEventListener("click", AlterandoDados1)
+              td_kingdom.addEventListener("click", ChangingData)
               td_kingdom.className = "kingdom"
-              td_kingdom.id = Hierarquia["scientific name"]["type"]+"kingdom"
-              td_kingdom.innerHTML = `${Hierarquia["kingdom"]["type"]}: ${Hierarquia["kingdom"]["amount"]}`
+              td_kingdom.id = hierarchy["scientific name"]["type"]+"kingdom"
+              td_kingdom.innerHTML = `${hierarchy["kingdom"]["type"]}: ${hierarchy["kingdom"]["amount"]}`
               tr_body.appendChild(td_kingdom);
             }
-            else if (!Apenas_Errados || criar) {
-              td_kingdom.innerHTML = `${Hierarquia["kingdom"]["type"]}: ${Hierarquia["kingdom"]["amount"]}`
+            else if (!only_wrong || create) {
+              td_kingdom.innerHTML = `${hierarchy["kingdom"]["type"]}: ${hierarchy["kingdom"]["amount"]}`
               td_kingdom.style = "color: white;" 
               tr_body.appendChild(td_kingdom);
             }
 
             
-            if(Hierarquia["phylum"]["correctness"] != "EXACT"){
-              Hierarquia["scientific name"]["synonymous"] == true ? td_phylum.style = "color: orange" : td_phylum.style = "color: red"
+            if(hierarchy["phylum"]["correctness"] != "EXACT"){
+              hierarchy["scientific name"]["synonymous"] == true ? td_phylum.style = "color: orange" : td_phylum.style = "color: red"
               //td_phylum.style = "color: red" 
               td_phylum.setAttribute("data-target","#exampleModal")
               td_phylum.setAttribute("data-toggle","modal")
-              td_phylum.addEventListener("click", AlterandoDados1)
+              td_phylum.addEventListener("click", ChangingData)
               td_phylum.className = "phylum"
-              td_phylum.id = Hierarquia["scientific name"]["type"]+"phylum"
-              td_phylum.innerHTML = `${Hierarquia["phylum"]["type"]}: ${Hierarquia["phylum"]["amount"]}`
+              td_phylum.id = hierarchy["scientific name"]["type"]+"phylum"
+              td_phylum.innerHTML = `${hierarchy["phylum"]["type"]}: ${hierarchy["phylum"]["amount"]}`
               tr_body.appendChild(td_phylum);
             }
-            else if (!Apenas_Errados || criar) {
-              td_phylum.innerHTML = `${Hierarquia["phylum"]["type"]}: ${Hierarquia["phylum"]["amount"]}`
+            else if (!only_wrong || create) {
+              td_phylum.innerHTML = `${hierarchy["phylum"]["type"]}: ${hierarchy["phylum"]["amount"]}`
               td_phylum.style = "color: white;" 
               tr_body.appendChild(td_phylum);
             }
 
-            if(Hierarquia["class"]["correctness"] != "EXACT"){
-              Hierarquia["scientific name"]["synonymous"] == true ? td_class.style = "color: orange" : td_class.style = "color: red"
+            if(hierarchy["class"]["correctness"] != "EXACT"){
+              hierarchy["scientific name"]["synonymous"] == true ? td_class.style = "color: orange" : td_class.style = "color: red"
               td_class.setAttribute("data-target","#exampleModal")
               td_class.setAttribute("data-toggle","modal")
-              td_class.addEventListener("click", AlterandoDados1)
+              td_class.addEventListener("click", ChangingData)
               td_class.className = "class"
-              td_class.id = Hierarquia["scientific name"]["type"]+"class"
-              td_class.innerHTML = `${Hierarquia["class"]["type"]}: ${Hierarquia["class"]["amount"]}`
+              td_class.id = hierarchy["scientific name"]["type"]+"class"
+              td_class.innerHTML = `${hierarchy["class"]["type"]}: ${hierarchy["class"]["amount"]}`
               tr_body.appendChild(td_class);
             }
-            else if (!Apenas_Errados || criar) {
-              td_class.innerHTML = `${Hierarquia["class"]["type"]}: ${Hierarquia["class"]["amount"]}`
+            else if (!only_wrong || create) {
+              td_class.innerHTML = `${hierarchy["class"]["type"]}: ${hierarchy["class"]["amount"]}`
               td_class.style = "color: white;" 
               tr_body.appendChild(td_class);
             }
 
 
-            if(Hierarquia["order"]["correctness"] != "EXACT"){
-              Hierarquia["scientific name"]["synonymous"] == true ? td_order.style = "color: orange" : td_order.style = "color: red"
+            if(hierarchy["order"]["correctness"] != "EXACT"){
+              hierarchy["scientific name"]["synonymous"] == true ? td_order.style = "color: orange" : td_order.style = "color: red"
               //td_order.style = "color: red" 
               td_order.setAttribute("data-target","#exampleModal")
               td_order.setAttribute("data-toggle","modal")
-              td_order.addEventListener("click", AlterandoDados1)
+              td_order.addEventListener("click", ChangingData)
               td_order.className = "order"
-              td_order.id = Hierarquia["scientific name"]["type"]+"order"
-              td_order.innerHTML = `${Hierarquia["order"]["type"]}: ${Hierarquia["order"]["amount"]}`
+              td_order.id = hierarchy["scientific name"]["type"]+"order"
+              td_order.innerHTML = `${hierarchy["order"]["type"]}: ${hierarchy["order"]["amount"]}`
               tr_body.appendChild(td_order);
             }
-            else if (!Apenas_Errados || criar) {
-              td_order.innerHTML = `${Hierarquia["order"]["type"]}: ${Hierarquia["order"]["amount"]}`
+            else if (!only_wrong || create) {
+              td_order.innerHTML = `${hierarchy["order"]["type"]}: ${hierarchy["order"]["amount"]}`
               td_order.style = "color: white;" 
               tr_body.appendChild(td_order);
             }
 
             
-            if(Hierarquia["family"]["correctness"] != "EXACT"){
-              Hierarquia["scientific name"]["synonymous"] == true ? td_family.style = "color: orange" : td_family.style = "color: red"
+            if(hierarchy["family"]["correctness"] != "EXACT"){
+              hierarchy["scientific name"]["synonymous"] == true ? td_family.style = "color: orange" : td_family.style = "color: red"
               //td_family.style = "color: red" 
               td_family.setAttribute("data-target","#exampleModal")
               td_family.setAttribute("data-toggle","modal")
-              td_family.addEventListener("click", AlterandoDados1)
+              td_family.addEventListener("click", ChangingData)
               td_family.className = "family"
-              td_family.id = Hierarquia["scientific name"]["type"]+"family"
-              td_family.innerHTML = `${Hierarquia["family"]["type"]}: ${Hierarquia["family"]["amount"]}`
+              td_family.id = hierarchy["scientific name"]["type"]+"family"
+              td_family.innerHTML = `${hierarchy["family"]["type"]}: ${hierarchy["family"]["amount"]}`
               tr_body.appendChild(td_family);
             }
-            else if (!Apenas_Errados || criar) {
+            else if (!only_wrong || create) {
 
-              td_family.innerHTML = `${Hierarquia["family"]["type"]}: ${Hierarquia["family"]["amount"]}`
+              td_family.innerHTML = `${hierarchy["family"]["type"]}: ${hierarchy["family"]["amount"]}`
               td_family.style = "color: white;" 
               tr_body.appendChild(td_family);
             }
 
             
-            if(Hierarquia["genus"]["correctness"] != "EXACT"){
-              Hierarquia["scientific name"]["synonymous"] == true ? td_genus.style = "color: orange" : td_genus.style = "color: red"
+            if(hierarchy["genus"]["correctness"] != "EXACT"){
+              hierarchy["scientific name"]["synonymous"] == true ? td_genus.style = "color: orange" : td_genus.style = "color: red"
               //td_genus.style = "color: red" 
               td_genus.setAttribute("data-target","#exampleModal")
               td_genus.setAttribute("data-toggle","modal")
-              td_genus.addEventListener("click", AlterandoDados1)
+              td_genus.addEventListener("click", ChangingData)
               td_genus.className = "genus"
-              td_genus.id = Hierarquia["scientific name"]["type"]+"genus"
-              td_genus.innerHTML = `${Hierarquia["genus"]["type"]}: ${Hierarquia["genus"]["amount"]}`
+              td_genus.id = hierarchy["scientific name"]["type"]+"genus"
+              td_genus.innerHTML = `${hierarchy["genus"]["type"]}: ${hierarchy["genus"]["amount"]}`
               tr_body.appendChild(td_genus);
             }
-            else if (!Apenas_Errados || criar){
+            else if (!only_wrong || create){
 
-              td_genus.innerHTML = `${Hierarquia["genus"]["type"]}: ${Hierarquia["genus"]["amount"]}`
+              td_genus.innerHTML = `${hierarchy["genus"]["type"]}: ${hierarchy["genus"]["amount"]}`
               td_genus.style = "color: white;" 
               tr_body.appendChild(td_genus);
             }
 
            
-            if(Hierarquia["specie"]["correctness"] != "EXACT"){
-              Hierarquia["scientific name"]["synonymous"] == true ? td_specie.style = "color: orange" : td_specie.style = "color: red"        
+            if(hierarchy["specie"]["correctness"] != "EXACT"){
+              hierarchy["scientific name"]["synonymous"] == true ? td_specie.style = "color: orange" : td_specie.style = "color: red"        
               //td_specie.style = "color: red" 
               td_specie.setAttribute("data-target","#exampleModal")
               td_specie.setAttribute("data-toggle","modal")
-              td_specie.addEventListener("click", AlterandoDados1)
+              td_specie.addEventListener("click", ChangingData)
               td_specie.className = "specie"
-              td_specie.id = Hierarquia["scientific name"]["type"]+"specie"
-              td_specie.innerHTML = `${Hierarquia["specie"]["type"]}: ${Hierarquia["specie"]["amount"]}`
-              td_scientific_name.innerHTML = `${Hierarquia["scientific name"]["type"]}: 0<br>Canonical Name`
+              td_specie.id = hierarchy["scientific name"]["type"]+"specie"
+              td_specie.innerHTML = `${hierarchy["specie"]["type"]}: ${hierarchy["specie"]["amount"]}`
+              td_scientific_name.innerHTML = `${hierarchy["scientific name"]["type"]}: 0<br>Canonical Name`
               tr_body.appendChild(td_specie);
               tr_body.appendChild(td_scientific_name);
               
             }
-            else if (!Apenas_Errados || criar) {
-              td_specie.innerHTML = `${Hierarquia["specie"]["type"]}: ${Hierarquia["specie"]["amount"]}`
-              td_scientific_name.innerHTML = `${Hierarquia["scientific name"]["type"]}: 0<br>Canonical Name`
+            else if (!only_wrong || create) {
+              td_specie.innerHTML = `${hierarchy["specie"]["type"]}: ${hierarchy["specie"]["amount"]}`
+              td_scientific_name.innerHTML = `${hierarchy["scientific name"]["type"]}: 0<br>Canonical Name`
               td_specie.style = "color: white;" 
               tr_body.appendChild(td_specie);
               tr_body.appendChild(td_scientific_name);
@@ -306,66 +305,66 @@
             
           }
           //Criando todas as linhas
-          function Criando_Linhas(){
-            for(nome in verificacao){
-              CriarLinhas(verificacao[nome])
+          function CreatingRows(){
+            for(name in verified_hierarchy){
+              CreateRows(verified_hierarchy[name])
             }
           }
-          //Função que cria o modal, porém, o modal com apenas 1 sugestão de nome
-          function AlterandoDados1(){
+          //Função que cria o modal, porém, o modal com apenas 1 sugestão de name
+          function ChangingData(){
             
-            celula_errada = this;
+            wrong_cell = this;
             modal = document.getElementById("body_modal")
             texto = document.getElementById("texto_modal")
             valor_errado = this.innerHTML;
             key1 = this.id.replace(this.className, "")
             key2 = this.className
-            amount = verificacao[key1][key2]["amount"]
+            amount = verified_hierarchy[key1][key2]["amount"]
             valor_errado = valor_errado.replace(": "+amount, "");
-            valor_certo = verificacao[key1][key2]["suggestion"]
-            chaves = Object.keys(verificacao[key1])
-            comeco = chaves.indexOf(key2)
-            console.log(verificacao[key1]["scientific name"]["font"])
+            valor_certo = verified_hierarchy[key1][key2]["suggestion"]
+            keys = Object.keys(verified_hierarchy[key1])
+            init = keys.indexOf(key2)
+            console.log(verified_hierarchy[key1]["scientific name"]["font"])
             if(!(Array.isArray(valor_certo))){
-              mais_de_um = false
-              if(verificacao[key1]["scientific name"]["synonymous"]){
-                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
+              more_one = false
+              if(verified_hierarchy[key1]["scientific name"]["synonymous"]){
+                texto.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
 
               }
               else{
-                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
+                texto.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
               }
             }
             else{
-              mais_de_um = true
-              if(verificacao[key1]["scientific name"]["synonymous"]){
-                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</b>"
+              more_one = true
+              if(verified_hierarchy[key1]["scientific name"]["synonymous"]){
+                texto.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</b>"
 
               }
               else{
-                texto.innerHTML = "Fonte: "+verificacao[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</b>"
+                texto.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</b>"
               }
-              contador = 0
-              for (nomes of valor_certo){
+              count = 0
+              for (names of valor_certo){
                 div = document.createElement("div")
                 div.className = "form-check"
-                div.id = "inputs"+contador
+                div.id = "inputs"+count
                 input = document.createElement("input")
                 input.className = "form-check-input"
                 input.type = "radio"
                 input.name = "Radio"
-                input.id = contador
+                input.id = count
                 input.value = "option"
-                input.addEventListener("click", Valor_Escolhido)
+                input.addEventListener("click", Valor_selected)
                 label = document.createElement("label")
                 label.className = "form-check-label"
-                label.for = contador
-                label.innerHTML = nomes
+                label.for = count
+                label.innerHTML = names
                 label.style = "color: green;"
                 div.appendChild(input)
                 div.appendChild(label)
                 modal.appendChild(div)
-                contador++
+                count++
               }
               texto2 = document.createElement("label")
               texto2.id = "texto_aux"
@@ -373,112 +372,112 @@
               modal.appendChild(texto2)
             }
   
-            contador2 = 0
-            for (chave=comeco; chave<chaves.length-1; chave++){
+            count2 = 0
+            for (key=init; key<keys.length-1; key++){
               div = document.createElement("div")
               div.className = "form-check"
-              div.id = "inputs_quant"+contador2
+              div.id = "inputs_quant"+count2
               input = document.createElement("input")
               input.className = "form-check-input"
               input.type = "radio"
               input.name = "Radio2"
-              input.id = chaves[chave]
+              input.id = keys[key]
               input.value = "option2"
-              input.addEventListener("click", Valor_Escolhido_Quant)
+              input.addEventListener("click", Valor_selected_amount)
               label = document.createElement("label")
               label.className = "form-check-label"
-              label.for = contador
-              label.innerHTML = "Deseja alterar <b>"+verificacao[key1][chaves[chave]]["amount"]+"</b> valores em sua planilha a nível de "+chaves[chave]+"?"
+              label.for = count
+              label.innerHTML = "Deseja alterar <b>"+verified_hierarchy[key1][keys[key]]["amount"]+"</b> valores em sua planilha a nível de "+keys[key]+"?"
               div.appendChild(input)
               div.appendChild(label)
               modal.appendChild(div)
-              contador2++
+              count2++
             }
           }
           function Remover_Inputs(){
-            if(mais_de_um){
+            if(more_one){
               modal = document.getElementById("body_modal")
-              for(x=0; x<contador; x++){
+              for(x=0; x<count; x++){
                 var excluir = document.getElementById("inputs"+x)
                 modal.removeChild(excluir)
               }
-              for(x=0; x<contador2; x++){
+              for(x=0; x<count2; x++){
                 var excluir2 = document.getElementById("inputs_quant"+x)
                 modal.removeChild(excluir2)
               }
               modal.removeChild(document.getElementById("texto_aux"))
             }
             else{
-              for(x=0; x<contador2; x++){
+              for(x=0; x<count2; x++){
                 var excluir2 = document.getElementById("inputs_quant"+x)
                 modal.removeChild(excluir2)
               }
             }
-            escolhido = 0
-            escolhido_quant = 0
+            selected = 0
+            selected_amount = 0
 
           }
           function SalvarAlteracao(){
-            key1 = celula_errada.id.replace(celula_errada.className, "")
-            key2 = celula_errada.className
-            celula_errada.style = "color: white;";
-            celula_errada.setAttribute("data-toggle","");
-            celula_errada.setAttribute("data-target","");
+            key1 = wrong_cell.id.replace(wrong_cell.className, "")
+            key2 = wrong_cell.className
+            wrong_cell.style = "color: white;";
+            wrong_cell.setAttribute("data-toggle","");
+            wrong_cell.setAttribute("data-target","");
             dados = document.getElementById("dados")
-            //achar uma forma dele criar mais de uma chave sem precisar excluir tudo
-            if(Alterar_Dados[key1] == null){
-               Alterar_Dados[key1] = {}
+            //achar uma forma dele create mais de uma key sem precisar excluir tudo
+            if(changed_data[key1] == null){
+               changed_data[key1] = {}
             }
 
-            if(!mais_de_um){
-              if(Alterar_Dados[key1][key2] == null){
-                Alterar_Dados[key1][key2] = {}
+            if(!more_one){
+              if(changed_data[key1][key2] == null){
+                changed_data[key1][key2] = {}
               }
-              Alterar_Dados[key1][key2] =  {"suggestion":verificacao[key1][key2]["suggestion"], "level": [escolhido_quant, verificacao[key1][escolhido_quant]["type"]]}
-              celula_errada.innerHTML = verificacao[key1][key2]["suggestion"]+": "+verificacao[key1][key2]["amount"];
+              changed_data[key1][key2] =  {"suggestion":verified_hierarchy[key1][key2]["suggestion"], "level": [selected_amount, verified_hierarchy[key1][selected_amount]["type"]]}
+              wrong_cell.innerHTML = verified_hierarchy[key1][key2]["suggestion"]+": "+verified_hierarchy[key1][key2]["amount"];
             }
             else{
-              if(Alterar_Dados[key1][key2] == null){
-                Alterar_Dados[key1][key2] = {}
+              if(changed_data[key1][key2] == null){
+                changed_data[key1][key2] = {}
               }
-              Alterar_Dados[key1][key2] =  {"suggestion": verificacao[key1][key2]["suggestion"][escolhido], "level": [escolhido_quant, verificacao[key1][escolhido_quant]["type"]]}
-              celula_errada.innerHTML = verificacao[key1][key2]["suggestion"][escolhido]+": "+verificacao[key1][key2]["amount"];
+              changed_data[key1][key2] =  {"suggestion": verified_hierarchy[key1][key2]["suggestion"][selected], "level": [selected_amount, verified_hierarchy[key1][selected_amount]["type"]]}
+              wrong_cell.innerHTML = verified_hierarchy[key1][key2]["suggestion"][selected]+": "+verified_hierarchy[key1][key2]["amount"];
               Remover_Inputs()
-              mais_de_um = false
+              more_one = false
               
             }
-            enviar_valores = JSON.stringify(Alterar_Dados)
+            enviar_valores = JSON.stringify(changed_data)
             dados.value =  enviar_valores
 
           }
-          function Valor_Escolhido(){
-            escolhido = this.id;
-            if(mais_de_um){
-              if(escolhido != 0 && escolhido_quant != 0){
+          function Valor_selected(){
+            selected = this.id;
+            if(more_one){
+              if(selected != 0 && selected_amount != 0){
                 //Confirm_Buttom.setAttribute("disabled","")
               }
             }
             else{
-              if(escolhido_quant != 0){
+              if(selected_amount != 0){
                 //Confirm_Buttom.setAttribute("disabled","")
               }
             }
           }
-          function Valor_Escolhido_Quant(){
-            escolhido_quant = this.id;
-            if(escolhido != 0 && escolhido_quant != 0){
+          function Valor_selected_amount(){
+            selected_amount = this.id;
+            if(selected != 0 && selected_amount != 0){
               //Confirm_Buttom.disabled = false
             }
             else{
-              if(escolhido_quant != 0){
+              if(selected_amount != 0){
                 //Confirm_Buttom.disabled = false
               }
             }
           }
           
 
-          Iniciando_Tabela()
-          Criando_Linhas()
+          InitTable()
+          CreatingRows()
           
         </script>
 

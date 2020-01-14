@@ -1,6 +1,8 @@
 function initMap() {
     var belem = {lat:-1.44502, lng: -48.4650};
     var map = new google.maps.Map(document.getElementById('plot_map'), {zoom: 4, center: belem});
+    var checkbox_group_markers = document.getElementById("checkbox")
+    checkbox_group_markers.checked = true
     list_poly = []
     list_componentsHTML = []
     list_marker = []
@@ -24,13 +26,27 @@ function initMap() {
         for(p=0; p<list_poly.length; p++){
             if(list_poly[p].haveMarker(list_marker[i].getPosition())){
                 list_marker[i].setIcon("../static/image/blue_marker2.png")
-                
+                list_componentsHTML[p].createBodyTable(list_marker[i].getLatitude(), list_marker[i].getLongitude())
             }
         }
     }
     opt_options = {imagePath:'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m', gridSize: 60, maxZoom: 14, minimumClusterSize: 2}
     var markerCluster = new MarkerClusterer(map, list_marker, opt_options);
-    markerCluster.setMap(null)
+    function ActiveMarkerCluster(){
+        if(this.checked){
+            opt_options = {imagePath:'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m', gridSize: 60, maxZoom: 14, minimumClusterSize: 2}
+            markerCluster.setOptions(opt_options)
+            markerCluster.repaint()
+        }
+        else{
+            opt_options = {imagePath:'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m', gridSize: 1, maxZoom: 1, minimumClusterSize: 1}
+            markerCluster.setOptions(opt_options)
+            markerCluster.repaint()
+        }
+    }
+
+    checkbox_group_markers.addEventListener('change', ActiveMarkerCluster)
     selected_polygon.vertices.addListener('click', addVerticesPolygonClick);
+    console.log(checkbox_group_markers)
     map.addListener('click', addVerticesPolygonClick);
 }

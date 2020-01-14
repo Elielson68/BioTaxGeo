@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/createComponentHTML.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/createComponentHTML.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/createPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/createPolygon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/plotPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/plotPolygon.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,9 +210,9 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.Coordenadas_Testes" />
       <item itemvalue="Python.Gbif_Testes" />
       <item itemvalue="Python.SpecieGeo_App" />
-      <item itemvalue="Python.Coordenadas_Testes" />
       <item itemvalue="Python.planilha" />
     </list>
     <recent_temporary>
@@ -247,13 +244,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Formatado layout do home e da tela de plotagem para ficar um padrão">
-      <created>1571942134673</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1571942134673</updated>
     </task>
     <task id="LOCAL-00035" summary="Formatado layout da tela de plotagem, tabela agora indica os poligonos que contém ou não markers">
       <created>1571946499744</created>
@@ -591,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578943971489</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="código JS refatorado">
+      <created>1578944602789</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1578944602790</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -656,10 +653,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="código JS refatorado" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1578943968964">
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1578944602280">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1578943968964" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1578944602280" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1577380023147">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
@@ -688,10 +685,10 @@
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1577127261082" />
-    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1578943979547">
+    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1578944610285">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1578943979547" />
+    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1578944610285" />
     <state x="520" y="348" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577379341764">
       <screen x="0" y="0" width="1440" height="859" />
     </state>

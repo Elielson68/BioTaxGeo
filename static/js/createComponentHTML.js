@@ -13,7 +13,7 @@ ComponentHTML.prototype.createInputGroup = function(lat, lng, index, append, eve
     this.text_button =  document.createTextNode("Excluir");  
     
     this.super_div.className = "input-group";
-    this.super_div.id = "input_vertice"+index;
+    this.super_div.id = "input_vertex"+index;
     
     this.children_div.className = "input-group-prepend";
     this.super_div.appendChild(this.children_div);
@@ -51,7 +51,7 @@ ComponentHTML.prototype.createInputGroup = function(lat, lng, index, append, eve
     
     this.button_delete.addEventListener("click", eventButton);
     this.button_delete.className = "btn btn-danger";
-    this.button_delete.id = "Excluir"+index;
+    this.button_delete.id = "Delete"+index;
     
     this.button_delete.appendChild(this.text_button);
     this.div_button_children.appendChild(this.button_delete);
@@ -106,112 +106,83 @@ ComponentHTML.prototype.setTextSpan = function(text){
     this.text_span = document.createTextNode(text);
     this.span.appendChild(this.text_span)
 }
-ComponentHTML.prototype.createHeaderTable = function (indice){
-    this.indice = indice
-    this.tabela = document.getElementById("tabela")
-    //Criando o cabeçario da tabela
+ComponentHTML.prototype.createHeaderTable = function (index){
+    this.count = 0
+    this.index = index
+    this.table = document.getElementById("table")
+    //Criando o cabeçario da table
     this.thead = document.createElement("thead")
-    this.tr_titulo_tabela = document.createElement("tr")
-    this.th_titulo = document.createElement("th")
-    this.texto_th_titulo;
-    //Criando o corpo da tabela
+    this.tr_title_table = document.createElement("tr")
+    this.th_title = document.createElement("th")
+    this.texto_th_title;
+    //Criando o corpo da table
     this.tbody = document.createElement("tbody")
     //Define a cor de fundo do título
     this.thead.className = "thead-light";
   
     //Título principal
-    this.th_titulo.style = "text-align: center"
-    this.th_titulo.setAttribute("colspan",4)
-    this.th_titulo.className = "thead"
-    this.texto_th_titulo = document.createElement("button")
-    this.texto_th_titulo.innerHTML = "Lista de Markers dentro do Poligono "+indice
-    this.texto_th_titulo.setAttribute("class","btn btn-link")
-    this.th_titulo.appendChild(this.texto_th_titulo)
-    this.th_titulo.setAttribute("data-toggle","collapse")
-    this.th_titulo.setAttribute("data-target",".tab_poligono"+indice)
-    this.th_titulo.setAttribute("aria-expanded","false")
-    this.th_titulo.setAttribute("aria-controls","tbody_poligono"+indice)
-    this.tr_titulo_tabela.appendChild(this.th_titulo)
-    this.thead.appendChild(this.tr_titulo_tabela)
+    this.th_title.style = "text-align: center"
+    this.th_title.setAttribute("colspan",4)
+    this.th_title.className = "thead"
+    this.texto_th_title = document.createElement("button")
+    this.texto_th_title.innerHTML = "Lista de Markers dentro do Polígoono "+index
+    this.texto_th_title.setAttribute("class","btn btn-link")
+    this.th_title.appendChild(this.texto_th_title)
+    this.th_title.setAttribute("data-toggle","collapse")
+    this.th_title.setAttribute("data-target",".tab_polygon"+index)
+    this.th_title.setAttribute("aria-expanded","false")
+    this.th_title.setAttribute("aria-controls","tbody_polygon"+index)
+    this.tr_title_table.appendChild(this.th_title)
+    this.thead.appendChild(this.tr_title_table)
   
-    //Identificando o body para inserir os dados de cada poligono individualmente
-    this.tbody.id = "tbody_poligono"+indice
-    this.thead.id = "thead_poligono"+indice
-    this.tbody.setAttribute("class","collapse tab_poligono"+indice)
+    //Identificando o body para inserir os dados de cada polygon individualmente
+    this.tbody.id = "tbody_polygon"+index
+    this.thead.id = "thead_polygon"+index
+    this.tbody.setAttribute("class","collapse tab_polygon"+index)
   
-    //Anexado o cabeçario e o corpo na tabela
-    this.tabela.appendChild(this.thead)
-    this.tabela.appendChild(this.tbody)
+    //Anexado o cabeçario e o corpo na table
+    this.table.appendChild(this.thead)
+    this.table.appendChild(this.tbody)
 }
-ComponentHTML.prototype.createBodyTable = function (latitude, longitude, indice, contador){
-    //Criando os dados de cada tabela referente aos poligonos
-  
-    if(contador==1){
-        this.tr_titulos = document.createElement("tr")
-        this.th_indice = document.createElement("th")
-        this.th_nome = document.createElement("th")
-        this.th_latitude = document.createElement("th")
-        this.th_longitude = document.createElement("th")
-    
-        //Títulos de cada coluna
-        this.th_indice.setAttribute("scope","col")
-        this.th_indice.innerHTML = "#"
-        this.th_nome.setAttribute("scope","col")
-        this.th_nome.innerHTML = "Nome Científico"
-        this.th_latitude.setAttribute("scope","col")
-        this.th_latitude.innerHTML = "Latitude"
-        this.th_longitude.setAttribute("scope","col")
-        this.th_longitude.innerHTML = "Longitude"
-        //Anexando todos eles a coluna principal
-        this.tr_titulos.appendChild(this.th_indice)
-        this.tr_titulos.appendChild(th_nome)
-        this.tr_titulos.appendChild(this.th_latitude)
-        this.tr_titulos.appendChild(this.th_longitude)
-        this.tr_titulos.id = "tr_poligono"+indice
-        this.tr_titulos.setAttribute("class","collapse tab_poligono"+indice)
-        //anexando ao cabeçário da tabela
-        this.thead.append(this.tr_titulos)
-      }
-      this.linha = document.createElement("tr")
-      this.indice_coluna = document.createElement("th")
-      indice_coluna.innerHTML = contador
-      this.nome_coluna = document.createElement("td")
-      this.latitude_coluna = document.createElement("td")
-      this.longitude_coluna = document.createElement("td")
-      linha.appendChild(indice_coluna)
-      linha.appendChild(nome_coluna)
-      linha.appendChild(latitude_coluna)
-      linha.appendChild(longitude_coluna)
-      this.tbody.appendChild(linha)
-      latitude_coluna.innerHTML = latitude
-      longitude_coluna.innerHTML = longitude
+ComponentHTML.prototype.createBodyTable = function (latitude, longitude){
+      this.count++
+      this.row = document.createElement("tr")
+      this.column_index = document.createElement("th")
+      this.column_index.innerHTML = this.count
+      this.column_name = document.createElement("td")
+      this.column_latitude = document.createElement("td")
+      this.column_longitude = document.createElement("td")
+      this.row.appendChild(this.column_index)
+      this.row.appendChild(this.column_name)
+      this.row.appendChild(this.column_latitude)
+      this.row.appendChild(this.column_longitude)
+      this.tbody.appendChild(this.row)
+      this.column_latitude.innerHTML = latitude
+      this.column_longitude.innerHTML = longitude
 }
 ComponentHTML.prototype.createTitleTable = function (){
-    //Criando os dados de cada tabela referente aos poligonos
-    this.tr_titulos = document.createElement("tr")
-    this.th_indice = document.createElement("th")
-    this.th_nome = document.createElement("th")
+    //Criando os dados de cada table referente aos polygons
+    this.tr_titles = document.createElement("tr")
+    this.th_index = document.createElement("th")
+    this.th_name = document.createElement("th")
     this.th_latitude = document.createElement("th")
     this.th_longitude = document.createElement("th")
-
     //Títulos de cada coluna
-    this.th_indice.setAttribute("scope","col")
-    this.th_indice.innerHTML = "#"
-    this.th_nome.setAttribute("scope","col")
-    this.th_nome.innerHTML = "Nome Científico"
+    this.th_index.setAttribute("scope","col")
+    this.th_index.innerHTML = "#"
+    this.th_name.setAttribute("scope","col")
+    this.th_name.innerHTML = "Nome Científico"
     this.th_latitude.setAttribute("scope","col")
     this.th_latitude.innerHTML = "Latitude"
     this.th_longitude.setAttribute("scope","col")
     this.th_longitude.innerHTML = "Longitude"
     //Anexando todos eles a coluna principal
-    this.tr_titulos.appendChild(this.th_indice)
-    this.tr_titulos.appendChild(this.th_nome)
-    this.tr_titulos.appendChild(this.th_latitude)
-    this.tr_titulos.appendChild(this.th_longitude)
-    this.tr_titulos.id = "tr_poligono"+this.indice
-    this.tr_titulos.setAttribute("class","collapse tab_poligono"+this.indice)
-    //anexando ao cabeçário da tabela
-    this.thead.append(this.tr_titulos)
-
-
+    this.tr_titles.appendChild(this.th_index)
+    this.tr_titles.appendChild(this.th_name)
+    this.tr_titles.appendChild(this.th_latitude)
+    this.tr_titles.appendChild(this.th_longitude)
+    this.tr_titles.id = "tr_polygon"+this.index
+    this.tr_titles.setAttribute("class","collapse tab_polygon"+this.index)
+    //anexando ao cabeçário da table
+    this.thead.append(this.tr_titles)
   }

@@ -20,7 +20,7 @@
     </nav>
     <!--NAVBAR -->
     <div>
-      <div id="mapa_criar" class="border border-dark"></div>
+      <div id="first_map" class="border border-dark"></div>
       <div id="column_right" class="card">
         <div class="rounded-0 alert-primary card-header" role="alert">
           <label style= "text-align = 'center' " id="contador"><img src="../static/green_marker.png"> Vértices disponíveis: 99</label>
@@ -34,7 +34,7 @@
           <div class="input-group mb-3">
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="vertice_criar">Vértice</span>
+                <span class="input-group-text">Vértice</span>
               </div>
               <input type="number" aria-label="Latitude" class="form-control" placeholder="Latitude" id="Latitude">
               <input type="number" aria-label="Longitude" class="form-control" placeholder="Longitude" id="Longitude">
@@ -46,7 +46,7 @@
           <div>
               <button id="Btn_Create_Poly" type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Adicionar +1 Poligono</button>
               <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px" id="btn_save_coord">Salvar coordenadas</button>
-              <form id="formulario" action = "markers_list" method="POST" enctype="application/json">
+              <form id="form" action = "markers_list" method="POST" enctype="application/json">
                 <input id="submit" type = "submit" value="Verificar áreas" class="btn btn-primary btn-lg btn-block"/>
                 <input type="text" name = "vertices" value="" hidden="hidden" id="send_polygons"/>
               </form>

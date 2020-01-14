@@ -8,7 +8,7 @@ markers_blueprint = Blueprint('markers', __name__, template_folder='templates')
 @markers_blueprint .route("/markers_validation", methods=["GET", "POST"])
 def markers_validation():
     if request.method == "POST":
-        coord = request.form["selecao"]
+        coord = request.form["selection"]
         coord = eval(coord)
         used_sheet.coordinate.set_Latitude_Column_values(coord["latitude"])
         used_sheet.coordinate.set_Longitude_Column_values(coord["longitude"])

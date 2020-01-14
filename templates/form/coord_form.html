@@ -44,55 +44,52 @@
             </tbody>
             </table>
             <form action="markers_validation" method = "POST" enctype = "multipart/form-data">
-            <input type="text" name = "selecao" value="" hidden="hidden" id="titulos_selecao"/> 
-            <input id="submit_requerimento" type="submit" value="Iniciar verificação" class="btn btn-success btn-lg btn-block"/>
+            <input type="text" name = "selection" value="" hidden="hidden" id="selection_titles"/> 
+            <input type="submit" value="Iniciar verificação" class="btn btn-success btn-lg btn-block"/>
             </form>
         </div>
         <script>
-            var titulos = "{{titles}}";
-            titulos = titulos.replace(/&#39;/g,'"');
-            titulos = JSON.parse(titulos)
-            var coordenadas = {"latitude": null, "longitude": null}
-            var regiao = {"continente": null, "estado": null, "distrito": null, "local": null}
+            var titles = "{{titles}}";
+            titles = titles.replace(/&#39;/g,'"');
+            titles = JSON.parse(titles)
+            var coordinates = {"latitude": null, "longitude": null}
+            var region = {"country": null, "state": null, "county": null, "locality": null}
             //tentar fazer isso aqui dá certo
-            valor1 = Object.keys(coordenadas)
-            valor2 = Object.keys(regiao)
-            options = valor1.concat(valor2);
-            console.log(options)
-
-            AtribuindoTitulos()
-            function AtribuindoTitulos(){
+            array_keys_1 = Object.keys(coordinates)
+            array_keys_2 = Object.keys(region)
+            options = array_keys_1.concat(array_keys_2);
+            AssigningTitles()
+            function AssigningTitles(){
                 var select_latitude = document.getElementById("select_latitude");
                 var select_longitude = document.getElementById("select_longitude");
-                var select_continente = document.getElementById("select_continente");
-                var select_estado = document.getElementById("select_estado")
-                var select_distrito = document.getElementById("select_distrito")
-                var select_local = document.getElementById("select_local")
+                var select_country = document.getElementById("select_country");
+                var select_state = document.getElementById("select_state")
+                var select_county = document.getElementById("select_county")
+                var select_locality = document.getElementById("select_locality")
 
-                for (titulo of titulos){
-                    novo_option1 = document.createElement("option");
-                    novo_option1.innerHTML = titulo;
-                    novo_option1.addEventListener("click",Selecionado);
-                    novo_option1.id = "latitude"
+                for (title of titles){
+                    new_option1 = document.createElement("option");
+                    new_option1.innerHTML = title;
+                    new_option1.addEventListener("click", Selected);
+                    new_option1.id = "latitude"
 
-                    novo_option2 = document.createElement("option");
-                    novo_option2.innerHTML = titulo;
-                    novo_option2.addEventListener("click",Selecionado);
-                    novo_option2.id = "longitude"
+                    new_option2 = document.createElement("option");
+                    new_option2.innerHTML = title;
+                    new_option2.addEventListener("click", Selected);
+                    new_option2.id = "longitude"
 
-                    select_latitude.appendChild(novo_option1);
-                    select_longitude.appendChild(novo_option2);
+                    select_latitude.appendChild(new_option1);
+                    select_longitude.appendChild(new_option2);
                 }
             }
-            function Selecionado(){
-                if(this.id in coordenadas){
-                    coordenadas[this.id] = this.value;
-                    console.log(coordenadas)
-                    var coordenadas_formatada = JSON.stringify(coordenadas);
-                    var input_text = document.getElementById("titulos_selecao");
-                    input_text.value = coordenadas_formatada;
+            function Selected(){
+                if(this.id in coordinates){
+                    coordinates[this.id] = this.value;
+                    var coordinates_formatada = JSON.stringify(coordinates);
+                    var input_text = document.getElementById("selection_titles");
+                    input_text.value = coordinates_formatada;
                 }
-                if(this.id in regiao){
+                if(this.id in region){
 
                 }
 

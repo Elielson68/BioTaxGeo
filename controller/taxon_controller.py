@@ -15,7 +15,7 @@ def taxon_list():
         used_sheet.set_Check_Columns(titles)
         used_sheet.data_treatment.set_Verified_Hierarchy(used_sheet.get_Columns_Checked())
         verification = json.dumps(used_sheet.data_treatment.get_Verified_Hierarchy())
-        return render_template("list/taxon_list.html", verificacao=verification, total_linhas = used_sheet.get_Row_Total())
+        return render_template("list/taxon_list.html", verification=verification, total_rows = used_sheet.get_Row_Total())
 
 @taxon_blueprint.route("/taxon_validation", methods=["GET", "POST"])
 def taxon_validation():
