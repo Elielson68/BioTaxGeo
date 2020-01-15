@@ -1,4 +1,5 @@
 function Point_Marker(coord, map, icon, draggable){
+    this.inside_polygon = false
     google.maps.Marker.prototype.setIndex = function(index){
         this.index = index
     }
@@ -20,7 +21,12 @@ function Point_Marker(coord, map, icon, draggable){
     google.maps.Marker.prototype.getPosition = function(){
         return this.position
     }
-
+    google.maps.Marker.prototype.setInsidePolygon = function(ip){
+        this.inside_polygon = ip
+    }
+    google.maps.Marker.prototype.isInsidePolygon = function(){
+        return this.inside_polygon
+    }
     return new google.maps.Marker({ //Pra cada vértice é criado um marker, como se estivesse sendo criado um novo polígono
         title: "Point",
         position: coord,

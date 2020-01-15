@@ -16,6 +16,7 @@ Polygon.prototype.createVertices = function(position){
     if(this.editable){
         this.new_point = new Point_Marker(position, this.vertices.map)
         this.list_vertices.push(this.new_point)
+        this.new_point.setTitle("Vértice "+this.TotalVertices())
         this.vertices.getPath().push(position)
     }
     else{
@@ -39,6 +40,9 @@ Polygon.prototype.removeVertex = function(index){
     this.list_vertices[index].setMap(null)
     this.vertices.getPath().removeAt(index)
     this.list_vertices.splice(index,1);
+    for(i in this.list_vertices){
+        this.list_vertices[i].setTitle("Vértice "+(parseInt(i)+1))
+    }
     
 }
 Polygon.prototype.getVertices = function(){

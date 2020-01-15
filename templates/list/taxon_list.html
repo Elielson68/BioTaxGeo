@@ -17,7 +17,7 @@
             </button>
         </nav>
         
-        <h1 style="text-align: center;">Verificação dos dados da planilha</h1> <hr>
+        <h1 style="text-align: center;">Verificação dos data da planilha</h1> <hr>
         <div>
 
         </div>
@@ -25,8 +25,8 @@
         <!--______________________________________PLANILHA______________________________________________________-->
         <div id="spreadsheet">
             <form action="taxon_validation" method = "POST" enctype = "multipart/form-data">
-                    <input type="text" name = "dados" value="" hidden="hidden" id="dados"/>
-                    <input id="submit_planilha" type="submit" value="Salvar alterações" class="btn btn-success rounded-0"/>
+                    <input type="text" name = "data" value="" hidden="hidden" id="data"/>
+                    <input id="submit" type="submit" value="Salvar alterações" class="btn btn-success rounded-0"/>
             </form>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-secondary active rounded-0"  >
@@ -57,12 +57,12 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body" id="body_modal">
-                <label id="texto_modal"></label>
+              <div class="modal-body" id="modal_body">
+                <label id="modal_text"></label>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Cancel_Buttom">Cancelar</button>
-                <button type="button" class="btn btn-primary" onclick="SalvarAlteracao()" data-dismiss="modal" id="Confirm_Buttom" >Salvar alteração</button>
+                <button type="button" class="btn btn-primary" onclick="SaveChange()" data-dismiss="modal" id="Confirm_Buttom" >Salvar alteração</button>
               </div>
             </div>
           </div>
@@ -77,8 +77,8 @@
           var Cancel_Buttom = document.getElementById("Cancel_Buttom")
           var Confirm_Buttom = document.getElementById("Confirm_Buttom")
           //Atribuindo alguns eventos pro botão de confirm e Cancel do Modal, e pros botões radios do modal.
-          Cancel_Buttom.addEventListener("click", Remover_Inputs)
-          Confirm_Buttom.addEventListener("click", Remover_Inputs)
+          Cancel_Buttom.addEventListener("click", InputsRemove)
+          Confirm_Buttom.addEventListener("click", InputsRemove)
           document.getElementById("option1").setAttribute("onchange", "ShowOnlyWrong('option1')")
           document.getElementById("option2").setAttribute("onchange", "ShowOnlyWrong('option2')")
           //Pegando os valores de verified_hierarchy e total de linhas que vem do servidor, usando o Jinja2
@@ -86,7 +86,7 @@
           verified_hierarchy = verified_hierarchy.replace(/&#34;/g,`"`);
           verified_hierarchy = JSON.parse(verified_hierarchy)
           var total_rows = "{{total_rows}}"
-          //Objeto que irar armazernar todos os dados que devem ser alterados e que irão ser enviados pro servidor
+          //Objeto que irar armazernar todos os data que devem ser alterados e que irão ser enviados pro servidor
           var changed_data = {}
           //condições de verificações, se a pessoa clicou em um item onde tem mais de um elemento a ser sugerido para ela
           var more_one = false
@@ -138,7 +138,6 @@
           }
           //Função para create todas as linhas com os valores em cada coluna.
           function CreateRows(hierarchy){
-  
             var create = false
             var tr_body = document.createElement("tr");
             if(only_wrong){
@@ -172,7 +171,6 @@
             }
             
             if(hierarchy["kingdom"]["correctness"] != "EXACT"){
-              
               hierarchy["scientific name"]["synonymous"] == true ? td_kingdom.style = "color: orange" : td_kingdom.style = "color: red" 
               td_kingdom.setAttribute("data-target","#exampleModal")
               td_kingdom.setAttribute("data-toggle","modal")
@@ -187,7 +185,6 @@
               td_kingdom.style = "color: white;" 
               tr_body.appendChild(td_kingdom);
             }
-
             
             if(hierarchy["phylum"]["correctness"] != "EXACT"){
               hierarchy["scientific name"]["synonymous"] == true ? td_phylum.style = "color: orange" : td_phylum.style = "color: red"
@@ -222,7 +219,6 @@
               tr_body.appendChild(td_class);
             }
 
-
             if(hierarchy["order"]["correctness"] != "EXACT"){
               hierarchy["scientific name"]["synonymous"] == true ? td_order.style = "color: orange" : td_order.style = "color: red"
               //td_order.style = "color: red" 
@@ -240,7 +236,6 @@
               tr_body.appendChild(td_order);
             }
 
-            
             if(hierarchy["family"]["correctness"] != "EXACT"){
               hierarchy["scientific name"]["synonymous"] == true ? td_family.style = "color: orange" : td_family.style = "color: red"
               //td_family.style = "color: red" 
@@ -253,12 +248,10 @@
               tr_body.appendChild(td_family);
             }
             else if (!only_wrong || create) {
-
               td_family.innerHTML = `${hierarchy["family"]["type"]}: ${hierarchy["family"]["amount"]}`
               td_family.style = "color: white;" 
               tr_body.appendChild(td_family);
             }
-
             
             if(hierarchy["genus"]["correctness"] != "EXACT"){
               hierarchy["scientific name"]["synonymous"] == true ? td_genus.style = "color: orange" : td_genus.style = "color: red"
@@ -272,13 +265,11 @@
               tr_body.appendChild(td_genus);
             }
             else if (!only_wrong || create){
-
               td_genus.innerHTML = `${hierarchy["genus"]["type"]}: ${hierarchy["genus"]["amount"]}`
               td_genus.style = "color: white;" 
               tr_body.appendChild(td_genus);
             }
 
-           
             if(hierarchy["specie"]["correctness"] != "EXACT"){
               hierarchy["scientific name"]["synonymous"] == true ? td_specie.style = "color: orange" : td_specie.style = "color: red"        
               //td_specie.style = "color: red" 
@@ -300,9 +291,6 @@
               tr_body.appendChild(td_specie);
               tr_body.appendChild(td_scientific_name);
             }
-
-            
-            
           }
           //Criando todas as linhas
           function CreatingRows(){
@@ -312,40 +300,37 @@
           }
           //Função que cria o modal, porém, o modal com apenas 1 sugestão de name
           function ChangingData(){
-            
             wrong_cell = this;
-            modal = document.getElementById("body_modal")
-            texto = document.getElementById("texto_modal")
-            valor_errado = this.innerHTML;
+            modal = document.getElementById("modal_body")
+            text = document.getElementById("modal_text")
+            wrong_value = this.innerHTML;
             key1 = this.id.replace(this.className, "")
             key2 = this.className
             amount = verified_hierarchy[key1][key2]["amount"]
-            valor_errado = valor_errado.replace(": "+amount, "");
-            valor_certo = verified_hierarchy[key1][key2]["suggestion"]
+            wrong_value = wrong_value.replace(": "+amount, "");
+            correct_value = verified_hierarchy[key1][key2]["suggestion"]
             keys = Object.keys(verified_hierarchy[key1])
             init = keys.indexOf(key2)
-            console.log(verified_hierarchy[key1]["scientific name"]["font"])
-            if(!(Array.isArray(valor_certo))){
+            isArray = Array.isArray(correct_value)
+            if(!(isArray)){
               more_one = false
               if(verified_hierarchy[key1]["scientific name"]["synonymous"]){
-                texto.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
-
+                text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+wrong_value+"</label></b> para <b><label style='color: green;'>"+correct_value+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
               }
               else{
-                texto.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</label></b> para <b><label style='color: green;'>"+valor_certo+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
+                text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+wrong_value+"</label></b> para <b><label style='color: green;'>"+correct_value+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
               }
             }
             else{
               more_one = true
               if(verified_hierarchy[key1]["scientific name"]["synonymous"]){
-                texto.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+valor_errado+"</b>"
-
+                text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+wrong_value+"</b>"
               }
               else{
-                texto.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+valor_errado+"</b>"
+                text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+wrong_value+"</b>"
               }
               count = 0
-              for (names of valor_certo){
+              for (names of correct_value){
                 div = document.createElement("div")
                 div.className = "form-check"
                 div.id = "inputs"+count
@@ -355,7 +340,7 @@
                 input.name = "Radio"
                 input.id = count
                 input.value = "option"
-                input.addEventListener("click", Valor_selected)
+                input.addEventListener("click", SelectedValue)
                 label = document.createElement("label")
                 label.className = "form-check-label"
                 label.for = count
@@ -366,10 +351,10 @@
                 modal.appendChild(div)
                 count++
               }
-              texto2 = document.createElement("label")
-              texto2.id = "texto_aux"
-              texto2.innerHTML += "<br>Abaixo está a amount de valores que deseja alterar: <br>"
-              modal.appendChild(texto2)
+              text2 = document.createElement("label")
+              text2.id = "text_aux"
+              text2.innerHTML += "<br>Abaixo está a amount de valores que deseja alterar: <br>"
+              modal.appendChild(text2)
             }
   
             count2 = 0
@@ -383,7 +368,7 @@
               input.name = "Radio2"
               input.id = keys[key]
               input.value = "option2"
-              input.addEventListener("click", Valor_selected_amount)
+              input.addEventListener("click", SelectedValueAmount)
               label = document.createElement("label")
               label.className = "form-check-label"
               label.for = count
@@ -394,37 +379,37 @@
               count2++
             }
           }
-          function Remover_Inputs(){
+          function InputsRemove(){
             if(more_one){
-              modal = document.getElementById("body_modal")
+              modal = document.getElementById("modal_body")
               for(x=0; x<count; x++){
-                var excluir = document.getElementById("inputs"+x)
-                modal.removeChild(excluir)
+                var del = document.getElementById("inputs"+x)
+                modal.removeChild(del)
               }
               for(x=0; x<count2; x++){
-                var excluir2 = document.getElementById("inputs_quant"+x)
-                modal.removeChild(excluir2)
+                var del2 = document.getElementById("inputs_quant"+x)
+                modal.removeChild(del2)
               }
-              modal.removeChild(document.getElementById("texto_aux"))
+              modal.removeChild(document.getElementById("text_aux"))
             }
             else{
               for(x=0; x<count2; x++){
-                var excluir2 = document.getElementById("inputs_quant"+x)
-                modal.removeChild(excluir2)
+                var del2 = document.getElementById("inputs_quant"+x)
+                modal.removeChild(del2)
               }
             }
             selected = 0
             selected_amount = 0
 
           }
-          function SalvarAlteracao(){
+          function SaveChange(){
             key1 = wrong_cell.id.replace(wrong_cell.className, "")
             key2 = wrong_cell.className
             wrong_cell.style = "color: white;";
             wrong_cell.setAttribute("data-toggle","");
             wrong_cell.setAttribute("data-target","");
-            dados = document.getElementById("dados")
-            //achar uma forma dele create mais de uma key sem precisar excluir tudo
+            data = document.getElementById("data")
+            //achar uma forma dele create mais de uma key sem precisar del tudo
             if(changed_data[key1] == null){
                changed_data[key1] = {}
             }
@@ -442,15 +427,15 @@
               }
               changed_data[key1][key2] =  {"suggestion": verified_hierarchy[key1][key2]["suggestion"][selected], "level": [selected_amount, verified_hierarchy[key1][selected_amount]["type"]]}
               wrong_cell.innerHTML = verified_hierarchy[key1][key2]["suggestion"][selected]+": "+verified_hierarchy[key1][key2]["amount"];
-              Remover_Inputs()
+              InputsRemove()
               more_one = false
               
             }
-            enviar_valores = JSON.stringify(changed_data)
-            dados.value =  enviar_valores
+            send_values = JSON.stringify(changed_data)
+            data.value =  send_values
 
           }
-          function Valor_selected(){
+          function SelectedValue(){
             selected = this.id;
             if(more_one){
               if(selected != 0 && selected_amount != 0){
@@ -463,7 +448,7 @@
               }
             }
           }
-          function Valor_selected_amount(){
+          function SelectedValueAmount(){
             selected_amount = this.id;
             if(selected != 0 && selected_amount != 0){
               //Confirm_Buttom.disabled = false
@@ -474,8 +459,6 @@
               }
             }
           }
-          
-
           InitTable()
           CreatingRows()
           

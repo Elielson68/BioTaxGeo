@@ -5,7 +5,7 @@ ComponentHTML.prototype.createInputGroup = function(lat, lng, index, append, eve
     this.super_div = document.createElement('div');
     this.children_div = document.createElement('div');
     this.span = document.createElement('span');
-    this.text_span  = document.createTextNode(index+"ª. "+"Vértice");
+    this.text_span  = document.createTextNode((index+1)+"ª. "+"Vértice");
     this.input_1 = document.createElement('input');
     this.input_2 = document.createElement('input');
     this.div_button_children = document.createElement('div');
@@ -106,7 +106,7 @@ ComponentHTML.prototype.setTextSpan = function(text){
     this.text_span = document.createTextNode(text);
     this.span.appendChild(this.text_span)
 }
-ComponentHTML.prototype.createHeaderTable = function (index){
+ComponentHTML.prototype.createHeaderTable = function (title, index, color){
     this.count = 0
     this.index = index
     this.table = document.getElementById("table")
@@ -122,10 +122,11 @@ ComponentHTML.prototype.createHeaderTable = function (index){
   
     //Título principal
     this.th_title.style = "text-align: center"
-    this.th_title.setAttribute("colspan",4)
+    this.th_title.setAttribute("colspan", 5)
     this.th_title.className = "thead"
     this.texto_th_title = document.createElement("button")
-    this.texto_th_title.innerHTML = "Lista de Markers dentro do Polígoono "+index
+    this.texto_th_title.innerHTML = title
+    color===undefined ? null : this.texto_th_title.style = `color: ${color};`
     this.texto_th_title.setAttribute("class","btn btn-link")
     this.th_title.appendChild(this.texto_th_title)
     this.th_title.setAttribute("data-toggle","collapse")
@@ -144,21 +145,26 @@ ComponentHTML.prototype.createHeaderTable = function (index){
     this.table.appendChild(this.thead)
     this.table.appendChild(this.tbody)
 }
-ComponentHTML.prototype.createBodyTable = function (latitude, longitude){
+ComponentHTML.prototype.createBodyTable = function (latitude, longitude, index){
       this.count++
       this.row = document.createElement("tr")
       this.column_index = document.createElement("th")
-      this.column_index.innerHTML = this.count
       this.column_name = document.createElement("td")
       this.column_latitude = document.createElement("td")
       this.column_longitude = document.createElement("td")
+      this.column_index_row = document.createElement("td")
+
       this.row.appendChild(this.column_index)
       this.row.appendChild(this.column_name)
       this.row.appendChild(this.column_latitude)
       this.row.appendChild(this.column_longitude)
+      this.row.appendChild(this.column_index_row)
       this.tbody.appendChild(this.row)
+
+      this.column_index.innerHTML = this.count
       this.column_latitude.innerHTML = latitude
       this.column_longitude.innerHTML = longitude
+      this.column_index_row.innerHTML = index
 }
 ComponentHTML.prototype.createTitleTable = function (){
     //Criando os dados de cada table referente aos polygons
@@ -167,6 +173,8 @@ ComponentHTML.prototype.createTitleTable = function (){
     this.th_name = document.createElement("th")
     this.th_latitude = document.createElement("th")
     this.th_longitude = document.createElement("th")
+    this.th_index_row = document.createElement("th")
+
     //Títulos de cada coluna
     this.th_index.setAttribute("scope","col")
     this.th_index.innerHTML = "#"
@@ -176,11 +184,14 @@ ComponentHTML.prototype.createTitleTable = function (){
     this.th_latitude.innerHTML = "Latitude"
     this.th_longitude.setAttribute("scope","col")
     this.th_longitude.innerHTML = "Longitude"
+    this.th_index_row.setAttribute("scope","col")
+    this.th_index_row.innerHTML = "Linha"
     //Anexando todos eles a coluna principal
     this.tr_titles.appendChild(this.th_index)
     this.tr_titles.appendChild(this.th_name)
     this.tr_titles.appendChild(this.th_latitude)
     this.tr_titles.appendChild(this.th_longitude)
+    this.tr_titles.appendChild(this.th_index_row)
     this.tr_titles.id = "tr_polygon"+this.index
     this.tr_titles.setAttribute("class","collapse tab_polygon"+this.index)
     //anexando ao cabeçário da table

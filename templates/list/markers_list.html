@@ -36,12 +36,18 @@
     </div>
   <script>
     var polygons = '{{polygons}}'
-    polygons = polygons.replace(/&#39;/g, '"')
-    polygons = JSON.parse(polygons)
     var latitudes = "{{latitude}}"
-    latitudes = JSON.parse(latitudes)
     var longitudes = "{{longitude}}"
+    var row_coord_lat = "{{row_coord_lat}}"
+    var row_coord_lng = "{{row_coord_lng}}"
+    polygons = polygons.replace(/&#39;/g, '"')
+
+    polygons = JSON.parse(polygons)
+    latitudes = JSON.parse(latitudes)
     longitudes = JSON.parse(longitudes)
+    row_coord_lat = JSON.parse(row_coord_lat)
+    row_coord_lng = JSON.parse(row_coord_lng)
+ 
   </script>
   <script type="text/javascript" src="../static/js/point_marker.js"></script>
   <script type="text/javascript" src="../static/js/polygon.js"></script>

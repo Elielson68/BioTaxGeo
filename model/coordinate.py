@@ -3,6 +3,8 @@ class Coordinate:
     def __init__(self, sht):
         self.latitude_column = []
         self.longitude_column = []
+        self.index_row_lat = []
+        self.index_row_lng = []
         self.sheet = sht
         self.coordinate = {
             "latitude":
@@ -28,9 +30,13 @@ class Coordinate:
     def set_Latitude_Column_values(self, lat_column):
         if (type(lat_column) == str):
             index_column = self.sheet.row_values(0).index(lat_column)
+            count = 2
             self.latitude_column = self.sheet.col_values(index_column, 1)
-            self.latitude_column = list(filter(None,
-                                                    self.latitude_column))  # O Comando filter serve para retirar valores vázios da lista, porém ele retorna apenas o endereço do objeto, utilizo o list para que o endereço seja convertido em um objeto do tipo lsita
+            for row in self.latitude_column:
+                if(row!=""):
+                    self.index_row_lat.append(count)
+                count += 1
+            self.latitude_column = list(filter(None, self.latitude_column))  # O Comando filter serve para retirar valores vázios da lista, porém ele retorna apenas o endereço do objeto, utilizo o list para que o endereço seja convertido em um objeto do tipo lsita
         elif (type(lat_column) == int):
             self.latitude_column = self.sheet.col_values(lat_column, 1)
         elif (type(lat_column) == dict):
@@ -39,7 +45,12 @@ class Coordinate:
     def set_Longitude_Column_values(self, lng_column):
         if (type(lng_column) == str):
             index_column = self.sheet.row_values(0).index(lng_column)
+            count=2
             self.longitude_column = self.sheet.col_values(index_column, 1)
+            for row in self.longitude_column:
+                if(row!=""):
+                    self.index_row_lng.append(count)
+                count += 1
             self.longitude_column = list(filter(None, self.longitude_column))
         elif (type(lng_column) == int):
             self.longitude_column = self.sheet.col_values(lng_column, 1)
@@ -57,6 +68,18 @@ class Coordinate:
             return "Empty column."
         else:
             return self.longitude_column
+    
+    def get_Index_Row_Lat(self):
+        if (self.index_row_lat == []):
+            return "Empty array."
+        else:
+            return self.index_row_lat
+
+    def get_Index_Row_Lng(self):
+        if (self.index_row_lng == []):
+            return "Empty array."
+        else:
+            return self.index_row_lng
 
     # Precisa ser melhorado o método que os valores são inseridos no dicionario coordinates. Mas por enquanto vai ser feito assim.
     def Format_Lat_Lng (self, coord, coord_name):  # Bem vindo a loucura de Elielson. Ta grande, mas funciona.

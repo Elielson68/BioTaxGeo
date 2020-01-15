@@ -31,6 +31,7 @@ function initMap() {
         new_components.createInputGroup(vertex_lat, vertex_lng, index, div_component, InputMovedVertex, DeleteVertex)
         list_componentsHTML.push(new_components)
         polygon_components[`polygon${index_polygon}`] = {"polygon": selected_polygon, "components": list_componentsHTML}
+        console.log(polygon_components.toString())
     }
     function MouseMovedVertex(){
         var vertex = this
@@ -112,7 +113,7 @@ function initMap() {
             list_componentsHTML[ind+1].setIDInputLng("Lng"+i)
             list_componentsHTML[ind+1].setIDButton("Delete"+i)
             list_componentsHTML[ind+1].setIDSpan("span"+i)
-            list_componentsHTML[ind+1].setTextSpan(i+"ª. "+"Vértice")
+            list_componentsHTML[ind+1].setTextSpan((ind+1)+"ª. "+"Vértice")
             selected_polygon.getListVertices()[ind].setIndex(ind)
         }
     }

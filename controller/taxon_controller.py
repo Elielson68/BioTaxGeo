@@ -20,7 +20,7 @@ def taxon_list():
 @taxon_blueprint.route("/taxon_validation", methods=["GET", "POST"])
 def taxon_validation():
     if request.method == "POST":
-        data = request.form["dados"]
+        data = request.form["data"]
         data = eval(data)
         used_sheet.Change_Data_Spreadsheet(data)
         used_sheet.Save_Formatted_Spreadsheet()
