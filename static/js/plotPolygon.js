@@ -56,6 +56,5 @@ function initMap() {
     }
     checkbox_group_markers.addEventListener('change', ActiveMarkerCluster)
     selected_polygon.vertices.addListener('click', addVerticesPolygonClick);
-    console.log(checkbox_group_markers)
     map.addListener('click', addVerticesPolygonClick);
 }

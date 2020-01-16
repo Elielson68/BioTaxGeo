@@ -126,6 +126,10 @@ function initMap() {
         input_send_polygons.value = send_polygons
         alert("Coordenadas salvas!")
     }
+    coordinate =  new google.maps.LatLng(-1.44502, -48.4650)
+    list_locality = []
+    SearchLocalitys(coordinate, list_locality)
+    console.log(list_locality)
     map.addListener('click', addVerticesPolygon);
     btn_create_vertex.addEventListener('click', addVerticesPolygon);
     btn_create_poly.addEventListener('click', CreatePolygon);
