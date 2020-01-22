@@ -5,9 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/markers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/markers_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/createPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/createPolygon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/search_localitys.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/search_localitys.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/coord_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/coord_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/markers_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/markers_form.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,13 +246,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Codigo formatado para maneira antiga, porem com as atualizacoes a serem feitas em formato de comentarios">
-      <created>1572368433929</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1572368433929</updated>
     </task>
     <task id="LOCAL-00039" summary="Começando a implementar a API REST pra analise dos dados da planilha">
       <created>1572464585318</created>
@@ -593,7 +583,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579204271412</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Utilizando requests e API para conseguir usar o reverse geocoding com mais otimização">
+      <created>1579635770146</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1579635770146</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -630,7 +627,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Incluso a análise de hierarquia ao SpecieGeo original" />
     <MESSAGE value="Iniciando conversao de coordenadas" />
     <MESSAGE value="comecando coordenadas" />
     <MESSAGE value="Coordenadas, conversão para decimal" />
@@ -655,33 +651,34 @@
     <MESSAGE value="traduzindo components HTML, ID's e Keys" />
     <MESSAGE value="Tudo traduzido, inserido na plotagem dos markers no mapa os markers fora de qualquer poligono alem de mostrar a linha daquela coordana na planilha" />
     <MESSAGE value="Utilizando API do Google Maps pra localizar regiões com base na Lat e Lng" />
-    <option name="LAST_COMMIT_MESSAGE" value="Utilizando API do Google Maps pra localizar regiões com base na Lat e Lng" />
+    <MESSAGE value="Utilizando requests e API para conseguir usar o reverse geocoding com mais otimização" />
+    <option name="LAST_COMMIT_MESSAGE" value="Utilizando requests e API para conseguir usar o reverse geocoding com mais otimização" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1579635766199">
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1579721728303">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1579635766199" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1579721728303" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1577380023147">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl/0.0.1440.859@0.0.1440.859" timestamp="1577380023147" />
-    <state width="801" height="183" key="GridCell.Tab.0.bottom" timestamp="1579635670111">
+    <state width="800" height="183" key="GridCell.Tab.0.bottom" timestamp="1579717368779">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="801" height="183" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1579635670111" />
-    <state width="801" height="183" key="GridCell.Tab.0.center" timestamp="1579635670111">
+    <state width="800" height="183" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1579717368779" />
+    <state width="800" height="183" key="GridCell.Tab.0.center" timestamp="1579717368779">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="801" height="183" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1579635670111" />
-    <state width="801" height="183" key="GridCell.Tab.0.left" timestamp="1579635670110">
+    <state width="800" height="183" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1579717368779" />
+    <state width="800" height="183" key="GridCell.Tab.0.left" timestamp="1579717368779">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="801" height="183" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1579635670110" />
-    <state width="801" height="183" key="GridCell.Tab.0.right" timestamp="1579635670111">
+    <state width="800" height="183" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1579717368779" />
+    <state width="800" height="183" key="GridCell.Tab.0.right" timestamp="1579717368779">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="801" height="183" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1579635670111" />
+    <state width="800" height="183" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1579717368779" />
     <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1577127239115">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
@@ -690,10 +687,10 @@
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1577127261082" />
-    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1579204282198">
+    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1579635778816">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1579204282198" />
+    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1579635778816" />
     <state x="520" y="348" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577379341764">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
