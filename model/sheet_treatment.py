@@ -3,7 +3,7 @@ import xlrd
 from xlutils.copy import copy
 from model.coordinate import Coordinate
 from model.data_treatment import Data_Treatment
-
+from model.locality import Locality
 class Sheet:
     
     def __init__(self):
@@ -15,6 +15,7 @@ class Sheet:
         self.sheet = None
         self.formated_sheet = None
         self.coordinate = None
+        self.locality = None
         self.data_treatment = None
         self.columns_total = int
         self.row_total  = int
@@ -39,6 +40,7 @@ class Sheet:
         self.row_total  = self.sheet.nrows
         self.coordinate = Coordinate(self.sheet)
         self.data_treatment = Data_Treatment(self.sheet)
+        self.locality = Locality(self.sheet)
     
     def get_Path(self):
         return self.path

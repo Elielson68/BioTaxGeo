@@ -18,17 +18,21 @@ function initMap() {
         list_componentsHTML.push(header_table)
     }
     for(i=0;i<latitudes.length;i++){
-        coord = new google.maps.LatLng(latitudes[i], longitudes[i])
-        marker = new Point_Marker(coord, map, "../static/image/red_marker2.png" , false)
-        marker.setTitle(`Latitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
-        list_marker.push(marker)
+        if (latitudes[i]!=""){
+            coord = new google.maps.LatLng(latitudes[i], longitudes[i])
+            marker = new Point_Marker(coord, map, "../static/image/red_marker2.png" , false)
+            marker.setTitle(`Latitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
+            list_marker.push(marker)
+        }
+
     }
     for(i=0;i<list_marker.length;i++){
         for(p=0; p<list_poly.length; p++){
             if(list_poly[p].haveMarker(list_marker[i].getPosition())){
                 list_marker[i].setIcon("../static/image/blue_marker2.png")
                 list_marker[i].setInsidePolygon(true)
-                list_componentsHTML[p].createBodyTable(list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i])
+                name = genus[i]+" "+specie[i]
+                list_componentsHTML[p].createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i])
             }
         }
     }
@@ -37,7 +41,8 @@ function initMap() {
     MarkersOutPolygon.createTitleTable()
     for(i=0;i<list_marker.length;i++){
             if(!list_marker[i].isInsidePolygon()){
-                MarkersOutPolygon.createBodyTable(list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i])
+                name = genus[i]+" "+specie[i]
+                MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i])
             }
     }
     opt_options = {imagePath:'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m', gridSize: 60, maxZoom: 14, minimumClusterSize: 2}

@@ -1,14 +1,8 @@
-class Taxon_Validation:
+from model.hierarchy_taxon import Hierarchy_Taxon
+class Taxon_Validation(Hierarchy_Taxon):
 
-    def __init__(self, k, p, c, o, f, g, e, SN):
-        self.Scientific_Name = SN
-        self.kingdom = k
-        self.phylum = p
-        self.classs = c
-        self.order = o
-        self.family = f
-        self.genus = g
-        self.specie = e
+    def __init__(self, k, p, c, o, f, g, e, sn):
+        super().__init__(k, p, c, o, f, g, e, sn)
         self.kingdom_correctness = "NONE"
         self.phylum_correctness = "NONE"
         self.class_correctness = "NONE"
@@ -65,26 +59,6 @@ class Taxon_Validation:
             self.specie_suggestion = specie.replace(genus + " ", "") if genus in specie else specie.replace(self.genus + " ", "")
         self.scientific_name_suggestion = None if self.scientific_name_correctness == "EXACT" else Scientific_Name
 
-    def get_Kingdom(self):
-        return self.kingdom
-
-    def get_Phylum(self):
-        return self.phylum
-
-    def get_Classs(self):
-        return self.classs
-
-    def get_Order(self):
-        return self.order
-
-    def get_Family(self):
-        return self.family
-
-    def get_Genus(self):
-        return self.genus
-
-    def get_Specie(self):
-        return self.specie
 
     def get_Scientific_Name(self):
         return self.Scientific_Name

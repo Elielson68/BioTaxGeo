@@ -127,38 +127,6 @@ function initMap() {
         alert("Coordenadas salvas!")
     }
 
-    list_locality = []
-    coordinates = new google.maps.LatLng(-0.47305555555555556, -47.36194444444445)
-    Geo1 = new google.maps.Geocoder()
-    Geo1.geocode(
-        {'location': coordinates}, 
-        function(a){
-            a.forEach(function(element, index, array){
-                var country = null
-                var state = null
-                var county = null
-                var locality = null
-                console.log(element)
-                element.address_components.forEach(function(element, index, array){
-                    if (element["types"][0] == "country"){
-                        country = element["long_name"]
-                    }
-                    if (element["types"][0] == "administrative_area_level_1"){
-                        state = element["long_name"]
-                    }
-                    if (element["types"][0] == "administrative_area_level_2"){
-                        county = element["long_name"]
-                    }
-                    if (element["types"][0] == "route"){
-                        locality = element["long_name"]
-                    }
-                    
-                })
-                var new_locality = new Localitys(country, state, county, locality)
-                console.log(new_locality)
-            })
-        }
-    )
     map.addListener('click', addVerticesPolygon);
     btn_create_vertex.addEventListener('click', addVerticesPolygon);
     btn_create_poly.addEventListener('click', CreatePolygon);

@@ -36,11 +36,10 @@ class Coordinate:
                 if(row!=""):
                     self.index_row_lat.append(count)
                 count += 1
-            self.latitude_column = list(filter(None, self.latitude_column))  # O Comando filter serve para retirar valores vázios da lista, porém ele retorna apenas o endereço do objeto, utilizo o list para que o endereço seja convertido em um objeto do tipo lsita
         elif (type(lat_column) == int):
             self.latitude_column = self.sheet.col_values(lat_column, 1)
         elif (type(lat_column) == dict):
-            self.latitude_column = list(filter(None, lat_column))
+            self.latitude_column = lat_column
 
     def set_Longitude_Column_values(self, lng_column):
         if (type(lng_column) == str):
@@ -51,11 +50,10 @@ class Coordinate:
                 if(row!=""):
                     self.index_row_lng.append(count)
                 count += 1
-            self.longitude_column = list(filter(None, self.longitude_column))
         elif (type(lng_column) == int):
             self.longitude_column = self.sheet.col_values(lng_column, 1)
         elif (type(lng_column) == dict):
-            self.longitude_column = list(filter(None, lng_column))
+            self.longitude_column = lng_column
 
     def get_Latitude_Column_values(self):
         if (self.latitude_column == []):
@@ -381,7 +379,9 @@ class Coordinate:
         elif type(lat) == list:
 
             for l in lat:
-
+                if l=="":
+                    convert_lat_list.append("")
+                    continue
                 self.Reset_Values()
                 self.Format_Lat_Lng(l, "latitude")
                 if self.get_Latitude()["decimal"] == None:
@@ -475,7 +475,9 @@ class Coordinate:
         elif type(lng) == list:
 
             for l in lng:
-
+                if l=="":
+                    convert_lng_list.append("")
+                    continue
                 self.Reset_Values()
                 self.Format_Lat_Lng(l, "longitude")
 
