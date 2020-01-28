@@ -41,11 +41,37 @@ def markers_list():
         coord_lng = used_sheet.coordinate.get_Longitude_Column_values()
         coord_lat = used_sheet.coordinate.Convert_Lat_Decimal(coord_lat)
         coord_lng = used_sheet.coordinate.Convert_Lng_Decimal(coord_lng)
-        #coord_lat = list(filter(None, coord_lat))
-        #coord_lng = list(filter(None, coord_lng))
+
         country = used_sheet.locality.get_Country_Column_values()
         state = used_sheet.locality.get_State_Column_values()
         county = used_sheet.locality.get_County_Column_values()
+        print("______________________________________________________________________")
+        print("ANTES")
+        print("Latitude: " + str(len(coord_lat)))
+        print("Longitude: " + str(len(coord_lng)))
+        print("Country: "+str(len(country)))
+        print("State: "+str(len(state)))
+        print("County: "+str(len(county)))
+        print("genus: "+str(len(hrch_taxon.get_Genus())))
+        print("specie: "+str(len(hrch_taxon.get_Specie())))
+        print("______________________________________________________________________")
+        for x in range(len(coord_lat)):
+            if coord_lat[x] == "":
+                del(coord_lat[x])
+                del(coord_lng[x])
+                del(country[x])
+                del(state[x])
+                del(county[x])
+        print("______________________________________________________________________")
+        print("DEPOIS")
+        print("Latitude: " + str(len(coord_lat)))
+        print("Longitude: " + str(len(coord_lng)))
+        print("Country: "+str(len(country)))
+        print("State: "+str(len(state)))
+        print("County: "+str(len(county)))
+        print("genus: "+str(len(hrch_taxon.get_Genus())))
+        print("specie: "+str(len(hrch_taxon.get_Specie())))
+        print("______________________________________________________________________")
         if len(coord_lat)<=1000:
             list_region = []
             for x in range(len(coord_lat)):
@@ -65,13 +91,7 @@ def markers_list():
             localitys = {"locais": list_region}
         else:
             localitys = "null"
-        print("Latitude: " + str(len(coord_lat)))
-        print("Longitude: " + str(len(coord_lng)))
-        print("Country: "+str(len(country)))
-        print("State: "+str(len(state)))
-        print("County: "+str(len(county)))
-        print("genus: "+str(len(hrch_taxon.get_Genus())))
-        print("specie: "+str(len(hrch_taxon.get_Specie())))
+
         row_coord_lat = used_sheet.coordinate.get_Index_Row_Lat()
         row_coord_lng = used_sheet.coordinate.get_Index_Row_Lng()
         return render_template("list/markers_list.html", polygons=polygons, latitude=coord_lat, longitude=coord_lng, row_coord_lat=row_coord_lat, row_coord_lng=row_coord_lng, localitys=localitys, country=country, state=state, county=county, genus=hrch_taxon.get_Genus(), specie=hrch_taxon.get_Specie())
