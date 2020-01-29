@@ -45,33 +45,23 @@ def markers_list():
         country = used_sheet.locality.get_Country_Column_values()
         state = used_sheet.locality.get_State_Column_values()
         county = used_sheet.locality.get_County_Column_values()
-        print("______________________________________________________________________")
-        print("ANTES")
-        print("Latitude: " + str(len(coord_lat)))
-        print("Longitude: " + str(len(coord_lng)))
-        print("Country: "+str(len(country)))
-        print("State: "+str(len(state)))
-        print("County: "+str(len(county)))
-        print("genus: "+str(len(hrch_taxon.get_Genus())))
-        print("specie: "+str(len(hrch_taxon.get_Specie())))
-        print("______________________________________________________________________")
-        for x in range(len(coord_lat)):
-            if coord_lat[x] == "":
-                del(coord_lat[x])
-                del(coord_lng[x])
-                del(country[x])
-                del(state[x])
-                del(county[x])
-        print("______________________________________________________________________")
-        print("DEPOIS")
-        print("Latitude: " + str(len(coord_lat)))
-        print("Longitude: " + str(len(coord_lng)))
-        print("Country: "+str(len(country)))
-        print("State: "+str(len(state)))
-        print("County: "+str(len(county)))
-        print("genus: "+str(len(hrch_taxon.get_Genus())))
-        print("specie: "+str(len(hrch_taxon.get_Specie())))
-        print("______________________________________________________________________")
+
+        genus=hrch_taxon.get_Genus()
+        specie=hrch_taxon.get_Specie()
+
+        list_empty_values = [i for i, item in enumerate(coord_lat) if item == '']
+        count=0
+        for x in list_empty_values:
+            delete = x-count
+            del(coord_lat[delete])
+            del(coord_lng[delete])
+            del (country[delete])
+            del (state[delete])
+            del (county[delete])
+            del (genus[delete])
+            del (specie[delete])
+            count+=1
+
         if len(coord_lat)<=1000:
             list_region = []
             for x in range(len(coord_lat)):
@@ -91,10 +81,9 @@ def markers_list():
             localitys = {"locais": list_region}
         else:
             localitys = "null"
-
         row_coord_lat = used_sheet.coordinate.get_Index_Row_Lat()
         row_coord_lng = used_sheet.coordinate.get_Index_Row_Lng()
-        return render_template("list/markers_list.html", polygons=polygons, latitude=coord_lat, longitude=coord_lng, row_coord_lat=row_coord_lat, row_coord_lng=row_coord_lng, localitys=localitys, country=country, state=state, county=county, genus=hrch_taxon.get_Genus(), specie=hrch_taxon.get_Specie())
+        return render_template("list/markers_list.html", polygons=polygons, latitude=coord_lat, longitude=coord_lng, row_coord_lat=row_coord_lat, row_coord_lng=row_coord_lng, localitys=localitys, country=country, state=state, county=county, genus=genus, specie=specie)
     else:
         return render_template("form/markers_form.html" )
 
