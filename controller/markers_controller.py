@@ -55,13 +55,13 @@ def markers_list():
             delete = x-count
             del(coord_lat[delete])
             del(coord_lng[delete])
-            del (country[delete])
-            del (state[delete])
-            del (county[delete])
-            del (genus[delete])
-            del (specie[delete])
+            del(country[delete])
+            del(state[delete])
+            del(county[delete])
+            del(genus[delete])
+            del(specie[delete])
             count+=1
-
+        '''
         if len(coord_lat)<=1000:
             list_region = []
             for x in range(len(coord_lat)):
@@ -80,7 +80,9 @@ def markers_list():
                     list_region.append(region)
             localitys = {"locais": list_region}
         else:
-            localitys = "null"
+            localitys = "null"    
+        '''
+        localitys = "null"
         row_coord_lat = used_sheet.coordinate.get_Index_Row_Lat()
         row_coord_lng = used_sheet.coordinate.get_Index_Row_Lng()
         return render_template("list/markers_list.html", polygons=polygons, latitude=coord_lat, longitude=coord_lng, row_coord_lat=row_coord_lat, row_coord_lng=row_coord_lng, localitys=localitys, country=country, state=state, county=county, genus=genus, specie=specie)

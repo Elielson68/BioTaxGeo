@@ -21,7 +21,6 @@ function initMap() {
         if (latitudes[i]!=""){
             coord = new google.maps.LatLng(latitudes[i], longitudes[i])
             marker = new Point_Marker(coord, map, "../static/image/red_marker2.png" , false)
-            marker.setTitle(`Latitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
             list_marker.push(marker)
         }
 
@@ -31,6 +30,7 @@ function initMap() {
             if(list_poly[p].haveMarker(list_marker[i].getPosition())){
                 list_marker[i].setIcon("../static/image/blue_marker2.png")
                 list_marker[i].setInsidePolygon(true)
+                list_marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
                 name = genus[i]+" "+specie[i]
                 list_componentsHTML[p].createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i])
             }
@@ -42,6 +42,7 @@ function initMap() {
     for(i=0;i<list_marker.length;i++){
             if(!list_marker[i].isInsidePolygon()){
                 name = genus[i]+" "+specie[i]
+                list_marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
                 MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i])
             }
     }
@@ -60,6 +61,4 @@ function initMap() {
         }
     }
     checkbox_group_markers.addEventListener('change', ActiveMarkerCluster)
-    selected_polygon.vertices.addListener('click', addVerticesPolygonClick);
-    map.addListener('click', addVerticesPolygonClick);
 }

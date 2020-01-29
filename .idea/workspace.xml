@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/markers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/markers_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/plotPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/plotPolygon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list/markers_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/markers_list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -247,13 +247,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Codigo formatado para maneira antiga, porem com as atualizacoes a serem feitas em formato de comentarios">
-      <created>1572368433929</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1572368433929</updated>
     </task>
     <task id="LOCAL-00039" summary="Começando a implementar a API REST pra analise dos dados da planilha">
       <created>1572464585318</created>
@@ -591,7 +584,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580241793052</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Finalizado a filtragem para retornar as linhas corretas de cada coordenada referente a região">
+      <created>1580338189392</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1580338189392</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -628,7 +628,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Incluso a análise de hierarquia ao SpecieGeo original" />
     <MESSAGE value="Iniciando conversao de coordenadas" />
     <MESSAGE value="comecando coordenadas" />
     <MESSAGE value="Coordenadas, conversão para decimal" />
@@ -653,7 +652,8 @@
     <MESSAGE value="traduzindo components HTML, ID's e Keys" />
     <MESSAGE value="Tudo traduzido, inserido na plotagem dos markers no mapa os markers fora de qualquer poligono alem de mostrar a linha daquela coordana na planilha" />
     <MESSAGE value="Filtragem das coordenadas e dos locais" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filtragem das coordenadas e dos locais" />
+    <MESSAGE value="Finalizado a filtragem para retornar as linhas corretas de cada coordenada referente a região" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizado a filtragem para retornar as linhas corretas de cada coordenada referente a região" />
   </component>
   <component name="WindowStateProjectService">
     <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1579204264549">
