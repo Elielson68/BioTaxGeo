@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/markers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/markers_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/plotPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/plotPolygon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/markers_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/markers_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/list/markers_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/markers_list.html" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +45,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -63,18 +65,6 @@
       <recent name="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\SpecieGeo\static\css" />
       <recent name="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\SpecieGeo\static" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Python.SpecieGeo_App">
     <configuration name="Coordenadas_Testes" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -236,6 +226,18 @@
         <item itemvalue="Python.planilha" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
@@ -656,38 +658,38 @@
     <option name="LAST_COMMIT_MESSAGE" value="Finalizado a filtragem para retornar as linhas corretas de cada coordenada referente a região" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1579204264549">
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1580411387532">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1579204264549" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1580411387532" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1577380023147">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl/0.0.1440.859@0.0.1440.859" timestamp="1577380023147" />
-    <state width="1417" height="184" key="GridCell.Tab.0.bottom" timestamp="1577128954003">
+    <state width="1417" height="183" key="GridCell.Tab.0.bottom" timestamp="1580411193541">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="1417" height="184" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1577128954003" />
-    <state width="1417" height="184" key="GridCell.Tab.0.center" timestamp="1577128954002">
+    <state width="1417" height="183" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1580411193541" />
+    <state width="1417" height="183" key="GridCell.Tab.0.center" timestamp="1580411193541">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="1417" height="184" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1577128954002" />
-    <state width="1417" height="184" key="GridCell.Tab.0.left" timestamp="1577128954002">
+    <state width="1417" height="183" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1580411193541" />
+    <state width="1417" height="183" key="GridCell.Tab.0.left" timestamp="1580411193540">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="1417" height="184" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1577128954002" />
-    <state width="1417" height="184" key="GridCell.Tab.0.right" timestamp="1577128954003">
+    <state width="1417" height="183" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1580411193540" />
+    <state width="1417" height="183" key="GridCell.Tab.0.right" timestamp="1580411193541">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="1417" height="184" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1577128954003" />
+    <state width="1417" height="183" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1580411193541" />
     <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1577127239115">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog/0.0.1440.859@0.0.1440.859" timestamp="1577127239115" />
-    <state x="219" y="63" key="SettingsEditor" timestamp="1577127261082">
+    <state x="219" y="63" key="SettingsEditor" timestamp="1580404404380">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1577127261082" />
+    <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1580404404380" />
     <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1579117055764">
       <screen x="0" y="0" width="1440" height="859" />
     </state>

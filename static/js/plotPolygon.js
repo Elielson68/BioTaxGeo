@@ -17,6 +17,7 @@ function initMap() {
         header_table.createTitleTable()
         list_componentsHTML.push(header_table)
     }
+    
     for(i=0;i<latitudes.length;i++){
         if (latitudes[i]!=""){
             coord = new google.maps.LatLng(latitudes[i], longitudes[i])

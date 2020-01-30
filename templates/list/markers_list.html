@@ -13,14 +13,17 @@
     <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
 </head>
 <body>
-    <!--NAVBAR inserido no caralho do git-->
+
+    <!------------------------------------NAVBAR----------------------------------------------------------------------->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">SpecieGeo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
-    <!--NAVBAR -->
+    <!----------------------------------------------------------------------------------------------------------------->
+
+    <!-------------------------------------NAVBAR---------------------------------------------------------------------->
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <div class="input-group-text">
@@ -34,6 +37,29 @@
       <table class="table" id="table">
       </table>
     </div>
+    <!------------------------------------------------------------------------------------------------------------------>
+
+    <!-------------------------------------MODDAL------------------------------------------------------------------->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Alterar valor</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modal_body">
+            <label id="modal_text"></label>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Cancel_Buttom">Cancelar</button>
+            <button type="button" class="btn btn-primary" onclick="SaveChange()" data-dismiss="modal" id="Confirm_Buttom" >Salvar alteração</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!------------------------------------------------------------------------------------------------------------------>
   <script>
     var localitys = '{{localitys}}'
     var polygons = '{{polygons}}'
@@ -71,6 +97,6 @@
   <script type="text/javascript" src="../static/js/polygon.js"></script>
   <script type="text/javascript" src="../static/js/createComponentHTML.js"></script>
   <script type="text/javascript" src="../static/js/plotPolygon.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&callback=initMap"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ47tWCXOUSPql_E5MRnw5iFKo9uaaWp8&callback=initMap"></script>
 </body>
 </html>

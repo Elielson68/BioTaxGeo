@@ -4,7 +4,7 @@ from model.hierarchy_taxon import Hierarchy_Taxon
 import googlemaps
 
 hrch_taxon = Hierarchy_Taxon()
-gmaps = googlemaps.Client(key='AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc')
+gmaps = googlemaps.Client(key='AIzaSyDJ47tWCXOUSPql_E5MRnw5iFKo9uaaWp8')
 used_sheet = home_controller.used_sheet
 markers_blueprint = Blueprint('markers', __name__, template_folder='templates')
 
@@ -61,7 +61,6 @@ def markers_list():
             del(genus[delete])
             del(specie[delete])
             count+=1
-        '''
         if len(coord_lat)<=1000:
             list_region = []
             for x in range(len(coord_lat)):
@@ -79,9 +78,16 @@ def markers_list():
                     region['county'] = reverse_geocode_result[0]['address_components'][0]['long_name']
                     list_region.append(region)
             localitys = {"locais": list_region}
+            list_treatment_region = []
+            for x in range(len(list_region)):
+                checked_region = {"country"+str(x): None, "state"+str(x): None, "county"+str(x): None}
+                checked_region['country'+str(x)] = used_sheet.data_treatment.Compare_String(country[x], list_region[x]['country'])
+                checked_region['state'+str(x)] = used_sheet.data_treatment.Compare_String(state[x],list_region[x]['state'])
+                checked_region['county'+str(x)] = used_sheet.data_treatment.Compare_String(county[x],list_region[x]['county'])
+                list_treatment_region.append(checked_region)
+            print(list_treatment_region)
         else:
-            localitys = "null"    
-        '''
+            localitys = "null"
         localitys = "null"
         row_coord_lat = used_sheet.coordinate.get_Index_Row_Lat()
         row_coord_lng = used_sheet.coordinate.get_Index_Row_Lng()
