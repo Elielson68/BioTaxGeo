@@ -42,56 +42,57 @@ def markers_list():
         coord_lat = used_sheet.coordinate.Convert_Lat_Decimal(coord_lat)
         coord_lng = used_sheet.coordinate.Convert_Lng_Decimal(coord_lng)
 
-        country = used_sheet.locality.get_Country_Column_values()
-        state = used_sheet.locality.get_State_Column_values()
-        county = used_sheet.locality.get_County_Column_values()
+        spreadsheet_country = used_sheet.locality.get_Country_Column_values()
+        spreadsheet_state = used_sheet.locality.get_State_Column_values()
+        spreadsheet_county = used_sheet.locality.get_County_Column_values()
 
         genus=hrch_taxon.get_Genus()
         specie=hrch_taxon.get_Specie()
 
         list_empty_values = [i for i, item in enumerate(coord_lat) if item == '']
         count=0
+        list_region = []
+        list_treatment_region = []
         for x in list_empty_values:
             delete = x-count
             del(coord_lat[delete])
             del(coord_lng[delete])
-            del(country[delete])
-            del(state[delete])
-            del(county[delete])
+            del(spreadsheet_country[delete])
+            del(spreadsheet_state[delete])
+            del(spreadsheet_county[delete])
             del(genus[delete])
             del(specie[delete])
             count+=1
         if len(coord_lat)<=1000:
-            list_region = []
+            
             for x in range(len(coord_lat)):
                 region = {"country": None, "state": None, "county": None}
-                if coord_lat[x]=="":
-                    region['country'] = ''
-                    region['state'] = ''
-                    region['county'] = ''
-                    list_region.append(region)
-                    continue
-                else:
-                    reverse_geocode_result = gmaps.reverse_geocode((coord_lat[x], coord_lng[x]), language="pt-BR")
+                reverse_geocode_result = gmaps.reverse_geocode((coord_lat[x], coord_lng[x]), language="pt-BR")
+                try:
                     region['country'] = reverse_geocode_result[0]['address_components'][2]['long_name']
+                except:
+                    region['country'] = "null"
+                try:
                     region['state'] = reverse_geocode_result[0]['address_components'][1]['long_name']
+                except:
+                    region['state'] = "null"
+                try:
                     region['county'] = reverse_geocode_result[0]['address_components'][0]['long_name']
-                    list_region.append(region)
-            localitys = {"locais": list_region}
-            list_treatment_region = []
+                except:
+                    region['county'] = "null"
+                list_region.append(region)
             for x in range(len(list_region)):
-                checked_region = {"country"+str(x): None, "state"+str(x): None, "county"+str(x): None}
-                checked_region['country'+str(x)] = used_sheet.data_treatment.Compare_String(country[x], list_region[x]['country'])
-                checked_region['state'+str(x)] = used_sheet.data_treatment.Compare_String(state[x],list_region[x]['state'])
-                checked_region['county'+str(x)] = used_sheet.data_treatment.Compare_String(county[x],list_region[x]['county'])
+                checked_region = {"country": None, "state": None, "county" : None}
+                checked_region['country'] = used_sheet.data_treatment.Compare_String(spreadsheet_country[x], list_region[x]['country'])
+                checked_region['state'] = used_sheet.data_treatment.Compare_String(spreadsheet_state[x],list_region[x]['state'])
+                checked_region['county'] = used_sheet.data_treatment.Compare_String(spreadsheet_county[x],list_region[x]['county'])
                 list_treatment_region.append(checked_region)
-            print(list_treatment_region)
         else:
-            localitys = "null"
-        localitys = "null"
+            list_region = "null"
+            list_treatment_region = "null"
         row_coord_lat = used_sheet.coordinate.get_Index_Row_Lat()
         row_coord_lng = used_sheet.coordinate.get_Index_Row_Lng()
-        return render_template("list/markers_list.html", polygons=polygons, latitude=coord_lat, longitude=coord_lng, row_coord_lat=row_coord_lat, row_coord_lng=row_coord_lng, localitys=localitys, country=country, state=state, county=county, genus=genus, specie=specie)
+        return render_template("list/markers_list.html", polygons=polygons, latitude=coord_lat, longitude=coord_lng, row_coord_lat=row_coord_lat, row_coord_lng=row_coord_lng, list_region=list_region, country=spreadsheet_country, state=spreadsheet_state, county=spreadsheet_county, genus=genus, specie=specie, list_checked_regions=list_treatment_region)
     else:
         return render_template("form/markers_form.html" )
 

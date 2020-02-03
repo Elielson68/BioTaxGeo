@@ -145,7 +145,7 @@ ComponentHTML.prototype.createHeaderTable = function (title, index, color){
     this.table.appendChild(this.thead)
     this.table.appendChild(this.tbody)
 }
-ComponentHTML.prototype.createBodyTable = function (name, country, state, county, latitude, longitude, index){
+ComponentHTML.prototype.createBodyTable = function (name, country, state, county, latitude, longitude, index, wrong, func){
     this.count++
     this.row = document.createElement("tr")
     this.column_index = document.createElement("th")
@@ -175,6 +175,47 @@ ComponentHTML.prototype.createBodyTable = function (name, country, state, county
     this.column_latitude.innerHTML = latitude
     this.column_longitude.innerHTML = longitude
     this.column_index_row.innerHTML = index
+
+    this.column_country.className = "country"
+    this.column_state.className = "state"
+    this.column_county.className = "county"
+    this.column_latitude.className = "latitude"
+    this.column_longitude.className = "longitude"
+
+    this.column_country.id = "country"+this.count
+    this.column_state.id = "state"+this.count
+    this.column_county.id = "county"+this.count
+    this.column_latitude.id = "latitude"+this.count
+    this.column_longitude.id = "longitude"+this.count
+    if(wrong===true){
+
+        this.column_country.setAttribute("data-target","#exampleModal")
+        this.column_country.setAttribute("data-toggle","modal")
+        this.column_country.style = "color: red" 
+        this.column_country.addEventListener("click", func)
+
+        this.column_state.setAttribute("data-target","#exampleModal")
+        this.column_state.setAttribute("data-toggle","modal")
+        this.column_state.style = "color: red" 
+        this.column_state.addEventListener("click", func)
+        
+        this.column_county.setAttribute("data-target","#exampleModal")
+        this.column_county.setAttribute("data-toggle","modal")
+        this.column_county.style = "color: red" 
+        this.column_county.addEventListener("click", func)
+
+        this.column_latitude.setAttribute("data-target","#exampleModal")
+        this.column_latitude.setAttribute("data-toggle","modal")
+        this.column_latitude.style = "color: red" 
+        this.column_latitude.addEventListener("click", func)
+
+        this.column_longitude.setAttribute("data-target","#exampleModal")
+        this.column_longitude.setAttribute("data-toggle","modal")
+        this.column_longitude.style = "color: red" 
+        this.column_longitude.addEventListener("click", func)
+
+    }
+
 }
 ComponentHTML.prototype.createTitleTable = function (){
     //Criando os dados de cada table referente aos polygons

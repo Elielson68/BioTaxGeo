@@ -31,7 +31,6 @@ function initMap() {
         new_components.createInputGroup(vertex_lat, vertex_lng, index, div_component, InputMovedVertex, DeleteVertex)
         list_componentsHTML.push(new_components)
         polygon_components[`polygon${index_polygon}`] = {"polygon": selected_polygon, "components": list_componentsHTML}
-        console.log(polygon_components.toString())
     }
     function MouseMovedVertex(){
         var vertex = this

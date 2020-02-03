@@ -61,7 +61,7 @@
     </div>
     <!------------------------------------------------------------------------------------------------------------------>
   <script>
-    var localitys = '{{localitys}}'
+    var list_region = '{{list_region}}'
     var polygons = '{{polygons}}'
     var latitudes = "{{latitude}}"
     var longitudes = "{{longitude}}"
@@ -72,26 +72,29 @@
     var county = '{{county}}'
     var genus = '{{genus}}'
     var specie = '{{specie}}'
+    var list_checked_regions = '{{list_checked_regions}}'
 
     polygons = polygons.replace(/&#39;/g, '"')
-    localitys = localitys.replace(/&#39;/g, '"')
+    list_region = list_region.replace(/&#39;/g, '"')
     country = country.replace(/&#39;/g, '"')
     state = state.replace(/&#39;/g, '"')
     county =  county.replace(/&#39;/g, '"')
     genus = genus.replace(/&#39;/g, '"')
     specie =  specie.replace(/&#39;/g, '"')
+    list_checked_regions = list_checked_regions.replace(/&#39;/g, '"')
 
     polygons = JSON.parse(polygons)
     latitudes = JSON.parse(latitudes)
     longitudes = JSON.parse(longitudes)
     row_coord_lat = JSON.parse(row_coord_lat)
     row_coord_lng = JSON.parse(row_coord_lng)
-    localitys = JSON.parse(localitys)
+    list_region = JSON.parse(list_region)
     country = JSON.parse(country)
     state = JSON.parse(state)
     county = JSON.parse(county)
     genus = JSON.parse(genus)
     specie = JSON.parse(specie)
+    list_checked_regions = JSON.parse(list_checked_regions)
   </script>
   <script type="text/javascript" src="../static/js/point_marker.js"></script>
   <script type="text/javascript" src="../static/js/polygon.js"></script>

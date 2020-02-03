@@ -17,7 +17,6 @@ function initMap() {
         header_table.createTitleTable()
         list_componentsHTML.push(header_table)
     }
-    
     for(i=0;i<latitudes.length;i++){
         if (latitudes[i]!=""){
             coord = new google.maps.LatLng(latitudes[i], longitudes[i])
@@ -33,7 +32,9 @@ function initMap() {
                 list_marker[i].setInsidePolygon(true)
                 list_marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
                 name = genus[i]+" "+specie[i]
-                list_componentsHTML[p].createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i])
+                list_componentsHTML[p].createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], false)
+
+                
             }
         }
     }
@@ -44,7 +45,8 @@ function initMap() {
             if(!list_marker[i].isInsidePolygon()){
                 name = genus[i]+" "+specie[i]
                 list_marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
-                MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i])
+
+                MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], true, ActiveModal)
             }
     }
     opt_options = {imagePath:'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m', gridSize: 60, maxZoom: 14, minimumClusterSize: 2}
@@ -59,6 +61,29 @@ function initMap() {
             opt_options = {imagePath:'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m', gridSize: 1, maxZoom: 1, minimumClusterSize: 1}
             markerCluster.setOptions(opt_options)
             markerCluster.repaint()
+        }
+    }
+    function ActiveModal(){
+        region = ["country", "state", "county"]
+        coordinates = ["latitude", "longitude"]
+        modal = document.getElementById("modal_body")
+        text = document.getElementById("modal_text")
+        index = this.id.replace(this.className, "")
+        console.log(index)
+        if(region.indexOf(this.className) > -1){
+            if(this.className == "country"){
+                text.innerHTML = `Verificamos que seu PAÍS está incorreto.<br>Observamos que em sua planilha sua coluna referente ao País consta o valor: ${country[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
+            }
+            else if(this.className == "state"){
+                text.innerHTML = `Verificamos que seu ESTADO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Estado consta o valor: ${state[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
+            }
+            else if(this.className == "county"){
+                text.innerHTML = `Verificamos que seu MUNICÍPIO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Município consta o valor: ${county[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
+            }
+            
+        }
+        else if(coordinates.indexOf(this.className) > -1){
+            text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>Os seguintes campos de sua planilha informam os valores:<br><br>PAÍS: ${country[index]}<br>ESTADO: ${state[index]}<BR>MUNICÍPIO: ${county[index]}<br><br>Enquanto que suas coordenadas apontam para:<br><br>PAÍS: ${list_region[index]['country']}<br>ESTADO: ${list_region[index]['state']}<br>MUNICÍPIO: ${list_region[index]['county']}`
         }
     }
     checkbox_group_markers.addEventListener('change', ActiveMarkerCluster)
