@@ -145,8 +145,9 @@ ComponentHTML.prototype.createHeaderTable = function (title, index, color){
     this.table.appendChild(this.thead)
     this.table.appendChild(this.tbody)
 }
-ComponentHTML.prototype.createBodyTable = function (name, country, state, county, latitude, longitude, index, wrong, func){
+ComponentHTML.prototype.createBodyTable = function (name, country, state, county, latitude, longitude, index_row, index_marker, wrong, func){
     this.count++
+    this.index = index_marker
     this.row = document.createElement("tr")
     this.column_index = document.createElement("th")
     this.column_name = document.createElement("td")
@@ -174,7 +175,7 @@ ComponentHTML.prototype.createBodyTable = function (name, country, state, county
     this.column_county.innerHTML = county
     this.column_latitude.innerHTML = latitude
     this.column_longitude.innerHTML = longitude
-    this.column_index_row.innerHTML = index
+    this.column_index_row.innerHTML = index_row
 
     this.column_country.className = "country"
     this.column_state.className = "state"
@@ -182,11 +183,11 @@ ComponentHTML.prototype.createBodyTable = function (name, country, state, county
     this.column_latitude.className = "latitude"
     this.column_longitude.className = "longitude"
 
-    this.column_country.id = "country"+this.count
-    this.column_state.id = "state"+this.count
-    this.column_county.id = "county"+this.count
-    this.column_latitude.id = "latitude"+this.count
-    this.column_longitude.id = "longitude"+this.count
+    this.column_country.id = "country"+index_marker
+    this.column_state.id = "state"+index_marker
+    this.column_county.id = "county"+index_marker
+    this.column_latitude.id = "latitude"+index_marker
+    this.column_longitude.id = "longitude"+index_marker
     if(wrong===true){
 
         this.column_country.setAttribute("data-target","#exampleModal")
@@ -260,4 +261,4 @@ ComponentHTML.prototype.createTitleTable = function (){
     this.tr_titles.setAttribute("class","collapse tab_polygon"+this.index)
     //anexando ao cabeçário da table
     this.thead.append(this.tr_titles)
-  }
+}

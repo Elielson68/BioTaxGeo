@@ -35,6 +35,7 @@ def markers_validation():
 @markers_blueprint .route("/markers_list",methods=["GET","POST"])
 def markers_list():
     if request.method == "POST":
+
         polygons = request.form['vertices']
         polygons = eval(polygons)
         coord_lat = used_sheet.coordinate.get_Latitude_Column_values()
@@ -53,7 +54,11 @@ def markers_list():
         count=0
         list_region = []
         list_treatment_region = []
+
+        test = []
+
         for x in list_empty_values:
+            print(x)
             delete = x-count
             del(coord_lat[delete])
             del(coord_lng[delete])
@@ -68,28 +73,44 @@ def markers_list():
             for x in range(len(coord_lat)):
                 region = {"country": None, "state": None, "county": None}
                 reverse_geocode_result = gmaps.reverse_geocode((coord_lat[x], coord_lng[x]), language="pt-BR")
+                test.append(reverse_geocode_result)
+                index = 0
+                for x in range(len(reverse_geocode_result)):
+                    if reverse_geocode_result[x]['types'][0] == 'administrative_area_level_2':
+                        index = x
+                        break
                 try:
-                    region['country'] = reverse_geocode_result[0]['address_components'][2]['long_name']
+                    region['country'] = reverse_geocode_result[index]['address_components'][2]['long_name']
                 except:
                     region['country'] = "null"
                 try:
-                    region['state'] = reverse_geocode_result[0]['address_components'][1]['long_name']
+                    region['state'] = reverse_geocode_result[index]['address_components'][1]['long_name']
                 except:
                     region['state'] = "null"
                 try:
-                    region['county'] = reverse_geocode_result[0]['address_components'][0]['long_name']
+                    region['county'] = reverse_geocode_result[index]['address_components'][0]['long_name']
                 except:
                     region['county'] = "null"
                 list_region.append(region)
+
             for x in range(len(list_region)):
-                checked_region = {"country": None, "state": None, "county" : None}
-                checked_region['country'] = used_sheet.data_treatment.Compare_String(spreadsheet_country[x], list_region[x]['country'])
-                checked_region['state'] = used_sheet.data_treatment.Compare_String(spreadsheet_state[x],list_region[x]['state'])
-                checked_region['county'] = used_sheet.data_treatment.Compare_String(spreadsheet_county[x],list_region[x]['county'])
+                checked_region = {"country": {'name1': None, 'name2': None, 'score': None}, "state": {'name1': None, 'name2': None, 'score': None}, "county": {'name1': None, 'name2': None, 'score': None}}
+                checked_region['country']['name1'] = spreadsheet_country[x]
+                checked_region['country']['name2'] = list_region[x]['country']
+                checked_region['country']['score'] = used_sheet.data_treatment.Compare_String(spreadsheet_country[x], list_region[x]['country'])
+
+                checked_region['state']['name1'] = spreadsheet_state[x]
+                checked_region['state']['name2'] = list_region[x]['state']
+                checked_region['state']['score'] = used_sheet.data_treatment.Compare_String(spreadsheet_state[x], list_region[x]['state'])
+
+                checked_region['county']['name1'] = spreadsheet_county[x]
+                checked_region['county']['name2'] = list_region[x]['county']
+                checked_region['county']['score'] = used_sheet.data_treatment.Compare_String(spreadsheet_county[x], list_region[x]['county'])
                 list_treatment_region.append(checked_region)
         else:
             list_region = "null"
             list_treatment_region = "null"
+        test2 = {"Results": list_treatment_region}
         row_coord_lat = used_sheet.coordinate.get_Index_Row_Lat()
         row_coord_lng = used_sheet.coordinate.get_Index_Row_Lng()
         return render_template("list/markers_list.html", polygons=polygons, latitude=coord_lat, longitude=coord_lng, row_coord_lat=row_coord_lat, row_coord_lng=row_coord_lng, list_region=list_region, country=spreadsheet_country, state=spreadsheet_state, county=spreadsheet_county, genus=genus, specie=specie, list_checked_regions=list_treatment_region)

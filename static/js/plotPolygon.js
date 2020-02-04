@@ -2,6 +2,7 @@ function initMap() {
     var belem = {lat:-1.44502, lng: -48.4650};
     var map = new google.maps.Map(document.getElementById('plot_map'), {zoom: 4, center: belem});
     var checkbox_group_markers = document.getElementById("checkbox")
+    var Geo = new google.maps.Geocoder
     checkbox_group_markers.checked = true
     list_poly = []
     list_componentsHTML = []
@@ -46,7 +47,7 @@ function initMap() {
                 name = genus[i]+" "+specie[i]
                 list_marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
 
-                MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], true, ActiveModal)
+                MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i, true, ActiveModal)
             }
     }
     opt_options = {imagePath:'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m', gridSize: 60, maxZoom: 14, minimumClusterSize: 2}
@@ -69,7 +70,7 @@ function initMap() {
         modal = document.getElementById("modal_body")
         text = document.getElementById("modal_text")
         index = this.id.replace(this.className, "")
-        console.log(index)
+        
         if(region.indexOf(this.className) > -1){
             if(this.className == "country"){
                 text.innerHTML = `Verificamos que seu PAÍS está incorreto.<br>Observamos que em sua planilha sua coluna referente ao País consta o valor: ${country[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
