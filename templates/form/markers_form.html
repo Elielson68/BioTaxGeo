@@ -15,13 +15,9 @@
   </head>
   <body id="body">
     <!--NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">SpecieGeo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </nav>
+    {% extends "fragments/navbar.html" %}
     <!--NAVBAR -->
+    {% block content %}
     <div>
       <div id="first_map" class="border border-dark"></div>
       <div id="column_right" class="card">
@@ -67,5 +63,6 @@
       <script type="text/javascript" src="../static/js/createPolygon.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ47tWCXOUSPql_E5MRnw5iFKo9uaaWp8&callback=initMap"></script>
     </div>
+    {% endblock %}
   </body>
 </html>

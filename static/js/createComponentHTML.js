@@ -145,7 +145,7 @@ ComponentHTML.prototype.createHeaderTable = function (title, index, color){
     this.table.appendChild(this.thead)
     this.table.appendChild(this.tbody)
 }
-ComponentHTML.prototype.createBodyTable = function (name, country, state, county, latitude, longitude, index_row, index_marker, wrong, func){
+ComponentHTML.prototype.createBodyTable = function (name, country, state, county, latitude, longitude, index_row, index_marker){
     this.count++
     this.index = index_marker
     this.row = document.createElement("tr")
@@ -188,34 +188,6 @@ ComponentHTML.prototype.createBodyTable = function (name, country, state, county
     this.column_county.id = "county"+index_marker
     this.column_latitude.id = "latitude"+index_marker
     this.column_longitude.id = "longitude"+index_marker
-    if(wrong===true){
-
-        this.column_country.setAttribute("data-target","#exampleModal")
-        this.column_country.setAttribute("data-toggle","modal")
-        this.column_country.style = "color: red" 
-        this.column_country.addEventListener("click", func)
-
-        this.column_state.setAttribute("data-target","#exampleModal")
-        this.column_state.setAttribute("data-toggle","modal")
-        this.column_state.style = "color: red" 
-        this.column_state.addEventListener("click", func)
-        
-        this.column_county.setAttribute("data-target","#exampleModal")
-        this.column_county.setAttribute("data-toggle","modal")
-        this.column_county.style = "color: red" 
-        this.column_county.addEventListener("click", func)
-
-        this.column_latitude.setAttribute("data-target","#exampleModal")
-        this.column_latitude.setAttribute("data-toggle","modal")
-        this.column_latitude.style = "color: red" 
-        this.column_latitude.addEventListener("click", func)
-
-        this.column_longitude.setAttribute("data-target","#exampleModal")
-        this.column_longitude.setAttribute("data-toggle","modal")
-        this.column_longitude.style = "color: red" 
-        this.column_longitude.addEventListener("click", func)
-
-    }
 
 }
 ComponentHTML.prototype.createTitleTable = function (){
@@ -261,4 +233,19 @@ ComponentHTML.prototype.createTitleTable = function (){
     this.tr_titles.setAttribute("class","collapse tab_polygon"+this.index)
     //anexando ao cabeçário da table
     this.thead.append(this.tr_titles)
+}
+ComponentHTML.prototype.getRowCountry = function(){
+    return this.column_country
+}
+ComponentHTML.prototype.getRowState = function(){
+    return this.column_state
+}
+ComponentHTML.prototype.getRowCounty = function(){
+    return this.column_county
+}
+ComponentHTML.prototype.getRowLatitude = function(){
+    return this.column_latitude
+}
+ComponentHTML.prototype.getRowLongitude = function(){
+    return this.column_longitude
 }

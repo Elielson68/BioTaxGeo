@@ -33,7 +33,7 @@ function initMap() {
                 list_marker[i].setInsidePolygon(true)
                 list_marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
                 name = genus[i]+" "+specie[i]
-                list_componentsHTML[p].createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], false)
+                list_componentsHTML[p].createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i)
 
                 
             }
@@ -46,8 +46,58 @@ function initMap() {
             if(!list_marker[i].isInsidePolygon()){
                 name = genus[i]+" "+specie[i]
                 list_marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
+                MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i)
+                if(list_checked_regions[i]['country']['score']<60 && list_checked_regions[i]['country']['name2'] != "null"){
+                    MarkersOutPolygon.getRowCountry().innerHTML = list_checked_regions[i]['country']['name1']
+                    MarkersOutPolygon.getRowCountry().setAttribute("data-target","#exampleModal") 
+                    MarkersOutPolygon.getRowCountry().setAttribute("data-toggle","modal")
+                    MarkersOutPolygon.getRowCountry().style = "color: red" 
+                    MarkersOutPolygon.getRowCountry().addEventListener("click", ActiveModal)
 
-                MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i, true, ActiveModal)
+                    MarkersOutPolygon.getRowLatitude().setAttribute("data-target","#exampleModal")
+                    MarkersOutPolygon.getRowLatitude().setAttribute("data-toggle","modal")
+                    MarkersOutPolygon.getRowLatitude().style = "color: red" 
+                    MarkersOutPolygon.getRowLatitude().addEventListener("click", ActiveModal)
+
+                    MarkersOutPolygon.getRowLongitude().setAttribute("data-target","#exampleModal")
+                    MarkersOutPolygon.getRowLongitude().setAttribute("data-toggle","modal")
+                    MarkersOutPolygon.getRowLongitude().style = "color: red" 
+                    MarkersOutPolygon.getRowLongitude().addEventListener("click", ActiveModal)
+                }
+                if(list_checked_regions[i]['state']['score']<60 && list_checked_regions[i]['state']['name2'] != "null"){
+                    MarkersOutPolygon.getRowState().innerHTML = list_checked_regions[i]['state']['name1']
+                    MarkersOutPolygon.getRowState().setAttribute("data-target","#exampleModal") 
+                    MarkersOutPolygon.getRowState().setAttribute("data-toggle","modal")
+                    MarkersOutPolygon.getRowState().style = "color: red" 
+                    MarkersOutPolygon.getRowState().addEventListener("click", ActiveModal)
+
+                    MarkersOutPolygon.getRowLatitude().setAttribute("data-target","#exampleModal")
+                    MarkersOutPolygon.getRowLatitude().setAttribute("data-toggle","modal")
+                    MarkersOutPolygon.getRowLatitude().style = "color: red" 
+                    MarkersOutPolygon.getRowLatitude().addEventListener("click", ActiveModal)
+
+                    MarkersOutPolygon.getRowLongitude().setAttribute("data-target","#exampleModal")
+                    MarkersOutPolygon.getRowLongitude().setAttribute("data-toggle","modal")
+                    MarkersOutPolygon.getRowLongitude().style = "color: red" 
+                    MarkersOutPolygon.getRowLongitude().addEventListener("click", ActiveModal)
+                }
+                if(list_checked_regions[i]['county']['score']<60 && list_checked_regions[i]['county']['name2'] != "null"){
+                    MarkersOutPolygon.getRowCounty().innerHTML = list_checked_regions[i]['county']['name1']
+                    MarkersOutPolygon.getRowCounty().setAttribute("data-target","#exampleModal") 
+                    MarkersOutPolygon.getRowCounty().setAttribute("data-toggle","modal")
+                    MarkersOutPolygon.getRowCounty().style = "color: red" 
+                    MarkersOutPolygon.getRowCounty().addEventListener("click", ActiveModal)
+
+                    MarkersOutPolygon.getRowLatitude().setAttribute("data-target","#exampleModal")
+                    MarkersOutPolygon.getRowLatitude().setAttribute("data-toggle","modal")
+                    MarkersOutPolygon.getRowLatitude().style = "color: red" 
+                    MarkersOutPolygon.getRowLatitude().addEventListener("click", ActiveModal)
+
+                    MarkersOutPolygon.getRowLongitude().setAttribute("data-target","#exampleModal")
+                    MarkersOutPolygon.getRowLongitude().setAttribute("data-toggle","modal")
+                    MarkersOutPolygon.getRowLongitude().style = "color: red" 
+                    MarkersOutPolygon.getRowLongitude().addEventListener("click", ActiveModal)
+                }
             }
     }
     opt_options = {imagePath:'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m', gridSize: 60, maxZoom: 14, minimumClusterSize: 2}
@@ -70,7 +120,7 @@ function initMap() {
         modal = document.getElementById("modal_body")
         text = document.getElementById("modal_text")
         index = this.id.replace(this.className, "")
-        
+        console.log(index)
         if(region.indexOf(this.className) > -1){
             if(this.className == "country"){
                 text.innerHTML = `Verificamos que seu PAÍS está incorreto.<br>Observamos que em sua planilha sua coluna referente ao País consta o valor: ${country[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
