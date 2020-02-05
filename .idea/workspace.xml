@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/markers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/markers_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/createComponentHTML.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/createComponentHTML.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/plotPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/plotPolygon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Selecionar_Rota.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Selecionar_Rota.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/coord_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/coord_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/markers_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/markers_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list/markers_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/markers_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,13 +245,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Usando o metodo GET da API REST do GBIF para retornar a precisao dos nomes cientificos">
-      <created>1572896133707</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1572896133707</updated>
     </task>
     <task id="LOCAL-00043" summary="Retornando sugestao de correcao e mostrando precisao do nome cientifico">
       <created>1572897202221</created>
@@ -597,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580845275300</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="Identificando qual região está errada e sugerindo uma nova com base na coordenada.">
+      <created>1580928014484</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1580928014709</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -662,10 +654,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Identificando qual região está errada e sugerindo uma nova com base na coordenada." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1580927987787">
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1580932123289">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1580927987787" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1580932123289" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1577380023147">
       <screen x="0" y="0" width="1440" height="859" />
     </state>

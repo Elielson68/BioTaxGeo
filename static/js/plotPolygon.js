@@ -120,7 +120,8 @@ function initMap() {
         modal = document.getElementById("modal_body")
         text = document.getElementById("modal_text")
         index = this.id.replace(this.className, "")
-        console.log(index)
+        var latitude = 0
+        var longitude = 0
         if(region.indexOf(this.className) > -1){
             if(this.className == "country"){
                 text.innerHTML = `Verificamos que seu PAÍS está incorreto.<br>Observamos que em sua planilha sua coluna referente ao País consta o valor: ${country[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
@@ -134,7 +135,13 @@ function initMap() {
             
         }
         else if(coordinates.indexOf(this.className) > -1){
-            text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>Os seguintes campos de sua planilha informam os valores:<br><br>PAÍS: ${country[index]}<br>ESTADO: ${state[index]}<BR>MUNICÍPIO: ${county[index]}<br><br>Enquanto que suas coordenadas apontam para:<br><br>PAÍS: ${list_region[index]['country']}<br>ESTADO: ${list_region[index]['state']}<br>MUNICÍPIO: ${list_region[index]['county']}`
+            Geo.geocode({'address': `${country[index]}, ${state[index]}, ${county[index]}`}, function(a){
+                latitude = a[0]['geometry']['location']['lat']()
+                longitude = a[0]['geometry']['location']['lng']()
+                console.log(latitude)
+                console.log(longitude)  
+            })
+            text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>A região informada em sua planilha é: ${country[index]}, ${state[index]}, ${county[index]}<br><br>Enquanto que suas coordenadas apontam para: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}<br><br>As coordenadas corretas para este local são:<br>Latitude: ${latitude}<br>Longitude: ${longitude}`
         }
     }
     checkbox_group_markers.addEventListener('change', ActiveMarkerCluster)
