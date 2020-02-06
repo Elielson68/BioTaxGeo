@@ -3,6 +3,7 @@ function initMap() {
     var map = new google.maps.Map(document.getElementById('plot_map'), {zoom: 4, center: belem});
     var checkbox_group_markers = document.getElementById("checkbox")
     var Geo = new google.maps.Geocoder
+    var coordinate_conversor = new Coordinate();
     checkbox_group_markers.checked = true
     list_poly = []
     list_componentsHTML = []
@@ -115,13 +116,10 @@ function initMap() {
         }
     }
     function ActiveModal(){
-        region = ["country", "state", "county"]
-        coordinates = ["latitude", "longitude"]
-        modal = document.getElementById("modal_body")
-        text = document.getElementById("modal_text")
-        index = this.id.replace(this.className, "")
-        var latitude = 0
-        var longitude = 0
+        var region = ["country", "state", "county"]
+        var coordinates = ["latitude", "longitude"]
+        var text = document.getElementById("modal_text")
+        var index = this.id.replace(this.className, "")
         if(region.indexOf(this.className) > -1){
             if(this.className == "country"){
                 text.innerHTML = `Verificamos que seu PAÍS está incorreto.<br>Observamos que em sua planilha sua coluna referente ao País consta o valor: ${country[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
@@ -135,13 +133,13 @@ function initMap() {
             
         }
         else if(coordinates.indexOf(this.className) > -1){
-            Geo.geocode({'address': `${country[index]}, ${state[index]}, ${county[index]}`}, function(a){
+            Geo.geocode({'address': `${country[index]}, ${state[index]}, ${county[index]}, Floresta Nacional de Caxiuanã`}, function (a){
                 latitude = a[0]['geometry']['location']['lat']()
                 longitude = a[0]['geometry']['location']['lng']()
-                console.log(latitude)
-                console.log(longitude)  
+                text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>A região informada em sua planilha é: ${country[index]}, ${state[index]}, ${county[index]}<br><br>Enquanto que suas coordenadas apontam para: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}<br><br>As coordenadas corretas para este local são:<br>Latitude: ${latitude}<br>Longitude: ${longitude}`
             })
-            text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>A região informada em sua planilha é: ${country[index]}, ${state[index]}, ${county[index]}<br><br>Enquanto que suas coordenadas apontam para: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}<br><br>As coordenadas corretas para este local são:<br>Latitude: ${latitude}<br>Longitude: ${longitude}`
+
+            
         }
     }
     checkbox_group_markers.addEventListener('change', ActiveMarkerCluster)
