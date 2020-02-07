@@ -34,7 +34,7 @@ function initMap() {
                 list_marker[i].setInsidePolygon(true)
                 list_marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
                 name = genus[i]+" "+specie[i]
-                list_componentsHTML[p].createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i)
+                list_componentsHTML[p].createBodyTable(name, country[i], state[i], county[i], locality[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i)
 
                 
             }
@@ -43,11 +43,13 @@ function initMap() {
     MarkersOutPolygon = new ComponentHTML()
     MarkersOutPolygon.createHeaderTable("Lista de Markers fora de Polígonos", "Without", "red")
     MarkersOutPolygon.createTitleTable()
+    console.log(list_checked_regions)
+    console.log(locality)
     for(i=0;i<list_marker.length;i++){
             if(!list_marker[i].isInsidePolygon()){
                 name = genus[i]+" "+specie[i]
                 list_marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
-                MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i)
+                MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], locality[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i)
                 if(list_checked_regions[i]['country']['score']<60 && list_checked_regions[i]['country']['name2'] != "null"){
                     MarkersOutPolygon.getRowCountry().innerHTML = list_checked_regions[i]['country']['name1']
                     MarkersOutPolygon.getRowCountry().setAttribute("data-target","#exampleModal") 
@@ -99,6 +101,23 @@ function initMap() {
                     MarkersOutPolygon.getRowLongitude().style = "color: red" 
                     MarkersOutPolygon.getRowLongitude().addEventListener("click", ActiveModal)
                 }
+                if(list_checked_regions[i]['locality']['score']<60 && list_checked_regions[i]['locality']['name2'] != "null"){
+                    MarkersOutPolygon.getRowLocality().innerHTML = list_checked_regions[i]['locality']['name1']
+                    MarkersOutPolygon.getRowLocality().setAttribute("data-target","#exampleModal") 
+                    MarkersOutPolygon.getRowLocality().setAttribute("data-toggle","modal")
+                    MarkersOutPolygon.getRowLocality().style = "color: red" 
+                    MarkersOutPolygon.getRowLocality().addEventListener("click", ActiveModal)
+
+                    MarkersOutPolygon.getRowLatitude().setAttribute("data-target","#exampleModal")
+                    MarkersOutPolygon.getRowLatitude().setAttribute("data-toggle","modal")
+                    MarkersOutPolygon.getRowLatitude().style = "color: red" 
+                    MarkersOutPolygon.getRowLatitude().addEventListener("click", ActiveModal)
+
+                    MarkersOutPolygon.getRowLongitude().setAttribute("data-target","#exampleModal")
+                    MarkersOutPolygon.getRowLongitude().setAttribute("data-toggle","modal")
+                    MarkersOutPolygon.getRowLongitude().style = "color: red" 
+                    MarkersOutPolygon.getRowLongitude().addEventListener("click", ActiveModal)
+                }
             }
     }
     opt_options = {imagePath:'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m', gridSize: 60, maxZoom: 14, minimumClusterSize: 2}
@@ -116,7 +135,7 @@ function initMap() {
         }
     }
     function ActiveModal(){
-        var region = ["country", "state", "county"]
+        var region = ["country", "state", "county", "locality"]
         var coordinates = ["latitude", "longitude"]
         var text = document.getElementById("modal_text")
         var index = this.id.replace(this.className, "")
@@ -130,13 +149,20 @@ function initMap() {
             else if(this.className == "county"){
                 text.innerHTML = `Verificamos que seu MUNICÍPIO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Município consta o valor: ${county[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
             }
-            
+            else if(this.className == "locality"){
+                text.innerHTML = `Verificamos que sua LOCALIDADE está incorreta.<br>Observamos que em sua planilha sua coluna referente a Localidade consta o valor: ${county[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
+            }
         }
         else if(coordinates.indexOf(this.className) > -1){
-            Geo.geocode({'address': `${country[index]}, ${state[index]}, ${county[index]}, Floresta Nacional de Caxiuanã`}, function (a){
+            Geo.geocode({'address': `${country[index]}, ${state[index]}, ${county[index]}, ${locality[index]}`}, function (a, b){
                 latitude = a[0]['geometry']['location']['lat']()
                 longitude = a[0]['geometry']['location']['lng']()
-                text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>A região informada em sua planilha é: ${country[index]}, ${state[index]}, ${county[index]}<br><br>Enquanto que suas coordenadas apontam para: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}<br><br>As coordenadas corretas para este local são:<br>Latitude: ${latitude}<br>Longitude: ${longitude}`
+                format_MMDDSS_Lat = coordinate_conversor.toDDMMSS(latitude, "lat")
+                format_MMDDSS_Lng = coordinate_conversor.toDDMMSS(longitude, "lng")
+                format_MMDD_Lat = coordinate_conversor.toDDMM(latitude, "lat")
+                format_MMDD_Lng = coordinate_conversor.toDDMM(longitude, "lng")
+                text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>A região informada em sua planilha é: ${country[index]}, ${state[index]}, ${county[index]}<br><br>Enquanto que suas coordenadas apontam para: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}<br><br>As coordenadas corretas para este local são:<br><br>Formato Decimal:<br>Latitude: ${latitude}<br>Longitude: ${longitude}<br><br>Formato MMDDSS:<br>Latitude: ${format_MMDDSS_Lat}<br>Longitude: ${format_MMDDSS_Lng}<br><br>Formato MMDD:<br>Latitude: ${format_MMDD_Lat}<br>Longitude: ${format_MMDD_Lng}`
+                console.log(b)
             })
 
             

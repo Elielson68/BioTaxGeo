@@ -4,6 +4,7 @@ class Locality:
         self.country = []
         self.state = []
         self.county = []
+        self.local = []
         self.sheet = sht
 
     def set_Country_Column_values(self, country):
@@ -33,6 +34,15 @@ class Locality:
         elif (type(county) == dict):
             self.county = county
 
+    def set_Local_Column_values(self, local):
+        if (type(local) == str):
+            index_column = self.sheet.row_values(0).index(local)
+            self.local = self.sheet.col_values(index_column, 1)
+        elif (type(local) == int):
+            self.local = self.sheet.col_values(local, 1)
+        elif (type(local) == dict):
+            self.local = local
+
 
     def get_Country_Column_values(self):
         if (self.country == []):
@@ -51,3 +61,9 @@ class Locality:
             return "Empty column."
         else:
             return self.county
+
+    def get_Local_Column_values(self):
+        if (self.local == []):
+            return "Empty column."
+        else:
+            return self.local

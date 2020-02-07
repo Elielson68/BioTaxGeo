@@ -63,6 +63,12 @@
                                         <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="county"><option>Selecionar município...</option></select></div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Selecione a coluna onde está o Local</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="locality"><option>Selecionar local...</option></select></div>
+                                    </div>
+                                </div>
                             </fieldset>
                         </form>
                     </td>
@@ -82,7 +88,7 @@
             titles = JSON.parse(titles)
 
             var coordinates = {"latitude": null, "longitude": null}
-            var region = {"country": null, "state": null, "county": null}
+            var region = {"country": null, "state": null, "county": null, "locality": null}
             var taxon = {"genus": null, "specie": null}
 
             var select_genus = document.getElementById("genus");
@@ -92,6 +98,7 @@
             var select_country = document.getElementById("country");
             var select_state = document.getElementById("state")
             var select_county = document.getElementById("county")
+            var select_locality = document.getElementById("locality")
 
             AssigningTitles()
             function AssigningTitles(){
@@ -117,13 +124,18 @@
                     new_option7 = document.createElement("option");
                     new_option7.innerHTML = title;
 
-                    select_latitude.appendChild(new_option1);
-                    select_longitude.appendChild(new_option2);
-                    select_country.appendChild(new_option3);
-                    select_state.appendChild(new_option4);
-                    select_county.appendChild(new_option5);
-                    select_genus.appendChild(new_option6);
-                    select_specie.appendChild(new_option7);
+                    new_option8 = document.createElement("option");
+                    new_option8.innerHTML = title;
+
+                    select_genus.appendChild(new_option1);
+                    select_specie.appendChild(new_option2);
+                    select_latitude.appendChild(new_option3);
+                    select_longitude.appendChild(new_option4);
+                    select_country.appendChild(new_option5);
+                    select_state.appendChild(new_option6);
+                    select_county.appendChild(new_option7);
+                    select_locality.appendChild(new_option8);
+                    
                 }
             }
             function Selected(){
@@ -154,6 +166,7 @@
             select_country.addEventListener("change", Selected);
             select_state.addEventListener("change", Selected);
             select_county.addEventListener("change", Selected);
+            select_locality.addEventListener("change", Selected);
         </script>
         {% endblock %}
     </body>
