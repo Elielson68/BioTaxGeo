@@ -48,7 +48,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Cancel_Buttom">Cancelar</button>
-            <button type="button" class="btn btn-primary" onclick="SaveChange()" data-dismiss="modal" id="Confirm_Buttom" >Salvar alteração</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="Confirm_Buttom" >Salvar alteração</button>
           </div>
         </div>
       </div>
@@ -68,6 +68,7 @@
     var genus = '{{genus}}'
     var specie = '{{specie}}'
     var list_checked_regions = '{{list_checked_regions}}'
+    var spreadsheet_titles = '{{spreadsheet_titles}}'
 
     polygons = polygons.replace(/&#39;/g, '"')
     list_region = list_region.replace(/&#39;/g, '"')
@@ -78,7 +79,7 @@
     genus = genus.replace(/&#39;/g, '"')
     specie =  specie.replace(/&#39;/g, '"')
     list_checked_regions = list_checked_regions.replace(/&#39;/g, '"')
-
+    spreadsheet_titles = spreadsheet_titles.replace(/&#39;/g, '"')
     polygons = JSON.parse(polygons)
     latitudes = JSON.parse(latitudes)
     longitudes = JSON.parse(longitudes)
@@ -91,8 +92,9 @@
     locality = JSON.parse(locality)
     genus = JSON.parse(genus)
     specie = JSON.parse(specie)
+    spreadsheet_titles = JSON.parse(spreadsheet_titles)
     list_checked_regions = JSON.parse(list_checked_regions)
-    console.log(list_checked_regions)
+    
   </script>
   <script type="text/javascript" src="../static/js/coordinate.js"></script>
   <script type="text/javascript" src="../static/js/point_marker.js"></script>

@@ -4,6 +4,7 @@ from model.hierarchy_taxon import Hierarchy_Taxon
 import googlemaps
 
 hrch_taxon = Hierarchy_Taxon()
+spreadsheet_titles = {}
 gmaps = googlemaps.Client(key='AIzaSyDJ47tWCXOUSPql_E5MRnw5iFKo9uaaWp8')
 used_sheet = home_controller.used_sheet
 markers_blueprint = Blueprint('markers', __name__, template_folder='templates')
@@ -30,7 +31,12 @@ def markers_validation():
 
         hrch_taxon.set_Genus(used_sheet.Value_in_Column(taxon['genus']))
         hrch_taxon.set_Specie(used_sheet.Value_in_Column(taxon['specie']))
-
+        spreadsheet_titles['country'] = region["country"]
+        spreadsheet_titles['state'] = region["state"]
+        spreadsheet_titles['county'] = region["county"]
+        spreadsheet_titles['locality'] = region["locality"]
+        spreadsheet_titles['latitude'] = coord["latitude"]
+        spreadsheet_titles['longitude'] = coord["longitude"]
         return redirect(url_for("markers.markers_list"))
 
 @markers_blueprint .route("/markers_list",methods=["GET","POST"])
@@ -134,7 +140,7 @@ def markers_list():
         print(list_treatment_region)
         row_coord_lat = used_sheet.coordinate.get_Index_Row_Lat()
         row_coord_lng = used_sheet.coordinate.get_Index_Row_Lng()
-        return render_template("list/markers_list.html", polygons=polygons, latitude=coord_lat, longitude=coord_lng, row_coord_lat=row_coord_lat, row_coord_lng=row_coord_lng, list_region=list_region, country=spreadsheet_country, state=spreadsheet_state, county=spreadsheet_county, locality=spreadsheet_local, genus=genus, specie=specie, list_checked_regions=list_treatment_region)
+        return render_template("list/markers_list.html", polygons=polygons, latitude=coord_lat, longitude=coord_lng, row_coord_lat=row_coord_lat, row_coord_lng=row_coord_lng, list_region=list_region, country=spreadsheet_country, state=spreadsheet_state, county=spreadsheet_county, locality=spreadsheet_local, genus=genus, specie=specie, list_checked_regions=list_treatment_region, spreadsheet_titles=spreadsheet_titles)
     else:
         return render_template("form/markers_form.html" )
 

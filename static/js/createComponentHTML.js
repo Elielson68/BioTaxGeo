@@ -1,5 +1,5 @@
 function ComponentHTML(){
-
+    this.divs = []
 }
 ComponentHTML.prototype.createInputGroup = function(lat, lng, index, append, eventInput, eventButton){
     this.super_div = document.createElement('div');
@@ -260,4 +260,29 @@ ComponentHTML.prototype.getRowLatitude = function(){
 }
 ComponentHTML.prototype.getRowLongitude = function(){
     return this.column_longitude
+}
+ComponentHTML.prototype.createRadioInput = function (modal, text, value, event, id){
+    this.div = document.createElement("div")
+    this.div.className = "form-check"
+    this.div.id = "inputs"
+    this.divs.push(this.div)
+    this.input = document.createElement("input")
+    this.input.className = "form-check-input"
+    this.input.id = id
+    this.input.type = "radio"
+    this.input.name = "Radio"
+    this.input.value = value
+    this.input.addEventListener("click", event)
+    this.label = document.createElement("label")
+    this.label.className = "form-check-label"
+    this.label.innerHTML = text
+    this.div.appendChild(this.input)
+    this.div.appendChild(this.label)
+    modal.appendChild(this.div)
+}
+ComponentHTML.prototype.removeRadioInput = function(modal){
+    for(x=0;x<this.divs.length;x++){
+        modal.removeChild(this.divs[x])
+    }
+    this.divs = []
 }

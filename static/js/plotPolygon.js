@@ -4,6 +4,14 @@ function initMap() {
     var checkbox_group_markers = document.getElementById("checkbox")
     var Geo = new google.maps.Geocoder
     var coordinate_conversor = new Coordinate();
+    var input_radio = new ComponentHTML()
+    var modal = document.getElementById("modal_body")
+    var Cancel_Buttom = document.getElementById("Cancel_Buttom")
+    var Confirm_Buttom = document.getElementById("Confirm_Buttom")
+    var row_modify = null
+    var send_server = {}
+    var modify_column = {}
+
     checkbox_group_markers.checked = true
     list_poly = []
     list_componentsHTML = []
@@ -43,8 +51,6 @@ function initMap() {
     MarkersOutPolygon = new ComponentHTML()
     MarkersOutPolygon.createHeaderTable("Lista de Markers fora de Polígonos", "Without", "red")
     MarkersOutPolygon.createTitleTable()
-    console.log(list_checked_regions)
-    console.log(locality)
     for(i=0;i<list_marker.length;i++){
             if(!list_marker[i].isInsidePolygon()){
                 name = genus[i]+" "+specie[i]
@@ -137,36 +143,69 @@ function initMap() {
     function ActiveModal(){
         var region = ["country", "state", "county", "locality"]
         var coordinates = ["latitude", "longitude"]
+        var column = this.className
         var text = document.getElementById("modal_text")
         var index = this.id.replace(this.className, "")
+        row_modify = row_coord_lat[index]
+        var column_modify = spreadsheet_titles[column]
+        if(send_server[row_modify] != undefined){
+            modify_column = send_server[row_modify]
+        }
+        else{
+            modify_column = {}
+        }
         if(region.indexOf(this.className) > -1){
             if(this.className == "country"){
                 text.innerHTML = `Verificamos que seu PAÍS está incorreto.<br>Observamos que em sua planilha sua coluna referente ao País consta o valor: ${country[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
+                modify_column[column_modify] = list_region[index][this.className]
             }
             else if(this.className == "state"){
                 text.innerHTML = `Verificamos que seu ESTADO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Estado consta o valor: ${state[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
+                modify_column[column_modify] = list_region[index][this.className]
             }
             else if(this.className == "county"){
                 text.innerHTML = `Verificamos que seu MUNICÍPIO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Município consta o valor: ${county[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
+                modify_column[column_modify] = list_region[index][this.className]
             }
             else if(this.className == "locality"){
                 text.innerHTML = `Verificamos que sua LOCALIDADE está incorreta.<br>Observamos que em sua planilha sua coluna referente a Localidade consta o valor: ${county[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
+                modify_column[column_modify] = list_region[index][this.className]
             }
         }
         else if(coordinates.indexOf(this.className) > -1){
             Geo.geocode({'address': `${country[index]}, ${state[index]}, ${county[index]}, ${locality[index]}`}, function (a, b){
+                coordinate = {"latitude": {"decimal": null, "MMDDSS": null, "MMDD": null}, "longitude":{"decimal": null, "MMDDSS": null, "MMDD": null}}
                 latitude = a[0]['geometry']['location']['lat']()
                 longitude = a[0]['geometry']['location']['lng']()
-                format_MMDDSS_Lat = coordinate_conversor.toDDMMSS(latitude, "lat")
-                format_MMDDSS_Lng = coordinate_conversor.toDDMMSS(longitude, "lng")
-                format_MMDD_Lat = coordinate_conversor.toDDMM(latitude, "lat")
-                format_MMDD_Lng = coordinate_conversor.toDDMM(longitude, "lng")
-                text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>A região informada em sua planilha é: ${country[index]}, ${state[index]}, ${county[index]}<br><br>Enquanto que suas coordenadas apontam para: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}<br><br>As coordenadas corretas para este local são:<br><br>Formato Decimal:<br>Latitude: ${latitude}<br>Longitude: ${longitude}<br><br>Formato MMDDSS:<br>Latitude: ${format_MMDDSS_Lat}<br>Longitude: ${format_MMDDSS_Lng}<br><br>Formato MMDD:<br>Latitude: ${format_MMDD_Lat}<br>Longitude: ${format_MMDD_Lng}`
-                console.log(b)
+                lat_lng = column == "latitude"? "lat":"lng"
+                coordinate[column]['decimal'] = lat_lng == "lat"? latitude:longitude
+                coord_decimal = coordinate[column]['decimal']
+                coordinate[column]['DDMMSS'] = coordinate_conversor.toDDMMSS(coord_decimal, lat_lng)
+                coordinate[column]['DDMM'] = coordinate_conversor.toDDMM(coord_decimal, lat_lng)
+                text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>A região informada em sua planilha é: ${country[index]}, ${state[index]}, ${county[index]}<br><br>Enquanto que suas coordenadas apontam para: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}<br><br>As coordenadas corretas para este local são:<br><br>`
+                decimal = coordinate[column]['decimal']
+                DDMMSS = coordinate[column]['DDMMSS']
+                DDMM = coordinate[column]['DDMM']
+                input_radio.createRadioInput(modal, `Decimal ${column}: ${decimal}<br><br>`, decimal, SelectedRadio, column)
+                input_radio.createRadioInput(modal, `MMDDSS ${column}: ${DDMMSS}<br><br>`, DDMMSS, SelectedRadio, column)
+                input_radio.createRadioInput(modal, `MMDD ${column}: ${DDMM}<br><br>`, DDMM, SelectedRadio, column)
             })
 
-            
         }
     }
+    function RemoveRadioModal(){
+        input_radio.removeRadioInput(modal)
+    }
+    function SelectedRadio(){
+        column_modify = spreadsheet_titles[this.id]
+        modify_column[column_modify] = this.value
+    }
+    function SaveChange(){
+        send_server[row_modify] = modify_column
+        console.log(send_server)
+    }
+    Cancel_Buttom.addEventListener("click", RemoveRadioModal)
+    Confirm_Buttom.addEventListener("click", RemoveRadioModal)
+    Confirm_Buttom.addEventListener("click", SaveChange)
     checkbox_group_markers.addEventListener('change', ActiveMarkerCluster)
 }
