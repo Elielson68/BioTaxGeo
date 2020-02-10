@@ -182,10 +182,10 @@ function initMap() {
         modify_column[column_modify] = this.value
     }
     function SaveChange(){
+        component = new ComponentHTML()
         changed = document.getElementById(column_changed)
-        changed.style = "color: black";
+        component.removeStatusWrongRow(changed, ActiveModal)
         send_server[row_modify] = modify_column
-        console.log(send_server)
     }
     Cancel_Buttom.addEventListener("click", RemoveRadioModal)
     Confirm_Buttom.addEventListener("click", RemoveRadioModal)

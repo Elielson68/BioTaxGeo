@@ -287,9 +287,15 @@ ComponentHTML.prototype.removeRadioInput = function(modal){
     this.divs = []
 }
 ComponentHTML.prototype.setWrongRow = function(component, text, event){
-    component.getRowCountry().innerHTML = text
-    component.getRowCountry().setAttribute("data-target","#exampleModal") 
-    component.getRowCountry().setAttribute("data-toggle","modal")
-    component.getRowCountry().style = "color: red" 
-    component.getRowCountry().addEventListener("click", event)
+    component.innerHTML = text
+    component.setAttribute("data-target","#exampleModal") 
+    component.setAttribute("data-toggle","modal")
+    component.style = "color: red" 
+    component.addEventListener("click", event)
+}
+ComponentHTML.prototype.removeStatusWrongRow = function(component, event){
+    component.removeAttribute("data-target")
+    component.removeAttribute("data-toggle")
+    component.style = "color: black" 
+    component.removeEventListener("click", event)
 }
