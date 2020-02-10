@@ -124,6 +124,13 @@ class Sheet:
                     if((value1 == value2) and (value1_level == value2_level)):
                         self.formated_sheet.write(row, column_index, data_to_change[key1][data]["suggestion"])
 
+    def Change_Data_Spreadsheet2(self, data_to_change):
+        for row in data_to_change:
+            for column in data_to_change[row]:
+                column_index = self.sheet.row_values(0).index(column)
+                change_row = int(row)-1
+                self.formated_sheet.write(change_row, column_index, data_to_change[row][column])
+
     def Save_Formatted_Spreadsheet(self):
         return self.write_file.save("files/Planilha_Formatada.xls")
 

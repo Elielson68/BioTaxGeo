@@ -293,7 +293,8 @@ ComponentHTML.prototype.setWrongRow = function(component, text, event){
     component.style = "color: red" 
     component.addEventListener("click", event)
 }
-ComponentHTML.prototype.removeStatusWrongRow = function(component, event){
+ComponentHTML.prototype.removeStatusWrongRow = function(component, text, event){
+    component.innerHTML = text
     component.removeAttribute("data-target")
     component.removeAttribute("data-toggle")
     component.style = "color: black" 

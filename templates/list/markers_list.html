@@ -27,8 +27,14 @@
       </div>
       <input type="text" class="form-control" aria-label="Text input with checkbox" disabled value="Agrupar markers">
     </div>
+
     <div id="plot_map" class="border border-secondary"></div>
+    <!--<div id="mapi"></div>-->
     <div id="div_table" class="border border-secondary">
+      <form action = "markers_confirm" method = "POST" enctype = "multipart/form-data">
+        <button type="submit" class="btn btn-success btn-lg btn-block rounded-0">Salvar alterações</button>
+        <input type="text" name = "data" value="" id="data" hidden>
+      </form>
       <table class="table" id="table">
       </table>
     </div>
@@ -45,6 +51,7 @@
           </div>
           <div class="modal-body" id="modal_body">
             <label id="modal_text"></label>
+            
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Cancel_Buttom">Cancelar</button>

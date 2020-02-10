@@ -131,17 +131,25 @@ def markers_list():
                 checked_region['locality']['name2'] = list_region[x]['locality']
                 checked_region['locality']['score'] = used_sheet.data_treatment.Compare_String(spreadsheet_local[x], list_region[x]['locality'])
                 list_treatment_region.append(checked_region)
-        except:
-            print("erro")
+        except NameError:
+            print("erro: "+NameError)
         row_coord_lat = used_sheet.coordinate.get_Index_Row_Lat()
         row_coord_lng = used_sheet.coordinate.get_Index_Row_Lng()
         return render_template("list/markers_list.html", polygons=polygons, latitude=coord_lat, longitude=coord_lng, row_coord_lat=row_coord_lat, row_coord_lng=row_coord_lng, list_region=list_region, country=spreadsheet_country, state=spreadsheet_state, county=spreadsheet_county, locality=spreadsheet_local, genus=genus, specie=specie, list_checked_regions=list_treatment_region, spreadsheet_titles=spreadsheet_titles)
     else:
         return render_template("form/markers_form.html" )
 
+@markers_blueprint .route("/markers_confirm", methods=["GET", "POST"])
+def markers_confirm():
+    if request.method == "POST":
+        data = request.form["data"]
+        data = eval(data)
+        used_sheet.Change_Data_Spreadsheet2(data)
+        used_sheet.Save_Formatted_Spreadsheet()
+        print(data)
+        return data
 '''
 _______________________________________________________________________________________________________________________
 UTILIZANDO API REST DO GOOGLEMAPS 
-
 1740 linhas lidas em 4m20s.
 '''

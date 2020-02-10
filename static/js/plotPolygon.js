@@ -1,6 +1,7 @@
 function initMap() {
     var belem = {lat:-1.44502, lng: -48.4650};
     var map = new google.maps.Map(document.getElementById('plot_map'), {zoom: 4, center: belem});
+    //var mapi = new google.maps.Map(document.getElementById("mapi"), {zoom: 4, center: belem});
     var checkbox_group_markers = document.getElementById("checkbox")
     var Geo = new google.maps.Geocoder
     var coordinate_conversor = new Coordinate();
@@ -8,9 +9,11 @@ function initMap() {
     var modal = document.getElementById("modal_body")
     var Cancel_Buttom = document.getElementById("Cancel_Buttom")
     var Confirm_Buttom = document.getElementById("Confirm_Buttom")
+    var data = document.getElementById("data")
     var row_modify = null
     var send_server = {}
     var modify_column = {}
+    var column_modify = ""
     var column_changed = null
     checkbox_group_markers.checked = true
     list_poly = []
@@ -46,23 +49,23 @@ function initMap() {
                 if(list_checked_regions[i]['country']['score']<60 && list_checked_regions[i]['country']['name2'] != "null"){
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowCountry(), list_checked_regions[i]['country']['name1'], ActiveModal)
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
-                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
                 if(list_checked_regions[i]['state']['score']<60 && list_checked_regions[i]['state']['name2'] != "null"){
 
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowState(), list_checked_regions[i]['state']['name1'], ActiveModal)
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
-                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
                 if(list_checked_regions[i]['county']['score']<60 && list_checked_regions[i]['county']['name2'] != "null"){
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowCounty(),  list_checked_regions[i]['county']['name1'], ActiveModal)
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
-                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
                 if(list_checked_regions[i]['locality']['score']<60 && list_checked_regions[i]['locality']['name2'] != "null"){
                     list_componentsHTML[p].setWrongRow( list_componentsHTML[p].getRowLocality(),  list_checked_regions[i]['locality']['name1'], ActiveModal)
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
-                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
                 
             }
@@ -79,23 +82,23 @@ function initMap() {
                 if(list_checked_regions[i]['country']['score']<60 && list_checked_regions[i]['country']['name2'] != "null"){
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowCountry(), list_checked_regions[i]['country']['name1'], ActiveModal)
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
-                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
                 if(list_checked_regions[i]['state']['score']<60 && list_checked_regions[i]['state']['name2'] != "null"){
 
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowState(), list_checked_regions[i]['state']['name1'], ActiveModal)
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
-                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
                 if(list_checked_regions[i]['county']['score']<60 && list_checked_regions[i]['county']['name2'] != "null"){
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowCounty(),  list_checked_regions[i]['county']['name1'], ActiveModal)
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
-                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
                 if(list_checked_regions[i]['locality']['score']<60 && list_checked_regions[i]['locality']['name2'] != "null"){
                     MarkersOutPolygon.setWrongRow( MarkersOutPolygon.getRowLocality(),  list_checked_regions[i]['locality']['name1'], ActiveModal)
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
-                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
             }
     }
@@ -121,7 +124,7 @@ function initMap() {
         var index = this.id.replace(this.className, "")
         row_modify = row_coord_lat[index]
         column_changed = this.id
-        var column_modify = spreadsheet_titles[column]
+        column_modify = spreadsheet_titles[column]
         if(send_server[row_modify] != undefined){
             modify_column = send_server[row_modify]
         }
@@ -164,6 +167,7 @@ function initMap() {
                 coordinate[column]['DDMMSS'] = coordinate_conversor.toDDMMSS(coord_decimal, lat_lng)
                 coordinate[column]['DDMM'] = coordinate_conversor.toDDMM(coord_decimal, lat_lng)
                 text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>A região informada em sua planilha é: ${country[index]}, ${state[index]}, ${county[index]}, ${locality[index]}<br><br>Enquanto que suas coordenadas apontam para: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}, ${list_region[index]['locality']}<br><br>As coordenadas corretas para este local são:<br><br>`
+                
                 decimal = coordinate[column]['decimal']
                 DDMMSS = coordinate[column]['DDMMSS']
                 DDMM = coordinate[column]['DDMM']
@@ -174,6 +178,7 @@ function initMap() {
 
         }
     }
+
     function RemoveRadioModal(){
         input_radio.removeRadioInput(modal)
     }
@@ -184,8 +189,11 @@ function initMap() {
     function SaveChange(){
         component = new ComponentHTML()
         changed = document.getElementById(column_changed)
-        component.removeStatusWrongRow(changed, ActiveModal)
+        component.removeStatusWrongRow(changed, modify_column[column_modify], ActiveModal)
         send_server[row_modify] = modify_column
+        console.log(JSON.stringify(send_server))
+        data.value = JSON.stringify(send_server)
+        console.log(data.value)
     }
     Cancel_Buttom.addEventListener("click", RemoveRadioModal)
     Confirm_Buttom.addEventListener("click", RemoveRadioModal)
