@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/markers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/markers_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/TESTE.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/TESTE.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/createComponentHTML.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/createComponentHTML.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/plotPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/plotPolygon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list/markers_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/markers_list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -250,13 +248,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Criacao de arquivo pra ler planilha">
-      <created>1572637636168</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1572637636168</updated>
     </task>
     <task id="LOCAL-00041" summary="Utilizando o objeto de Planilha para pegar latitude e longitude">
       <created>1572892584946</created>
@@ -594,7 +585,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580341590598</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Salvando informações modificadas em JSON para enviar para o servidor">
+      <created>1581201830495</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1581201830498</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -631,7 +629,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="comecando coordenadas" />
     <MESSAGE value="Coordenadas, conversão para decimal" />
     <MESSAGE value="Criado objeto Coordenadas onde recebe os valores de latitude e longitude e suas formas" />
     <MESSAGE value="Convertendo string de coordenadas e inserindo em um objeto. Ela identifica onde esta o grau, minutos e segundos e insere automaticamente no objeto em seus respectivo campo" />
@@ -656,7 +653,8 @@
     <MESSAGE value="Filtragem das coordenadas e dos locais" />
     <MESSAGE value="Finalizado a filtragem para retornar as linhas corretas de cada coordenada referente a região" />
     <MESSAGE value="Cada marker informa a localização que está informada em sua planilha" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cada marker informa a localização que está informada em sua planilha" />
+    <MESSAGE value="Salvando informações modificadas em JSON para enviar para o servidor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Salvando informações modificadas em JSON para enviar para o servidor" />
   </component>
   <component name="WindowStateProjectService">
     <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1579204264549">

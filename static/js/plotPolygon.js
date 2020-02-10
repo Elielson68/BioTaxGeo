@@ -11,7 +11,7 @@ function initMap() {
     var row_modify = null
     var send_server = {}
     var modify_column = {}
-
+    var column_changed = null
     checkbox_group_markers.checked = true
     list_poly = []
     list_componentsHTML = []
@@ -43,7 +43,27 @@ function initMap() {
                 list_marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
                 name = genus[i]+" "+specie[i]
                 list_componentsHTML[p].createBodyTable(name, country[i], state[i], county[i], locality[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i)
+                if(list_checked_regions[i]['country']['score']<60 && list_checked_regions[i]['country']['name2'] != "null"){
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowCountry(), list_checked_regions[i]['country']['name1'], ActiveModal)
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
+                }
+                if(list_checked_regions[i]['state']['score']<60 && list_checked_regions[i]['state']['name2'] != "null"){
 
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowState(), list_checked_regions[i]['state']['name1'], ActiveModal)
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
+                }
+                if(list_checked_regions[i]['county']['score']<60 && list_checked_regions[i]['county']['name2'] != "null"){
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowCounty(),  list_checked_regions[i]['county']['name1'], ActiveModal)
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
+                }
+                if(list_checked_regions[i]['locality']['score']<60 && list_checked_regions[i]['locality']['name2'] != "null"){
+                    list_componentsHTML[p].setWrongRow( list_componentsHTML[p].getRowLocality(),  list_checked_regions[i]['locality']['name1'], ActiveModal)
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
+                    list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
+                }
                 
             }
         }
@@ -57,72 +77,25 @@ function initMap() {
                 list_marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
                 MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], locality[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i)
                 if(list_checked_regions[i]['country']['score']<60 && list_checked_regions[i]['country']['name2'] != "null"){
-                    MarkersOutPolygon.getRowCountry().innerHTML = list_checked_regions[i]['country']['name1']
-                    MarkersOutPolygon.getRowCountry().setAttribute("data-target","#exampleModal") 
-                    MarkersOutPolygon.getRowCountry().setAttribute("data-toggle","modal")
-                    MarkersOutPolygon.getRowCountry().style = "color: red" 
-                    MarkersOutPolygon.getRowCountry().addEventListener("click", ActiveModal)
-
-                    MarkersOutPolygon.getRowLatitude().setAttribute("data-target","#exampleModal")
-                    MarkersOutPolygon.getRowLatitude().setAttribute("data-toggle","modal")
-                    MarkersOutPolygon.getRowLatitude().style = "color: red" 
-                    MarkersOutPolygon.getRowLatitude().addEventListener("click", ActiveModal)
-
-                    MarkersOutPolygon.getRowLongitude().setAttribute("data-target","#exampleModal")
-                    MarkersOutPolygon.getRowLongitude().setAttribute("data-toggle","modal")
-                    MarkersOutPolygon.getRowLongitude().style = "color: red" 
-                    MarkersOutPolygon.getRowLongitude().addEventListener("click", ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowCountry(), list_checked_regions[i]['country']['name1'], ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
                 if(list_checked_regions[i]['state']['score']<60 && list_checked_regions[i]['state']['name2'] != "null"){
-                    MarkersOutPolygon.getRowState().innerHTML = list_checked_regions[i]['state']['name1']
-                    MarkersOutPolygon.getRowState().setAttribute("data-target","#exampleModal") 
-                    MarkersOutPolygon.getRowState().setAttribute("data-toggle","modal")
-                    MarkersOutPolygon.getRowState().style = "color: red" 
-                    MarkersOutPolygon.getRowState().addEventListener("click", ActiveModal)
 
-                    MarkersOutPolygon.getRowLatitude().setAttribute("data-target","#exampleModal")
-                    MarkersOutPolygon.getRowLatitude().setAttribute("data-toggle","modal")
-                    MarkersOutPolygon.getRowLatitude().style = "color: red" 
-                    MarkersOutPolygon.getRowLatitude().addEventListener("click", ActiveModal)
-
-                    MarkersOutPolygon.getRowLongitude().setAttribute("data-target","#exampleModal")
-                    MarkersOutPolygon.getRowLongitude().setAttribute("data-toggle","modal")
-                    MarkersOutPolygon.getRowLongitude().style = "color: red" 
-                    MarkersOutPolygon.getRowLongitude().addEventListener("click", ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowState(), list_checked_regions[i]['state']['name1'], ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
                 if(list_checked_regions[i]['county']['score']<60 && list_checked_regions[i]['county']['name2'] != "null"){
-                    MarkersOutPolygon.getRowCounty().innerHTML = list_checked_regions[i]['county']['name1']
-                    MarkersOutPolygon.getRowCounty().setAttribute("data-target","#exampleModal") 
-                    MarkersOutPolygon.getRowCounty().setAttribute("data-toggle","modal")
-                    MarkersOutPolygon.getRowCounty().style = "color: red" 
-                    MarkersOutPolygon.getRowCounty().addEventListener("click", ActiveModal)
-
-                    MarkersOutPolygon.getRowLatitude().setAttribute("data-target","#exampleModal")
-                    MarkersOutPolygon.getRowLatitude().setAttribute("data-toggle","modal")
-                    MarkersOutPolygon.getRowLatitude().style = "color: red" 
-                    MarkersOutPolygon.getRowLatitude().addEventListener("click", ActiveModal)
-
-                    MarkersOutPolygon.getRowLongitude().setAttribute("data-target","#exampleModal")
-                    MarkersOutPolygon.getRowLongitude().setAttribute("data-toggle","modal")
-                    MarkersOutPolygon.getRowLongitude().style = "color: red" 
-                    MarkersOutPolygon.getRowLongitude().addEventListener("click", ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowCounty(),  list_checked_regions[i]['county']['name1'], ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
                 if(list_checked_regions[i]['locality']['score']<60 && list_checked_regions[i]['locality']['name2'] != "null"){
-                    MarkersOutPolygon.getRowLocality().innerHTML = list_checked_regions[i]['locality']['name1']
-                    MarkersOutPolygon.getRowLocality().setAttribute("data-target","#exampleModal") 
-                    MarkersOutPolygon.getRowLocality().setAttribute("data-toggle","modal")
-                    MarkersOutPolygon.getRowLocality().style = "color: red" 
-                    MarkersOutPolygon.getRowLocality().addEventListener("click", ActiveModal)
-
-                    MarkersOutPolygon.getRowLatitude().setAttribute("data-target","#exampleModal")
-                    MarkersOutPolygon.getRowLatitude().setAttribute("data-toggle","modal")
-                    MarkersOutPolygon.getRowLatitude().style = "color: red" 
-                    MarkersOutPolygon.getRowLatitude().addEventListener("click", ActiveModal)
-
-                    MarkersOutPolygon.getRowLongitude().setAttribute("data-target","#exampleModal")
-                    MarkersOutPolygon.getRowLongitude().setAttribute("data-toggle","modal")
-                    MarkersOutPolygon.getRowLongitude().style = "color: red" 
-                    MarkersOutPolygon.getRowLongitude().addEventListener("click", ActiveModal)
+                    MarkersOutPolygon.setWrongRow( MarkersOutPolygon.getRowLocality(),  list_checked_regions[i]['locality']['name1'], ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
+                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
             }
     }
@@ -147,6 +120,7 @@ function initMap() {
         var text = document.getElementById("modal_text")
         var index = this.id.replace(this.className, "")
         row_modify = row_coord_lat[index]
+        column_changed = this.id
         var column_modify = spreadsheet_titles[column]
         if(send_server[row_modify] != undefined){
             modify_column = send_server[row_modify]
@@ -173,8 +147,15 @@ function initMap() {
             }
         }
         else if(coordinates.indexOf(this.className) > -1){
-            Geo.geocode({'address': `${country[index]}, ${state[index]}, ${county[index]}, ${locality[index]}`}, function (a, b){
+            CompRest = {componentRestrictions: { country: country[index],
+                                                administrativeArea: state[index],
+                                                administrativeArea: county[index],
+                                                route: locality[index]
+                                              }}
+            
+            Geo.geocode(CompRest, function (a, b){
                 coordinate = {"latitude": {"decimal": null, "MMDDSS": null, "MMDD": null}, "longitude":{"decimal": null, "MMDDSS": null, "MMDD": null}}
+                console.log(a)                
                 latitude = a[0]['geometry']['location']['lat']()
                 longitude = a[0]['geometry']['location']['lng']()
                 lat_lng = column == "latitude"? "lat":"lng"
@@ -182,7 +163,7 @@ function initMap() {
                 coord_decimal = coordinate[column]['decimal']
                 coordinate[column]['DDMMSS'] = coordinate_conversor.toDDMMSS(coord_decimal, lat_lng)
                 coordinate[column]['DDMM'] = coordinate_conversor.toDDMM(coord_decimal, lat_lng)
-                text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>A região informada em sua planilha é: ${country[index]}, ${state[index]}, ${county[index]}<br><br>Enquanto que suas coordenadas apontam para: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}<br><br>As coordenadas corretas para este local são:<br><br>`
+                text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>A região informada em sua planilha é: ${country[index]}, ${state[index]}, ${county[index]}, ${locality[index]}<br><br>Enquanto que suas coordenadas apontam para: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}, ${list_region[index]['locality']}<br><br>As coordenadas corretas para este local são:<br><br>`
                 decimal = coordinate[column]['decimal']
                 DDMMSS = coordinate[column]['DDMMSS']
                 DDMM = coordinate[column]['DDMM']
@@ -201,6 +182,8 @@ function initMap() {
         modify_column[column_modify] = this.value
     }
     function SaveChange(){
+        changed = document.getElementById(column_changed)
+        changed.style = "color: black";
         send_server[row_modify] = modify_column
         console.log(send_server)
     }
