@@ -149,6 +149,7 @@ function initMap() {
         var column = this.className
         var text = document.getElementById("modal_text")
         var index = this.id.replace(this.name, "")
+        console.log(country)
         row_modify = row_coord_lat[index]
         column_changed = this.id
         column_modify = spreadsheet_titles[column]
@@ -185,11 +186,11 @@ function initMap() {
                                                 route: locality[index]
                                                }
                         }
-            Geo.geocode(CompRest, function (a, b){
+            Geo.geocode(CompRest, function (a){
                 coordinate = {"latitude": {"decimal": null, "MMDDSS": null, "MMDD": null}, "longitude":{"decimal": null, "MMDDSS": null, "MMDD": null}}               
                 latitude = a[0]['geometry']['location']['lat']()
                 longitude = a[0]['geometry']['location']['lng']()
-                lat_lng = column == "latitude"? "lat":"lng"
+                lat_lng = column == "latitude" ? "lat":"lng"
                 coordinate[column]['decimal'] = lat_lng == "lat"? latitude:longitude
                 coord_decimal = coordinate[column]['decimal']
                 coordinate[column]['DDMMSS'] = coordinate_conversor.toDDMMSS(coord_decimal, lat_lng)
@@ -214,31 +215,32 @@ function initMap() {
         modify_column[column_modify] = this.value
     }
     function SaveChange(){
-        coord = ["latitude", "longitude"]
-        region = ["country", "state", "county", "locality"]
-        component = new ComponentHTML()
-        changed = document.getElementById(column_changed)
+        var coord = ["latitude", "longitude"]
+        var region = ["country", "state", "county", "locality"]
+        var component = new ComponentHTML()
+        var changed = document.getElementById(column_changed)
         component.removeStatusWrongRow(changed, modify_column[column_modify], ActiveModal)
         send_server[row_modify] = modify_column
         data.value = JSON.stringify(send_server)
 
         if(region.indexOf(changed.className) > -1){
-            lat_id = changed.id.replace(changed.className, "latitude")
-            lng_id = changed.id.replace(changed.className, "longitude")
-            lat = document.getElementById(lat_id)
-            lng = document.getElementById(lng_id)
+            var lat_id = changed.id.replace(changed.className, "latitude")
+            var lng_id = changed.id.replace(changed.className, "longitude")
+            var lat = document.getElementById(lat_id)
+            var lng = document.getElementById(lng_id)
             component.removeStatusWrongRow(lat, lat.innerHTML, ActiveModal)
             component.removeStatusWrongRow(lng , lng.innerHTML, ActiveModal)
         }
         if(coord.indexOf(changed.className) > -1){
-            country_id = changed.id.replace(changed.className, "country")
-            state_id = changed.id.replace(changed.className, "state")
-            county_id = changed.id.replace(changed.className, "county")
-            locality_id = changed.id.replace(changed.className, "locality")
-            country = document.getElementById(country_id)
-            state = document.getElementById(state_id)
-            county = document.getElementById(county_id)
-            locality = document.getElementById(locality_id)
+            var country_id = changed.id.replace(changed.className, "country")
+            var state_id = changed.id.replace(changed.className, "state")
+            var county_id = changed.id.replace(changed.className, "county")
+            var locality_id = changed.id.replace(changed.className, "locality")
+            
+            var country = document.getElementById(country_id)
+            var state = document.getElementById(state_id)
+            var county = document.getElementById(county_id)
+            var locality = document.getElementById(locality_id)
             component.removeStatusWrongRow(country, country.innerHTML, ActiveModal)
             component.removeStatusWrongRow(state , state.innerHTML, ActiveModal)
             component.removeStatusWrongRow(county , county.innerHTML, ActiveModal)
