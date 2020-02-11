@@ -20,6 +20,8 @@ else{
     this.hemisphere = type === "lat" ? "N" : "E"
 }
 this.degree = value[0]
+
+if(this.degree.toString().length<2){ this.degree = "0"+this.degree.toString() }
 value[1] = "0."+value[1]
 this.minute = value[1]*60
 var value2 = this.minute.toString().split(".")
@@ -46,6 +48,7 @@ Coordinate.prototype.toDDMM = function(coordinate, type){
         this.hemisphere = type === "lat" ? "N" : "E"
     }
     this.degree = value[0]
+    if(this.degree.toString().length<2){ this.degree = "0"+this.degree.toString() }
     value[1] = "0."+value[1]
     this.minute = value[1]*60
     this.minute = parseFloat(this.minute.toFixed(3))

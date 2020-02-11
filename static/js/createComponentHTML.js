@@ -145,7 +145,7 @@ ComponentHTML.prototype.createHeaderTable = function (title, index, color){
     this.table.appendChild(this.thead)
     this.table.appendChild(this.tbody)
 }
-ComponentHTML.prototype.createBodyTable = function (name, country, state, county, locality, latitude, longitude, index_row, index_marker){
+ComponentHTML.prototype.createBodyTable = function (name, country, state, county, locality, latitude, longitude, index_row, index_marker, index_poly){
     this.count++
     this.index = index_marker
     this.row = document.createElement("tr")
@@ -187,12 +187,19 @@ ComponentHTML.prototype.createBodyTable = function (name, country, state, county
     this.column_latitude.className = "latitude"
     this.column_longitude.className = "longitude"
 
-    this.column_country.id = "country"+index_marker
-    this.column_state.id = "state"+index_marker
-    this.column_county.id = "county"+index_marker
-    this.column_locality.id = "locality"+index_marker
-    this.column_latitude.id = "latitude"+index_marker
-    this.column_longitude.id = "longitude"+index_marker
+    this.column_country.name = "country"+index_poly
+    this.column_state.name = "state"+index_poly
+    this.column_county.name = "county"+index_poly
+    this.column_locality.name = "locality"+index_poly
+    this.column_latitude.name = "latitude"+index_poly
+    this.column_longitude.name = "longitude"+index_poly
+
+    this.column_country.id = "country"+index_poly+index_marker
+    this.column_state.id = "state"+index_poly+index_marker
+    this.column_county.id = "county"+index_poly+index_marker
+    this.column_locality.id = "locality"+index_poly+index_marker
+    this.column_latitude.id = "latitude"+index_poly+index_marker
+    this.column_longitude.id = "longitude"+index_poly+index_marker
 
 }
 ComponentHTML.prototype.createTitleTable = function (){
@@ -291,6 +298,13 @@ ComponentHTML.prototype.setWrongRow = function(component, text, event){
     component.setAttribute("data-target","#exampleModal") 
     component.setAttribute("data-toggle","modal")
     component.style = "color: red" 
+    component.addEventListener("click", event)
+}
+ComponentHTML.prototype.setIncorrectRow = function(component, text, event){
+    component.innerHTML = text
+    component.setAttribute("data-target","#exampleModal") 
+    component.setAttribute("data-toggle","modal")
+    component.style = "color: orange" 
     component.addEventListener("click", event)
 }
 ComponentHTML.prototype.removeStatusWrongRow = function(component, text, event){

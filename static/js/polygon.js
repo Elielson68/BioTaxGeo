@@ -10,6 +10,7 @@ function Polygon(map, editable, color){
     this.list_vertices = []
     this.active = true
     this.editable = editable===undefined ? true:editable;
+    this.title = "poly"
 }
 
 Polygon.prototype.createVertices = function(position){
@@ -72,6 +73,13 @@ Polygon.prototype.setActive = function(bool){
 }
 Polygon.prototype.setPath = function(path){
     this.vertices.setPath(path)
+}
+
+Polygon.prototype.setTitle = function(title){
+    this.title = title
+}
+Polygon.prototype.getTitle = function(){
+    return this.title
 }
 Polygon.prototype.haveMarker = function(marker){
     have = google.maps.geometry.poly.containsLocation(marker, this.vertices)

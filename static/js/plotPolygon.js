@@ -24,10 +24,10 @@ function initMap() {
         selected_polygon.setActive(false)
         selected_polygon.setPath(polygons[poly])
         list_poly.push(selected_polygon)
-
         header_table = new ComponentHTML()
         header_table.createHeaderTable("Lista de Markers dentro do Polígono "+list_poly.length, list_poly.length)
         header_table.createTitleTable()
+        selected_polygon.setTitle("polygon"+list_poly.length)
         list_componentsHTML.push(header_table)
     }
     for(i=0;i<latitudes.length;i++){
@@ -45,11 +45,17 @@ function initMap() {
                 list_marker[i].setInsidePolygon(true)
                 list_marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
                 name = genus[i]+" "+specie[i]
-                list_componentsHTML[p].createBodyTable(name, country[i], state[i], county[i], locality[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i)
+                
+                list_componentsHTML[p].createBodyTable(name, country[i], state[i], county[i], locality[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i, list_poly[p].getTitle())
+
+
                 if(list_checked_regions[i]['country']['score']<60 && list_checked_regions[i]['country']['name2'] != "null"){
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowCountry(), list_checked_regions[i]['country']['name1'], ActiveModal)
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
+                }
+                else if (list_checked_regions[i]['country']['score']>=60 && list_checked_regions[i]['country']['score']<100){
+                    list_componentsHTML[p].setIncorrectRow(list_componentsHTML[p].getRowCountry(), list_checked_regions[i]['country']['name1'], ActiveModal)
                 }
                 if(list_checked_regions[i]['state']['score']<60 && list_checked_regions[i]['state']['name2'] != "null"){
 
@@ -57,15 +63,24 @@ function initMap() {
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
+                else if(list_checked_regions[i]['state']['score']>=60 && list_checked_regions[i]['state']['score']<100){
+                    list_componentsHTML[p].setIncorrectRow(list_componentsHTML[p].getRowState(), list_checked_regions[i]['state']['name1'], ActiveModal)
+                }
                 if(list_checked_regions[i]['county']['score']<60 && list_checked_regions[i]['county']['name2'] != "null"){
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowCounty(),  list_checked_regions[i]['county']['name1'], ActiveModal)
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
+                else if(list_checked_regions[i]['county']['score']>=60 && list_checked_regions[i]['county']['score']<100){
+                    list_componentsHTML[p].setIncorrectRow(list_componentsHTML[p].getRowCounty(),  list_checked_regions[i]['county']['name1'], ActiveModal)
+                }
                 if(list_checked_regions[i]['locality']['score']<60 && list_checked_regions[i]['locality']['name2'] != "null"){
                     list_componentsHTML[p].setWrongRow( list_componentsHTML[p].getRowLocality(),  list_checked_regions[i]['locality']['name1'], ActiveModal)
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
                     list_componentsHTML[p].setWrongRow(list_componentsHTML[p].getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
+                }
+                else if (list_checked_regions[i]['locality']['score']>=60 && list_checked_regions[i]['locality']['score']<100){
+                    list_componentsHTML[p].setIncorrectRow( list_componentsHTML[p].getRowLocality(),  list_checked_regions[i]['locality']['name1'], ActiveModal)
                 }
                 
             }
@@ -78,11 +93,14 @@ function initMap() {
             if(!list_marker[i].isInsidePolygon()){
                 name = genus[i]+" "+specie[i]
                 list_marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
-                MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], locality[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i)
+                MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], locality[i], list_marker[i].getLatitude(), list_marker[i].getLongitude(), row_coord_lat[i], i, "without")
                 if(list_checked_regions[i]['country']['score']<60 && list_checked_regions[i]['country']['name2'] != "null"){
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowCountry(), list_checked_regions[i]['country']['name1'], ActiveModal)
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
+                }
+                else if (list_checked_regions[i]['country']['score']>=60 && list_checked_regions[i]['country']['score']<100){
+                    MarkersOutPolygon.setIncorrectRow(MarkersOutPolygon.getRowCountry(), list_checked_regions[i]['country']['name1'], ActiveModal)
                 }
                 if(list_checked_regions[i]['state']['score']<60 && list_checked_regions[i]['state']['name2'] != "null"){
 
@@ -90,15 +108,24 @@ function initMap() {
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
+                else if(list_checked_regions[i]['state']['score']>=60 && list_checked_regions[i]['state']['score']<100){
+                    MarkersOutPolygon.setIncorrectRow(MarkersOutPolygon.getRowState(), list_checked_regions[i]['state']['name1'], ActiveModal)
+                }
                 if(list_checked_regions[i]['county']['score']<60 && list_checked_regions[i]['county']['name2'] != "null"){
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowCounty(),  list_checked_regions[i]['county']['name1'], ActiveModal)
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
                 }
+                else if(list_checked_regions[i]['county']['score']>=60 && list_checked_regions[i]['county']['score']<100){
+                    MarkersOutPolygon.setIncorrectRow(MarkersOutPolygon.getRowCounty(),  list_checked_regions[i]['county']['name1'], ActiveModal)
+                }
                 if(list_checked_regions[i]['locality']['score']<60 && list_checked_regions[i]['locality']['name2'] != "null"){
                     MarkersOutPolygon.setWrongRow( MarkersOutPolygon.getRowLocality(),  list_checked_regions[i]['locality']['name1'], ActiveModal)
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  list_marker[i].getLatitude(), ActiveModal)
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLongitude(), list_marker[i].getLongitude(), ActiveModal)
+                }
+                else if (list_checked_regions[i]['locality']['score']>=60 && list_checked_regions[i]['locality']['score']<100){
+                    MarkersOutPolygon.setIncorrectRow( MarkersOutPolygon.getRowLocality(),  list_checked_regions[i]['locality']['name1'], ActiveModal)
                 }
             }
     }
@@ -121,7 +148,7 @@ function initMap() {
         var coordinates = ["latitude", "longitude"]
         var column = this.className
         var text = document.getElementById("modal_text")
-        var index = this.id.replace(this.className, "")
+        var index = this.id.replace(this.name, "")
         row_modify = row_coord_lat[index]
         column_changed = this.id
         column_modify = spreadsheet_titles[column]
@@ -131,34 +158,35 @@ function initMap() {
         else{
             modify_column = {}
         }
-        if(region.indexOf(this.className) > -1){
-            if(this.className == "country"){
-                text.innerHTML = `Verificamos que seu PAÍS está incorreto.<br>Observamos que em sua planilha sua coluna referente ao País consta o valor: ${country[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
-                modify_column[column_modify] = list_region[index][this.className]
+        if(region.indexOf(column) > -1){
+            if(column == "country"){
+                text.innerHTML = `Verificamos que seu PAÍS está incorreto.<br>Observamos que em sua planilha sua coluna referente ao País consta o valor: ${country[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][column]}`
+                modify_column[column_modify] = list_region[index][column]
             }
-            else if(this.className == "state"){
-                text.innerHTML = `Verificamos que seu ESTADO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Estado consta o valor: ${state[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
-                modify_column[column_modify] = list_region[index][this.className]
+            else if(column == "state"){
+                text.innerHTML = `Verificamos que seu ESTADO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Estado consta o valor: ${state[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][column]}`
+                modify_column[column_modify] = list_region[index][column]
             }
-            else if(this.className == "county"){
-                text.innerHTML = `Verificamos que seu MUNICÍPIO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Município consta o valor: ${county[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
-                modify_column[column_modify] = list_region[index][this.className]
+            else if(column == "county"){
+                text.innerHTML = `Verificamos que seu MUNICÍPIO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Município consta o valor: ${county[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][column]}`
+                modify_column[column_modify] = list_region[index][column]
             }
-            else if(this.className == "locality"){
-                text.innerHTML = `Verificamos que sua LOCALIDADE está incorreta.<br>Observamos que em sua planilha sua coluna referente a Localidade consta o valor: ${county[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][this.className]}`
-                modify_column[column_modify] = list_region[index][this.className]
+            else if(column == "locality"){
+                text.innerHTML = `Verificamos que sua LOCALIDADE está incorreta.<br>Observamos que em sua planilha sua coluna referente a Localidade consta o valor: ${locality[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][column]}`
+                modify_column[column_modify] = list_region[index][column]
             }
         }
-        else if(coordinates.indexOf(this.className) > -1){
-            CompRest = {componentRestrictions: { country: country[index],
+        else if(coordinates.indexOf(column) > -1){
+            CompRest = {
+                        componentRestrictions: { 
+                                                country: country[index],
                                                 administrativeArea: state[index],
                                                 administrativeArea: county[index],
                                                 route: locality[index]
-                                              }}
-            
+                                               }
+                        }
             Geo.geocode(CompRest, function (a, b){
-                coordinate = {"latitude": {"decimal": null, "MMDDSS": null, "MMDD": null}, "longitude":{"decimal": null, "MMDDSS": null, "MMDD": null}}
-                console.log(a)                
+                coordinate = {"latitude": {"decimal": null, "MMDDSS": null, "MMDD": null}, "longitude":{"decimal": null, "MMDDSS": null, "MMDD": null}}               
                 latitude = a[0]['geometry']['location']['lat']()
                 longitude = a[0]['geometry']['location']['lng']()
                 lat_lng = column == "latitude"? "lat":"lng"
@@ -175,7 +203,6 @@ function initMap() {
                 input_radio.createRadioInput(modal, `MMDDSS ${column}: ${DDMMSS}<br><br>`, DDMMSS, SelectedRadio, column)
                 input_radio.createRadioInput(modal, `MMDD ${column}: ${DDMM}<br><br>`, DDMM, SelectedRadio, column)
             })
-
         }
     }
 
@@ -187,13 +214,36 @@ function initMap() {
         modify_column[column_modify] = this.value
     }
     function SaveChange(){
+        coord = ["latitude", "longitude"]
+        region = ["country", "state", "county", "locality"]
         component = new ComponentHTML()
         changed = document.getElementById(column_changed)
         component.removeStatusWrongRow(changed, modify_column[column_modify], ActiveModal)
         send_server[row_modify] = modify_column
-        console.log(JSON.stringify(send_server))
         data.value = JSON.stringify(send_server)
-        console.log(data.value)
+
+        if(region.indexOf(changed.className) > -1){
+            lat_id = changed.id.replace(changed.className, "latitude")
+            lng_id = changed.id.replace(changed.className, "longitude")
+            lat = document.getElementById(lat_id)
+            lng = document.getElementById(lng_id)
+            component.removeStatusWrongRow(lat, lat.innerHTML, ActiveModal)
+            component.removeStatusWrongRow(lng , lng.innerHTML, ActiveModal)
+        }
+        if(coord.indexOf(changed.className) > -1){
+            country_id = changed.id.replace(changed.className, "country")
+            state_id = changed.id.replace(changed.className, "state")
+            county_id = changed.id.replace(changed.className, "county")
+            locality_id = changed.id.replace(changed.className, "locality")
+            country = document.getElementById(country_id)
+            state = document.getElementById(state_id)
+            county = document.getElementById(county_id)
+            locality = document.getElementById(locality_id)
+            component.removeStatusWrongRow(country, country.innerHTML, ActiveModal)
+            component.removeStatusWrongRow(state , state.innerHTML, ActiveModal)
+            component.removeStatusWrongRow(county , county.innerHTML, ActiveModal)
+            component.removeStatusWrongRow(locality , locality.innerHTML, ActiveModal)
+        }
     }
     Cancel_Buttom.addEventListener("click", RemoveRadioModal)
     Confirm_Buttom.addEventListener("click", RemoveRadioModal)
