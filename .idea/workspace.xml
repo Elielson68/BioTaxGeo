@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/Att_Scripts.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Att_Scripts.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/plotPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/plotPolygon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/fragments/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fragments/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list/markers_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/markers_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +46,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -244,13 +250,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Criado classe Hierarquia Taxonomica para organizar mais o codigo">
-      <created>1574101763806</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1574101763806</updated>
     </task>
     <task id="LOCAL-00049" summary="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela">
       <created>1574104944647</created>
@@ -588,7 +587,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581450542816</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="novo nome">
+      <created>1581526611942</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1581526611942</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -625,8 +631,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="conversao sendo feita com sucesso" />
-    <MESSAGE value="Corrigido bug que quando a coordenada possuia mais de 1 espaco ela crashava. Agora ela confere os numeros de espacos normalmente" />
     <MESSAGE value="Nova planilha e templates" />
     <MESSAGE value="usando marker cluster" />
     <MESSAGE value="Melhorar front-end do criar_poligono_mapa.html e plotar_poligono_mapa.html" />
@@ -650,13 +654,15 @@
     <MESSAGE value="Informando coordenadas e localização com base nas regiões informadas nas colunas da planilha" />
     <MESSAGE value="Finalizado, salvando coordenadas nas respectivas linhas e salvando a localidade." />
     <MESSAGE value="Desabilitando opcao de modificar regiao caso usuario escolha modificar as coordenadas." />
-    <option name="LAST_COMMIT_MESSAGE" value="Desabilitando opcao de modificar regiao caso usuario escolha modificar as coordenadas." />
+    <MESSAGE value="novo nome" />
+    <MESSAGE value="tentnado encontrar a melhor forma de obter valores mais condizentes com a região infomada" />
+    <option name="LAST_COMMIT_MESSAGE" value="tentnado encontrar a melhor forma de obter valores mais condizentes com a região infomada" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1581450540696">
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1581537920453">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1581450540696" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1581537920453" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1577380023147">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
@@ -677,14 +683,14 @@
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1581450572028" />
-    <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1581352905823">
+    <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1581526574920">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog/0.0.1440.859@0.0.1440.859" timestamp="1581352905823" />
-    <state x="219" y="63" key="SettingsEditor" timestamp="1581352949663">
+    <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog/0.0.1440.859@0.0.1440.859" timestamp="1581526574920" />
+    <state x="219" y="63" key="SettingsEditor" timestamp="1581526812762">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1581352949663" />
+    <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1581526812762" />
     <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1581450560030">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
