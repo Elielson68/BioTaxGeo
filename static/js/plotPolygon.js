@@ -1,30 +1,34 @@
 function initMap() {
-    var belem = {lat:-1.44502, lng: -48.4650};
-    var map = new google.maps.Map(document.getElementById('plot_map'), {zoom: 4, center: belem});
     //var mapi = new google.maps.Map(document.getElementById("mapi"), {zoom: 4, center: belem});
-    var checkbox_group_markers = document.getElementById("checkbox")
-    var Geo = new google.maps.Geocoder
-    var coordinate_conversor = new Coordinate();
-    var input_radio = new ComponentHTML()
-    var modal = document.getElementById("modal_body")
-    var Cancel_Buttom = document.getElementById("Cancel_Buttom")
-    var Confirm_Buttom = document.getElementById("Confirm_Buttom")
-    var data = document.getElementById("data")
-    var row_modify = null
-    var send_server = {}
-    var modify_column = {}
-    var column_modify = ""
-    var column_changed = null
-    checkbox_group_markers.checked = true
-    list_poly = []
-    list_componentsHTML = []
-    list_marker = []
+
+    //__________________________________VARIÁVEIS GLOBAIS___________________________________________________________________
+    var belem/*.......................*/= {lat:-1.44502, lng: -48.4650};
+    var map/*.........................*/= new google.maps.Map(document.getElementById('plot_map'), {zoom: 4, center: belem});
+    var checkbox_group_markers/*......*/= document.getElementById("checkbox");
+        checkbox_group_markers.checked  = true;
+    var modal/*.......................*/= document.getElementById("modal_body");
+    var Cancel_Buttom/*...............*/= document.getElementById("Cancel_Buttom");
+    var Confirm_Buttom/*..............*/= document.getElementById("Confirm_Buttom");
+    var data/*........................*/= document.getElementById("data");
+    var Geo/*.........................*/= new google.maps.Geocoder;
+    var coordinate_conversor/*........*/= new Coordinate();
+    var input_radio/*.................*/= new ComponentHTML();
+    var send_server/*.................*/= {};
+    var modify_column/*...............*/= {};
+    var column_modify/*...............*/= "";
+    var column_changed/*..............*/= null;
+    var row_modify/*..................*/= null;
+    var list_poly/*..................*/ = [];
+    var list_componentsHTML/*........*/ = [];
+    var list_marker/*................*/ = [];
+    //_____________________________________________________________________________________________________________________
+
     for (poly in polygons){
-        selected_polygon = new Polygon(map)
+        var selected_polygon = new Polygon(map)
+        var header_table = new ComponentHTML()
         selected_polygon.setActive(false)
         selected_polygon.setPath(polygons[poly])
         list_poly.push(selected_polygon)
-        header_table = new ComponentHTML()
         header_table.createHeaderTable("Lista de Markers dentro do Polígono "+list_poly.length, list_poly.length)
         header_table.createTitleTable()
         selected_polygon.setTitle("polygon"+list_poly.length)
@@ -32,11 +36,10 @@ function initMap() {
     }
     for(i=0;i<latitudes.length;i++){
         if (latitudes[i]!=""){
-            coord = new google.maps.LatLng(latitudes[i], longitudes[i])
-            marker = new Point_Marker(coord, map, "../static/image/red_marker2.png" , false)
+            var coord = new google.maps.LatLng(latitudes[i], longitudes[i])
+            var marker = new Point_Marker(coord, map, "../static/image/red_marker2.png" , false)
             list_marker.push(marker)
         }
-
     }
     for(i=0;i<list_marker.length;i++){
         for(p=0; p<list_poly.length; p++){

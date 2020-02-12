@@ -146,7 +146,6 @@ def markers_confirm():
         data = eval(data)
         used_sheet.Change_Data_Spreadsheet2(data)
         used_sheet.Save_Formatted_Spreadsheet()
-        print(data)
         return data
 '''
 _______________________________________________________________________________________________________________________
