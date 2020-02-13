@@ -9,6 +9,7 @@ function initMap() {
     var modal/*.......................*/= document.getElementById("modal_body");
     var BUTTOM_CANCEL/*...............*/= document.getElementById("Cancel_Buttom");
     var BUTTOM_CONFIRM/*..............*/= document.getElementById("Confirm_Buttom");
+    var BUTTOM_CLOSE/*..............*/= document.getElementById("close_x");
     var DATA/*........................*/= document.getElementById("data");
     var Geo/*.........................*/= new google.maps.Geocoder;
     var COORDINATE_CONVERSOR/*........*/= new Coordinate();
@@ -163,19 +164,19 @@ function initMap() {
         }
         if(region.indexOf(column) > -1){
             if(column == "country"){
-                text.innerHTML = `Verificamos que seu PAÍS está incorreto.<br>Observamos que em sua planilha sua coluna referente ao País consta o valor: ${country[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][column]}`
+                text.innerHTML = `Verificamos que seu PAÍS está incorreto.<br>Observamos que em sua planilha sua coluna referente ao País consta o valor: <b style='color: red;'>${country[index]}</b><br>Enquanto sua coordenada representa o local: <b style='color: green;'>${list_region[index][column]}<b>`
                 VALUES_TO_SEND[COLUMN_MODIFY] = list_region[index][column]
             }
             else if(column == "state"){
-                text.innerHTML = `Verificamos que seu ESTADO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Estado consta o valor: ${state[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][column]}`
+                text.innerHTML = `Verificamos que seu ESTADO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Estado consta o valor: <b style='color: red;'>${state[index]}</b><br>Enquanto sua coordenada representa o local: <b style='color: green;'>${list_region[index][column]}<b>`
                 VALUES_TO_SEND[COLUMN_MODIFY] = list_region[index][column]
             }
             else if(column == "county"){
-                text.innerHTML = `Verificamos que seu MUNICÍPIO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Município consta o valor: ${county[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][column]}`
+                text.innerHTML = `Verificamos que seu MUNICÍPIO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Município consta o valor: <b style='color: red;'>${county[index]}</b><br>Enquanto sua coordenada representa o local: <b style='color: green;'>${list_region[index][column]}<b>`
                 VALUES_TO_SEND[COLUMN_MODIFY] = list_region[index][column]
             }
             else if(column == "locality"){
-                text.innerHTML = `Verificamos que sua LOCALIDADE está incorreta.<br>Observamos que em sua planilha sua coluna referente a Localidade consta o valor: ${locality[index]}<br>Enquanto sua coordenada representa o local: ${list_region[index][column]}`
+                text.innerHTML = `Verificamos que sua LOCALIDADE está incorreta.<br>Observamos que em sua planilha sua coluna referente a Localidade consta o valor: <b style='color: red;'>${locality[index]}</b><br>Enquanto sua coordenada representa o local: <b style='color: green;'>${list_region[index][column]}<b>`
                 VALUES_TO_SEND[COLUMN_MODIFY] = list_region[index][column]
             }
         }
@@ -253,6 +254,7 @@ function initMap() {
     }
     BUTTOM_CANCEL.addEventListener("click", RemoveRadioModal)
     BUTTOM_CONFIRM.addEventListener("click", RemoveRadioModal)
+    BUTTOM_CLOSE.addEventListener("click", RemoveRadioModal)
     BUTTOM_CONFIRM.addEventListener("click", SaveChange)
     CHECKBOX_ACTIVE_MARKERCLUSTER.addEventListener('change', ActiveMarkerCluster)
 }

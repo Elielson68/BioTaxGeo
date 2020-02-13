@@ -30,7 +30,7 @@ value2[1] = "0."+value2[1]
 this.second = value2[1]*60
 this.second = parseFloat(this.second.toFixed(2))
 
-var coord = `${this.degree}º ${this.minute}' ${this.second}" ${this.hemisphere}`
+var coord = `${this.degree}° ${this.minute}' ${this.second}" ${this.hemisphere}`
 
 return coord
 }
@@ -53,7 +53,7 @@ Coordinate.prototype.toDDMM = function(coordinate, type){
     this.minute = value[1]*60
     this.minute = parseFloat(this.minute.toFixed(3))
     
-    var coord = `${this.degree}º ${this.minute}' ${this.hemisphere}`
+    var coord = `${this.degree}° ${this.minute}' ${this.hemisphere}`
     
     return coord
 }

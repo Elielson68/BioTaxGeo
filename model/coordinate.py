@@ -103,7 +103,7 @@ class Coordinate:
                         self.coordinate[coord_name]["hemisphere"] = coordinate
 
                     # Referente ao degree
-                    if ("°" in coordinate):
+                    if ("°" in coordinate) or ("º" in coordinate):
                         if split_value.index(coordinate) == 0:
                             last_hemisphere = True
                         self.coordinate[coord_name]["degree"] = coordinate.replace("°", "").replace(",", ".")
@@ -171,7 +171,7 @@ class Coordinate:
                         self.coordinate[coord_name]["hemisphere"] = coordinate.replace(",", ".")
 
                     # Referente ao degree
-                    if "°" in coordinate:
+                    if ("°" in coordinate) or ("º" in coordinate):
                         if (split_value.index(coordinate) == 0):
                             last_hemisphere = True
                         self.coordinate[coord_name]["degree"] = coordinate.replace("°", "")
@@ -222,7 +222,7 @@ class Coordinate:
                         self.coordinate[coord_name]["hemisphere"] = coordinate.replace(",", ".")
 
                     # Referente ao degree
-                    if "°" in coordinate:
+                    if ("°" in coordinate) or ("º" in coordinate):
                         self.coordinate[coord_name]["degree"] = coordinate.replace("°", "").replace(",", ".")
                         if "-" in self.coordinate[coord_name]["degree"]:
                             self.coordinate[coord_name]["degree"] = self.coordinate[coord_name]["degree"].replace("-",
@@ -250,7 +250,7 @@ class Coordinate:
                 if spaces == 2:
 
                     # Referente ao degree.
-                    if "°" in coordinate:
+                    if ("°" in coordinate) or ("º" in coordinate):
                         self.coordinate[coord_name]["degree"] = coordinate.replace("°", "").replace(",", ".")
                         self.coordinate[coord_name]["degree"] = float(self.coordinate[coord_name]["degree"])
                     elif split_value.index(coordinate) == 0:
@@ -277,7 +277,7 @@ class Coordinate:
                 if spaces == 1:
 
                     # Referente ao degree.
-                    if "°" in coordinate:
+                    if ("°" in coordinate) or ("º" in coordinate):
                         self.coordinate[coord_name]["degree"] = coordinate.replace("°", "").replace(",", ".")
                         self.coordinate[coord_name]["degree"] = float(self.coordinate[coord_name]["degree"])
                     elif split_value.index(coordinate) == 0:
@@ -296,7 +296,7 @@ class Coordinate:
                 if spaces == 0:
 
                     # Referente ao degree/decimal
-                    if "°" in coordinate:
+                    if ("°" in coordinate) or ("º" in coordinate):
                         self.coordinate[coord_name]["degree"] = coordinate.replace("°", "").replace(",", ".")
                         self.coordinate[coord_name]["degree"] = float(self.coordinate[coord_name]["degree"])
                         self.coordinate[coord_name]["decimal"] = self.coordinate[coord_name]["degree"]

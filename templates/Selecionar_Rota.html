@@ -17,21 +17,28 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title">Mapa de ocorrência</h5>
-                  <p class="card-text">Defina as áreas de ocorrência de sua planilha para ter uma visualização melhor dos dados.</p>
+                  <p class="card-text">Defina as áreas de ocorrência de espécie de sua planilha desenhando polígonos no mapa, e verifique se há alguma ocorrência fora da região de sua pesquisa.<br>Visualize se há alguma região com as coordenadas incorretas ou se há alguma coordenada com uma região incorreta.</p>
                   <a href="coord_form" class="btn btn-primary">Ir para o mapa</a>
                 </div>
               </div>
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                  <h5 class="card-title">Verificar hierarquia</h5>
-                  <p class="card-text">É feita uma análise da hierar taxonômica de sua planilha, podendo visualizar os valores possivelmente errados, além de obter sugestões de correção (caso haja) para o valor incorreto.</p>
+                  <h5 class="card-title">Verificar hierarquia no GBIF</h5>
+                  <p class="card-text">É feita uma análise da hierarquia taxonômica de sua planilha, podendo visualizar os valores possivelmente errados, além de obter sugestões de correção (caso haja) para o valor incorreto.</p>
                   <a href="taxon_form" class="btn btn-primary">Ir para verificação</a>
                 </div>
               </div>
         </div>
-        <div>
-            <h3>Nova planilha</h3>
-            <div style="margin-right: 50%;">
+        <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Comparar dados de hierarquia entre Planilhas</h5>
+                    <p class="card-text">É feita uma análise da hierarquia taxonômica de sua planilha, com outra feita como base.</p>
+                    <a href="taxon_form2" class="btn btn-primary">Ir para verificação</a>
+                </div>
+            </div>
+        <div class="card">
+            <div class="card-body">
+                <h3>Enviar nova planilha</h3>
                 <form action = "http://localhost:8080/" method = "POST" enctype = "multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
@@ -49,7 +56,6 @@
                     </div>
                 </form>
             </div>
-
         </div>
         <script>
            document.getElementById("uploadBtn").onchange = function () {

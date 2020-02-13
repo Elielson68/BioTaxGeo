@@ -146,7 +146,7 @@ def markers_confirm():
         data = eval(data)
         used_sheet.Change_Data_Spreadsheet2(data)
         used_sheet.Save_Formatted_Spreadsheet()
-        return data
+        return redirect(url_for("home.home"))
 '''
 _______________________________________________________________________________________________________________________
 UTILIZANDO API REST DO GOOGLEMAPS 

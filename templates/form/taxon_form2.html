@@ -51,16 +51,34 @@
                                  </div>
                               </div>
                               <div class="form-group">
+                                    <label class="col-md-4 control-label">Selecione a coluna onde está a Sub-Família</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="subfamily"><option>Selecionar família...</option></select></div>
+                                    </div>
+                              </div>
+                              <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está o Gênero</label>
                                  <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="genus"><option>Selecionar gênero...</option></select></div>
                                  </div>
                               </div>
                               <div class="form-group">
+                                    <label class="col-md-4 control-label">Selecione a coluna onde está o Sub-Gênero</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="subgenus"><option>Selecionar gênero...</option></select></div>
+                                    </div>
+                              </div>
+                              <div class="form-group">
                                 <label class="col-md-4 control-label">Selecione a coluna onde está a Espécie</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="specie"><option>Selecionar espécie...</option></select></div>
                                 </div>
+                              </div>
+                              <div class="form-group">
+                                 <label class="col-md-4 control-label">Selecione a coluna onde está a Sub-Espécie</label>
+                                 <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="subspecie"><option>Selecionar espécie...</option></select></div>
+                                 </div>
                               </div>
                            </fieldset>
                         </form>
@@ -77,14 +95,17 @@
             var titles = "{{titles}}";
             titles = titles.replace(/&#39;/g,'"');
             titles = JSON.parse(titles)
-            selected_titles = {"kingdom": null, "phylum": null, "class": null, "order": null, "family": null, "genus": null, "specie": null}
+            selected_titles = {"kingdom": null, "phylum": null, "class": null, "order": null, "family": null, "subfamily": null, "genus": null, "subgenus": null, "specie": null, "subspecie": null}
             var select_kingdom = document.getElementById("kingdom");
             var select_phylum = document.getElementById("phylum");
             var select_class = document.getElementById("class");
             var select_order = document.getElementById("order");
             var select_family = document.getElementById("family");
+            var select_subfamily = document.getElementById("subfamily");
             var select_genus = document.getElementById("genus");
+            var select_subgenus = document.getElementById("subgenus");
             var select_specie = document.getElementById("specie");
+            var select_subspecie = document.getElementById("subspecie");
             Assign_Titles()
             function Assign_Titles(){
                 for (title of titles){
@@ -108,6 +129,15 @@
                         
                     new_option7 = document.createElement("option");
                     new_option7.innerHTML = title;
+
+                    new_option8 = document.createElement("option");
+                    new_option8.innerHTML = title;
+
+                    new_option9 = document.createElement("option");
+                    new_option9.innerHTML = title;
+
+                    new_option10 = document.createElement("option");
+                    new_option10.innerHTML = title;
                                  
                     select_kingdom.appendChild(new_option1);
                     select_phylum.appendChild(new_option2);
@@ -116,6 +146,9 @@
                     select_family.appendChild(new_option5);
                     select_genus.appendChild(new_option6);
                     select_specie.appendChild(new_option7);
+                    select_subfamily.appendChild(new_option8);
+                    select_subgenus.appendChild(new_option9);
+                    select_subspecie.appendChild(new_option10);
                 }
             }
             function Selected(){
@@ -129,9 +162,11 @@
             select_class.addEventListener("change",Selected);
             select_order.addEventListener("change",Selected);
             select_family.addEventListener("change",Selected);
+            select_subfamily.addEventListener("change",Selected);
             select_genus.addEventListener("change",Selected);
+            select_subgenus.addEventListener("change",Selected);
             select_specie.addEventListener("change",Selected);
-
+            select_subspecie.addEventListener("change",Selected);
         </script>
         {% endblock %}
     </body>

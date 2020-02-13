@@ -44,7 +44,7 @@ class Data_Treatment:
                                                         )
 
                 if Scientific_Name in self.verified_hierarchy:
-                    pass
+                    continue
                 else:
                     gbif_values = requests.get(
                         'http://api.gbif.org/v1/species/match?name=' + Scientific_Name + "&rank=SPECIES&strict=true").json()
@@ -313,6 +313,23 @@ class Data_Treatment:
                         self.verified_hierarchy[wrong_name]["scientific name"][
                             "correctness"] = self.taxon_validation.get_Scientific_Name_Correctness()
                         self.verified_hierarchy[wrong_name]["scientific name"]["font"] = "GBIF"
+
+    def compare_Hierarchy(self, h1, h2):
+        hierarch_base = {}
+        hierarch_compare = []
+        for x in h1:
+            if x in hierarch_base:
+                continue
+            else:
+                hierarch_base[x] = h1.count(x)
+        for x in h2:
+            if x in hierarch_compare:
+                continue
+            else:
+                hierarch_compare.append(x)
+        for x in hierarch_base:
+            for y in hierarch_compare:
+                pass
 
     def get_Verified_Hierarchy (self):
         return self.verified_hierarchy
