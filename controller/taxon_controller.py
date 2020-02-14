@@ -48,9 +48,16 @@ def taxon_list2():
         family_value = base_sheet.Value_in_Column(titles_base['family'])
         genus_value = base_sheet.Value_in_Column(titles_base['genus'])
         specie_value = base_sheet.Value_in_Column(titles_base['specie'])
-        hierarchy_base = Hierarchy_Taxon(k=kingdom_value, p=phylum_value, c=class_value, o=order_value, f=family_value, g=genus_value, e=specie_value)
+        classification_taxon = {}
+        for x in range(len(specie_value)):
+            scientific_name = "{} {}".format(genus_value[x], specie_value[x])
+            if scientific_name not in classification_taxon:
+                classification_taxon[scientific_name] = {"kingdom": kingdom_value[x], "phylum": phylum_value[x],
+                                                         "class": class_value[x], "order": order_value[x],
+                                                         "family": family_value[x], "genus": genus_value[x], "specie": specie_value[x]}
 
+        hierarchy_base = Hierarchy_Taxon(k=kingdom_value, p=phylum_value, c=class_value, o=order_value, f=family_value, g=genus_value, e=specie_value)
         teste = {"kingdom": hierarchy_base.get_Kingdom(), "phylum": hierarchy_base.get_Phylum(), "class": hierarchy_base.get_Classs(),
                  "order": hierarchy_base.get_Order(), "family": hierarchy_base.get_Family(), "genus": hierarchy_base.get_Genus(), "specie": hierarchy_base.get_Specie()
                  }
-        return teste#render_template("list/taxon_list2.html")
+        return classification_taxon#render_template("list/taxon_list2.html")

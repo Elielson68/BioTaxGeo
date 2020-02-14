@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/form_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/form_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/home_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/home_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/taxon_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/taxon_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/.~lock.Att_Scripts.xls#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/data_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/data_treatment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/hierarchy_taxon.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/hierarchy_taxon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/sheet_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/sheet_treatment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Selecionar_Rota.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Selecionar_Rota.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,13 +246,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Salvando planilha formatada, verificacao hierarquia pela API (OK), verificar pelos dados da propria planilha">
-      <created>1574287102430</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1574287102430</updated>
     </task>
     <task id="LOCAL-00052" summary="Alteracao dos dados de errados para corretos na planilha esta tudo OK">
       <created>1574962795051</created>
@@ -598,7 +583,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581623380690</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Criado segundo formulário para a planilha servida como base, retornando JSON com os valores das colunas">
+      <created>1581708874709</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1581708874709</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -635,7 +627,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="usando marker cluster" />
     <MESSAGE value="Melhorar front-end do criar_poligono_mapa.html e plotar_poligono_mapa.html" />
     <MESSAGE value="Padrão de projeto Python" />
     <MESSAGE value="navbar estilizada utilizando o block e content do flask" />
@@ -660,7 +651,8 @@
     <MESSAGE value="novo nome" />
     <MESSAGE value="tentnado encontrar a melhor forma de obter valores mais condizentes com a região infomada" />
     <MESSAGE value="Criar método para comparar duas planilhas distintas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criar método para comparar duas planilhas distintas" />
+    <MESSAGE value="Criado segundo formulário para a planilha servida como base, retornando JSON com os valores das colunas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criado segundo formulário para a planilha servida como base, retornando JSON com os valores das colunas" />
   </component>
   <component name="WindowStateProjectService">
     <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1581708873163">
@@ -671,22 +663,22 @@
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl/0.0.1440.859@0.0.1440.859" timestamp="1577380023147" />
-    <state width="1417" height="182" key="GridCell.Tab.0.bottom" timestamp="1581708546318">
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom" timestamp="1581709873364">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1581708546318" />
-    <state width="1417" height="182" key="GridCell.Tab.0.center" timestamp="1581708546318">
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1581709873364" />
+    <state width="1417" height="182" key="GridCell.Tab.0.center" timestamp="1581709873364">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1581708546318" />
-    <state width="1417" height="182" key="GridCell.Tab.0.left" timestamp="1581708546318">
+    <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1581709873364" />
+    <state width="1417" height="182" key="GridCell.Tab.0.left" timestamp="1581709873363">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1581708546318" />
-    <state width="1417" height="182" key="GridCell.Tab.0.right" timestamp="1581708546318">
+    <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1581709873363" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right" timestamp="1581709873364">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1581708546318" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1581709873364" />
     <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1581526574920">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
