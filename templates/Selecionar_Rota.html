@@ -33,13 +33,28 @@
                 <div class="card-body">
                     <h5 class="card-title">Comparar dados de hierarquia entre Planilhas</h5>
                     <p class="card-text">É feita uma análise da hierarquia taxonômica de sua planilha, com outra feita como base.</p>
-                    <a href="taxon_form2" class="btn btn-primary">Ir para verificação</a>
+                    <form action = "taxon_form2" method = "POST" enctype = "multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input class="form-control" id="uploadFile2" placeholder="Escolha a planilha Base" disabled="disabled" />
+                        </div>
+                        <div class="col-md-4">
+                            <div style="margin-top:0px" class="fileUpload btn btn-primary">
+                                <span>Escolher</span>
+                                <input id="uploadBtn2" type="file" name="file" class="upload" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-left text-muted">
+                        <input id="submit" type="submit" value="Ir para verificação" class="btn btn-success" disabled />
+                    </div>
+                    </form>
                 </div>
             </div>
         <div class="card">
             <div class="card-body">
                 <h3>Enviar nova planilha</h3>
-                <form action = "http://localhost:8080/" method = "POST" enctype = "multipart/form-data">
+                <form action = "/" method = "POST" enctype = "multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
                             <input class="form-control" id="uploadFile" placeholder="Escolha o arquivo" disabled="disabled" />
@@ -62,6 +77,13 @@
                 document.getElementById("uploadFile").value = this.value;
                 if(document.getElementById("uploadFile").value != "" || document.getElementById("uploadFile").value != null){
                     document.getElementById("submit_home").removeAttribute("disabled");
+                }
+
+           };
+           document.getElementById("uploadBtn2").onchange = function () {
+                document.getElementById("uploadFile2").value = this.value;
+                if(document.getElementById("uploadFile2").value != "" || document.getElementById("uploadFile2").value != null){
+                    document.getElementById("submit").removeAttribute("disabled");
                 }
 
            };

@@ -12,7 +12,10 @@
     <body>
         {% extends "fragments/navbar.html" %}
         {% block content %}
-        <h1 style="text-align: center;">Formulário</h1><hr>
+        <h1 style="text-align: center;">Formulário</h1>
+        <hr>
+        <h3 id="sheet_number" style="text-align: center;">Planilha 1</h3>
+        <hr>
         <div class="container">
             <table class="table table-striped">
                <tbody>
@@ -86,15 +89,20 @@
                   </tr>
                </tbody>
             </table>
-            <form action="taxon_list" method = "POST" enctype = "multipart/form-data">
-               <input type="text" name="selection" value="" hidden="hidden" id="selection_titles"/> 
+            <button id="continue" type="button" class="btn btn-primary btn-lg btn-block">Continuar</button>
+            <form id="form" action="taxon_list2" method = "POST" enctype = "multipart/form-data" hidden>
+               <input type="text" name="selection_check" value="" hidden="hidden" id="selection_titles1"/>
+                <input type="text" name="selection_base" value="" hidden="hidden" id="selection_titles2"/>
                <input id="submit" type="submit" value="Iniciar verificação" class="btn btn-success btn-lg btn-block"/>
              </form>
         </div>
         <script>
-            var titles = "{{titles}}";
-            titles = titles.replace(/&#39;/g,'"');
-            titles = JSON.parse(titles)
+            var titles_check = "{{titles_check}}";
+            var titles_base = "{{titles_base}}";
+            titles_check = titles_check.replace(/&#39;/g,'"');
+            titles_check = JSON.parse(titles_check)
+            titles_base = titles_base.replace(/&#39;/g,'"');
+            titles_base = JSON.parse(titles_base)
             selected_titles = {"kingdom": null, "phylum": null, "class": null, "order": null, "family": null, "subfamily": null, "genus": null, "subgenus": null, "specie": null, "subspecie": null}
             var select_kingdom = document.getElementById("kingdom");
             var select_phylum = document.getElementById("phylum");
@@ -106,9 +114,12 @@
             var select_subgenus = document.getElementById("subgenus");
             var select_specie = document.getElementById("specie");
             var select_subspecie = document.getElementById("subspecie");
+            var buttom_continue = document.getElementById("continue");
+            var form = document.getElementById("form")
+            var page = 1
             Assign_Titles()
             function Assign_Titles(){
-                for (title of titles){
+                for (title of page==1 ? titles_check : titles_base){
                     new_option1 = document.createElement("option");
                     new_option1.innerHTML = title;
                   
@@ -151,12 +162,53 @@
                     select_subspecie.appendChild(new_option10);
                 }
             }
-            function Selected(){
-                selected_titles[this.id] = this.value;
-                var formated_titles = JSON.stringify(selected_titles);
-                var input_text = document.getElementById("selection_titles");
-                input_text.value = formated_titles;
+            function ResetSelection(){
+               selected_titles = {"kingdom": null, "phylum": null, "class": null, "order": null, "family": null, "subfamily": null, "genus": null, "subgenus": null, "specie": null, "subspecie": null}
+               select_kingdom.selectedIndex = 0
+               select_phylum.selectedIndex = 0
+               select_class.selectedIndex = 0
+               select_order.selectedIndex = 0
+               select_family.selectedIndex = 0
+               select_subfamily.selectedIndex = 0
+               select_genus.selectedIndex = 0
+               select_subgenus.selectedIndex = 0
+               select_specie.selectedIndex = 0
+               select_subspecie.selectedIndex = 0
+               while(select_kingdom.childElementCount > 1){
+                  select_kingdom.removeChild(select_kingdom.lastChild)
+                  select_phylum.removeChild(select_phylum.lastChild)
+                  select_class.removeChild(select_class.lastChild)
+                  select_order.removeChild(select_order.lastChild)
+                  select_family.removeChild(select_family.lastChild)
+                  select_subfamily.removeChild(select_subfamily.lastChild)
+                  select_genus.removeChild(select_genus.lastChild)
+                  select_subgenus.removeChild(select_subgenus.lastChild)
+                  select_specie.removeChild(select_specie.lastChild)
+                  select_subspecie.removeChild(select_subspecie.lastChild)
+               }
+               window.scrollTo(0, 0);
+               document.getElementById('sheet_number').innerHTML = "Planilha 2"
             }
+            function Selected(){
+               selected_titles[this.id] = this.value;
+               var formated_titles = JSON.stringify(selected_titles);
+               if(page==1){
+                  var input_text = document.getElementById("selection_titles1");
+                  input_text.value = formated_titles;
+               }
+               if(page==2){
+                  var input_text = document.getElementById("selection_titles2");
+                  input_text.value = formated_titles;
+               }
+            }
+            function NextPage(){
+               page = 2
+               ResetSelection()
+               Assign_Titles()
+               form.removeAttribute("hidden")
+               buttom_continue.setAttribute("hidden", "hidden")
+            }
+
             select_kingdom.addEventListener("change", Selected);
             select_phylum.addEventListener("change",Selected);
             select_class.addEventListener("change",Selected);
@@ -167,6 +219,7 @@
             select_subgenus.addEventListener("change",Selected);
             select_specie.addEventListener("change",Selected);
             select_subspecie.addEventListener("change",Selected);
+            buttom_continue.addEventListener("click", NextPage)
         </script>
         {% endblock %}
     </body>

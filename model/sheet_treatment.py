@@ -77,14 +77,14 @@ class Sheet:
                 index_column = self.sheet.row_values(0).index(column)
                 self.values_column = self.sheet.col_values(index_column,1)
                 if(self.values_column == []):
-                    return "Valor não encontrado."
+                    return "Not found."
                 else:
                     return self.values_column
             elif(type(column)==int):
                 self.values_column = self.sheet.col_values(column,1)
                 return self.values_column
         except:
-            return "column não encontrada."
+            return "Not found."
 
     def Value_in_Row (self, row):
         if(row <= self.get_Row_Total() and row > 0):

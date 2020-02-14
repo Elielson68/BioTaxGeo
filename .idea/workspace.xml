@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/list/taxon_list2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/form_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/form_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/markers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/markers_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/Att_Scripts.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Att_Scripts.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/Planilha_Formatada.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Planilha_Formatada.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/coordinate.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/coordinate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/home_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/home_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/taxon_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/taxon_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/.~lock.Att_Scripts.xls#" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/model/data_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/data_treatment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/coordinate.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/coordinate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/plotPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/plotPolygon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/hierarchy_taxon.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/hierarchy_taxon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/sheet_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/sheet_treatment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Selecionar_Rota.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Selecionar_Rota.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fragments/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fragments/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list/markers_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/markers_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,13 +254,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Acredito que agora ta funcionando">
-      <created>1574283605157</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1574283605157</updated>
     </task>
     <task id="LOCAL-00051" summary="Salvando planilha formatada, verificacao hierarquia pela API (OK), verificar pelos dados da propria planilha">
       <created>1574287102430</created>
@@ -603,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581537938223</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="Criar método para comparar duas planilhas distintas">
+      <created>1581623380690</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1581623380690</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -640,7 +635,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Nova planilha e templates" />
     <MESSAGE value="usando marker cluster" />
     <MESSAGE value="Melhorar front-end do criar_poligono_mapa.html e plotar_poligono_mapa.html" />
     <MESSAGE value="Padrão de projeto Python" />
@@ -665,33 +659,34 @@
     <MESSAGE value="Desabilitando opcao de modificar regiao caso usuario escolha modificar as coordenadas." />
     <MESSAGE value="novo nome" />
     <MESSAGE value="tentnado encontrar a melhor forma de obter valores mais condizentes com a região infomada" />
-    <option name="LAST_COMMIT_MESSAGE" value="tentnado encontrar a melhor forma de obter valores mais condizentes com a região infomada" />
+    <MESSAGE value="Criar método para comparar duas planilhas distintas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criar método para comparar duas planilhas distintas" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1581623379600">
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1581708873163">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1581623379600" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1581708873163" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1577380023147">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl/0.0.1440.859@0.0.1440.859" timestamp="1577380023147" />
-    <state width="801" height="182" key="GridCell.Tab.0.bottom" timestamp="1581623336672">
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom" timestamp="1581708546318">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="801" height="182" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1581623336672" />
-    <state width="801" height="182" key="GridCell.Tab.0.center" timestamp="1581623336672">
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1581708546318" />
+    <state width="1417" height="182" key="GridCell.Tab.0.center" timestamp="1581708546318">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="801" height="182" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1581623336672" />
-    <state width="801" height="182" key="GridCell.Tab.0.left" timestamp="1581623336672">
+    <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1581708546318" />
+    <state width="1417" height="182" key="GridCell.Tab.0.left" timestamp="1581708546318">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="801" height="182" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1581623336672" />
-    <state width="801" height="182" key="GridCell.Tab.0.right" timestamp="1581623336672">
+    <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1581708546318" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right" timestamp="1581708546318">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state width="801" height="182" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1581623336672" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1581708546318" />
     <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1581526574920">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
@@ -700,10 +695,10 @@
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1581526812762" />
-    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1581537972103">
+    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1581623399745">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
-    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1581537972103" />
+    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1581623399745" />
     <state x="520" y="348" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581612378747">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
