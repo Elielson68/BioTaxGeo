@@ -3,9 +3,9 @@
 /* Tela inicial | index.html */
 #background_home{
      background: url("https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2019/06/formacao_igreja-e-meio-ambiente-olhos-voltados-para-a-amazonia.jpg");
-     position: absolute;
+     position: fixed;
      width: 100%;
-     height: 120%;
+     height: 100%;
      background-size:cover;
      background-repeat:no-repeat;
      filter: blur(3px);
