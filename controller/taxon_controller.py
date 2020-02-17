@@ -74,13 +74,8 @@ def taxon_list2():
         Fuzzy_Find = {}
         for specie in check_genus_value:
             score = Check_Data.String_Similarity_2(specie, genus_value)
-            if specie in Fuzzy_Find:
-                continue
-            else:
-                if score[1] > 50:
+            if specie not in Fuzzy_Find:
                     Fuzzy_Find[specie] = score
-                else:
-                    Fuzzy_Find[specie] = "Not found similar values"
         hierarchy_base = Hierarchy_Taxon(k=kingdom_value, p=phylum_value, c=class_value, o=order_value, f=family_value, g=genus_value, e=specie_value)
         teste = {"kingdom": hierarchy_base.get_Kingdom(), "phylum": hierarchy_base.get_Phylum(), "class": hierarchy_base.get_Classs(),
                  "order": hierarchy_base.get_Order(), "family": hierarchy_base.get_Family(), "genus": hierarchy_base.get_Genus(), "specie": hierarchy_base.get_Specie()
