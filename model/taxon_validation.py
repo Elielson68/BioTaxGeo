@@ -1,8 +1,8 @@
 from model.hierarchy_taxon import Hierarchy_Taxon
 class Taxon_Validation(Hierarchy_Taxon):
 
-    def __init__(self, k, p, c, o, f, g, e, sn):
-        super().__init__(k, p, c, o, f, g, e, sn)
+    def __init__(self, k=None, p=None, c=None, o=None, f=None, sf=None, g=None, sg=None, e=None, se=None, sn=None):
+        super().__init__(k, p, c, o, f, sf, g, sg, e, se, sn)
         self.kingdom_correctness = "NONE"
         self.phylum_correctness = "NONE"
         self.class_correctness = "NONE"

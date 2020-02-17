@@ -1,10 +1,10 @@
 import requests
 from model.taxon_validation import Taxon_Validation
-from fuzzywuzzy import fuzz
+from fuzzywuzzy import fuzz, process
 
 class Data_Treatment:
 
-    def __init__(self, sht):
+    def __init__(self, sht=None):
         self.verified_hierarchy = {}  # NC = Nomes Científicos
         self.validate_columns = {}
         self.sheet = sht
@@ -33,14 +33,14 @@ class Data_Treatment:
                 Scientific_Name = check_hrch["genus"][index] + " " + check_hrch["specie"][index]
 
                 self.taxon_validation = Taxon_Validation(
-                                                         check_hrch['kingdom'][index],
-                                                         check_hrch['phylum'] [index],
-                                                         check_hrch['class'] [index],
-                                                         check_hrch['order']  [index],
-                                                         check_hrch['family'][index],
-                                                         check_hrch['genus'] [index],
-                                                         check_hrch['specie'] [index],
-                                                         Scientific_Name
+                                                         k=check_hrch['kingdom'][index],
+                                                         p=check_hrch['phylum'] [index],
+                                                         c=check_hrch['class'] [index],
+                                                         o=check_hrch['order']  [index],
+                                                         f=check_hrch['family'][index],
+                                                         g=check_hrch['genus'] [index],
+                                                         e=check_hrch['specie'] [index],
+                                                         sn=Scientific_Name
                                                         )
 
                 if Scientific_Name in self.verified_hierarchy:
@@ -216,14 +216,14 @@ class Data_Treatment:
                                     self.verified_hierarchy[wrong_name][key]["correctness"] = self.verified_hierarchy[correct_name][key]["correctness"]
                 else:
                     self.taxon_validation = Taxon_Validation(
-                        self.verified_hierarchy[wrong_name]["kingdom"]["type"],
-                        self.verified_hierarchy[wrong_name]["phylum"]["type"],
-                        self.verified_hierarchy[wrong_name]["class"]["type"],
-                        self.verified_hierarchy[wrong_name]["order"]["type"],
-                        self.verified_hierarchy[wrong_name]["family"]["type"],
-                        self.verified_hierarchy[wrong_name]["genus"]["type"],
-                        self.verified_hierarchy[wrong_name]["scientific name"]["type"],
-                        self.verified_hierarchy[wrong_name]["scientific name"]["type"]
+                        k=self.verified_hierarchy[wrong_name]["kingdom"]["type"],
+                        p=self.verified_hierarchy[wrong_name]["phylum"]["type"],
+                        c=self.verified_hierarchy[wrong_name]["class"]["type"],
+                        o=self.verified_hierarchy[wrong_name]["order"]["type"],
+                        f=self.verified_hierarchy[wrong_name]["family"]["type"],
+                        g=self.verified_hierarchy[wrong_name]["genus"]["type"],
+                        e=self.verified_hierarchy[wrong_name]["scientific name"]["type"],
+                        sn=self.verified_hierarchy[wrong_name]["scientific name"]["type"]
                     )
                     for key in self.verified_hierarchy[wrong_name]:
                         self.verified_hierarchy[wrong_name][key]["suggestion"] = []
@@ -314,8 +314,6 @@ class Data_Treatment:
                             "correctness"] = self.taxon_validation.get_Scientific_Name_Correctness()
                         self.verified_hierarchy[wrong_name]["scientific name"]["font"] = "GBIF"
 
-
-
     def get_Verified_Hierarchy (self):
         return self.verified_hierarchy
 
@@ -324,7 +322,7 @@ class Data_Treatment:
         checked_column = {}
         for name in check_column:
             if name in checked_column:
-                pass
+                continue
             else:
                 checked_column[name] = {"amount": check_column.count(name)}
         return checked_column
@@ -355,3 +353,7 @@ class Data_Treatment:
                     suggest.append({"Similarity": self.Compare_String (string1, string2), "Suggestion": string2})
             check_column[string1]["Suggestion"] = suggest
         return check_column
+
+    def String_Similarity_2(self, string, column):
+        result = process.extractOne(string, column)
+        return result
