@@ -14,22 +14,29 @@
         {% extends "fragments/navbar.html" %}
 
         {% block content %}
-        <div class="card mb-3 shadow p-3 mb-5 bg-white rounded" id="card">
+        <div style="margin-top: 25px;" class="card mb-5 shadow mb-5 bg-white rounded" id="card">
             <img src="https://www.infoescola.com/wp-content/uploads/2018/02/floresta-amazonica-343759751.jpg" class="card-img-top" alt="Responsive image">
             <div class="card-body">
-                <h5 class="card-title">SpecieGeo - Qualidade de dados</h5>
-                <p class="card-text">Esse software-web permite a análise de arquivos com dados referentes a ocorrência de Espécies. Os tipos de verificações realizadas por ele são: Análise das coordenadas, <strike>Verificação de erros de digitação</strike>, <strike>verificação de erros na localização</strike>.</p>
-                <p class="card-text">Para utilizar o software basta enviar logo abaixo seu arquivo que deve ser verificado.</p>
+                <h5 class="card-title" style="font-family: 'Tomorrow', sans-serif">BioTaxGeo</h5>
+                <!-- <p class="card-text">Esse software-web permite a análise de arquivos com dados referentes a ocorrência de Espécies. Os tipos de verificações realizadas por ele são: Análise das coordenadas, <strike>Verificação de erros de digitação</strike>, <strike>verificação de erros na localização</strike>.</p>
+                <p class="card-text">Para utilizar o software basta enviar logo abaixo seu arquivo que deve ser verificado.</p> -->
+                <p class="card-text">Esta é uma ferramente que auxilia na análise de arquivos com dados referentes a ocorrência de espécies, nele está contido a verificação taxonômica e de geolocalização com o objetivo de promover a melhor padronização das informções submetidas e assim promover uma maior qualidade de dados.</p>
+                <p class="card-text">Para começar, insira o arquivo para ser analisado.</p>
                 <form action = "http://localhost:8080/" method = "POST" enctype = "multipart/form-data">
-                    <input id="uploadFile" placeholder="Escolha o arquivo" disabled="disabled" />
-                    <div class="fileUpload btn btn-primary">
-                        <span>Selecionar</span>
-                        <input id="uploadBtn" type="file" name="file" class="upload" />
+                    <div class="input-group mb-3">
+                        <div>
+                            <input class="input-group-text" id="uploadFile" placeholder="Escolha o arquivo" disabled="disabled" />
+                        </div>
+                        <div style="margin-top: 0;" class="fileUpload btn btn-primary">
+                            <span>Selecione o arquivo</span>
+                            <input id="uploadBtn" type="file" name="file" class="upload" />
+                        </div>
+                        <div>
+                            <input id="submit_home" type="submit" value="Enviar arquivo" class="btn btn-success" disabled />
+                        </div>
                     </div>
-                <input id="submit_home" type="submit" value="Enviar arquivo" class="btn btn-success" disabled />
                 </form>
                 <p class="card-text"><small class="text-muted">Atualizado em 24 outubro de 2019</small></p>
-
             </div>
         </div>
         <script>
