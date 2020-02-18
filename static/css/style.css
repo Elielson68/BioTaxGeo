@@ -2,13 +2,13 @@
 
 /* Tela inicial | index.html */
 #background_home{
-     background: url("https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2019/06/formacao_igreja-e-meio-ambiente-olhos-voltados-para-a-amazonia.jpg");
+     background-image: url("https://images2.alphacoders.com/826/826133.jpg");
      position: fixed;
      width: 100%;
      height: 100%;
      background-size:cover;
      background-repeat:no-repeat;
-     filter: blur(3px);
+
 }
 #NavBar{
     background: rgb(3,38,4);

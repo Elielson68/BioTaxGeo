@@ -4,41 +4,53 @@
         <meta charset="UTF-8">
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading.css') }}"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
+        
     </head>
     <body>
-
+        <div class="loader"> <img src="../static/image/tree-spinner.gif"></div>
         <div id=background_home></div>
 
         {% extends "fragments/navbar.html" %}
 
         {% block content %}
-        <div style="margin-top: 25px;" class="card mb-5 shadow mb-5 bg-white rounded" id="card">
-            <img src="https://www.infoescola.com/wp-content/uploads/2018/02/floresta-amazonica-343759751.jpg" class="card-img-top" alt="Responsive image">
-            <div class="card-body">
-                <h5 class="card-title" style="font-family: 'Tomorrow', sans-serif">BioTaxGeo</h5>
+        <div class="row">
+            <div style="margin-top: 185px; margin-left: 100px; margin-right: -131px;color: #fff; text-align: justify;"  class="col text-center"> 
+                <h5 class="card-title" style="font-family: 'Tomorrow', sans-serif; font-size: 60px;">BioTaxGeo</h5>
                 <!-- <p class="card-text">Esse software-web permite a análise de arquivos com dados referentes a ocorrência de Espécies. Os tipos de verificações realizadas por ele são: Análise das coordenadas, <strike>Verificação de erros de digitação</strike>, <strike>verificação de erros na localização</strike>.</p>
                 <p class="card-text">Para utilizar o software basta enviar logo abaixo seu arquivo que deve ser verificado.</p> -->
-                <p class="card-text">Esta é uma ferramente que auxilia na análise de arquivos com dados referentes a ocorrência de espécies, nele está contido a verificação taxonômica e de geolocalização com o objetivo de promover a melhor padronização das informções submetidas e assim promover uma maior qualidade de dados.</p>
-                <p class="card-text">Para começar, insira o arquivo para ser analisado.</p>
-                <form action = "http://localhost:8080/" method = "POST" enctype = "multipart/form-data">
-                    <div class="input-group mb-3">
-                        <div>
-                            <input class="input-group-text" id="uploadFile" placeholder="Escolha o arquivo" disabled="disabled" />
+                <p style="text-align: justify;" class="card-text">Esta é uma ferramente que auxilia na análise de arquivos com dados referentes a ocorrência de espécies, nele está contido a verificação taxonômica e de geolocalização com o objetivo de promover a melhor padronização das informções submetidas e assim promover uma maior qualidade de dados.</p>
+            </div>
+            <div style="margin-right: 30px;" class="col">
+                <div style="margin-top: 185px; margin-left: -30px;width: 60%; background-color: rgba(255,255,255,.8);" class="card shadow rounded text-center" id="card">
+                    <h5 style="font-family: 'Tomorrow', sans-serif; margin-top: 15px; margin-bottom: 30px;">Para começar, insira o arquivo para ser analisado</h5>
+                    <!-- <img src="https://www.infoescola.com/wp-content/uploads/2018/02/floresta-amazonica-343759751.jpg" class="card-img-top" alt="Responsive image"> -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form action = "http://localhost:8080/" method = "POST" enctype = "multipart/form-data">
+                                        <input style="width: 100%;" class="input-group-text" id="uploadFile" placeholder="Escolha o arquivo" disabled="disabled" />
+                                </div>
+                                <div style="margin-left: 0;" class="col-md-6">
+                                    <div style="width: 100%;" class="fileUpload btn btn-primary">
+                                        <span style="font-size: 15px;">Selecione o arquivo</span>
+                                        <input id="uploadBtn" type="file" name="file" class="upload" />
+                                    </div>
+                                </div>
+                                <div style="margin-left: 0;" class="col-md-6">
+                                    <div style="margin-top: 10px;">
+                                        <input id="submit_home" type="submit" value="Enviar arquivo" class="btn btn-success" disabled />
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div style="margin-top: 0;" class="fileUpload btn btn-primary">
-                            <span>Selecione o arquivo</span>
-                            <input id="uploadBtn" type="file" name="file" class="upload" />
-                        </div>
-                        <div>
-                            <input id="submit_home" type="submit" value="Enviar arquivo" class="btn btn-success" disabled />
+                            <!-- <p class="card-text"><small class="text-muted">Atualizado em 24 outubro de 2019</small></p> -->
                         </div>
                     </div>
-                </form>
-                <p class="card-text"><small class="text-muted">Atualizado em 24 outubro de 2019</small></p>
+                </div>
             </div>
-        </div>
         <script>
            document.getElementById("uploadBtn").onchange = function () {
                 document.getElementById("uploadFile").value = this.value;
@@ -46,10 +58,17 @@
                     document.getElementById("submit_home").removeAttribute("disabled");
                 }
            };
+           window.addEventListener("load", function () {
+            const loader = document.querySelector(".loader");
+            setTimeout(() => {
+                
+            loader.className += " hidden";
+            }, 1500);
+                }
+            );
         </script>
         {% endblock %}
     </body>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>
