@@ -355,5 +355,5 @@ class Data_Treatment:
         return check_column
 
     def String_Similarity_2(self, string, column):
-        result = process.extract(string, column, scorer=fuzz.token_set_ratio, limit=3)
+        result = process.extract(string, column, scorer=fuzz.partial_token_set_ratio, limit=10)
         return result

@@ -86,6 +86,7 @@
           var verified_hierarchy = "{{verification}}"
           verified_hierarchy = verified_hierarchy.replace(/&#34;/g,`"`);
           verified_hierarchy = JSON.parse(verified_hierarchy)
+          console.log(verified_hierarchy)
           var total_rows = "{{total_rows}}"
           //Objeto que irar armazernar todos os data que devem ser alterados e que irão ser enviados pro servidor
           var changed_data = {}

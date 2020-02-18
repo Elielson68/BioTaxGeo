@@ -42,6 +42,7 @@ def taxon_list2():
             titles_base = titles_base.replace("null", "None")
         titles_check = eval(titles_check)
         titles_base = eval(titles_base)
+
         kingdom_value = base_sheet.Value_in_Column(titles_base['kingdom'])
         phylum_value = base_sheet.Value_in_Column(titles_base['phylum'])
         class_value = base_sheet.Value_in_Column(titles_base['class'])
@@ -58,11 +59,11 @@ def taxon_list2():
         check_genus_value = used_sheet.Value_in_Column(titles_check['genus'])
         check_specie_value = used_sheet.Value_in_Column(titles_check['specie'])
 
-        classification_taxon = {}
+        base_classification_taxon = {}
         for x in range(len(specie_value)):
             scientific_name = "{} {}".format(genus_value[x], specie_value[x])
-            if scientific_name not in classification_taxon:
-                classification_taxon[scientific_name] = {
+            if scientific_name not in base_classification_taxon:
+                base_classification_taxon[scientific_name] = {
                                                          "kingdom": kingdom_value[x],
                                                          "phylum" : phylum_value [x],
                                                          "class"  : class_value  [x],
@@ -71,13 +72,62 @@ def taxon_list2():
                                                          "genus"  : genus_value  [x],
                                                          "specie" : specie_value [x]
                                                         }
+        check_classification_taxon = {}
+        for x in range(len(check_specie_value)):
+            scientific_name = "{} {}".format(check_genus_value[x], check_specie_value[x])
+            if scientific_name not in check_classification_taxon:
+                check_classification_taxon[scientific_name] = {
+                                                         "kingdom": check_kingdom_value[x],
+                                                         "phylum" : check_phylum_value [x],
+                                                         "class"  : check_class_value  [x],
+                                                         "order"  : check_order_value  [x],
+                                                         "family" : check_family_value [x],
+                                                         "genus"  : check_genus_value  [x],
+                                                         "specie" : check_specie_value [x]
+                                                        }
         Fuzzy_Find = {}
-        for specie in check_genus_value:
-            score = Check_Data.String_Similarity_2(specie, genus_value)
-            if specie not in Fuzzy_Find:
-                    Fuzzy_Find[specie] = score
-        hierarchy_base = Hierarchy_Taxon(k=kingdom_value, p=phylum_value, c=class_value, o=order_value, f=family_value, g=genus_value, e=specie_value)
-        teste = {"kingdom": hierarchy_base.get_Kingdom(), "phylum": hierarchy_base.get_Phylum(), "class": hierarchy_base.get_Classs(),
-                 "order": hierarchy_base.get_Order(), "family": hierarchy_base.get_Family(), "genus": hierarchy_base.get_Genus(), "specie": hierarchy_base.get_Specie()
-                 }
+        for specie in check_classification_taxon:
+            sn_score = Check_Data.String_Similarity_2(specie, base_classification_taxon.keys())
+            def Same(a):
+                if a[1] > 50:
+                    return a
+            sn_score = list(filter(Same, sn_score))
+            if len(sn_score) > 0:
+                key = sn_score[0][0]
+                if sn_score[0][0] == specie:
+                    precision = "EXACT"
+                else:
+                    precision = "FUZZY"
+                kingdom_score = "EXACT" if Check_Data.Compare_String(check_classification_taxon[specie]["kingdom"], base_classification_taxon[key]["kingdom"]) == 100 else "FUZZY"
+                phylum_score  = "EXACT" if Check_Data.Compare_String(check_classification_taxon[specie]["phylum"], base_classification_taxon[key]["phylum"]) == 100 else "FUZZY"
+                class_score   = "EXACT" if Check_Data.Compare_String(check_classification_taxon[specie]["class"], base_classification_taxon[key]["class"]) == 100 else "FUZZY"
+                order_score   = "EXACT" if Check_Data.Compare_String(check_classification_taxon[specie]["order"], base_classification_taxon[key]["order"]) == 100 else "FUZZY"
+                family_score  = "EXACT" if Check_Data.Compare_String(check_classification_taxon[specie]["family"], base_classification_taxon[key]["family"]) == 100 else "FUZZY"
+                genus_score   = "EXACT" if Check_Data.Compare_String(check_classification_taxon[specie]["genus"], base_classification_taxon[key]["genus"]) == 100 else "FUZZY"
+                specie_score  = "EXACT" if Check_Data.Compare_String(check_classification_taxon[specie]["specie"], base_classification_taxon[key]["specie"]) == 100 else "FUZZY"
+                
+            else:
+                kingdom_score = "Not found"
+                phylum_score  = "Not found"
+                class_score   = "Not found"
+                order_score   = "Not found"
+                family_score  = "Not found"
+                genus_score   = "Not found"
+                specie_score  = "Not found"
+                precision     = "Not found"
+            #{​"correctness": precision, 'font': "Planilha", 'suggestion': "NONE", 'synonymous': "false", 'type': specie}
+            #{​​"amount": check_kingdom_value.count(check_classification_taxon[specie]['kingdom']),'correctness': kingdom_score,'suggestion': base_classification_taxon[key]['kingdom'],
+                                                    #'title': titles_check['kingdom'],
+                                                    #'type': check_classification_taxon[specie]['kingdom']
+
+            scientific_name = {"correctness": precision, "font": "Planilha", "suggestion": "NONE", "synonymous": "false", "type": specie}
+            kingdom = {"amount": check_kingdom_value.count(check_classification_taxon[specie]['kingdom']), "correctness": kingdom_score, "suggestion": base_classification_taxon[key]['kingdom'], "title": titles_check['kingdom'], "type": check_classification_taxon[specie]['kingdom']}
+            phylum = {"amount": check_phylum_value.count(check_classification_taxon[specie]['phylum']), "correctness": phylum_score, "suggestion": base_classification_taxon[key]['phylum'], "title": titles_check['phylum'], "type": check_classification_taxon[specie]['phylum']}
+            classs = {"amount": check_class_value.count(check_classification_taxon[specie]['class']), "correctness": class_score, "suggestion": base_classification_taxon[key]['class'], "title": titles_check['class'], "type": check_classification_taxon[specie]['class']}
+            order = {"amount": check_order_value.count(check_classification_taxon[specie]['order']), "correctness": order_score, "suggestion": base_classification_taxon[key]['order'], "title": titles_check['order'], "type": check_classification_taxon[specie]['order']}
+            family = {"amount": check_family_value.count(check_classification_taxon[specie]['family']), "correctness": family_score, "suggestion": base_classification_taxon[key]['family'], "title": titles_check['family'], "type": check_classification_taxon[specie]['family']}
+            genus = {"amount": check_genus_value.count(check_classification_taxon[specie]['genus']), "correctness": genus_score, "suggestion": base_classification_taxon[key]['genus'], "title": titles_check['genus'], "type": check_classification_taxon[specie]['genus']}
+            specie = {"amount": check_specie_value.count(check_classification_taxon[specie]['specie']), "correctness": specie_score, "suggestion": base_classification_taxon[key]['specie'], "title": titles_check['specie'], "type": check_classification_taxon[specie]['specie']}
+
+            Fuzzy_Find[specie] = {scientific_name, kingdom, phylum, classs, order, family, genus, specie}
         return Fuzzy_Find#render_template("list/taxon_list2.html")
