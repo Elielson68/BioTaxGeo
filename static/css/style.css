@@ -3,7 +3,7 @@
 /* Tela inicial | index.html */
 body{
      background-image: url("https://images2.alphacoders.com/826/826133.jpg");
-     position: fixed;
+     position: relative;
      width: 100%;
      height: 100%;
      background-size:cover;
@@ -97,4 +97,9 @@ body{
       margin-right: 10%;
       position: absolute;
       overflow: auto; 
+ }
+
+ /* Formulários */
+ .TextForm{
+      color: white;
  }

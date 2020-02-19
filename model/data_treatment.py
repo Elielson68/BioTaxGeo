@@ -26,7 +26,7 @@ class Data_Treatment:
         else:
             return self.validate_columns
 
-    def set_Verified_Hierarchy (self, hierarchy):
+    def Verified_Hierarchy (self, hierarchy):
         check_hrch = hierarchy
         for index in range(0, len(check_hrch["specie"])):
             if (check_hrch["genus"][index] != ""):
@@ -313,6 +313,9 @@ class Data_Treatment:
                         self.verified_hierarchy[wrong_name]["scientific name"][
                             "correctness"] = self.taxon_validation.get_Scientific_Name_Correctness()
                         self.verified_hierarchy[wrong_name]["scientific name"]["font"] = "GBIF"
+
+    def set_Verified_Hierarchy(self, hierarchy):
+        self.verified_hierarchy = hierarchy
 
     def get_Verified_Hierarchy (self):
         return self.verified_hierarchy

@@ -4,9 +4,13 @@
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/taxon_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/taxon_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/Att_Scripts.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Att_Scripts.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/Planilha_Formatada.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Planilha_Formatada.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/data_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/data_treatment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/list/taxon_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +37,7 @@
   </component>
   <component name="ProjectId" id="1PL1ilamHjnr18TVtYNDECoyh0Q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -250,13 +255,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Incluso a análise de hierarquia ao SpecieGeo original">
-      <created>1575311377122</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1575311377122</updated>
     </task>
     <task id="LOCAL-00056" summary="Iniciando conversao de coordenadas">
       <created>1575316443378</created>
@@ -594,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581968323056</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Finalizando a comparacao dos dados entre as duas planilhas">
+      <created>1582055964083</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1582055964084</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -631,7 +636,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="navbar estilizada utilizando o block e content do flask" />
     <MESSAGE value="refatorando verificação de coordenada" />
     <MESSAGE value="Renomeando rotas e separando arquivos" />
     <MESSAGE value="rotas organizadas" />
@@ -656,38 +660,39 @@
     <MESSAGE value="Criado segundo formulário para a planilha servida como base, retornando JSON com os valores das colunas" />
     <MESSAGE value="consertado bug onde as species retornavam null" />
     <MESSAGE value="usando FuzzyMatching para identificar valores semelhantes das duas planilhas" />
-    <option name="LAST_COMMIT_MESSAGE" value="usando FuzzyMatching para identificar valores semelhantes das duas planilhas" />
+    <MESSAGE value="Finalizando a comparacao dos dados entre as duas planilhas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizando a comparacao dos dados entre as duas planilhas" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1582055963101">
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1582141344861">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1581710083680" />
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" timestamp="1582055963101" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" timestamp="1582141344861" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1577380023147">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl/0.0.1440.859@0.0.1440.859" timestamp="1577380023147" />
-    <state width="799" height="182" key="GridCell.Tab.0.bottom" timestamp="1582055713210">
+    <state width="798" height="182" key="GridCell.Tab.0.bottom" timestamp="1582139689379">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="799" height="182" key="GridCell.Tab.0.bottom/0.0.1440.869@0.0.1440.869" timestamp="1582055713210" />
-    <state width="799" height="182" key="GridCell.Tab.0.center" timestamp="1582055713209">
+    <state width="798" height="182" key="GridCell.Tab.0.bottom/0.0.1440.869@0.0.1440.869" timestamp="1582139689379" />
+    <state width="798" height="182" key="GridCell.Tab.0.center" timestamp="1582139689378">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="799" height="182" key="GridCell.Tab.0.center/0.0.1440.869@0.0.1440.869" timestamp="1582055713209" />
-    <state width="799" height="182" key="GridCell.Tab.0.left" timestamp="1582055713209">
+    <state width="798" height="182" key="GridCell.Tab.0.center/0.0.1440.869@0.0.1440.869" timestamp="1582139689378" />
+    <state width="798" height="182" key="GridCell.Tab.0.left" timestamp="1582139689378">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="799" height="182" key="GridCell.Tab.0.left/0.0.1440.869@0.0.1440.869" timestamp="1582055713209" />
-    <state width="799" height="182" key="GridCell.Tab.0.right" timestamp="1582055713209">
+    <state width="798" height="182" key="GridCell.Tab.0.left/0.0.1440.869@0.0.1440.869" timestamp="1582139689378" />
+    <state width="798" height="182" key="GridCell.Tab.0.right" timestamp="1582139689378">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="799" height="182" key="GridCell.Tab.0.right/0.0.1440.869@0.0.1440.869" timestamp="1582055713209" />
+    <state width="798" height="182" key="GridCell.Tab.0.right/0.0.1440.869@0.0.1440.869" timestamp="1582139689378" />
     <state x="428" y="149" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1581966164618">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
@@ -698,16 +703,16 @@
     </state>
     <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1581526812762" />
     <state x="219" y="64" key="SettingsEditor/0.0.1440.869@0.0.1440.869" timestamp="1581966268528" />
-    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1581968336451">
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1582055972661">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1581710091115" />
-    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.869@0.0.1440.869" timestamp="1581968336451" />
-    <state x="520" y="352" width="390" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582045189104">
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.869@0.0.1440.869" timestamp="1582055972661" />
+    <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582130355426">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state x="520" y="348" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.859@0.0.1440.859" timestamp="1581612378747" />
-    <state x="520" y="352" width="390" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.869@0.0.1440.869" timestamp="1582045189104" />
+    <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.869@0.0.1440.869" timestamp="1582130355426" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
