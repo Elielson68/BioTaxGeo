@@ -3,75 +3,96 @@
     <head>
         <meta charset="UTF-8">
         <title>Planilha</title>
-        <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading.css') }}"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class="loader"> <img src="../static/image/tree-spinner.gif"></div>
+        <div id=background_home></div>
         {% extends "fragments/navbar.html" %}
         {% block content %}
-        
-        <div class="card-group">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Mapa de ocorrência</h5>
-                  <p class="card-text">Defina as áreas de ocorrência de espécie de sua planilha desenhando polígonos no mapa, e verifique se há alguma ocorrência fora da região de sua pesquisa.<br>Visualize se há alguma região com as coordenadas incorretas ou se há alguma coordenada com uma região incorreta.</p>
-                  <a href="coord_form" class="btn btn-primary">Ir para o mapa</a>
+        <div class="container">
+            <div class="row" style="margin-top: 30px; margin-bottom: 15px;">
+                <div class="col" style="justify-content: center; display: flex;">
+                    <div class="card" style="background-color: rgba(255,255,255,.85); width: 25rem;">
+                        <div style="font-size: 20px; font-family: 'Tomorrow', sans-serif;" class="card-header text-center">Mapa de ocorrência</div>
+                        <div class="card-body">
+                            <p style="text-align: justify;" class="card-text">Defina as áreas de ocorrência de espécie de sua planilha desenhando polígonos no mapa, e verifique se há alguma ocorrência fora da região de sua pesquisa.<br>Visualize se há alguma região com as coordenadas incorretas ou se há alguma coordenada com uma região incorreta.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="coord_form" class="btn btn-primary">Ir para o mapa</a>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Verificar hierarquia no GBIF</h5>
-                  <p class="card-text">É feita uma análise da hierarquia taxonômica de sua planilha, podendo visualizar os valores possivelmente errados, além de obter sugestões de correção (caso haja) para o valor incorreto.</p>
-                  <a href="taxon_form" class="btn btn-primary">Ir para verificação</a>
-                </div>
-              </div>
-        </div>
-        <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Comparar dados de hierarquia entre Planilhas</h5>
-                    <p class="card-text">É feita uma análise da hierarquia taxonômica de sua planilha, com outra feita como base.</p>
-                    <form action = "taxon_form2" method = "POST" enctype = "multipart/form-data">
-                    <div class="row">
-                        <div class="col-md-6">
+                <div class="col" style="justify-content: center; display: flex;">
+                    <div class="card" style="background-color: rgba(255,255,255,.85); width: 25rem;">
+                        <div style="font-size: 20px; font-family: 'Tomorrow', sans-serif;" class="card-header text-center">Verificar hierarquia no GBIF</div>
+                        <div class="card-body">
+                            <p style="text-align: justify;" class="card-text">É feita uma análise da hierarquia taxonômica de sua planilha, podendo visualizar os valores possivelmente errados, além de obter sugestões de correção (caso haja) para o valor incorreto.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="taxon_form" class="btn btn-primary">Ir para verificação</a>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="row">
+                <div class="col" style="justify-content: center; display: flex;">
+                    <div class="card" style="background-color: rgba(255,255,255,.85); width: 25rem;">
+                        <div style="font-size: 20px; font-family: 'Tomorrow', sans-serif;" class="card-header text-center">Comparar dados de hierarquia entre Planilhas</div>
+                        <div class="card-body">
+                            <p style="text-align: justify;" class="card-text">É feita uma análise da hierarquia taxonômica de sua planilha, com outra feita como base.</p>
                             <input class="form-control" id="uploadFile2" placeholder="Escolha a planilha Base" disabled="disabled" />
                         </div>
-                        <div class="col-md-4">
-                            <div style="margin-top:0px" class="fileUpload btn btn-primary">
-                                <span>Escolher</span>
-                                <input id="uploadBtn2" type="file" name="file" class="upload" />
-                            </div>
+                        <div class="card-footer">
+                            <form action = "taxon_form2" method = "POST" enctype = "multipart/form-data">
+                                <div class="row">
+                                    <div class="col">
+                                        <div style="margin-top:0px" class="fileUpload btn btn-primary">
+                                            <span>Escolher</span>
+                                            <input id="uploadBtn2" type="file" name="file" class="upload" />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-left text-muted">
+                                            <input id="submit" type="submit" value="Ir para verificação" class="btn btn-success" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="text-left text-muted">
-                        <input id="submit" type="submit" value="Ir para verificação" class="btn btn-success" disabled />
-                    </div>
-                    </form>
-                </div>
-            </div>
-        <div class="card">
-            <div class="card-body">
-                <h3>Enviar nova planilha</h3>
-                <form action = "/" method = "POST" enctype = "multipart/form-data">
-                    <div class="row">
-                        <div class="col-md-6">
+                </div> 
+                <div class="col" style="justify-content: center; display: flex;">
+                    <div class="card" style="background-color: rgba(255,255,255,.85); width: 25rem;">
+                        <div style="font-size: 20px; font-family: 'Tomorrow', sans-serif;" class="card-header text-center">Enviar nova planilha</div>
+                        <div class="card-body">
+                            <p style="text-align: justify;" class="card-text">Se desejar enviar uma nova planilha para verificação, selecione a mesma nos botões a baixo.</p>
                             <input class="form-control" id="uploadFile" placeholder="Escolha o arquivo" disabled="disabled" />
                         </div>
-                        <div class="col-md-4">
-                            <div style="margin-top:0px" class="fileUpload btn btn-primary">
-                                <span>Selecionar</span>
-                                <input id="uploadBtn" type="file" name="file" class="upload" />
-                            </div>
+                        <div class="card-footer">
+                            <form action = "/" method = "POST" enctype = "multipart/form-data">
+                                <div class="row">
+                                    <div class="col">
+                                        <div style="margin-top:0px" class="fileUpload btn btn-primary">
+                                            <span>Selecionar</span>
+                                            <input id="uploadBtn" type="file" name="file" class="upload" />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-left text-muted">
+                                            <input id="submit_home" type="submit" value="Enviar arquivo" class="btn btn-success" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="text-left text-muted">
-                        <input id="submit_home" type="submit" value="Enviar arquivo" class="btn btn-success" disabled />
-                    </div>
-                </form>
+                </div>
             </div>
-        </div>
+        </div> 
         <script>
            document.getElementById("uploadBtn").onchange = function () {
                 document.getElementById("uploadFile").value = this.value;
@@ -88,6 +109,10 @@
 
            };
         </script>
+        <script type="text/javascript" src="../static/js/loading.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         {% endblock %}    
 </body>
 </html>
