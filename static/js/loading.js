@@ -4,4 +4,16 @@ window.addEventListener("load", function () {
   setTimeout(() => {loader.className += " hidden";}, 1500);
   
  }
-  );
+);
+
+// window.addEventListener("loadstart", function () {
+
+//   const loader = document.querySelector(".loader hidden");
+//   loader.className == " loader";
+// });
+
+// window.addEventListener("progress", function () {
+
+//   const loader = document.querySelector(".loader hidden");
+//   loader.className == " loader";
+// });
