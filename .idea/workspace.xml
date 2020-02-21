@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Gbif_Testes.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/Att_Scripts.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Att_Scripts.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/files/Planilha_Formatada.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Planilha_Formatada.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.run">
     <configuration name="Gbif_Testes" type="PythonConfigurationType" factoryName="Python">
       <module name="teste" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -196,13 +196,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00057" summary="comecando coordenadas">
-      <created>1575574851603</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1575574851604</updated>
     </task>
     <task id="LOCAL-00058" summary="Coordenadas, conversão para decimal">
       <created>1575660215346</created>
@@ -540,7 +533,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582141347407</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="Finalizado">
+      <created>1582227444610</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1582227444681</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -577,7 +577,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Renomeando rotas e separando arquivos" />
     <MESSAGE value="rotas organizadas" />
     <MESSAGE value="atualizado o Path das funções" />
     <MESSAGE value="utilizando blueprint para separar as rotas do arquivo principal" />
@@ -602,42 +601,43 @@
     <MESSAGE value="usando FuzzyMatching para identificar valores semelhantes das duas planilhas" />
     <MESSAGE value="Finalizando a comparacao dos dados entre as duas planilhas" />
     <MESSAGE value="Comparacao finalizada, plotando comparacao na tabela e alterando os valores pelos valores escolhidos pelo usuario" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comparacao finalizada, plotando comparacao na tabela e alterando os valores pelos valores escolhidos pelo usuario" />
+    <MESSAGE value="Finalizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizado" />
   </component>
   <component name="WindowStateProjectService">
     <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582219232493">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.869@0.0.1440.869" timestamp="1582219232493" />
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1582141344861">
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1582227437933">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1581710083680" />
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" timestamp="1582141344861" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" timestamp="1582227437930" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1577380023147">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl/0.0.1440.859@0.0.1440.859" timestamp="1577380023147" />
-    <state width="1417" height="182" key="GridCell.Tab.0.bottom" timestamp="1582224907818">
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom" timestamp="1582314385717">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.869@0.0.1440.869" timestamp="1582224907818" />
-    <state width="1417" height="182" key="GridCell.Tab.0.center" timestamp="1582224907818">
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.869@0.0.1440.869" timestamp="1582314385717" />
+    <state width="1417" height="182" key="GridCell.Tab.0.center" timestamp="1582314385717">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.869@0.0.1440.869" timestamp="1582224907818" />
-    <state width="1417" height="182" key="GridCell.Tab.0.left" timestamp="1582224907818">
+    <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.869@0.0.1440.869" timestamp="1582314385717" />
+    <state width="1417" height="182" key="GridCell.Tab.0.left" timestamp="1582314385717">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.869@0.0.1440.869" timestamp="1582224907818" />
-    <state width="1417" height="182" key="GridCell.Tab.0.right" timestamp="1582224907818">
+    <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.869@0.0.1440.869" timestamp="1582314385717" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right" timestamp="1582314385717">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.869@0.0.1440.869" timestamp="1582224907818" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.869@0.0.1440.869" timestamp="1582314385717" />
     <state x="428" y="149" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1581966164618">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
@@ -648,11 +648,11 @@
     </state>
     <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1581526812762" />
     <state x="219" y="64" key="SettingsEditor/0.0.1440.869@0.0.1440.869" timestamp="1581966268528" />
-    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1582141368745">
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1582227516415">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1581710091115" />
-    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.869@0.0.1440.869" timestamp="1582141368745" />
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.869@0.0.1440.869" timestamp="1582227516415" />
     <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582130355426">
       <screen x="0" y="0" width="1440" height="869" />
     </state>

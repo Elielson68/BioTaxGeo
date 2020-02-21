@@ -86,7 +86,6 @@
           var verified_hierarchy = "{{verification}}"
           verified_hierarchy = verified_hierarchy.replace(/&#34;/g,`"`);
           verified_hierarchy = JSON.parse(verified_hierarchy)
-          console.log(verified_hierarchy)
           var total_rows = "{{total_rows}}"
           //Objeto que irar armazernar todos os data que devem ser alterados e que irão ser enviados pro servidor
           var changed_data = {}
@@ -94,8 +93,8 @@
           var more_one = false
           var only_wrong = false; //Se false aparece todos os elementos na table (certos e errados), se true aparece somente os errados.
 
-          var selected = 0; //armazena o valor selected na primeira opção de rádio, referente ao name.
-          var selected_amount = 0; //armazena a amount de itens que devem ser alterados, referente ao nível hierarquico.
+          var selected = -1; //armazena o valor selected na primeira opção de rádio, referente ao name.
+          var selected_amount = -1; //armazena a amount de itens que devem ser alterados, referente ao nível hierarquico.
           var wrong_cell;
           var count;
           var count2;
@@ -291,59 +290,68 @@
           }
           //Função que cria o modal, porém, o modal com apenas 1 sugestão de name
           function ChangingData(){
-            wrong_cell = this;
-            modal = document.getElementById("modal_body")
-            text = document.getElementById("modal_text")
-            wrong_value = this.innerHTML;
-            key1 = this.id.replace(this.className, "")
-            key2 = this.className
-            amount = verified_hierarchy[key1][key2]["amount"]
-            wrong_value = wrong_value.replace(": "+amount, "");
-            correct_value = verified_hierarchy[key1][key2]["suggestion"]
-            keys = Object.keys(verified_hierarchy[key1])
-            init = keys.indexOf(key2)
-            isArray = Array.isArray(correct_value)
-            more_one = true
-            text.innerHTML = "Não encontramos o valor "+wrong_value+" na sua planilha base, porém encontramos valores semelhantes.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+wrong_value+"</b> para:"
-            count = 0
+            // LOCAL VARIABLE
+            let modal          = document.getElementById("modal_body")
+            let text           = document.getElementById("modal_text")
+            let text2          = document.createElement("label")
+            let key1           = this.id.replace(this.className, "")
+            let key2           = this.className
+            let amount         = verified_hierarchy[key1][key2]["amount"]
+            let keys           = Object.keys(verified_hierarchy[key1])
+            let init           = keys.indexOf(key2)
+            let correct_value  = verified_hierarchy[key1][key2]["suggestion"]
+            let wrong_value    = this.innerHTML.replace(": "+amount, "");
+            let isArray        = Array.isArray(correct_value)
+            // GLOBAL VARIABLE =
+            more_one           = true
+            count              = correct_value.length
+            wrong_cell         = this;
+            //____________________________________________
+            text.innerHTML     = "Não encontramos o valor "+wrong_value+" na sua planilha base, porém encontramos valores semelhantes.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+wrong_value+"</b> para:"
+            text2.id           = "text_aux"
+            text2.innerHTML    = "<br>Selecione abaixo a quantidade de valores que deseja alterar: <br>"
+            Confirm_Buttom.setAttribute("disabled", "")
             for (names of correct_value){
-              div = document.createElement("div")
+              let div = document.createElement("div")
+              let input = document.createElement("input")
+              let label = document.createElement("label")
+              let number_id = correct_value.indexOf(names)
+
               div.className = "form-check"
-              div.id = "inputs"+count
-              input = document.createElement("input")
+              div.id = "inputs"+number_id.toString()
+              
               input.className = "form-check-input"
               input.type = "radio"
               input.name = "Radio"
-              input.id = count
+              input.id = number_id
               input.value = "option"
               input.addEventListener("click", SelectedValue)
-              label = document.createElement("label")
+
               label.className = "form-check-label"
-              label.for = count
               label.innerHTML = names
               label.style = "color: green;"
+
               div.appendChild(input)
               div.appendChild(label)
               modal.appendChild(div)
-              count++
             }
-            text2 = document.createElement("label")
-            text2.id = "text_aux"
-            text2.innerHTML += "<br>Selecione abaixo a quantidade de valores que deseja alterar: <br>"
             modal.appendChild(text2)
             count2 = 0
             for (key=init; key<keys.length-1; key++){
-              div = document.createElement("div")
+              let div = document.createElement("div")
+              let input = document.createElement("input")
+              let label = document.createElement("label")
+
               div.className = "form-check"
               div.id = "inputs_quant"+count2
-              input = document.createElement("input")
+              
               input.className = "form-check-input"
               input.type = "radio"
               input.name = "Radio2"
               input.id = keys[key]
               input.value = "option2"
               input.addEventListener("click", SelectedValueAmount)
-              label = document.createElement("label")
+              
               label.className = "form-check-label"
               label.for = count
               label.innerHTML = "Deseja alterar <b>"+verified_hierarchy[key1][keys[key]]["amount"]+"</b> valores em sua planilha a nível de "+keys[key]+"?"
@@ -372,9 +380,8 @@
                 modal.removeChild(del2)
               }
             }
-            selected = 0
-            selected_amount = 0
-
+            selected = -1
+            selected_amount = -1
           }
           function SaveChange(){
             key1 = wrong_cell.id.replace(wrong_cell.className, "")
@@ -411,26 +418,15 @@
           }
           function SelectedValue(){
             selected = this.id;
-            if(more_one){
-              if(selected != 0 && selected_amount != 0){
-                //Confirm_Buttom.setAttribute("disabled","")
-              }
-            }
-            else{
-              if(selected_amount != 0){
-                //Confirm_Buttom.setAttribute("disabled","")
-              }
-            }
+            BothSelected()
           }
           function SelectedValueAmount(){
             selected_amount = this.id;
-            if(selected != 0 && selected_amount != 0){
-              //Confirm_Buttom.disabled = false
-            }
-            else{
-              if(selected_amount != 0){
-                //Confirm_Buttom.disabled = false
-              }
+            BothSelected()
+          }
+          function BothSelected(){
+            if (selected != -1 && selected_amount!= -1){
+              Confirm_Buttom.removeAttribute("disabled")
             }
           }
           function NotFoundValue(){
