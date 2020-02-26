@@ -27,7 +27,7 @@
         <div id="spreadsheet">
             <form action="taxon_validation" method = "POST" enctype = "multipart/form-data">
                     <input type="text" name="data" value="" hidden="hidden" id="data"/>
-                    <input id="submit" type="submit" value="Salvar alterações" class="btn btn-success rounded-0"/>
+                    <input id="submit" type="submit" value="Salvar alterações" class="btn btn-success rounded-0" disabled/>
             </form>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-secondary active rounded-0"  >
@@ -78,7 +78,6 @@
           var Confirm_Buttom = document.getElementById("Confirm_Buttom")
           //Atribuindo alguns eventos pro botão de confirm e Cancel do Modal, e pros botões radios do modal.
           Cancel_Buttom.addEventListener("click", InputsRemove)
-          Confirm_Buttom.addEventListener("click", InputsRemove)
           Close_Buttom.addEventListener("click", InputsRemove)
           document.getElementById("option1").setAttribute("onchange", "ShowOnlyWrong('option1')")
           document.getElementById("option2").setAttribute("onchange", "ShowOnlyWrong('option2')")
@@ -304,18 +303,20 @@
             let isArray        = Array.isArray(correct_value)
             // GLOBAL VARIABLE =
             more_one           = true
-            count              = correct_value.length
+            count              = 0
+            count2             = 0
             wrong_cell         = this;
             //____________________________________________
             text.innerHTML     = "Não encontramos o valor "+wrong_value+" na sua planilha base, porém encontramos valores semelhantes.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+wrong_value+"</b> para:"
             text2.id           = "text_aux"
             text2.innerHTML    = "<br>Selecione abaixo a quantidade de valores que deseja alterar: <br>"
             Confirm_Buttom.setAttribute("disabled", "")
+
             for (names of correct_value){
               let div = document.createElement("div")
               let input = document.createElement("input")
               let label = document.createElement("label")
-              let number_id = correct_value.indexOf(names)
+              let number_id = count
 
               div.className = "form-check"
               div.id = "inputs"+number_id.toString()
@@ -334,9 +335,9 @@
               div.appendChild(input)
               div.appendChild(label)
               modal.appendChild(div)
+              count++
             }
             modal.appendChild(text2)
-            count2 = 0
             for (key=init; key<keys.length-1; key++){
               let div = document.createElement("div")
               let input = document.createElement("input")
@@ -362,59 +363,42 @@
             }
           }
           function InputsRemove(){
-            if(more_one){
-              modal = document.getElementById("modal_body")
-              for(x=0; x<count; x++){
-                var del = document.getElementById("inputs"+x)
-                modal.removeChild(del)
-              }
-              for(x=0; x<count2; x++){
-                var del2 = document.getElementById("inputs_quant"+x)
-                modal.removeChild(del2)
-              }
-              modal.removeChild(document.getElementById("text_aux"))
+            let modal = document.getElementById("modal_body")
+            for(x=0; x<count; x++){
+              var del = document.getElementById("inputs"+x)
+              modal.removeChild(del)
             }
-            else{
-              for(x=0; x<count2; x++){
-                var del2 = document.getElementById("inputs_quant"+x)
-                modal.removeChild(del2)
-              }
+            for(x=0; x<count2; x++){
+              var del2 = document.getElementById("inputs_quant"+x)
+              modal.removeChild(del2)
             }
+            modal.removeChild(document.getElementById("text_aux"))
             selected = -1
             selected_amount = -1
           }
           function SaveChange(){
-            key1 = wrong_cell.id.replace(wrong_cell.className, "")
-            key2 = wrong_cell.className
+            // LOCAL
+            let key1 = wrong_cell.id.replace(wrong_cell.className, "")
+            let key2 = wrong_cell.className
+            let data = document.getElementById("data")
+            let submit_buttom = document.getElementById("submit")
+            submit_buttom.removeAttribute("disabled")
+            // GLOBAL
             wrong_cell.style = "color: white;";
             wrong_cell.setAttribute("data-toggle","");
             wrong_cell.setAttribute("data-target","");
-            data = document.getElementById("data")
-            //achar uma forma dele create mais de uma key sem precisar del tudo
+            
             if(changed_data[key1] == null){
                changed_data[key1] = {}
             }
-            if(!more_one){
-              if(changed_data[key1][key2] == null){
-                changed_data[key1][key2] = {}
-              }
-              changed_data[key1][key2] =  {"suggestion":verified_hierarchy[key1][key2]["suggestion"], "level": [selected_amount, verified_hierarchy[key1][selected_amount]["type"]]}
-              wrong_cell.innerHTML = verified_hierarchy[key1][key2]["suggestion"]+": "+verified_hierarchy[key1][key2]["amount"];
+            if(changed_data[key1][key2] == null){
+              changed_data[key1][key2] = {}
             }
-            else{
-              if(changed_data[key1][key2] == null){
-                changed_data[key1][key2] = {}
-              }
-              changed_data[key1][key2] =  {"suggestion": verified_hierarchy[key1][key2]["suggestion"][selected], "level": [selected_amount, verified_hierarchy[key1][selected_amount]["type"]]}
-              wrong_cell.innerHTML = verified_hierarchy[key1][key2]["suggestion"][selected]+": "+verified_hierarchy[key1][key2]["amount"];
-              InputsRemove()
-              more_one = false
-              
-            }
+            changed_data[key1][key2] =  {"suggestion": verified_hierarchy[key1][key2]["suggestion"][selected], "level": [selected_amount, verified_hierarchy[key1][selected_amount]["type"]]}
+            wrong_cell.innerHTML = verified_hierarchy[key1][key2]["suggestion"][selected]+": "+verified_hierarchy[key1][key2]["amount"];
             send_values = JSON.stringify(changed_data)
-            console.log(send_values)
             data.value =  send_values
-
+            InputsRemove()
           }
           function SelectedValue(){
             selected = this.id;

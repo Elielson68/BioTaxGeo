@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/errorscreen/InvalidFile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/form_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/form_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/home_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/home_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/Planilha_Formatada.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Planilha_Formatada.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/data_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/data_treatment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,13 +199,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Criado objeto Coordenadas onde recebe os valores de latitude e longitude e suas formas">
-      <created>1575920610797</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1575920610797</updated>
     </task>
     <task id="LOCAL-00060" summary="Convertendo string de coordenadas e inserindo em um objeto. Ela identifica onde esta o grau, minutos e segundos e insere automaticamente no objeto em seus respectivo campo">
       <created>1576000122532</created>
@@ -541,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582315224055</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="Tratamento de erros: o programa verifica se o arquivo enviado é do tipo .xls, caso não seja ele mostra a tela InvalidFile.html">
+      <created>1582738968268</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1582738968268</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -619,26 +621,26 @@
       <screen x="0" y="0" width="1440" height="859" />
     </state>
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl/0.0.1440.859@0.0.1440.859" timestamp="1577380023147" />
-    <state width="1417" height="182" key="GridCell.Tab.0.bottom" timestamp="1582737371537">
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom" timestamp="1582746949611">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.869@0.0.1440.869" timestamp="1582737371537" />
-    <state width="1417" height="182" key="GridCell.Tab.0.center" timestamp="1582737371536">
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.869@0.0.1440.869" timestamp="1582746949611" />
+    <state width="1417" height="182" key="GridCell.Tab.0.center" timestamp="1582746949611">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.869@0.0.1440.869" timestamp="1582737371536" />
-    <state width="1417" height="182" key="GridCell.Tab.0.left" timestamp="1582737371536">
+    <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.869@0.0.1440.869" timestamp="1582746949611" />
+    <state width="1417" height="182" key="GridCell.Tab.0.left" timestamp="1582746949611">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.869@0.0.1440.869" timestamp="1582737371536" />
-    <state width="1417" height="182" key="GridCell.Tab.0.right" timestamp="1582737371536">
+    <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.869@0.0.1440.869" timestamp="1582746949611" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right" timestamp="1582746949611">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.869@0.0.1440.869" timestamp="1582737371536" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.869@0.0.1440.869" timestamp="1582746949611" />
     <state x="428" y="149" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1581966164618">
       <screen x="0" y="0" width="1440" height="869" />
     </state>

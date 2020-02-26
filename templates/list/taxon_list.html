@@ -27,7 +27,7 @@
         <div id="spreadsheet">
             <form action="taxon_validation" method = "POST" enctype = "multipart/form-data">
                     <input type="text" name = "data" value="" hidden="hidden" id="data"/>
-                    <input id="submit" type="submit" value="Salvar alterações" class="btn btn-success rounded-0"/>
+                    <input id="submit" type="submit" value="Salvar alterações" class="btn btn-success rounded-0" disabled/>
             </form>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-secondary active rounded-0"  >
@@ -314,6 +314,7 @@
             keys = Object.keys(verified_hierarchy[key1])
             init = keys.indexOf(key2)
             isArray = Array.isArray(correct_value)
+            Confirm_Buttom.setAttribute("disabled", "")
             if(!(isArray)){
               more_one = false
               if(verified_hierarchy[key1]["scientific name"]["synonymous"]){
@@ -332,6 +333,7 @@
                 text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+wrong_value+"</b>"
               }
               count = 0
+              console.log(correct_value)
               for (names of correct_value){
                 div = document.createElement("div")
                 div.className = "form-check"
@@ -346,6 +348,7 @@
                 label = document.createElement("label")
                 label.className = "form-check-label"
                 label.for = count
+                
                 label.innerHTML = names
                 label.style = "color: green;"
                 div.appendChild(input)
@@ -358,7 +361,6 @@
               text2.innerHTML += "<br>Selecione abaixo a quantidade de valores que deseja alterar: <br>"
               modal.appendChild(text2)
             }
-  
             count2 = 0
             for (key=init; key<keys.length-1; key++){
               div = document.createElement("div")
@@ -405,12 +407,14 @@
 
           }
           function SaveChange(){
-            key1 = wrong_cell.id.replace(wrong_cell.className, "")
-            key2 = wrong_cell.className
+            let submit_buttom = document.getElementById("submit")
+            let key1 = wrong_cell.id.replace(wrong_cell.className, "")
+            let key2 = wrong_cell.className
+            let data = document.getElementById("data")
+            submit_buttom.removeAttribute("disabled")
             wrong_cell.style = "color: white;";
             wrong_cell.setAttribute("data-toggle","");
-            wrong_cell.setAttribute("data-target","");
-            data = document.getElementById("data")
+            wrong_cell.setAttribute("data-target",""); 
             //achar uma forma dele create mais de uma key sem precisar del tudo
             if(changed_data[key1] == null){
                changed_data[key1] = {}
@@ -431,7 +435,6 @@
               wrong_cell.innerHTML = verified_hierarchy[key1][key2]["suggestion"][selected]+": "+verified_hierarchy[key1][key2]["amount"];
               InputsRemove()
               more_one = false
-              
             }
             send_values = JSON.stringify(changed_data)
             data.value =  send_values
@@ -439,26 +442,15 @@
           }
           function SelectedValue(){
             selected = this.id;
-            if(more_one){
-              if(selected != 0 && selected_amount != 0){
-                //Confirm_Buttom.setAttribute("disabled","")
-              }
-            }
-            else{
-              if(selected_amount != 0){
-                //Confirm_Buttom.setAttribute("disabled","")
-              }
-            }
+            BothSelected()
           }
           function SelectedValueAmount(){
             selected_amount = this.id;
-            if(selected != 0 && selected_amount != 0){
-              //Confirm_Buttom.disabled = false
-            }
-            else{
-              if(selected_amount != 0){
-                //Confirm_Buttom.disabled = false
-              }
+            BothSelected()
+          }
+          function BothSelected(){
+            if (selected != -1 && selected_amount!= -1){
+              Confirm_Buttom.removeAttribute("disabled")
             }
           }
           InitTable()
