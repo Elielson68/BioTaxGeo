@@ -2,26 +2,26 @@ function initMap() {
     //var mapi = new google.maps.Map(document.getElementById("mapi"), {zoom: 4, center: belem});
 
     //__________________________________VARIÁVEIS GLOBAIS___________________________________________________________________
-    var belem/*.......................*/= {lat:-1.44502, lng: -48.4650};
-    var map/*.........................*/= new google.maps.Map(document.getElementById('plot_map'), {zoom: 4, center: belem});
+    var belem/*..............................*/= {lat:-1.44502, lng: -48.4650};
+    var map/*................................*/= new google.maps.Map(document.getElementById('plot_map'), {zoom: 4, center: belem});
     var CHECKBOX_ACTIVE_MARKERCLUSTER/*......*/= document.getElementById("checkbox");
         CHECKBOX_ACTIVE_MARKERCLUSTER.checked  = true;
-    var modal/*.......................*/= document.getElementById("modal_body");
-    var BUTTOM_CANCEL/*...............*/= document.getElementById("Cancel_Buttom");
-    var BUTTOM_CONFIRM/*..............*/= document.getElementById("Confirm_Buttom");
-    var BUTTOM_CLOSE/*..............*/= document.getElementById("close_x");
-    var DATA/*........................*/= document.getElementById("data");
-    var Geo/*.........................*/= new google.maps.Geocoder;
-    var COORDINATE_CONVERSOR/*........*/= new Coordinate();
-    var INPUT_RADIO/*.................*/= new ComponentHTML();
+    var modal/*..............................*/= document.getElementById("modal_body");
+    var BUTTOM_CANCEL/*......................*/= document.getElementById("Cancel_Buttom");
+    var BUTTOM_CONFIRM/*.....................*/= document.getElementById("Confirm_Buttom");
+    var BUTTOM_CLOSE/*.......................*/= document.getElementById("close_x");
+    var DATA/*...............................*/= document.getElementById("data");
+    var Geo/*................................*/= new google.maps.Geocoder;
+    var COORDINATE_CONVERSOR/*...............*/= new Coordinate();
+    var INPUT_RADIO/*........................*/= new ComponentHTML();
     var SEND_VALUES_SERVER/*.................*/= {};
-    var VALUES_TO_SEND/*...............*/= {};
-    var COLUMN_MODIFY/*...............*/= "";
-    var COLUMN_CHANGED/*..............*/= null;
-    var ROW_MODIFY/*..................*/= null;
-    var LIST_POLY/*..................*/ = [];
-    var LIST_COMPONENTS_HTML/*........*/ = [];
-    var LIST_MARKER/*................*/ = [];
+    var VALUES_TO_SEND/*.....................*/= {};
+    var COLUMN_MODIFY/*......................*/= "";
+    var COLUMN_CHANGED/*.....................*/= null;
+    var ROW_MODIFY/*.........................*/= null;
+    var LIST_POLY/*.........................*/ = [];
+    var LIST_COMPONENTS_HTML/*..............*/ = [];
+    var LIST_MARKER/*.......................*/ = [];
     //_____________________________________________________________________________________________________________________
 
     for (poly in polygons){

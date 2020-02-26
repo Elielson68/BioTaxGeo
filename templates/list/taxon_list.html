@@ -78,7 +78,6 @@
           var Confirm_Buttom = document.getElementById("Confirm_Buttom")
           //Atribuindo alguns eventos pro botão de confirm e Cancel do Modal, e pros botões radios do modal.
           Cancel_Buttom.addEventListener("click", InputsRemove)
-          Confirm_Buttom.addEventListener("click", InputsRemove)
           Close_Buttom.addEventListener("click", InputsRemove)
           document.getElementById("option1").setAttribute("onchange", "ShowOnlyWrong('option1')")
           document.getElementById("option2").setAttribute("onchange", "ShowOnlyWrong('option2')")
@@ -86,7 +85,6 @@
           var verified_hierarchy = "{{verification}}"
           verified_hierarchy = verified_hierarchy.replace(/&#34;/g,`"`);
           verified_hierarchy = JSON.parse(verified_hierarchy)
-          console.log(verified_hierarchy)
           var total_rows = "{{total_rows}}"
           //Objeto que irar armazernar todos os data que devem ser alterados e que irão ser enviados pro servidor
           var changed_data = {}
@@ -94,8 +92,8 @@
           var more_one = false
           var only_wrong = false; //Se false aparece todos os elementos na table (certos e errados), se true aparece somente os errados.
 
-          var selected = 0; //armazena o valor selected na primeira opção de rádio, referente ao name.
-          var selected_amount = 0; //armazena a amount de itens que devem ser alterados, referente ao nível hierarquico.
+          var selected = -1; //armazena o valor selected na primeira opção de rádio, referente ao name.
+          var selected_amount = -1; //armazena a amount de itens que devem ser alterados, referente ao nível hierarquico.
           var wrong_cell;
           var count;
           var count2;
@@ -302,21 +300,27 @@
           }
           //Função que cria o modal, porém, o modal com apenas 1 sugestão de name
           function ChangingData(){
+            //GLOBAL
             wrong_cell = this;
-            modal = document.getElementById("modal_body")
-            text = document.getElementById("modal_text")
-            wrong_value = this.innerHTML;
-            key1 = this.id.replace(this.className, "")
-            key2 = this.className
-            amount = verified_hierarchy[key1][key2]["amount"]
-            wrong_value = wrong_value.replace(": "+amount, "");
-            correct_value = verified_hierarchy[key1][key2]["suggestion"]
-            keys = Object.keys(verified_hierarchy[key1])
-            init = keys.indexOf(key2)
-            isArray = Array.isArray(correct_value)
+            count = 0
+            count2 = 0
             Confirm_Buttom.setAttribute("disabled", "")
+            // LOCAL
+            let level_editing = true
+            let modal = document.getElementById("modal_body")
+            let text = document.getElementById("modal_text")
+            let key1 = this.id.replace(this.className, "")
+            let key2 = this.className
+            let amount = verified_hierarchy[key1][key2]["amount"]
+            let wrong_value = this.innerHTML.replace(": "+amount, "");
+            let correct_value = verified_hierarchy[key1][key2]["suggestion"]
+            let keys = Object.keys(verified_hierarchy[key1])
+            let init = keys.indexOf(key2)
+            let isArray = Array.isArray(correct_value)
+
             if(!(isArray)){
               more_one = false
+              selected = 0
               if(verified_hierarchy[key1]["scientific name"]["synonymous"]){
                 text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+wrong_value+"</label></b> para <b><label style='color: green;'>"+correct_value+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
               }
@@ -324,7 +328,7 @@
                 text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+wrong_value+"</label></b> para <b><label style='color: green;'>"+correct_value+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
               }
             }
-            else{
+            else if (correct_value.length > 0){
               more_one = true
               if(verified_hierarchy[key1]["scientific name"]["synonymous"]){
                 text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+wrong_value+"</b>"
@@ -332,8 +336,7 @@
               else{
                 text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+wrong_value+"</b>"
               }
-              count = 0
-              console.log(correct_value)
+              
               for (names of correct_value){
                 div = document.createElement("div")
                 div.className = "form-check"
@@ -361,31 +364,38 @@
               text2.innerHTML += "<br>Selecione abaixo a quantidade de valores que deseja alterar: <br>"
               modal.appendChild(text2)
             }
-            count2 = 0
-            for (key=init; key<keys.length-1; key++){
-              div = document.createElement("div")
-              div.className = "form-check"
-              div.id = "inputs_quant"+count2
-              input = document.createElement("input")
-              input.className = "form-check-input"
-              input.type = "radio"
-              input.name = "Radio2"
-              input.id = keys[key]
-              input.value = "option2"
-              input.addEventListener("click", SelectedValueAmount)
-              label = document.createElement("label")
-              label.className = "form-check-label"
-              label.for = count
-              label.innerHTML = "Deseja alterar <b>"+verified_hierarchy[key1][keys[key]]["amount"]+"</b> valores em sua planilha a nível de "+keys[key]+"?"
-              div.appendChild(input)
-              div.appendChild(label)
-              modal.appendChild(div)
-              count2++
+            else{
+              level_editing = false
+              more_one = true
+                text.innerHTML = "Não foi possível encontrar sugestões de correções para o valor de <b><label style='color: red;'>"+wrong_value+"</b>"
             }
+            if(level_editing){
+              for (key=init; key<keys.length-1; key++){
+                div = document.createElement("div")
+                div.className = "form-check"
+                div.id = "inputs_quant"+count2
+                input = document.createElement("input")
+                input.className = "form-check-input"
+                input.type = "radio"
+                input.name = "Radio2"
+                input.id = keys[key]
+                input.value = "option2"
+                input.addEventListener("click", SelectedValueAmount)
+                label = document.createElement("label")
+                label.className = "form-check-label"
+                label.for = count
+                label.innerHTML = "Deseja alterar <b>"+verified_hierarchy[key1][keys[key]]["amount"]+"</b> valores em sua planilha a nível de "+keys[key]+"?"
+                div.appendChild(input)
+                div.appendChild(label)
+                modal.appendChild(div)
+                count2++
+              }
+            }
+
           }
           function InputsRemove(){
-            if(more_one){
-              modal = document.getElementById("modal_body")
+            let modal = document.getElementById("modal_body")
+            if(more_one && count>0){
               for(x=0; x<count; x++){
                 var del = document.getElementById("inputs"+x)
                 modal.removeChild(del)
@@ -396,14 +406,14 @@
               }
               modal.removeChild(document.getElementById("text_aux"))
             }
-            else{
+            else if (count2 > 0){
               for(x=0; x<count2; x++){
                 var del2 = document.getElementById("inputs_quant"+x)
                 modal.removeChild(del2)
               }
             }
-            selected = 0
-            selected_amount = 0
+            selected = -1
+            selected_amount = -1
 
           }
           function SaveChange(){

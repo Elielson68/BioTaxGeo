@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/Att_Scripts.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Att_Scripts.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/files/Planilha_Formatada.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Planilha_Formatada.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/data_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/data_treatment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/plotPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/plotPolygon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Selecionar_Rota.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Selecionar_Rota.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/list/taxon_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +72,18 @@
       <recent name="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\SpecieGeo\static\css" />
       <recent name="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\SpecieGeo\static" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Python.run">
     <configuration name="Gbif_Testes" type="PythonConfigurationType" factoryName="Python">
@@ -176,21 +191,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
+    <list>
+      <item itemvalue="Python.run" />
+      <item itemvalue="Python.Gbif_Testes" />
+    </list>
   </component>
   <component name="SvnConfiguration">
-    <configuration>$USER_HOME$/.subversion</configuration>
+    <configuration>$PROJECT_DIR$/../.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
