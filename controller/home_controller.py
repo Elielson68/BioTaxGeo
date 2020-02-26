@@ -15,6 +15,9 @@ def home():
             return  render_template("Selecionar_Rota.html")
     if request.method == "POST":
         f = request.files['file']
-        f.save("files/"+secure_filename(f.filename))
-        used_sheet.set_Path(secure_filename(f.filename))
-        return render_template("Selecionar_Rota.html")
+        if(".xls" in f.filename):
+            f.save("files/"+secure_filename(f.filename))
+            used_sheet.set_Path(secure_filename(f.filename))
+            return render_template("Selecionar_Rota.html")
+        else:
+            return render_template("errorscreen/InvalidFile.html")

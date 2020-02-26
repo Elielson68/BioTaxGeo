@@ -18,9 +18,12 @@ def taxon_form():
 def taxon_form2():
     if request.method == 'POST':
         f = request.files['file']
-        f.save("files/"+secure_filename(f.filename))
-        base_sheet.set_Path(secure_filename(f.filename))
-        return render_template("form/taxon_form2.html", titles_check=used_sheet.get_Sheet_Header(), titles_base=base_sheet.get_Sheet_Header())
+        if (".xls" in f.filename):
+            f.save("files/"+secure_filename(f.filename))
+            base_sheet.set_Path(secure_filename(f.filename))
+            return render_template("form/taxon_form2.html", titles_check=used_sheet.get_Sheet_Header(), titles_base=base_sheet.get_Sheet_Header())
+        else:
+            return render_template("errorscreen/InvalidFile.html")
 
 @form_blueprint.route("/coord_form", methods=["GET", "POST"])
 def coord_form():
