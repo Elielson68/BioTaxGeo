@@ -2,51 +2,74 @@
 <html lang="en" id="html">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Mapa</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading.css') }}"/>
     <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
   </head>
   <body>
+    <div class="loader"> <img src="../static/image/tree-spinner.gif"></div>
     {% extends "fragments/navbar.html" %}
     {% block content %}
       
     <!--Div que recebe o objeto mapa criado pelo JS-->
-      <div id="first_map" class="border border-dark"></div>
-      
-      <!-- Div referente a configuração do polígono -->
-      <div id="column_right" class="card">
-        <div class="card-body" style="background-color: #fff;">
-          <select class="form-control" style="margin-bottom: 10px;" id="select_poly">
-            <option value=-1>Selecionar Poligono</option>
-            <option value=0>Poligono 1</option>
-          </select>
-
-          <div class="input-group mb-3">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Vértice</span>
-              </div>
-              <input type="number" aria-label="Latitude" class="form-control" placeholder="Latitude" id="Latitude">
-              <input type="number" aria-label="Longitude" class="form-control" placeholder="Longitude" id="Longitude">
-              <button class="btn btn-primary" type="button" id="btn_create_vertex">Criar vértice</button>
-            </div>
+    <div class="container">
+      <div class="row" style="margin-bottom: 15px;">
+        <div class="col">
+          <div class="card" style="background-color: rgba(255,255,255,.9); border-radius: 5px;">
+            <div style="font-size: 40px; font-family: 'Tomorrow', sans-serif; font-weight: bold;" class="card-header text-center">Instruções</div>
+            <div class="card-body">
+              <p style="text-align: justify; font-size: 20px;" class="card-text text-center">Comece a verificação adicionando marcadores no mapa, delimitando a sua área de pesquisa.</p>
+              <br>
+              <p style="text-align: justify; font-size: 20px;" class="card-text text-center">Não se esqueça de salvar as coordenadas antes da verificação.</p>
           </div>
-
-          <div id="insert_inputs"></div>
-          <div>
-              <button id="Btn_Create_Poly" type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Adicionar +1 Poligono</button>
-              <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px" id="btn_save_coord">Salvar coordenadas</button>
-              <form id="form" action = "markers_list" method="POST" enctype="application/json">
-                <input id="submit" type = "submit" value="Verificar áreas" class="btn btn-primary btn-lg btn-block"/>
-                <input type="text" name = "vertices" value="" hidden="hidden" id="send_polygons"/>
-              </form>
           </div>
         </div>
       </div>
-
+      <div class="row" style="margin-bottom: 15px;">
+        <div class="col" style="justify-content: center; display: flex;">
+          <div id="first_map" class="card"></div>
+        </div>
+        
+        <!-- Div referente a configuração do polígono -->
+        <div class="col" style="justify-content: center; display: flex;">
+          <div id="column_right" class="card" style="background-color: rgba(255,255,255,.85); border-radius: 5px;">
+            <div class="card-body" >
+              <select class="form-control" style="margin-bottom: 10px;" id="select_poly">
+                <option value=-1>Selecionar Poligono</option>
+                <option value=0>Poligono 1</option>
+              </select>
+              
+              <div class="input-group mb-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Vértice</span>
+                  </div>
+                  <input type="number" aria-label="Latitude" class="form-control" placeholder="Latitude" id="Latitude">
+                  <input type="number" aria-label="Longitude" class="form-control" placeholder="Longitude" id="Longitude">
+                  <button class="btn btn-primary" type="button" id="btn_create_vertex">Criar vértice</button>
+                </div>
+              </div>
+              
+              <div id="insert_inputs"></div>
+              <div>
+                <button id="Btn_Create_Poly" type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Adicionar +1 Poligono</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px" id="btn_save_coord">Salvar coordenadas</button>
+                <form id="form" action = "markers_list" method="POST" enctype="application/json">
+                  <input id="submit" type = "submit" value="Verificar áreas" class="btn btn-primary btn-lg btn-block"/>
+                  <input type="text" name = "vertices" value="" hidden="hidden" id="send_polygons"/>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -58,6 +81,7 @@
       <script type="text/javascript" src="../static/js/locality.js"></script>
       <script type="text/javascript" src="../static/js/search_localitys.js"></script>
       <script type="text/javascript" src="../static/js/createPolygon.js"></script>
+      <script type="text/javascript" src="../static/js/loading.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ47tWCXOUSPql_E5MRnw5iFKo9uaaWp8&callback=createPolygon"></script>
     {% endblock %}
   </body>

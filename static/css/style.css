@@ -7,8 +7,8 @@ body{
      width: 100%;
      height: 100%;
      background-size:cover;
-     background-repeat:no-repeat;
-     overflow: auto;
+     /* background-repeat:no-repeat; */
+     overflow : auto;
 
 }
 #NavBar{
@@ -53,19 +53,19 @@ body{
      padding: 0px;
 }
 #first_map{
-     position: absolute;
-     width: 66%;
-     height: 720px;
-     float: left;
+     /* position: absolute; */
+     width: 100%;
+     height: 581px;
+     /* float: left; */
 }
-#column_right{
+/* #column_right{
      margin-left: 66%;
      position: absolute;
      width: 34%;
      height: 100%;
      background-color: #696969;
      float: right;
-}
+} */
 #insert_inputs{
      overflow: auto; 
      height: 250px;

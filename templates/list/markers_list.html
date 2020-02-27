@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Mapa</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading.css') }}"/>
@@ -111,6 +112,7 @@
       <script type="text/javascript" src="../static/js/polygon.js"></script>
       <script type="text/javascript" src="../static/js/createComponentHTML.js"></script>
       <script type="text/javascript" src="../static/js/plotPolygon.js"></script>
+      <script type="text/javascript" src="../static/js/loading.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ47tWCXOUSPql_E5MRnw5iFKo9uaaWp8&callback=plotPolygon"></script>
     
     {% endblock %}
