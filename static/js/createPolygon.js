@@ -1,4 +1,4 @@
-function initMap() {
+function createPolygon() {
 
     var belem = {lat:-1.44502, lng: -48.4650};
     var map = new google.maps.Map(document.getElementById('first_map'), {zoom: 4, center: belem});

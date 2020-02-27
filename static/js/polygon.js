@@ -47,7 +47,7 @@ Polygon.prototype.removeVertex = function(index){
     
 }
 Polygon.prototype.getVertices = function(){
-    return this.vertices.getPath()["g"]
+    return this.vertices.getPath()["i"]
 }
 Polygon.prototype.setVertexPosition = function(vert, position){
     this.vertices.getPath().setAt(vert, position);

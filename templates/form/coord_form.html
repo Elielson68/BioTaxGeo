@@ -12,10 +12,11 @@
     <body>
         {% extends "fragments/navbar.html" %}
         {% block content %}
-        <h1 style="text-align: center;">Formulário</h1><hr>
-
         <div class="container">
-            <table class="table table-striped">
+            <div class="card" style="background-color: rgba(255,255,255,.85); width: 70rem;">
+                <div style="font-size: 45px;letter-spacing: 5px ; font-family: 'Tomorrow', sans-serif; font-weight: bol;" class="card-header text-center">Formulário</div>
+                <div style="background-color: rgba(255,255,255,0)" class="card-body">
+                    <table class="table table-striped">
             <tbody>
                 <tr align="center">
                     <td>
@@ -74,13 +75,17 @@
                     </td>
                 </tr>
             </tbody>
-            </table>
-            <form action="markers_validation" method = "POST" enctype = "multipart/form-data">
-                <input type="text" name = "selection_coordinate" value="" hidden="hidden" id="selection_coordinate"/>
-                <input type="text" name = "selection_region" value="" hidden="hidden" id="selection_region"/>
-                <input type="text" name = "selection_taxon" value="" hidden="hidden" id="selection_taxon"/>
-                <input type="submit" value="Iniciar verificação" class="btn btn-success btn-lg btn-block"/>
-            </form>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <form action="markers_validation" method = "POST" enctype = "multipart/form-data">
+                        <input type="text" name = "selection_coordinate" value="" hidden="hidden" id="selection_coordinate"/>
+                        <input type="text" name = "selection_region" value="" hidden="hidden" id="selection_region"/>
+                        <input type="text" name = "selection_taxon" value="" hidden="hidden" id="selection_taxon"/>
+                        <input type="submit" value="Iniciar verificação" class="btn btn-success btn-lg btn-block"/>
+                    </form>
+                </div>
+            </div>
         </div>
         <script>
             var titles = "{{titles}}";

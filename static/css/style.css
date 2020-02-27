@@ -3,13 +3,12 @@
 /* Tela inicial | index.html */
 body{
      background-image: url("https://images2.alphacoders.com/826/826133.jpg");
-     position: relative;
+     float: - both;
      width: 100%;
      height: 100%;
      background-size:cover;
      background-repeat:no-repeat;
      overflow: auto;
-
 }
 #NavBar{
     background: rgb(3,38,4);
@@ -46,21 +45,14 @@ body{
  /*_________________________________________________________*/
 
 /* Mapa 1 | criar_poligono_no_mapa.html*/
-#body{
-     width: 100%;
-     height: 100%;
-     margin: 0px;
-     padding: 0px;
-}
 #first_map{
-     position: absolute;
+     
      width: 66%;
-     height: 100%;
+     height: 582px;
      float: left;
 }
 #column_right{
-     margin-left: 66%;
-     position: absolute;
+     
      width: 34%;
      height: 100%;
      background-color: #696969;
@@ -76,13 +68,14 @@ body{
  /*_________________________________________________________*/
 
 /* Mapa 2 | plotar_poligono_no_mapa.html*/
- #plot_map {
+ #second_map {
      position: absolute;
      width: 100%;
      height: 50%; 
+     
 }
 #div_table{
-     margin-top: 365px;
+     margin-top: 400px;
      position: absolute;
      width: 100%;
      height: 50%;

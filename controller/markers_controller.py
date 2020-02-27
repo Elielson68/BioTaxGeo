@@ -37,14 +37,21 @@ def markers_validation():
         spreadsheet_titles['locality'] = region["locality"]
         spreadsheet_titles['latitude'] = coord["latitude"]
         spreadsheet_titles['longitude'] = coord["longitude"]
-        return redirect(url_for("markers.markers_list"))
+        return redirect(url_for("markers.markers_form"))
+
+@markers_blueprint .route("/markers_form",methods=["GET","POST"])
+def markers_form():
+    if request.method == "GET":
+        return render_template("form/markers_form.html" )
 
 @markers_blueprint .route("/markers_list",methods=["GET","POST"])
 def markers_list():
-    if request.method == "POST":
+    if request.method == "GET":
+        return redirect(url_for("markers.markers_form"))
+    elif request.method == "POST":
         polygons = request.form['vertices']
         polygons = eval(polygons)
-
+        print(polygons)
         coord_lat = used_sheet.coordinate.get_Latitude_Column_values()
         coord_lng = used_sheet.coordinate.get_Longitude_Column_values()
         coord_lat = used_sheet.coordinate.Convert_Lat_Decimal(coord_lat)
@@ -136,8 +143,6 @@ def markers_list():
         row_coord_lat = used_sheet.coordinate.get_Index_Row_Lat()
         row_coord_lng = used_sheet.coordinate.get_Index_Row_Lng()
         return render_template("list/markers_list.html", polygons=polygons, latitude=coord_lat, longitude=coord_lng, row_coord_lat=row_coord_lat, row_coord_lng=row_coord_lng, list_region=list_region, country=spreadsheet_country, state=spreadsheet_state, county=spreadsheet_county, locality=spreadsheet_local, genus=genus, specie=specie, list_checked_regions=list_treatment_region, spreadsheet_titles=spreadsheet_titles)
-    else:
-        return render_template("form/markers_form.html" )
 
 @markers_blueprint .route("/markers_confirm", methods=["GET", "POST"])
 def markers_confirm():
@@ -147,8 +152,5 @@ def markers_confirm():
         used_sheet.Change_Data_Spreadsheet2(data)
         used_sheet.Save_Formatted_Spreadsheet()
         return redirect(url_for("home.home"))
-'''
-_______________________________________________________________________________________________________________________
-UTILIZANDO API REST DO GOOGLEMAPS 
-1740 linhas lidas em 4m20s.
-'''
+    else:
+        return redirect(url_for("home.home"))
