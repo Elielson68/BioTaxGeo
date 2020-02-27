@@ -203,10 +203,10 @@ class Data_Treatment:
                                 correct = self.verified_hierarchy[correct_name][key]["type"]
                                 wrong = self.verified_hierarchy[wrong_name][key]["type"]
                                 average_hierarchy_values[correct_name][key][correct] = None
+
                                 if (self.Compare_String (wrong, correct) > 60 and wrong != correct):
                                     if correct not in self.verified_hierarchy[wrong_name][key]["suggestion"]:
                                         self.verified_hierarchy[wrong_name][key]["suggestion"].append(correct)
-                                    #self.verified_hierarchy[wrong_name]["specie"]["suggestion"].append(self.verified_hierarchy[correct_name]["specie"]["type"])
                                     self.verified_hierarchy[wrong_name]["scientific name"]["font"] = "Planilha"
 
                                 if (correct == wrong):

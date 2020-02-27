@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Mapa</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading.css') }}"/>
+    <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
 </head>
 <body>
-  {% extends "fragments/navbar.html" %}
-  {% block content %}
-
-    <!-- input da Checkbox, onde verifica se a pessoa quer ver os markers juntos ou não -->
+    <div class="loader"> <img src="../static/image/tree-spinner.gif"></div>
+    <!------------------------------------NAVBAR----------------------------------------------------------------------->
+    {% extends "fragments/navbar.html" %}
+    <!----------------------------------------------------------------------------------------------------------------->
+    {% block content %}
+    <!-------------------------------------NAVBAR---------------------------------------------------------------------->
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <div class="input-group-text">
@@ -20,10 +25,8 @@
       <input type="text" class="form-control" aria-label="Text input with checkbox" disabled value="Agrupar markers">
     </div>
 
-    <!-- Div do mapa, aqui que será plotado o mapa criado pelo JS -->
-    <div id="second_map" class="border border-secondary"></div>
-    
-    <!-- Tabela que fica embaixo do mapa, onde mostra o resultado do que foi achado no mapa -->
+    <div id="plot_map" class="border border-secondary"></div>
+    <!--<div id="mapi"></div>-->
     <div id="div_table" class="border border-secondary">
       <form action = "markers_confirm" method = "POST" enctype = "multipart/form-data">
         <button type="submit" class="btn btn-success btn-lg btn-block rounded-0">Salvar alterações</button>
@@ -32,8 +35,8 @@
       <table class="table" id="table">
       </table>
     </div>
-    
-    <!-- Modal que serve de pop-up para a pessoa modificar algum valor encontrado na tabela -->
+    <!------------------------------------------------------------------------------------------------------------------>
+    <!-------------------------------------MODAL------------------------------------------------------------------->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -45,6 +48,7 @@
           </div>
           <div class="modal-body" id="modal_body">
             <label id="modal_text"></label>
+            
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Cancel_Buttom">Cancelar</button>
@@ -53,61 +57,62 @@
         </div>
       </div>
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&libraries=geometry"></script>
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script>
-      var list_region = '{{list_region}}'
-      var polygons = '{{polygons}}'
-      var latitudes = "{{latitude}}"
-      var longitudes = "{{longitude}}"
-      var row_coord_lat = "{{row_coord_lat}}"
-      var row_coord_lng = "{{row_coord_lng}}"
-      var country = '{{country}}'
-      var state = '{{state}}'
-      var county = '{{county}}'
-      var locality = '{{locality}}'
-      var genus = '{{genus}}'
-      var specie = '{{specie}}'
-      var list_checked_regions = '{{list_checked_regions}}'
-      var spreadsheet_titles = '{{spreadsheet_titles}}'
+    <!------------------------------------------------------------------------------------------------------------------>
+  <script>
+    var list_region = '{{list_region}}'
+    var polygons = '{{polygons}}'
+    var latitudes = "{{latitude}}"
+    var longitudes = "{{longitude}}"
+    var row_coord_lat = "{{row_coord_lat}}"
+    var row_coord_lng = "{{row_coord_lng}}"
+    var country = '{{country}}'
+    var state = '{{state}}'
+    var county = '{{county}}'
+    var locality = '{{locality}}'
+    var genus = '{{genus}}'
+    var specie = '{{specie}}'
+    var list_checked_regions = '{{list_checked_regions}}'
+    var spreadsheet_titles = '{{spreadsheet_titles}}'
 
-      polygons = polygons.replace(/&#39;/g, '"')
-      list_region = list_region.replace(/&#39;/g, '"')
-      country = country.replace(/&#39;/g, '"')
-      state = state.replace(/&#39;/g, '"')
-      county =  county.replace(/&#39;/g, '"')
-      locality = locality.replace(/&#39;/g, '"')
-      genus = genus.replace(/&#39;/g, '"')
-      specie =  specie.replace(/&#39;/g, '"')
-      list_checked_regions = list_checked_regions.replace(/&#39;/g, '"')
-      spreadsheet_titles = spreadsheet_titles.replace(/&#39;/g, '"')
-      
-      polygons = JSON.parse(polygons)
-      latitudes = JSON.parse(latitudes)
-      longitudes = JSON.parse(longitudes)
-      row_coord_lat = JSON.parse(row_coord_lat)
-      row_coord_lng = JSON.parse(row_coord_lng)
-      list_region = JSON.parse(list_region)
-      country = JSON.parse(country)
-      state = JSON.parse(state)
-      county = JSON.parse(county)
-      locality = JSON.parse(locality)
-      genus = JSON.parse(genus)
-      specie = JSON.parse(specie)
-      spreadsheet_titles = JSON.parse(spreadsheet_titles)
-      list_checked_regions = JSON.parse(list_checked_regions)
-      
-    </script>
-    <script type="text/javascript" src="../static/js/coordinate.js"></script>
-    <script type="text/javascript" src="../static/js/point_marker.js"></script>
-    <script type="text/javascript" src="../static/js/polygon.js"></script>
-    <script type="text/javascript" src="../static/js/createComponentHTML.js"></script>
-    <script type="text/javascript" src="../static/js/plotPolygon.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ47tWCXOUSPql_E5MRnw5iFKo9uaaWp8&callback=plotPolygon"></script>
+    polygons = polygons.replace(/&#39;/g, '"')
+    list_region = list_region.replace(/&#39;/g, '"')
+    country = country.replace(/&#39;/g, '"')
+    state = state.replace(/&#39;/g, '"')
+    county =  county.replace(/&#39;/g, '"')
+    locality = locality.replace(/&#39;/g, '"')
+    genus = genus.replace(/&#39;/g, '"')
+    specie =  specie.replace(/&#39;/g, '"')
+    list_checked_regions = list_checked_regions.replace(/&#39;/g, '"')
+    spreadsheet_titles = spreadsheet_titles.replace(/&#39;/g, '"')
+    
+    polygons = JSON.parse(polygons)
+    latitudes = JSON.parse(latitudes)
+    longitudes = JSON.parse(longitudes)
+    row_coord_lat = JSON.parse(row_coord_lat)
+    row_coord_lng = JSON.parse(row_coord_lng)
+    list_region = JSON.parse(list_region)
+    country = JSON.parse(country)
+    state = JSON.parse(state)
+    county = JSON.parse(county)
+    locality = JSON.parse(locality)
+    genus = JSON.parse(genus)
+    specie = JSON.parse(specie)
+    spreadsheet_titles = JSON.parse(spreadsheet_titles)
+    list_checked_regions = JSON.parse(list_checked_regions)
+    
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&libraries=geometry"></script>
+  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+  <script type="text/javascript" src="../static/js/coordinate.js"></script>
+  <script type="text/javascript" src="../static/js/point_marker.js"></script>
+  <script type="text/javascript" src="../static/js/polygon.js"></script>
+  <script type="text/javascript" src="../static/js/createComponentHTML.js"></script>
+  <script type="text/javascript" src="../static/js/plotPolygon.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ47tWCXOUSPql_E5MRnw5iFKo9uaaWp8&callback=initMap"></script>
+  
   {% endblock %}
 </body>
 </html>
