@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/Att_Scripts.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Att_Scripts.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/Planilha_Formatada.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Planilha_Formatada.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/data_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/data_treatment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/plotPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/plotPolygon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Selecionar_Rota.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Selecionar_Rota.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/markers_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/markers_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list/markers_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/markers_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,18 +68,6 @@
       <recent name="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\SpecieGeo\static\css" />
       <recent name="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\SpecieGeo\static" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Python.run">
     <configuration name="Gbif_Testes" type="PythonConfigurationType" factoryName="Python">
@@ -195,6 +179,18 @@
       <item itemvalue="Python.run" />
       <item itemvalue="Python.Gbif_Testes" />
     </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration>$PROJECT_DIR$/../.subversion</configuration>
@@ -624,6 +620,10 @@
     </state>
     <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1581710083680" />
     <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" timestamp="1582738966071" />
+    <state x="100" y="99" width="1240" height="669" key="DiffContextDialog" timestamp="1582834295771">
+      <screen x="0" y="0" width="1440" height="869" />
+    </state>
+    <state x="100" y="99" width="1240" height="669" key="DiffContextDialog/0.0.1440.869@0.0.1440.869" timestamp="1582834295771" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1577380023147">
       <screen x="0" y="0" width="1440" height="859" />
     </state>
@@ -658,11 +658,11 @@
     </state>
     <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1581526812762" />
     <state x="219" y="64" key="SettingsEditor/0.0.1440.869@0.0.1440.869" timestamp="1581966268528" />
-    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1582315237044">
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1582833525728">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1581710091115" />
-    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.869@0.0.1440.869" timestamp="1582315237044" />
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.869@0.0.1440.869" timestamp="1582833525728" />
     <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582130355426">
       <screen x="0" y="0" width="1440" height="869" />
     </state>

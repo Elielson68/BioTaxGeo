@@ -1,9 +1,9 @@
-function initMap() {
+function plotPolygon() {
     //var mapi = new google.maps.Map(document.getElementById("mapi"), {zoom: 4, center: belem});
 
     //__________________________________VARIÁVEIS GLOBAIS___________________________________________________________________
     var belem/*..............................*/= {lat:-1.44502, lng: -48.4650};
-    var map/*................................*/= new google.maps.Map(document.getElementById('plot_map'), {zoom: 4, center: belem});
+    var map/*................................*/= new google.maps.Map(document.getElementById('second_map'), {zoom: 4, center: belem});
     var CHECKBOX_ACTIVE_MARKERCLUSTER/*......*/= document.getElementById("checkbox");
         CHECKBOX_ACTIVE_MARKERCLUSTER.checked  = true;
     var modal/*..............................*/= document.getElementById("modal_body");
