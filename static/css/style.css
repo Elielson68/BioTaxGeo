@@ -55,7 +55,7 @@ body{
 #first_map{
      position: absolute;
      width: 66%;
-     height: 100%;
+     height: 720px;
      float: left;
 }
 #column_right{
@@ -79,7 +79,7 @@ body{
  #plot_map {
      position: absolute;
      width: 100%;
-     height: 50%; 
+     height: 300px; 
 }
 #div_table{
      margin-top: 365px;
