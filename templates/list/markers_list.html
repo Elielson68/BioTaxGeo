@@ -14,8 +14,14 @@
     <div class="loader"> <img src="../static/image/tree-spinner.gif"></div>
     {% extends "fragments/navbar.html" %}
     {% block content %}
+    
+    <div class="container">
+      
+      
+      <!-- Div referente ao mapa criado pelo JS -->
+      <div id="second_map" class="border border-secondary" style="margin-top: 50px;"></div>
       <!-- Div referente ao checkbox que verifica se a pessoa quer visualizar os markers todos juntos ou não-->
-      <div class="input-group mb-3">
+      <div class="input-group mb-3" style="margin-top: 0;">
         <div class="input-group-prepend">
           <div class="input-group-text">
             <input type="checkbox" aria-label="Checkbox for following text input" id="checkbox" active="active">
@@ -23,20 +29,18 @@
         </div>
         <input type="text" class="form-control" aria-label="Text input with checkbox" disabled value="Agrupar markers">
       </div>
-
-      <!-- Div referente ao mapa criado pelo JS -->
-      <div id="second_map" class="border border-secondary"></div>
       
       <!-- Div referente a tabela que contém informações dos markers-->
-      <div id="div_table" class="border border-secondary">
+      <div id="div_table">
         <form action = "markers_confirm" method = "POST" enctype = "multipart/form-data">
           <button type="submit" class="btn btn-success btn-lg btn-block rounded-0">Salvar alterações</button>
           <input type="text" name = "data" value="" id="data" hidden>
         </form>
-        <table class="table" id="table">
+        <table style="background-color: rgba(255,255,255,.65);" class="table" id="table">
         </table>
       </div>
-
+    </div>
+      
       <!--Modal que faz aparecer o pop-up para alterar os dados da tabela-->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -58,7 +62,7 @@
           </div>
         </div>
       </div>
-
+      
       <script>
         var list_region = '{{list_region}}'
         var polygons = '{{polygons}}'

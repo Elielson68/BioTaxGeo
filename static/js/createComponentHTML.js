@@ -56,7 +56,7 @@ ComponentHTML.prototype.createInputGroup = function(lat, lng, index, append, eve
     this.button_delete.appendChild(this.text_button);
     this.div_button_children.appendChild(this.button_delete);
   
-    this.super_div.style = "margin-bottom: 10px;"
+    // this.super_div.style = "margin-bottom: 10px;"
     append.appendChild(this.super_div);
 }
 ComponentHTML.prototype.createOption = function(value, text, select){
