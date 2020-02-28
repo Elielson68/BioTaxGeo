@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Mapa</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/font-awesome-4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading.css') }}"/>
     <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,27 +18,41 @@
     
     <div class="container">
       
-      
-      <!-- Div referente ao mapa criado pelo JS -->
-      <div id="second_map" class="border border-secondary" style="margin-top: 50px;"></div>
       <!-- Div referente ao checkbox que verifica se a pessoa quer visualizar os markers todos juntos ou não-->
-      <div class="input-group mb-3" style="margin-top: 0;">
+      <div class="input-group" style="margin-top: 40px; margin-bottom: 0;">
         <div class="input-group-prepend">
           <div class="input-group-text">
             <input type="checkbox" aria-label="Checkbox for following text input" id="checkbox" active="active">
           </div>
         </div>
-        <input type="text" class="form-control" aria-label="Text input with checkbox" disabled value="Agrupar markers">
+        <input type="text" class="form-control" aria-label="Text input with checkbox" disabled value="Agrupar marcadores">
+      </div> 
+      <!-- Div referente ao mapa criado pelo JS -->
+      <div id="second_map" class="border border-secondary" style="margin-top: 0px;"></div>
+     
+
+      <div style="margin-top: 30px;" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <span class="text-center">Corrija seus dados abaixo.</span> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       
       <!-- Div referente a tabela que contém informações dos markers-->
+      <div style="margin-bottom: 0;">
+            <br clear="all">
+            <i class="fa fa-square" aria-hidden="true" style="font-size:20px;color:#FFD700"></i>&nbsp;
+            <span style="color: #fff;">Erro ortográfico</span>&nbsp;&nbsp;&nbsp;
+            <i aria-hidden="true" class="fa fa-square" style="font-size:20px;color:#DA3530"></i>&nbsp;
+            <span style="color: #fff;">Região fora da coordenada fornecida</span>&nbsp;&nbsp;&nbsp;
+      </div>
       <div id="div_table">
-        <form action = "markers_confirm" method = "POST" enctype = "multipart/form-data">
+        <table style="background-color: rgba(255,255,255,.90);" class="table" id="table">
+        </table>
+        <form style="margin-bottom: 50px;" action = "markers_confirm" method = "POST" enctype = "multipart/form-data">
           <button type="submit" class="btn btn-success btn-lg btn-block rounded-0">Salvar alterações</button>
           <input type="text" name = "data" value="" id="data" hidden>
         </form>
-        <table style="background-color: rgba(255,255,255,.65);" class="table" id="table">
-        </table>
       </div>
     </div>
       
