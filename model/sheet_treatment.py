@@ -45,6 +45,9 @@ class Sheet:
     def get_Path(self):
         return self.path
 
+    def set_File(self, file):
+        self.file = file
+
     def get_Sheet (self):
         return self.sheet_list[self.index_sheet]
 

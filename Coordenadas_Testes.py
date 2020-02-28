@@ -16,7 +16,7 @@ def mapa_teste():
         f = request.files['file']
         f.save(secure_filename(f.filename))
         Planilha_atual.set_Diretorio(secure_filename(f.filename))        
-        return render_template("coord_form.html", titulos=Planilha_atual.get_Cabecario_Planilha())
+        return render_template("markers_form.html", titulos=Planilha_atual.get_Cabecario_Planilha())
 
 @app.route("/verificacao_planilha", methods=["GET", "POST"])
 def verificacao():
@@ -38,7 +38,7 @@ def mapa_desenhar():
         coord_lng = Planilha_atual.coordenadas.Converter_Lng_Decimal(coord_lng)
         return render_template("markers_list.html", poligonos=poligonos, latitude=coord_lat, longitude=coord_lng)
     else:
-        return render_template("markers_form.html")
+        return render_template("markers_form_map.html")
 
 #'POLYGON(([longitude ->]-60.2910 [latitude ->]-14.4626,-52.6142 -14.4626, -53.5810 -22.2995,  -60.1591 -22.2995, -60.2910 -14.4626)
 app.run(debug=True, port=8080)

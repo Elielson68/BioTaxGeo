@@ -60,8 +60,9 @@ function createPolygon() {
         list_componentsHTML.splice(index,1)    
     }
     function CreatePolygon(){
-        var last_created_polygon = list_polygons[list_polygons.length-1]
-        if(last_created_polygon.TotalVertices() >= 3 && selected_polygon.TotalVertices() >=3){
+        let create = true
+        list_polygons.forEach(function(poly){ poly.TotalVertices() < 3 ? create = false:null  })
+        if(create){
             var new_polygon = new Polygon(map)
             list_polygons.push(new_polygon)
             selected_polygon.setActive(false)

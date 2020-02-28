@@ -38,7 +38,7 @@
         </button>
       </div>
       
-      <!-- Div referente a tabela que contém informações dos markers-->
+      <!-- Div de instruções para utilização da tabela-->
       <div style="margin-bottom: 0;">
             <br clear="all">
             <i class="fa fa-square" aria-hidden="true" style="font-size:20px;color:#FFD700"></i>&nbsp;
@@ -46,11 +46,13 @@
             <i aria-hidden="true" class="fa fa-square" style="font-size:20px;color:#DA3530"></i>&nbsp;
             <span style="color: #fff;">Região fora da coordenada fornecida</span>&nbsp;&nbsp;&nbsp;
       </div>
+      
+      <!-- Div referente a tabela que contém informações dos markers-->
       <div id="div_table">
         <table style="background-color: rgba(255,255,255,.90);" class="table" id="table">
         </table>
         <form style="margin-bottom: 50px;" action = "markers_confirm" method = "POST" enctype = "multipart/form-data">
-          <button type="submit" class="btn btn-success btn-lg btn-block rounded-0">Salvar alterações</button>
+          <button id="submit" type="submit" class="btn btn-success btn-lg btn-block rounded-0" disabled>Salvar alterações</button>
           <input type="text" name = "data" value="" id="data" hidden>
         </form>
       </div>

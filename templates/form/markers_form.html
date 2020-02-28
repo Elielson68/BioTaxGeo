@@ -1,88 +1,185 @@
 <!DOCTYPE html>
-<html lang="en" id="html">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Mapa</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading.css') }}"/>
-    <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
-  </head>
-  <body>
-    <div class="loader"> <img src="../static/image/tree-spinner.gif"></div>
-    {% extends "fragments/navbar.html" %}
-    {% block content %}
-      
-    <!--Div que recebe o objeto mapa criado pelo JS-->
-    <div class="container">
-      <div class="row" style="margin-bottom: 15px;">
-        <div class="col">
-          <div class="card" style="background-color: rgba(255,255,255,.9); border-radius: 5px;">
-            <div style="font-size: 40px; font-family: 'Tomorrow', sans-serif; font-weight: bold;" class="card-header text-center">Instruções</div>
-            <div class="card-body">
-              <p style="text-align: justify; font-size: 20px;" class="card-text text-center">Comece a verificação adicionando marcadores no mapa, delimitando a sua área de pesquisa.</p>
-              <br>
-              <p style="text-align: justify; font-size: 20px;" class="card-text text-center">Não se esqueça de salvar as coordenadas antes da verificação.</p>
-          </div>
-          </div>
-        </div>
-      </div>
-      <div class="row" style="margin-bottom: 15px;">
-        <div class="col" style="justify-content: center; display: flex;">
-          <div id="first_map" class="card"></div>
-        </div>
-        
-        <!-- Div referente a configuração do polígono -->
-        <div class="col" style="justify-content: center; display: flex;">
-          <div id="column_right" class="card" style="background-color: rgba(255,255,255,.85); border-radius: 5px;">
-            <div class="card-body" >
-              <select class="form-control" style="margin-bottom: 10px;" id="select_poly">
-                <option value=-1>Selecionar Poligono</option>
-                <option value=0>Poligono 1</option>
-              </select>
-              
-              <div class="input-group mb-3">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Vértice</span>
-                  </div>
-                  <input type="number" aria-label="Latitude" class="form-control" placeholder="Latitude" id="Latitude">
-                  <input type="number" aria-label="Longitude" class="form-control" placeholder="Longitude" id="Longitude">
-                  <button class="btn btn-primary" type="button" id="btn_create_vertex">Criar vértice</button>
-                </div>
-              </div>
-              
-              <div id="insert_inputs"></div>
-              <div>
-                <button id="Btn_Create_Poly" type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Adicionar +1 Poligono</button>
-                <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px" id="btn_save_coord">Salvar coordenadas</button>
-                <form id="form" action = "markers_list" method="POST" enctype="application/json">
-                  <input id="submit" type = "submit" value="Verificar áreas" class="btn btn-primary btn-lg btn-block"/>
-                  <input type="text" name = "vertices" value="" hidden="hidden" id="send_polygons"/>
-                </form>
-              </div>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Planilha</title>
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading.css') }}"/>
+        <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="loader"> <img src="../static/image/tree-spinner.gif"></div>
+        {% extends "fragments/navbar.html" %}
+        {% block content %}
+        <div class="container">
+         <div class="card" style="background-color: rgba(255,255,255,.85); width: 70rem;">
+            <div style="font-size: 45px;letter-spacing: 5px ; font-family: 'Tomorrow', sans-serif; font-weight: bol;" class="card-header text-center">Formulário</div>
+            <div style="background-color: rgba(255,255,255,0)" class="card-body">
+               <table class="table table-striped">
+                  <tbody>
+                     <tr align="center">
+                        <td>
+                           <form class="well form-horizontal">
+                              <fieldset>
+                                 <div class="form-group">
+                                    <label class="col-md-4 control-label">Selecione a coluna onde está o Gênero</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><select class="custom-select" id="genus"><option>Selecionar gênero...</option></select></div>
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <label class="col-md-4 control-label">Selecione a coluna onde está a Espécie</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="specie"><option>Selecionar espécie...</option></select></div>
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <label class="col-md-4 control-label">Selecione a coluna onde está a Latitude</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="latitude"><option>Selecionar latitude...</option></select></div>
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <label class="col-md-4 control-label">Selecione a coluna onde está a Longitude</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="longitude"><option>Selecionar longitude...</option></select></div>
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <label class="col-md-4 control-label">Selecione a coluna onde está o País</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="country"><option>Selecionar país...</option></select></div>
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <label class="col-md-4 control-label">Selecione a coluna onde está o Estado</label>
+                                    <div class="col-md-8 inputGroupContainer">
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="state"><option>Selecionar estado...</option></select></div>
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                   <label class="col-md-4 control-label">Selecione a coluna onde está o Município</label>
+                                   <div class="col-md-8 inputGroupContainer">
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="county"><option>Selecionar município...</option></select></div>
+                                   </div>
+                                 </div>
+                                 <div class="form-group">
+                                  <label class="col-md-4 control-label">Selecione a coluna onde está o Local</label>
+                                  <div class="col-md-8 inputGroupContainer">
+                                      <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="locality"><option>Selecionar local...</option></select></div>
+                                  </div>
+                                </div>
+                              </fieldset>
+                           </form>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
-          </div>
+            <div class="card-footer">
+               <form action="markers_validation" method = "POST" enctype = "multipart/form-data">
+                  <div align="center" class="container">
+                    <input type="text" name = "selection_coordinate" value="" hidden="hidden" id="selection_coordinate"/>
+                    <input type="text" name = "selection_region" value="" hidden="hidden" id="selection_region"/>
+                    <input type="text" name = "selection_taxon" value="" hidden="hidden" id="selection_taxon"/>
+                    <input type="submit" value="Iniciar verificação" class="btn btn-success btn-lg btn-block"/>
+                  </div>
+               </form>
+            </div>
+         </div>
         </div>
-      </div>
-    </div>
-      
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-      <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"type="text/javascript" charset="utf-8"></script>
-      <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"type="text/javascript" charset="utf-8"></script>
-      <script type="text/javascript" src="../static/js/point_marker.js"></script>
-      <script type="text/javascript" src="../static/js/polygon.js"></script>
-      <script type="text/javascript" src="../static/js/createComponentHTML.js"></script>
-      <script type="text/javascript" src="../static/js/locality.js"></script>
-      <script type="text/javascript" src="../static/js/search_localitys.js"></script>
-      <script type="text/javascript" src="../static/js/createPolygon.js"></script>
-      <script type="text/javascript" src="../static/js/loading.js"></script>
-      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ47tWCXOUSPql_E5MRnw5iFKo9uaaWp8&callback=createPolygon"></script>
-    {% endblock %}
-  </body>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="../static/js/loading.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script>
+            var titles = "{{titles}}";
+            titles = titles.replace(/&#39;/g,'"');
+            titles = JSON.parse(titles)
+
+            var coordinates = {"latitude": null, "longitude": null}
+            var region = {"country": null, "state": null, "county": null, "locality": null}
+            var taxon = {"genus": null, "specie": null}
+
+            var select_genus = document.getElementById("genus");
+            var select_specie = document.getElementById("specie");
+            var select_latitude = document.getElementById("latitude");
+            var select_longitude = document.getElementById("longitude");
+            var select_country = document.getElementById("country");
+            var select_state = document.getElementById("state")
+            var select_county = document.getElementById("county")
+            var select_locality = document.getElementById("locality")
+
+            AssigningTitles()
+            function AssigningTitles(){
+                for (title of titles){
+                    new_option1 = document.createElement("option");
+                    new_option1.innerHTML = title;
+
+                    new_option2 = document.createElement("option");
+                    new_option2.innerHTML = title;
+
+                    new_option3 = document.createElement("option");
+                    new_option3.innerHTML = title;
+
+                    new_option4 = document.createElement("option");
+                    new_option4.innerHTML = title;
+
+                    new_option5 = document.createElement("option");
+                    new_option5.innerHTML = title;
+
+                    new_option6 = document.createElement("option");
+                    new_option6.innerHTML = title;
+
+                    new_option7 = document.createElement("option");
+                    new_option7.innerHTML = title;
+
+                    new_option8 = document.createElement("option");
+                    new_option8.innerHTML = title;
+
+                    select_genus.appendChild(new_option1);
+                    select_specie.appendChild(new_option2);
+                    select_latitude.appendChild(new_option3);
+                    select_longitude.appendChild(new_option4);
+                    select_country.appendChild(new_option5);
+                    select_state.appendChild(new_option6);
+                    select_county.appendChild(new_option7);
+                    select_locality.appendChild(new_option8);
+                    
+                }
+            }
+            function Selected(){
+                if(this.id in coordinates){
+                    coordinates[this.id] = this.value;
+                    var formated_coordinate = JSON.stringify(coordinates);
+                    var input_text1 = document.getElementById("selection_coordinate");
+                    input_text1.value = formated_coordinate;
+                }
+                if(this.id in region){
+                    region[this.id] = this.value;
+                    var formated_region = JSON.stringify(region);
+                    var input_text2 = document.getElementById("selection_region");
+                    input_text2.value = formated_region;
+                }
+                if(this.id in taxon){
+                    taxon[this.id] = this.value;
+                    var formated_taxon = JSON.stringify(taxon);
+                    var input_text3 = document.getElementById("selection_taxon");
+                    input_text3.value = formated_taxon;
+                }
+
+            }
+            select_genus.addEventListener("change", Selected);
+            select_specie.addEventListener("change", Selected);
+            select_latitude.addEventListener("change", Selected);
+            select_longitude.addEventListener("change", Selected);
+            select_country.addEventListener("change", Selected);
+            select_state.addEventListener("change", Selected);
+            select_county.addEventListener("change", Selected);
+            select_locality.addEventListener("change", Selected);
+        </script>
+        {% endblock %}
+    </body>
 </html>

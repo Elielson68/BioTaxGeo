@@ -42,7 +42,7 @@ def markers_validation():
 @markers_blueprint .route("/markers_form",methods=["GET","POST"])
 def markers_form():
     if request.method == "GET":
-        return render_template("form/markers_form.html" )
+        return render_template("form/markers_form_map.html" )
 
 @markers_blueprint .route("/markers_list",methods=["GET","POST"])
 def markers_list():
