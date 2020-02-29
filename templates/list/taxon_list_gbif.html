@@ -4,45 +4,58 @@
         <meta charset="UTF-8">
         <title>Planilha</title>
         <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="../static/css/font-awesome-4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading.css') }}"/>
+        <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
     </head>
     <body>
+        <div class="loader"> <img src="../static/image/tree-spinner.gif"></div>
         {% extends "fragments/navbar.html" %}
         {% block content %}
 
-        <h1 style="text-align: center;" class="TextForm">Verificação dos dados da planilha</h1>
+        <h1 style="margin-top: 10px" class="TextForm cardHeader text-center">Verificação dos dados da planilha</h1>
         <hr style="background-color: white;">        
-        <div>
-          <ul>
-            <li style="color: white;"><p class="TextForm">Nomes em <b style="color: orange;">Laranja</b> representam que os valores tratam-se de um sinônimo.</p></li>
-            <li style="color: white;"><p class="TextForm">Nomes em <b style="color: red;">Vermelho</b> representam que os valores estão incorretos.</p></li>
-          </ul>
-        </div>
+        <h4 style="color: #fff; text-align: center;">Para receber sugestões, clique em cima dos valores sinalizados.</h4>
         <hr style="background-color: white;">
 
         <!--______________________________________PLANILHA______________________________________________________-->
         <div id="spreadsheet">
-            <form action="taxon_validation" method = "POST" enctype = "multipart/form-data">
-                    <input type="text" name = "data" value="" hidden="hidden" id="data"/>
-                    <input id="submit" type="submit" value="Salvar alterações" class="btn btn-success rounded-0" disabled/>
-            </form>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary active rounded-0"  >
-                  <input type="radio" name="options" id="option1" autocomplete="on" checked> Visualizar tudo
-                </label>
-                <label class="btn btn-secondary rounded-0">
-                  <input type="radio" name="options" id="option2" autocomplete="on"> Visualizar apenas os erros
-                </label>
+            <div class="card" style="margin-bottom: 15px;">
+              <div class="card-header cardHeader text-center">Sua Planilha</div>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-secondary active rounded-0"  >
+                    <input type="radio" name="options" id="option1" autocomplete="on" checked> Visualizar tudo
+                  </label>
+                  <label class="btn btn-secondary rounded-0">
+                    <input type="radio" name="options" id="option2" autocomplete="on"> Visualizar apenas os erros
+                  </label>
+              </div>
+              <div class="card-body">
+                <div class="row" style="margin-bottom: 10px;">
+                  <div class="col-md-6">
+                    <i class="fa fa-square" aria-hidden="true" style="font-size:20px;color:#FFD700"></i>&nbsp;
+                    <span>Valores tratam-se de um sinônimo.</span>&nbsp;&nbsp;&nbsp;
+                    <i aria-hidden="true" class="fa fa-square" style="font-size:20px;color:#DA3530"></i>&nbsp;
+                    <span>Valores estão incorretos.</span>&nbsp;&nbsp;&nbsp;
+                  </div>
+                </div>
+              <table class="table" id="spreadsheet_table">
+                <thead id="thead_table">
+                  <tr id="tr_thead">
+                  </tr>
+                </thead>
+                <tbody id="tbody_table">
+                </tbody>
+              </table>
+              <div style="display: grid; justify-items: center;">
+                <form action="taxon_validation" method = "POST" enctype = "multipart/form-data">
+                  <input type="text" name = "data" value="" hidden="hidden" id="data"/>
+                  <input id="submit" type="submit" value="Salvar alterações" class="btn btn-success rounded-0" disabled/>
+                </form>
+              </div>
             </div>
-
-          <table class="table table-dark" id="spreadsheet_table">
-            <thead id="thead_table">
-              <tr id="tr_thead">
-              </tr>
-            </thead>
-            <tbody id="tbody_table">
-            </tbody>
-          </table>
+          </div>
         </div>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -64,6 +77,7 @@
             </div>
           </div>
         </div>
+        <script type="text/javascript" src="../static/js/loading.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -182,7 +196,7 @@
             }
             else if (!only_wrong || create) {
               td_kingdom.innerHTML = `${hierarchy["kingdom"]["type"]}: ${hierarchy["kingdom"]["amount"]}`
-              td_kingdom.style = "color: white;" 
+              // td_kingdom.style = "color: white;" 
               tr_body.appendChild(td_kingdom);
             }
             
@@ -199,7 +213,7 @@
             }
             else if (!only_wrong || create) {
               td_phylum.innerHTML = `${hierarchy["phylum"]["type"]}: ${hierarchy["phylum"]["amount"]}`
-              td_phylum.style = "color: white;" 
+              // td_phylum.style = "color: white;" 
               tr_body.appendChild(td_phylum);
             }
 
@@ -215,7 +229,7 @@
             }
             else if (!only_wrong || create) {
               td_class.innerHTML = `${hierarchy["class"]["type"]}: ${hierarchy["class"]["amount"]}`
-              td_class.style = "color: white;" 
+              // td_class.style = "color: white;" 
               tr_body.appendChild(td_class);
             }
 
@@ -232,7 +246,7 @@
             }
             else if (!only_wrong || create) {
               td_order.innerHTML = `${hierarchy["order"]["type"]}: ${hierarchy["order"]["amount"]}`
-              td_order.style = "color: white;" 
+              // td_order.style = "color: white;" 
               tr_body.appendChild(td_order);
             }
 
@@ -249,7 +263,7 @@
             }
             else if (!only_wrong || create) {
               td_family.innerHTML = `${hierarchy["family"]["type"]}: ${hierarchy["family"]["amount"]}`
-              td_family.style = "color: white;" 
+              // td_family.style = "color: white;" 
               tr_body.appendChild(td_family);
             }
             
@@ -266,7 +280,7 @@
             }
             else if (!only_wrong || create){
               td_genus.innerHTML = `${hierarchy["genus"]["type"]}: ${hierarchy["genus"]["amount"]}`
-              td_genus.style = "color: white;" 
+              // td_genus.style = "color: white;" 
               tr_body.appendChild(td_genus);
             }
 
@@ -287,7 +301,7 @@
             else if (!only_wrong || create) {
               td_specie.innerHTML = `${hierarchy["specie"]["type"]}: ${hierarchy["specie"]["amount"]}`
               td_scientific_name.innerHTML = `${hierarchy["scientific name"]["type"]}: 0<br>Canonical Name`
-              td_specie.style = "color: white;" 
+              // td_specie.style = "color: white;" 
               tr_body.appendChild(td_specie);
               tr_body.appendChild(td_scientific_name);
             }
@@ -421,7 +435,7 @@
             let key2 = wrong_cell.className
             let data = document.getElementById("data")
             submit_buttom.removeAttribute("disabled")
-            wrong_cell.style = "color: white;";
+            // wrong_cell.style = "color: white;";
             wrong_cell.setAttribute("data-toggle","");
             wrong_cell.setAttribute("data-target",""); 
             //achar uma forma dele create mais de uma key sem precisar del tudo

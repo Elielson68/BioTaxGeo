@@ -103,3 +103,30 @@ body{
  .TextForm{
       color: white;
  }
+
+ .cardHeader {
+     font-size: 45px;
+     letter-spacing: 5px ;
+     font-family: 'Tomorrow',
+     sans-serif; font-weight: bol;
+ }
+
+ .formCard {
+     background-color: rgba(255,255,255,.85);
+     width: 50rem;
+ }
+
+ .routesColDiv {
+     justify-content: center;
+     display: flex;
+ }
+
+ .routesCard {
+     background-color: rgba(255,255,255,.85) !important;
+     width: 25rem;
+ }
+
+ .routeCardHeader{
+     font-size: 20px;
+     font-family: 'Tomorrow', sans-serif;
+ }

@@ -11,9 +11,9 @@
     <body>
         {% extends "fragments/navbar.html" %}
         {% block content %}
-        <div class="container">
-         <div class="card" style="background-color: rgba(255,255,255,.85); width: 70rem;">
-            <div style="font-size: 45px;letter-spacing: 5px ; font-family: 'Tomorrow', sans-serif; font-weight: bol;" class="card-header text-center" id="sheet_number">Planilha a ser analisada</div>
+        <div class="container" style="justify-content: center; display: grid;">
+         <div class="formCard card">
+            <div class="card-header text-center cardHeader" id="sheet_number">Planilha a ser analisada</div>
             <div style="background-color: rgba(255,255,255,0)" class="card-body">
             <table class="table table-striped">
                <tbody>
@@ -24,61 +24,61 @@
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está o Reino</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><select class="form-control" id="kingdom"><option>Selecionar reino...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><select class="custom-select" id="kingdom"><option>Selecionar reino...</option></select></div>
                                  </div>
                               </div>
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está o Filo</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="phylum"><option>Selecionar filo...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="phylum"><option>Selecionar filo...</option></select></div>
                                  </div>
                               </div>
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está a Classe</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="class"><option>Selecionar classe...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="class"><option>Selecionar classe...</option></select></div>
                                  </div>
                               </div>
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está a Ordem</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="order"><option>Selecionar ordem...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="order"><option>Selecionar ordem...</option></select></div>
                                  </div>
                               </div>
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está a Família</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="family"><option>Selecionar família...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="family"><option>Selecionar família...</option></select></div>
                                  </div>
                               </div>
                               <div class="form-group">
                                     <label class="col-md-4 control-label">Selecione a coluna onde está a Sub-Família</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="subfamily"><option>Selecionar família...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="subfamily"><option>Selecionar família...</option></select></div>
                                     </div>
                               </div>
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está o Gênero</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="genus"><option>Selecionar gênero...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="genus"><option>Selecionar gênero...</option></select></div>
                                  </div>
                               </div>
                               <div class="form-group">
                                     <label class="col-md-4 control-label">Selecione a coluna onde está o Sub-Gênero</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="subgenus"><option>Selecionar gênero...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="subgenus"><option>Selecionar gênero...</option></select></div>
                                     </div>
                               </div>
                               <div class="form-group">
                                 <label class="col-md-4 control-label">Selecione a coluna onde está a Espécie</label>
                                 <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="specie"><option>Selecionar espécie...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="specie"><option>Selecionar espécie...</option></select></div>
                                 </div>
                               </div>
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Selecione a coluna onde está a Sub-Espécie</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="form-control" id="subspecie"><option>Selecionar espécie...</option></select></div>
+                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="subspecie"><option>Selecionar espécie...</option></select></div>
                                  </div>
                               </div>
                            </fieldset>

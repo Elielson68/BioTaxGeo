@@ -15,9 +15,9 @@
         {% block content %}
         <div class="container">
             <div class="row" style="margin-top: 30px; margin-bottom: 15px;">
-                <div class="col" style="justify-content: center; display: flex;">
-                    <div class="card" style="background-color: rgba(255,255,255,.85); width: 25rem;">
-                        <div style="font-size: 20px; font-family: 'Tomorrow', sans-serif;" class="card-header text-center">Mapa de ocorrência</div>
+                <div class="col routesColDiv">
+                    <div class="routesCard card">
+                        <div class="card-header text-center routeCardHeader">Mapa de ocorrência</div>
                         <div class="card-body">
                             <p style="text-align: justify;" class="card-text">Defina as áreas de ocorrência de espécie de sua planilha desenhando polígonos no mapa, e verifique se há alguma ocorrência fora da região de sua pesquisa.<br>Visualize se há alguma região com as coordenadas incorretas ou se há alguma coordenada com uma região incorreta.</p>
                         </div>
@@ -26,9 +26,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col" style="justify-content: center; display: flex;">
-                    <div class="card" style="background-color: rgba(255,255,255,.85); width: 25rem;">
-                        <div style="font-size: 20px; font-family: 'Tomorrow', sans-serif;" class="card-header text-center">Verificar hierarquia no GBIF</div>
+                <div class="col routesColDiv">
+                    <div class="routesCard card">
+                        <div class="card-header text-center routeCardHeader">Verificar hierarquia no GBIF</div>
                         <div class="card-body">
                             <p style="text-align: justify;" class="card-text">É feita uma análise da hierarquia taxonômica de sua planilha, podendo visualizar os valores possivelmente errados, além de obter sugestões de correção (caso haja) para o valor incorreto.</p>
                         </div>
@@ -39,9 +39,9 @@
                 </div>    
             </div>
             <div class="row">
-                <div class="col" style="justify-content: center; display: flex;">
-                    <div class="card" style="background-color: rgba(255,255,255,.85); width: 25rem;">
-                        <div style="font-size: 20px; font-family: 'Tomorrow', sans-serif;" class="card-header text-center">Comparar dados de hierarquia taxonômica entre planilhas</div>
+                <div class="col routesColDiv">
+                    <div class="routesCard card">
+                        <div class="card-header text-center routeCardHeader">Comparar dados de hierarquia taxonômica entre planilhas</div>
                         <div class="card-body">
                             <p style="text-align: justify;" class="card-text">Será feita uma análise de todos os valores referentes a hierarquia taxonômica entre a planilha que deve ser modificada e a planilha referência, os dados mostrados incorretos serão alertados e sugestões de correções serão oferecidas.</p>
                             <input class="form-control" id="uploadFile2" placeholder="Escolha a planilha Base" disabled="disabled" />
@@ -65,9 +65,9 @@
                         </div>
                     </div>
                 </div> 
-                <div class="col" style="justify-content: center; display: flex;">
-                    <div class="card" style="background-color: rgba(255,255,255,.85); width: 25rem;">
-                        <div style="font-size: 20px; font-family: 'Tomorrow', sans-serif;" class="card-header text-center">Enviar nova planilha</div>
+                <div class="col routesColDiv">
+                    <div class="routesCard card">
+                        <div class="card-header text-center routeCardHeader">Enviar nova planilha</div>
                         <div class="card-body">
                             <p style="text-align: justify;" class="card-text">Se desejar enviar uma nova planilha para verificação, selecione a mesma nos botões a baixo.</p>
                             <input class="form-control" id="uploadFile" placeholder="Escolha o arquivo" disabled="disabled" />
