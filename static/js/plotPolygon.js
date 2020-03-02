@@ -168,6 +168,7 @@ function plotPolygon() {
             Values_To_Send = {}
         }
         if(region.indexOf(column) > -1){
+            BUTTOM_CONFIRM.removeAttribute("disabled");
             if(column == "country"){
                 text.innerHTML = `Verificamos que seu PAÍS está incorreto.<br>Observamos que em sua planilha sua coluna referente ao País consta o valor: <b style='color: red;'>${country[index]}</b><br>Enquanto sua coordenada representa o local: <b style='color: green;'>${list_region[index][column]}<b>`
                 Values_To_Send[Column_Modify] = list_region[index][column]
@@ -211,12 +212,20 @@ function plotPolygon() {
                 INPUT_RADIO.createRadioInput(Modal, `Decimal ${column}: ${decimal}<br><br>`, decimal, SelectedRadio, column)
                 INPUT_RADIO.createRadioInput(Modal, `MMDDSS ${column}: ${DDMMSS}<br><br>`, DDMMSS, SelectedRadio, column)
                 INPUT_RADIO.createRadioInput(Modal, `MMDD ${column}: ${DDMM}<br><br>`, DDMM, SelectedRadio, column)
+                
+                div_aux = document.createElement("div")
+                div_aux.style = "width: 465px; height: 200px;"
+                div_aux.id = "Map_Aux"
+                Modal.appendChild(div_aux)
+                map_aux = new google.maps.Map(div_aux, {zoom: 8, center: a[0]['geometry']['location']});
+                marker = new Point_Marker(a[0]['geometry']['location'], map_aux, "../static/image/green_marker.png" , false)
+                marker.setTitle(`Coordenadas\nLatitude: ${latitude}\nLongitude: ${longitude}`)
             })
         }
     }
-
     function RemoveRadioModal(){
         INPUT_RADIO.removeRadioInput(Modal)
+        Modal.removeChild(document.getElementById("Map_Aux"))
     }
     function SelectedRadio(){
         BUTTOM_CONFIRM.removeAttribute("disabled");
