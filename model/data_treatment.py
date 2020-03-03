@@ -128,7 +128,11 @@ class Data_Treatment:
                                 "correctness": self.taxon_validation.get_Scientific_Name_Correctness(),
                                 "suggestion": self.taxon_validation.get_Scientific_Name_Suggestion(),
                                 "synonymous": gbif_values["synonym"],
-                                "font": "GBIF"
+                                "font": "GBIF",
+                                "synonym": gbif_values["usageKey"],
+                                "accept": gbif_values["speciesKey"],
+                                "canonicalname": gbif_values["canonicalName"],
+                                "speciesname": gbif_values["species"]
                             }
                         }
                     else:
@@ -187,7 +191,11 @@ class Data_Treatment:
                                 "correctness": self.taxon_validation.get_Scientific_Name_Correctness(),
                                 "suggestion": self.taxon_validation.get_Scientific_Name_Suggestion(),
                                 "synonymous": "",
-                                "font:": "Planilha"
+                                "font:": "Planilha",
+                                "synonym": "",
+                                "accept": "",
+                                "canonicalname": "",
+                                "speciesname": ""
                             }
                         }
         for wrong_name in self.verified_hierarchy:
@@ -250,8 +258,7 @@ class Data_Treatment:
                                                                           )
 
                         except:
-                            print(
-                                'http://api.gbif.org/v1/species/suggest?q=' + wrong_name + '&rank=SPECIES&strict=true')
+                            print('http://api.gbif.org/v1/species/suggest?q=' + wrong_name + '&rank=SPECIES&strict=true')
                         self.verified_hierarchy[wrong_name]["kingdom"]["suggestion"].append(
                             self.taxon_validation.get_Kingdom_Suggestion()) if self.taxon_validation.get_Kingdom_Suggestion() not in \
                                                                                  self.verified_hierarchy[
@@ -307,9 +314,16 @@ class Data_Treatment:
                             "correctness"] = self.taxon_validation.get_Genus_Correctness()
                         self.verified_hierarchy[wrong_name]["specie"][
                             "correctness"] = self.taxon_validation.get_Specie_Correctness()
-                        self.verified_hierarchy[wrong_name]["scientific name"][
-                            "correctness"] = self.taxon_validation.get_Scientific_Name_Correctness()
+                        
+                        self.verified_hierarchy[wrong_name]["scientific name"]["correctness"] = self.taxon_validation.get_Scientific_Name_Correctness()
                         self.verified_hierarchy[wrong_name]["scientific name"]["font"] = "GBIF"
+                        self.verified_hierarchy[wrong_name]["scientific name"]["synonymous"] = gbif_suggest[index]["synonym"]
+                        if gbif_suggest[index]["synonym"] == "true":
+                            self.verified_hierarchy[wrong_name]["scientific name"]["synonym"] = gbif_suggest[index]["usageKey"]
+                        
+                        self.verified_hierarchy[wrong_name]["scientific name"]["accept"] = gbif_suggest[index]["speciesKey"]
+                        self.verified_hierarchy[wrong_name]["scientific name"]["canonicalname"] = gbif_suggest[index]["canonicalName"]
+                        self.verified_hierarchy[wrong_name]["scientific name"]["speciesname"] = gbif_suggest[index]["species"]
 
     def set_Verified_Hierarchy(self, hierarchy):
         self.verified_hierarchy = hierarchy

@@ -226,8 +226,8 @@ ComponentHTML.prototype.createTitleTable = function (){
     this.th_state.innerHTML = "Estado"
     this.th_county.setAttribute("scope","col")
     this.th_county.innerHTML = "Município"
-    this.th_county.setAttribute("scope","col")
-    this.th_county.innerHTML = "Local"
+    this.th_locality.setAttribute("scope","col")
+    this.th_locality.innerHTML = "Local"
     this.th_latitude.setAttribute("scope","col")
     this.th_latitude.innerHTML = "Latitude"
     this.th_longitude.setAttribute("scope","col")

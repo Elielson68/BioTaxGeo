@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="Tratamento de erros: Criado critério no mapa para que só possa ser salvo se fizer alguma alteração, e só pode salvar a modificação das coordenadas caso tenha selecionado um tipo. Consertado bug na hierarquia onde as caixas de seleção não desapareciam.">
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/Planilha_Formatada.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/data_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/data_treatment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/createComponentHTML.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/createComponentHTML.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/plotPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/plotPolygon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +23,7 @@
         <option value="Python Script" />
       </list>
     </option>
+    <option name="SCHEME" value="Project" />
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
@@ -44,7 +50,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/ErrorScreens" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -55,40 +61,31 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/ErrorScreens" />
-      <recent name="$PROJECT_DIR$/templates/list" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/model" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\SpecieGeo\static\css" />
       <recent name="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\SpecieGeo\static" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/ErrorScreens" />
+      <recent name="$PROJECT_DIR$/templates/list" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Python.run">
-    <configuration name="Gbif_Testes" type="PythonConfigurationType" factoryName="Python">
-      <module name="teste" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Gbif_Testes.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="Gbif_Testes" type="PythonConfigurationType" factoryName="Python">
       <module name="teste" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -173,22 +170,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Python.Gbif_Testes" />
-      <item itemvalue="Python.run" />
-    </list>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration>$PROJECT_DIR$/../.subversion</configuration>
@@ -609,63 +590,39 @@
     <option name="LAST_COMMIT_MESSAGE" value="Tratamento de erros: Criado critério no mapa para que só possa ser salvo se fizer alguma alteração, e só pode salvar a modificação das coordenadas caso tenha selecionado um tipo. Consertado bug na hierarquia onde as caixas de seleção não desapareciam." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582219232493">
-      <screen x="0" y="0" width="1440" height="869" />
-    </state>
-    <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.869@0.0.1440.869" timestamp="1582219232493" />
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1582920531694">
-      <screen x="0" y="0" width="1440" height="869" />
-    </state>
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1581710083680" />
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" timestamp="1582920531694" />
-    <state x="100" y="99" width="1240" height="669" key="DiffContextDialog" timestamp="1582834295771">
-      <screen x="0" y="0" width="1440" height="869" />
-    </state>
-    <state x="100" y="99" width="1240" height="669" key="DiffContextDialog/0.0.1440.869@0.0.1440.869" timestamp="1582834295771" />
-    <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1577380023147">
-      <screen x="0" y="0" width="1440" height="859" />
-    </state>
-    <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl/0.0.1440.859@0.0.1440.859" timestamp="1577380023147" />
-    <state width="1417" height="182" key="GridCell.Tab.0.bottom" timestamp="1582920532468">
-      <screen x="0" y="0" width="1440" height="869" />
-    </state>
-    <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.869@0.0.1440.869" timestamp="1582920532468" />
-    <state width="1417" height="182" key="GridCell.Tab.0.center" timestamp="1582920532468">
-      <screen x="0" y="0" width="1440" height="869" />
-    </state>
-    <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.869@0.0.1440.869" timestamp="1582920532468" />
-    <state width="1417" height="182" key="GridCell.Tab.0.left" timestamp="1582920532468">
-      <screen x="0" y="0" width="1440" height="869" />
-    </state>
-    <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.869@0.0.1440.869" timestamp="1582920532468" />
-    <state width="1417" height="182" key="GridCell.Tab.0.right" timestamp="1582920532468">
-      <screen x="0" y="0" width="1440" height="869" />
-    </state>
-    <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1581710101272" />
-    <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.869@0.0.1440.869" timestamp="1582920532468" />
-    <state x="428" y="149" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1581966164618">
-      <screen x="0" y="0" width="1440" height="869" />
-    </state>
-    <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog/0.0.1440.859@0.0.1440.859" timestamp="1581526574920" />
-    <state x="428" y="149" key="MultipleFileMergeDialog/0.0.1440.869@0.0.1440.869" timestamp="1581966164618" />
-    <state x="219" y="64" key="SettingsEditor" timestamp="1581966268528">
-      <screen x="0" y="0" width="1440" height="869" />
-    </state>
-    <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1581526812762" />
-    <state x="219" y="64" key="SettingsEditor/0.0.1440.869@0.0.1440.869" timestamp="1581966268528" />
-    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1582919962600">
-      <screen x="0" y="0" width="1440" height="869" />
-    </state>
-    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1581710091115" />
-    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.869@0.0.1440.869" timestamp="1582919962600" />
-    <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582130355426">
-      <screen x="0" y="0" width="1440" height="869" />
-    </state>
-    <state x="520" y="348" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.859@0.0.1440.859" timestamp="1581612378747" />
-    <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.869@0.0.1440.869" timestamp="1582130355426" />
+    <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
+    <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.869@0.0.1440.869" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" />
+    <state x="100" y="99" width="1240" height="669" key="DiffContextDialog" />
+    <state x="100" y="99" width="1240" height="669" key="DiffContextDialog/0.0.1440.869@0.0.1440.869" />
+    <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" />
+    <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl/0.0.1440.859@0.0.1440.859" />
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom" />
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" />
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.869@0.0.1440.869" />
+    <state width="1417" height="182" key="GridCell.Tab.0.center" />
+    <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" />
+    <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.869@0.0.1440.869" />
+    <state width="1417" height="182" key="GridCell.Tab.0.left" />
+    <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" />
+    <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.869@0.0.1440.869" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.869@0.0.1440.869" />
+    <state x="428" y="149" width="564" height="561" key="MultipleFileMergeDialog" />
+    <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog/0.0.1440.859@0.0.1440.859" />
+    <state x="428" y="149" key="MultipleFileMergeDialog/0.0.1440.869@0.0.1440.869" />
+    <state x="219" y="64" key="SettingsEditor" />
+    <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" />
+    <state x="219" y="64" key="SettingsEditor/0.0.1440.869@0.0.1440.869" />
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2" />
+    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" />
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.869@0.0.1440.869" />
+    <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" />
+    <state x="520" y="348" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.859@0.0.1440.859" />
+    <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.869@0.0.1440.869" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

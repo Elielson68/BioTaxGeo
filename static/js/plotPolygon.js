@@ -197,6 +197,7 @@ function plotPolygon() {
                 } 
             Geo.geocode(CompRest, function (a){
                 coordinate = {"latitude": {"decimal": null, "MMDDSS": null, "MMDD": null}, "longitude":{"decimal": null, "MMDDSS": null, "MMDD": null}}               
+                console.log(a)
                 latitude = a[0]['geometry']['location']['lat']()
                 longitude = a[0]['geometry']['location']['lng']()
                 lat_lng = column == "latitude" ? "lat":"lng"
@@ -212,7 +213,7 @@ function plotPolygon() {
                 INPUT_RADIO.createRadioInput(Modal, `Decimal ${column}: ${decimal}<br><br>`, decimal, SelectedRadio, column)
                 INPUT_RADIO.createRadioInput(Modal, `MMDDSS ${column}: ${DDMMSS}<br><br>`, DDMMSS, SelectedRadio, column)
                 INPUT_RADIO.createRadioInput(Modal, `MMDD ${column}: ${DDMM}<br><br>`, DDMM, SelectedRadio, column)
-                
+                /*
                 div_aux = document.createElement("div")
                 div_aux.style = "width: 465px; height: 200px;"
                 div_aux.id = "Map_Aux"
@@ -220,6 +221,7 @@ function plotPolygon() {
                 map_aux = new google.maps.Map(div_aux, {zoom: 8, center: a[0]['geometry']['location']});
                 marker = new Point_Marker(a[0]['geometry']['location'], map_aux, "../static/image/green_marker.png" , false)
                 marker.setTitle(`Coordenadas\nLatitude: ${latitude}\nLongitude: ${longitude}`)
+                */
             })
         }
     }

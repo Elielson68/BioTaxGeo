@@ -35,7 +35,7 @@
                 <div class="row" style="margin-bottom: 10px;">
                   <div class="col-md-6">
                     <i class="fa fa-square" aria-hidden="true" style="font-size:20px;color:#FFD700"></i>&nbsp;
-                    <span>Valores tratam-se de um sinônimo.</span>&nbsp;&nbsp;&nbsp;
+                    <span>Valores tratam-se de um análogo.</span>&nbsp;&nbsp;&nbsp;
                     <i aria-hidden="true" class="fa fa-square" style="font-size:20px;color:#DA3530"></i>&nbsp;
                     <span>Valores estão incorretos.</span>&nbsp;&nbsp;&nbsp;
                   </div>
@@ -331,20 +331,29 @@
             let keys = Object.keys(verified_hierarchy[key1])
             let init = keys.indexOf(key2)
             let isArray = Array.isArray(correct_value)
+            
             if(!(isArray)){
               more_one = false
               selected = 0
               if(verified_hierarchy[key1]["scientific name"]["synonymous"]){
-                text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+wrong_value+"</label></b> para <b><label style='color: green;'>"+correct_value+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
+               
+                let linkGbifSynom = "https://www.gbif.org/species/"+verified_hierarchy[key1]["scientific name"]["synonym"]
+                let linkGbifAccept = "https://www.gbif.org/species/"+verified_hierarchy[key1]["scientific name"]["accept"]
+                let CanonicalName = verified_hierarchy[key1]["scientific name"]["canonicalname"]
+                let SpeciesName = verified_hierarchy[key1]["scientific name"]["speciesname"]
+                text.innerHTML = `Fonte: ${verified_hierarchy[key1]['scientific name']['font']} <br>Verificamos que sua espécie <a href=${linkGbifSynom} target="_blank">${CanonicalName}</a> trata-se de um <b>Sinônimo homotípico</b> de <a href=${linkGbifAccept} target="_blank">${SpeciesName}</a>.<br>Deseja alterar o valor de <b><label style='color: orange;'>${wrong_value}</label></b> para <b><label style='color: green;'>${correct_value}</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>`
               }
               else{
-                text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+wrong_value+"</label></b> para <b><label style='color: green;'>"+correct_value+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
+                let linkGbif = "https://www.gbif.org/species/"+verified_hierarchy[key1]["scientific name"]["accept"]
+                fonte = verified_hierarchy[key1]["scientific name"]["font"] == "GBIF" ? `<a href=${linkGbif} target="_blank">GBIF</a>` : "Planilha"
+                text.innerHTML = "Fonte: "+fonte+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+wrong_value+"</label></b> para <b><label style='color: green;'>"+correct_value+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
               }
             }
             else if (correct_value.length > 0){
               more_one = true
               if(verified_hierarchy[key1]["scientific name"]["synonymous"]){
-                text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode se tratar de um <b>synonymous</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+wrong_value+"</b>"
+                let CanonicalName = verified_hierarchy[key1]["scientific name"]["canonicalname"]
+                text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que sua espécie "+CanonicalName+" pode se tratar de um <b>Sinônimo homotípico</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+wrong_value+"</b>"
               }
               else{
                 text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+wrong_value+"</b>"
@@ -364,7 +373,6 @@
                 label = document.createElement("label")
                 label.className = "form-check-label"
                 label.for = count
-                
                 label.innerHTML = names
                 label.style = "color: green;"
                 div.appendChild(input)
