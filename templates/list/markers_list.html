@@ -24,17 +24,17 @@
     <div class="container">
       
       <!-- Div referente ao checkbox que verifica se a pessoa quer visualizar os markers todos juntos ou não-->
-      <div class="input-group" style="margin-top: 40px; margin-bottom: 0;">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <input type="checkbox" aria-label="Checkbox for following text input" id="checkbox" active="active">
-          </div>
-        </div>
-        <input type="text" class="form-control" aria-label="Text input with checkbox" disabled value="Agrupar marcadores">
-      </div> 
+
       <!-- Div referente ao mapa criado pelo JS -->
       <div id="second_map" class="border border-secondary" style="margin-top: 0px;"></div>
-     
+      <div class="input-group" id="box_checkbox" >
+        <div class="input-group-prepend" >
+          <div class="input-group-text" style="background-color: white;">
+            <input type="checkbox" aria-label="Checkbox for following text input" id="checkbox" active="active" >
+          </div>
+        </div>
+        <input type="text" class="form-control" aria-label="Text input with checkbox" disabled value="Agrupar marcadores" style="background-color: white;">
+      </div> 
 
       <!-- <div style="margin-top: 30px;" class="alert alert-warning alert-dismissible fade show" role="alert">
         <span class="text-center">Corrija seus dados abaixo.</span> 
@@ -74,8 +74,7 @@
               </button>
             </div>
             <div class="modal-body" id="modal_body">
-              <label id="modal_text"></label>
-              
+              <label id="modal_text"></label>  
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Cancel_Buttom">Cancelar</button>

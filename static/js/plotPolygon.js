@@ -3,7 +3,8 @@ function plotPolygon() {
 
     //__________________________________VARIÁVEIS GLOBAIS___________________________________________________________________
     var belem/*..............................*/= {lat:-1.44502, lng: -48.4650};
-    var map/*................................*/= new google.maps.Map(document.getElementById('second_map'), {zoom: 4, center: belem});
+    var map/*................................*/= new google.maps.Map(document.getElementById('second_map'), {zoom: 4, center: belem, gestureHandling: 'greedy'});
+    
     var CHECKBOX_ACTIVE_MARKERCLUSTER/*......*/= document.getElementById("checkbox");
         CHECKBOX_ACTIVE_MARKERCLUSTER.checked  = true;
     var Modal/*..............................*/= document.getElementById("modal_body");
@@ -185,6 +186,20 @@ function plotPolygon() {
                 text.innerHTML = `Verificamos que sua LOCALIDADE está incorreta.<br>Observamos que em sua planilha sua coluna referente a Localidade consta o valor: <b style='color: red;'>${locality[index]}</b><br>Enquanto sua coordenada representa o local: <b style='color: green;'>${list_region[index][column]}<b>`
                 Values_To_Send[Column_Modify] = list_region[index][column]
             }
+
+            div_aux = document.createElement("div")
+            div_aux.style = "width: 465px; height: 200px;"
+            div_aux.id = "Map_Aux"
+            Modal.appendChild(div_aux)
+            var mapStyle = [{
+                'featureType': 'administrative.locality',
+                'elementType': 'geometry.fill',
+                'stylers': [{'color': '#FF0000'}]
+              }];
+      
+            map_aux = new google.maps.Map(div_aux, {zoom: 12, center: List_Marker[index].getPosition(), styles: mapStyle,  gestureHandling: 'greedy'});
+            marker = new Point_Marker(List_Marker[index].getPosition(), map_aux, "../static/image/green_marker.png" , false)
+            marker.setTitle(`Coordenadas\nLatitude: ${List_Marker[index].getLatitude()}\nLongitude: ${List_Marker[index].getLongitude()}`)
         }
         else if(coordinates.indexOf(column) > -1){
             BUTTOM_CONFIRM.setAttribute("disabled","");
@@ -213,15 +228,13 @@ function plotPolygon() {
                 INPUT_RADIO.createRadioInput(Modal, `Decimal ${column}: ${decimal}<br><br>`, decimal, SelectedRadio, column)
                 INPUT_RADIO.createRadioInput(Modal, `MMDDSS ${column}: ${DDMMSS}<br><br>`, DDMMSS, SelectedRadio, column)
                 INPUT_RADIO.createRadioInput(Modal, `MMDD ${column}: ${DDMM}<br><br>`, DDMM, SelectedRadio, column)
-                /*
                 div_aux = document.createElement("div")
                 div_aux.style = "width: 465px; height: 200px;"
                 div_aux.id = "Map_Aux"
                 Modal.appendChild(div_aux)
-                map_aux = new google.maps.Map(div_aux, {zoom: 8, center: a[0]['geometry']['location']});
+                map_aux = new google.maps.Map(div_aux, {zoom: 12, center: a[0]['geometry']['location'],  gestureHandling: 'greedy'});
                 marker = new Point_Marker(a[0]['geometry']['location'], map_aux, "../static/image/green_marker.png" , false)
                 marker.setTitle(`Coordenadas\nLatitude: ${latitude}\nLongitude: ${longitude}`)
-                */
             })
         }
     }

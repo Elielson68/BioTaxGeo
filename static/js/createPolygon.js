@@ -1,7 +1,7 @@
 function createPolygon() {
 
     var belem = {lat:-1.44502, lng: -48.4650};
-    var map = new google.maps.Map(document.getElementById('first_map'), {zoom: 4, center: belem});
+    var map = new google.maps.Map(document.getElementById('first_map'), {zoom: 4, center: belem, gestureHandling: 'greedy'});
     var selected_polygon = new Polygon(map)
 
     var div_component = document.getElementById("insert_inputs")
