@@ -53,7 +53,7 @@ function plotPolygon() {
                 List_Marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
                 name = genus[i]+" "+specie[i]
                 
-                List_Components_HTML[p].createBodyTable(name, country[i], state[i], county[i], locality[i], List_Marker[i].getLatitude(), List_Marker[i].getLongitude(), row_coord_lat[i], i, List_Poly[p].getTitle())
+                List_Components_HTML[p].createBodyTable(name, country[i], state[i], county[i], List_Marker[i].getLatitude(), List_Marker[i].getLongitude(), row_coord_lat[i], i, List_Poly[p].getTitle())
 
 
                 if(list_checked_regions[i]['country']['score']<60 && list_checked_regions[i]['country']['name2'] != "null"){
@@ -81,14 +81,6 @@ function plotPolygon() {
                 else if(list_checked_regions[i]['county']['score']>=60 && list_checked_regions[i]['county']['score']<100){
                     List_Components_HTML[p].setIncorrectRow(List_Components_HTML[p].getRowCounty(),  list_checked_regions[i]['county']['name1'], ActiveModal)
                 }
-                if(list_checked_regions[i]['locality']['score']<60 && list_checked_regions[i]['locality']['name2'] != "null"){
-                    List_Components_HTML[p].setWrongRow( List_Components_HTML[p].getRowLocality(),  list_checked_regions[i]['locality']['name1'], ActiveModal)
-                    List_Components_HTML[p].setWrongRow(List_Components_HTML[p].getRowLatitude(),  List_Marker[i].getLatitude(), ActiveModal)
-                    List_Components_HTML[p].setWrongRow(List_Components_HTML[p].getRowLongitude(), List_Marker[i].getLongitude(), ActiveModal)
-                }
-                else if (list_checked_regions[i]['locality']['score']>=60 && list_checked_regions[i]['locality']['score']<100){
-                    List_Components_HTML[p].setIncorrectRow( List_Components_HTML[p].getRowLocality(),  list_checked_regions[i]['locality']['name1'], ActiveModal)
-                }
                 
             }
         }
@@ -102,7 +94,7 @@ function plotPolygon() {
             if(!List_Marker[i].isInsidePolygon()){
                 name = genus[i]+" "+specie[i]
                 List_Marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
-                MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], locality[i], List_Marker[i].getLatitude(), List_Marker[i].getLongitude(), row_coord_lat[i], i, "without")
+                MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], List_Marker[i].getLatitude(), List_Marker[i].getLongitude(), row_coord_lat[i], i, "without")
                 if(list_checked_regions[i]['country']['score']<60 && list_checked_regions[i]['country']['name2'] != "null"){
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowCountry(), list_checked_regions[i]['country']['name1'], ActiveModal)
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  List_Marker[i].getLatitude(), ActiveModal)
@@ -128,14 +120,6 @@ function plotPolygon() {
                 else if(list_checked_regions[i]['county']['score']>=60 && list_checked_regions[i]['county']['score']<100){
                     MarkersOutPolygon.setIncorrectRow(MarkersOutPolygon.getRowCounty(),  list_checked_regions[i]['county']['name1'], ActiveModal)
                 }
-                if(list_checked_regions[i]['locality']['score']<60 && list_checked_regions[i]['locality']['name2'] != "null"){
-                    MarkersOutPolygon.setWrongRow( MarkersOutPolygon.getRowLocality(),  list_checked_regions[i]['locality']['name1'], ActiveModal)
-                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLatitude(),  List_Marker[i].getLatitude(), ActiveModal)
-                    MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowLongitude(), List_Marker[i].getLongitude(), ActiveModal)
-                }
-                else if (list_checked_regions[i]['locality']['score']>=60 && list_checked_regions[i]['locality']['score']<100){
-                    MarkersOutPolygon.setIncorrectRow( MarkersOutPolygon.getRowLocality(),  list_checked_regions[i]['locality']['name1'], ActiveModal)
-                }
             }
     }
     var opt_options = {imagePath:'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m', gridSize: 60, maxZoom: 14, minimumClusterSize: 2}
@@ -153,7 +137,7 @@ function plotPolygon() {
         }
     }
     function ActiveModal(){
-        let region = ["country", "state", "county", "locality"]
+        let region = ["country", "state", "county"]
         let coordinates = ["latitude", "longitude"]
         let column = this.className
         let text = document.getElementById("modal_text")
@@ -182,32 +166,39 @@ function plotPolygon() {
                 text.innerHTML = `Verificamos que seu MUNICÍPIO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Município consta o valor: <b style='color: red;'>${county[index]}</b><br>Enquanto sua coordenada representa o local: <b style='color: green;'>${list_region[index][column]}<b>`
                 Values_To_Send[Column_Modify] = list_region[index][column]
             }
-            else if(column == "locality"){
-                text.innerHTML = `Verificamos que sua LOCALIDADE está incorreta.<br>Observamos que em sua planilha sua coluna referente a Localidade consta o valor: <b style='color: red;'>${locality[index]}</b><br>Enquanto sua coordenada representa o local: <b style='color: green;'>${list_region[index][column]}<b>`
-                Values_To_Send[Column_Modify] = list_region[index][column]
-            }
 
             div_aux = document.createElement("div")
             div_aux.style = "width: 465px; height: 200px;"
             div_aux.id = "Map_Aux"
             Modal.appendChild(div_aux)
-            var mapStyle = [{
-                'featureType': 'administrative.locality',
-                'elementType': 'geometry.fill',
+            let mapStyle = [{
+                'featureType': 'administrative',
+                'elementType': 'geometry.stroke',
+                'stylers': [{'color': '#FF0000'}]
+              },{
+                'featureType': 'landscape.natural',
+                'elementType': 'geometry.stroke',
                 'stylers': [{'color': '#FF0000'}]
               }];
       
             map_aux = new google.maps.Map(div_aux, {zoom: 12, center: List_Marker[index].getPosition(), styles: mapStyle,  gestureHandling: 'greedy'});
             marker = new Point_Marker(List_Marker[index].getPosition(), map_aux, "../static/image/green_marker.png" , false)
             marker.setTitle(`Coordenadas\nLatitude: ${List_Marker[index].getLatitude()}\nLongitude: ${List_Marker[index].getLongitude()}`)
+              
+            let contentString = '<div id="content">'+'<p>Sua coordenada aponta para cá</p>'+'</div>'
+            let infowindow = new google.maps.InfoWindow({
+                content: contentString
+              });
+
+            infowindow.open(map, marker);   
         }
         else if(coordinates.indexOf(column) > -1){
             BUTTOM_CONFIRM.setAttribute("disabled","");
             let CompRest = {
                         componentRestrictions: { 
                                                 country: country[index],                                                
-                                                administrativeArea: `${state[index]}, ${county[index]}`,
-                                                locality: locality[index]                                                
+                                                administrativeArea: state[index],
+                                                locality: county[index],                                            
                                                }
                 } 
             Geo.geocode(CompRest, function (a){
@@ -220,7 +211,7 @@ function plotPolygon() {
                 coord_decimal = coordinate[column]['decimal']
                 coordinate[column]['DDMMSS'] = COORDINATE_CONVERSOR.toDDMMSS(coord_decimal, lat_lng)
                 coordinate[column]['DDMM'] = COORDINATE_CONVERSOR.toDDMM(coord_decimal, lat_lng)
-                text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>A região informada em sua planilha é: ${country[index]}, ${state[index]}, ${county[index]}, ${locality[index]}<br><br>Enquanto que suas coordenadas apontam para: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}, ${list_region[index]['locality']}<br><br>As coordenadas corretas para este local são:<br><br>`
+                text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>A região informada em sua planilha é: ${country[index]}, ${state[index]}, ${county[index]}<br><br>Enquanto que suas coordenadas apontam para: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}<br><br>As coordenadas corretas para este local são:<br><br>`
                 
                 decimal = coordinate[column]['decimal']
                 DDMMSS = coordinate[column]['DDMMSS']
@@ -232,9 +223,24 @@ function plotPolygon() {
                 div_aux.style = "width: 465px; height: 200px;"
                 div_aux.id = "Map_Aux"
                 Modal.appendChild(div_aux)
-                map_aux = new google.maps.Map(div_aux, {zoom: 12, center: a[0]['geometry']['location'],  gestureHandling: 'greedy'});
+                style = [{
+                    "featureType": "administrative",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                      { "color": "#FF0000" }
+                    ]
+                  }]
+                map_aux = new google.maps.Map(div_aux, {zoom: 12, center: a[0]['geometry']['location'],  gestureHandling: 'greedy', styles: style});
                 marker = new Point_Marker(a[0]['geometry']['location'], map_aux, "../static/image/green_marker.png" , false)
                 marker.setTitle(`Coordenadas\nLatitude: ${latitude}\nLongitude: ${longitude}`)
+            
+                let contentString = '<div id="content">'+'<p>A coordenada sugerida aponta para cá</p>'+'</div>'
+                let infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                  });
+    
+                infowindow.open(map, marker);   
+            
             })
         }
     }
@@ -250,7 +256,7 @@ function plotPolygon() {
     function SaveChange(){
         BUTTOM_SAVE.removeAttribute('disabled')
         var coord = ["latitude", "longitude"]
-        var region = ["country", "state", "county", "locality"]
+        var region = ["country", "state", "county"]
         var component = new ComponentHTML()
         var changed = document.getElementById(Column_Changed)
         component.removeStatusWrongRow(changed, Values_To_Send[Column_Modify], ActiveModal)
@@ -269,16 +275,13 @@ function plotPolygon() {
             var country_id = changed.id.replace(changed.className, "country")
             var state_id = changed.id.replace(changed.className, "state")
             var county_id = changed.id.replace(changed.className, "county")
-            var locality_id = changed.id.replace(changed.className, "locality")
             
             var country = document.getElementById(country_id)
             var state = document.getElementById(state_id)
             var county = document.getElementById(county_id)
-            var locality = document.getElementById(locality_id)
             component.removeStatusWrongRow(country, country.innerHTML, ActiveModal)
             component.removeStatusWrongRow(state , state.innerHTML, ActiveModal)
             component.removeStatusWrongRow(county , county.innerHTML, ActiveModal)
-            component.removeStatusWrongRow(locality , locality.innerHTML, ActiveModal)
         }
     }
     BUTTOM_CANCEL.addEventListener("click", RemoveRadioModal)

@@ -122,7 +122,7 @@ ComponentHTML.prototype.createHeaderTable = function (title, index, color){
   
     //Título principal
     this.th_title.style = "text-align: center"
-    this.th_title.setAttribute("colspan", 9)
+    this.th_title.setAttribute("colspan", 8)
     this.th_title.className = "thead"
     this.texto_th_title = document.createElement("button")
     this.texto_th_title.innerHTML = title
@@ -145,7 +145,7 @@ ComponentHTML.prototype.createHeaderTable = function (title, index, color){
     this.table.appendChild(this.thead)
     this.table.appendChild(this.tbody)
 }
-ComponentHTML.prototype.createBodyTable = function (name, country, state, county, locality, latitude, longitude, index_row, index_marker, index_poly){
+ComponentHTML.prototype.createBodyTable = function (name, country, state, county, latitude, longitude, index_row, index_marker, index_poly){
     this.count++
     this.index = index_marker
     this.row = document.createElement("tr")
@@ -154,7 +154,6 @@ ComponentHTML.prototype.createBodyTable = function (name, country, state, county
     this.column_country = document.createElement("td")
     this.column_state = document.createElement("td")
     this.column_county = document.createElement("td")
-    this.column_locality = document.createElement("td")
     this.column_latitude = document.createElement("td")
     this.column_longitude = document.createElement("td")
     this.column_index_row = document.createElement("td")
@@ -164,7 +163,6 @@ ComponentHTML.prototype.createBodyTable = function (name, country, state, county
     this.row.appendChild(this.column_country)
     this.row.appendChild(this.column_state)
     this.row.appendChild(this.column_county)
-    this.row.appendChild(this.column_locality)
     this.row.appendChild(this.column_latitude)
     this.row.appendChild(this.column_longitude)
     this.row.appendChild(this.column_index_row)
@@ -175,7 +173,6 @@ ComponentHTML.prototype.createBodyTable = function (name, country, state, county
     this.column_country.innerHTML = country
     this.column_state.innerHTML = state
     this.column_county.innerHTML = county
-    this.column_locality.innerHTML = locality
     this.column_latitude.innerHTML = latitude
     this.column_longitude.innerHTML = longitude
     this.column_index_row.innerHTML = index_row
@@ -183,21 +180,18 @@ ComponentHTML.prototype.createBodyTable = function (name, country, state, county
     this.column_country.className = "country"
     this.column_state.className = "state"
     this.column_county.className = "county"
-    this.column_locality.className = "locality"
     this.column_latitude.className = "latitude"
     this.column_longitude.className = "longitude"
 
     this.column_country.name = "country"+index_poly
     this.column_state.name = "state"+index_poly
     this.column_county.name = "county"+index_poly
-    this.column_locality.name = "locality"+index_poly
     this.column_latitude.name = "latitude"+index_poly
     this.column_longitude.name = "longitude"+index_poly
 
     this.column_country.id = "country"+index_poly+index_marker
     this.column_state.id = "state"+index_poly+index_marker
     this.column_county.id = "county"+index_poly+index_marker
-    this.column_locality.id = "locality"+index_poly+index_marker
     this.column_latitude.id = "latitude"+index_poly+index_marker
     this.column_longitude.id = "longitude"+index_poly+index_marker
 
@@ -210,7 +204,6 @@ ComponentHTML.prototype.createTitleTable = function (){
     this.th_country = document.createElement("th")
     this.th_state = document.createElement("th")
     this.th_county = document.createElement("th")
-    this.th_locality = document.createElement("th")
     this.th_latitude = document.createElement("th")
     this.th_longitude = document.createElement("th")
     this.th_index_row = document.createElement("th")
@@ -226,8 +219,6 @@ ComponentHTML.prototype.createTitleTable = function (){
     this.th_state.innerHTML = "Estado"
     this.th_county.setAttribute("scope","col")
     this.th_county.innerHTML = "Município"
-    this.th_locality.setAttribute("scope","col")
-    this.th_locality.innerHTML = "Local"
     this.th_latitude.setAttribute("scope","col")
     this.th_latitude.innerHTML = "Latitude"
     this.th_longitude.setAttribute("scope","col")
@@ -241,7 +232,6 @@ ComponentHTML.prototype.createTitleTable = function (){
     this.tr_titles.appendChild(this.th_country)
     this.tr_titles.appendChild(this.th_state)
     this.tr_titles.appendChild(this.th_county)
-    this.tr_titles.appendChild(this.th_locality)
     this.tr_titles.appendChild(this.th_latitude)
     this.tr_titles.appendChild(this.th_longitude)
     this.tr_titles.appendChild(this.th_index_row)

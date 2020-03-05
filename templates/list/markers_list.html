@@ -27,22 +27,15 @@
 
       <!-- Div referente ao mapa criado pelo JS -->
       <div id="second_map" class="border border-secondary" style="margin-top: 0px;"></div>
-      <div class="input-group" id="box_checkbox" >
+      <div class="input-group" id="box_checkbox"  style="height: 40px;">
         <div class="input-group-prepend" >
-          <div class="input-group-text" style="background-color: white;">
-            <input type="checkbox" aria-label="Checkbox for following text input" id="checkbox" active="active" >
+          <div class="input-group-text" style="background-color: white; border-width: 0px 1px 0px 0px; height: 40px;">
+            <input type="checkbox" class="border-right" aria-label="Checkbox for following text input" id="checkbox" active="active" >
           </div>
         </div>
-        <input type="text" class="form-control" aria-label="Text input with checkbox" disabled value="Agrupar marcadores" style="background-color: white;">
+        <input type="text" class="form-control" aria-label="Text input with checkbox" disabled value="Agrupar marcadores" style="background-color: white; border-width: 0px 0px 0px 1px;">
       </div> 
 
-      <!-- <div style="margin-top: 30px;" class="alert alert-warning alert-dismissible fade show" role="alert">
-        <span class="text-center">Corrija seus dados abaixo.</span> 
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div> -->
-      
       <!-- Div de instruções para utilização da tabela-->
       <div style="margin-bottom: 0;">
             <br clear="all">
@@ -94,7 +87,6 @@
         var country = '{{country}}'
         var state = '{{state}}'
         var county = '{{county}}'
-        var locality = '{{locality}}'
         var genus = '{{genus}}'
         var specie = '{{specie}}'
         var list_checked_regions = '{{list_checked_regions}}'
@@ -105,7 +97,6 @@
         country = country.replace(/&#39;/g, '"')
         state = state.replace(/&#39;/g, '"')
         county =  county.replace(/&#39;/g, '"')
-        locality = locality.replace(/&#39;/g, '"')
         genus = genus.replace(/&#39;/g, '"')
         specie =  specie.replace(/&#39;/g, '"')
         list_checked_regions = list_checked_regions.replace(/&#39;/g, '"')
@@ -120,7 +111,6 @@
         country = JSON.parse(country)
         state = JSON.parse(state)
         county = JSON.parse(county)
-        locality = JSON.parse(locality)
         genus = JSON.parse(genus)
         specie = JSON.parse(specie)
         spreadsheet_titles = JSON.parse(spreadsheet_titles)

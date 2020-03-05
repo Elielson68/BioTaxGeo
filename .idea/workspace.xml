@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/markers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/markers_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/createPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/createPolygon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/createComponentHTML.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/createComponentHTML.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/plotPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/plotPolygon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form_gbif.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form_gbif.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/markers_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/markers_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/list/markers_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/markers_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,13 +184,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00062" summary="conversao sendo feita com sucesso">
-      <created>1576007459300</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1576007459300</updated>
     </task>
     <task id="LOCAL-00063" summary="Corrigido bug que quando a coordenada possuia mais de 1 espaco ela crashava. Agora ela confere os numeros de espacos normalmente">
       <created>1576092587503</created>
@@ -530,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582919948170</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Inserido a box de ativar e desativar os markers dentro do mapa, inserido mapa quando clicar para alterar a região">
+      <created>1583352099043</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1583352099077</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -567,7 +565,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="traduzindo codigo" />
     <MESSAGE value="código JS refatorado" />
     <MESSAGE value="traduzindo components HTML, ID's e Keys" />
     <MESSAGE value="Tudo traduzido, inserido na plotagem dos markers no mapa os markers fora de qualquer poligono alem de mostrar a linha daquela coordana na planilha" />
@@ -592,49 +589,52 @@
     <MESSAGE value="Tratamento de erros: o programa verifica se o arquivo enviado é do tipo .xls, caso não seja ele mostra a tela InvalidFile.html" />
     <MESSAGE value="Tratamento de erros: criado rotas separadas para o markers list e markers form" />
     <MESSAGE value="Tratamento de erros: Criado critério no mapa para que só possa ser salvo se fizer alguma alteração, e só pode salvar a modificação das coordenadas caso tenha selecionado um tipo. Consertado bug na hierarquia onde as caixas de seleção não desapareciam." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tratamento de erros: Criado critério no mapa para que só possa ser salvo se fizer alguma alteração, e só pode salvar a modificação das coordenadas caso tenha selecionado um tipo. Consertado bug na hierarquia onde as caixas de seleção não desapareciam." />
+    <MESSAGE value="Inserido a box de ativar e desativar os markers dentro do mapa, inserido mapa quando clicar para alterar a região" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inserido a box de ativar e desativar os markers dentro do mapa, inserido mapa quando clicar para alterar a região" />
   </component>
   <component name="WindowStateProjectService">
     <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583340571861" />
     <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1583352095692">
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1583438372723">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" timestamp="1583352095692" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" timestamp="1583438372723" />
     <state x="100" y="99" width="1240" height="669" key="DiffContextDialog" timestamp="1583340571861" />
     <state x="100" y="99" width="1240" height="669" key="DiffContextDialog/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1583340571861" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state width="796" height="182" key="GridCell.Tab.0.bottom" timestamp="1583341276777">
+    <state width="795" height="182" key="GridCell.Tab.0.bottom" timestamp="1583436722957">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state width="796" height="182" key="GridCell.Tab.0.bottom/0.0.1440.869@0.0.1440.869" timestamp="1583341276777" />
-    <state width="796" height="182" key="GridCell.Tab.0.center" timestamp="1583341276776">
+    <state width="795" height="182" key="GridCell.Tab.0.bottom/0.0.1440.869@0.0.1440.869" timestamp="1583436722957" />
+    <state width="795" height="182" key="GridCell.Tab.0.center" timestamp="1583436722956">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state width="796" height="182" key="GridCell.Tab.0.center/0.0.1440.869@0.0.1440.869" timestamp="1583341276776" />
-    <state width="796" height="182" key="GridCell.Tab.0.left" timestamp="1583341276776">
+    <state width="795" height="182" key="GridCell.Tab.0.center/0.0.1440.869@0.0.1440.869" timestamp="1583436722956" />
+    <state width="795" height="182" key="GridCell.Tab.0.left" timestamp="1583436722956">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state width="796" height="182" key="GridCell.Tab.0.left/0.0.1440.869@0.0.1440.869" timestamp="1583341276776" />
-    <state width="796" height="182" key="GridCell.Tab.0.right" timestamp="1583341276776">
+    <state width="795" height="182" key="GridCell.Tab.0.left/0.0.1440.869@0.0.1440.869" timestamp="1583436722956" />
+    <state width="795" height="182" key="GridCell.Tab.0.right" timestamp="1583436722957">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state width="796" height="182" key="GridCell.Tab.0.right/0.0.1440.869@0.0.1440.869" timestamp="1583341276776" />
+    <state width="795" height="182" key="GridCell.Tab.0.right/0.0.1440.869@0.0.1440.869" timestamp="1583436722957" />
     <state x="428" y="149" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1583340571861" />
     <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
     <state x="428" y="149" key="MultipleFileMergeDialog/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
     <state x="219" y="64" key="SettingsEditor" timestamp="1583340571861" />
     <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
     <state x="219" y="64" key="SettingsEditor/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
-    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1583340571861" />
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1583352126857">
+      <screen x="0" y="0" width="1440" height="869" />
+    </state>
     <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.869@0.0.1440.869" timestamp="1583352126857" />
     <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583340571861" />
     <state x="520" y="348" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
     <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
