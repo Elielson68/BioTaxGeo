@@ -4,6 +4,7 @@ from xlutils.copy import copy
 from model.coordinate import Coordinate
 from model.data_treatment import Data_Treatment
 from model.locality import Locality
+import xlwt
 class Sheet:
     
     def __init__(self):
@@ -32,6 +33,7 @@ class Sheet:
         except:
             self.file = xlrd.open_workbook(self.path)  # Abre o arquivo com o nome enviado no parâmetro diretorio
         self.write_file = copy(self.file)
+        xlwt.add_palette_colour("custom_colour", 0x21)
         self.sheet_list = self.file.sheet_names() #Pega o nome das páginas do arquivo
         self.sheet = self.file.sheet_by_index(0) #Pega a página inicial (começa por 0)
         self.formated_sheet = self.write_file.get_sheet(0)
@@ -125,14 +127,16 @@ class Sheet:
                     value1_level = data_to_change[values][data]["level"][1]
                     value2_level = self.Value_in_Cell(row, column_index_level)
                     if((value1 == value2) and (value1_level == value2_level)):
-                        self.formated_sheet.write(row, column_index, data_to_change[key1][data]["suggestion"])
+                        style = xlwt.easyxf('pattern: pattern solid, fore_colour green; font: colour white; borders: left 1, right 1, top 1, bottom 1; font: bold 1;')
+                        self.formated_sheet.write(row, column_index, data_to_change[key1][data]["suggestion"], style)
 
     def Change_Data_Spreadsheet2(self, data_to_change):
         for row in data_to_change:
             for column in data_to_change[row]:
                 column_index = self.sheet.row_values(0).index(column)
                 change_row = int(row)-1
-                self.formated_sheet.write(change_row, column_index, data_to_change[row][column])
+                style = xlwt.easyxf('pattern: pattern solid, fore_colour green; font: colour white; borders: left 1, right 1, top 1, bottom 1; font: bold 1;')
+                self.formated_sheet.write(change_row, column_index, data_to_change[row][column], style)
 
     def Save_Formatted_Spreadsheet(self):
         return self.write_file.save("files/Planilha_Formatada.xls")

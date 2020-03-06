@@ -7,6 +7,7 @@ hrch_taxon = Hierarchy_Taxon()
 spreadsheet_titles = {}
 gmaps = googlemaps.Client(key='AIzaSyDJ47tWCXOUSPql_E5MRnw5iFKo9uaaWp8')
 used_sheet = home_controller.used_sheet
+
 markers_blueprint = Blueprint('markers', __name__, template_folder='templates')
 
 @markers_blueprint .route("/markers_validation", methods=["GET", "POST"])

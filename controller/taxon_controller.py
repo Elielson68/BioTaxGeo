@@ -1,10 +1,11 @@
-from flask import render_template, redirect, url_for, request, Blueprint
+from flask import render_template, redirect, url_for, request, Blueprint, make_response
 from controller import home_controller, form_controller
 from model.hierarchy_taxon import Hierarchy_Taxon
 from model.data_treatment import Data_Treatment
 import json
 
 Check_Data = Data_Treatment()
+
 used_sheet = home_controller.used_sheet
 
 taxon_blueprint = Blueprint("taxon", __name__, template_folder="templates")
@@ -13,13 +14,17 @@ taxon_blueprint = Blueprint("taxon", __name__, template_folder="templates")
 def taxon_list():
     if request.method == "POST":
         titles = request.form["selection"]
+
         if("null" in titles):
             titles = titles.replace("null", "None")
+        titles_cookie = titles
         titles = eval(titles)
         used_sheet.set_Check_Columns(titles)
         used_sheet.data_treatment.Verified_Hierarchy(used_sheet.get_Columns_Checked())
         verification = json.dumps(used_sheet.data_treatment.get_Verified_Hierarchy())
-        return render_template("list/taxon_list_gbif.html", verification=verification, total_rows=used_sheet.get_Row_Total())
+        response = make_response(render_template("list/taxon_list_gbif.html", verification=verification, total_rows=used_sheet.get_Row_Total()))
+        response.set_cookie("titles_gbif", titles_cookie)
+        return response
 
 @taxon_blueprint.route("/taxon_validation", methods=["GET", "POST"])
 def taxon_validation():
