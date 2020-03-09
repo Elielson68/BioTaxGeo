@@ -76,7 +76,7 @@
                <form action="taxon_list" method = "POST" enctype = "multipart/form-data">
                   <div align="center" class="container">
                      <input type="text" name="selection" value="" hidden="hidden" id="selection_titles"/> 
-                     <input id="submit" type="submit" value="Iniciar verificação" class="col-md-4 btn btn-success btn-lg btn-block"/>
+                     <input id="submit" type="submit" value="Iniciar verificação" class="col-md-4 btn btn-success btn-lg btn-block" disabled/>
                   </div>
                </form>
             </div>
@@ -90,6 +90,7 @@
             cookies = cookies.replace(/&#34;/g,'"');
             cookies != "None" ? cookies = JSON.parse(cookies) : cookies = null
             selected_titles = {"kingdom": null, "phylum": null, "class": null, "order": null, "family": null, "genus": null, "specie": null}
+            
             var select_kingdom = document.getElementById("kingdom");
             var select_phylum = document.getElementById("phylum");
             var select_class = document.getElementById("class");
@@ -97,10 +98,14 @@
             var select_family = document.getElementById("family");
             var select_genus = document.getElementById("genus");
             var select_specie = document.getElementById("specie");
+            var submit_button = document.getElementById("submit")
             Assign_Titles()
+            
             if(cookies != null){
                Auto_Selected_Using_Cookie()
+               ActiveSubmit()
             }
+            
             function Assign_Titles(){
                 for (title of titles){
                     new_option1 = document.createElement("option");
@@ -138,9 +143,10 @@
                 var formated_titles = JSON.stringify(selected_titles);
                 var input_text = document.getElementById("selection_titles");
                 input_text.value = formated_titles;
+                ActiveSubmit()
             }
             function Auto_Selected_Using_Cookie(){
-               for (value=0; value < select_kingdom.options.length; value++){
+               for (value=1; value < select_kingdom.options.length; value++){
                   if(select_kingdom[value].label == cookies.kingdom){
                      select_kingdom.selectedIndex = value
                      selected_titles.kingdom = cookies.kingdom
@@ -170,12 +176,25 @@
                      selected_titles.specie = cookies.specie
                   }
                }
-                selected_titles[this.id] = this.value;
                 var formated_titles = JSON.stringify(selected_titles);
                 var input_text = document.getElementById("selection_titles");
                 input_text.value = formated_titles;
             }
-            
+            function isAllSelected(){
+               let t = true
+               for (value in selected_titles){
+                  
+                  if (selected_titles[value] === null){
+                     t = false
+                  }
+               }
+               return t
+            }
+            function ActiveSubmit(){
+               if(isAllSelected()){
+                  submit_button.removeAttribute("disabled")
+               }
+            }
             select_kingdom.addEventListener("change", Selected);
             select_phylum.addEventListener("change",Selected);
             select_class.addEventListener("change",Selected);

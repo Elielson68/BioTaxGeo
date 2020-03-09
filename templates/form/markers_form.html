@@ -169,7 +169,7 @@
                ActiveSubmit()
             }
             function Auto_Selected_Using_Cookie(){
-               for (value=0; value < select_genus.options.length; value++){
+               for (value=1; value < select_genus.options.length; value++){
                   if(select_genus[value].label == cookies[2].genus){
                      select_genus.selectedIndex = value
                      taxon.genus = cookies[2].genus;

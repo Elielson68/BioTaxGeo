@@ -21,7 +21,8 @@ def taxon_form2():
         if (".xls" in f.filename):
             f.save("files/"+secure_filename(f.filename))
             base_sheet.set_Path(secure_filename(f.filename))
-            return render_template("form/taxon_form_localsheet.html", titles_check=used_sheet.get_Sheet_Header(), titles_base=base_sheet.get_Sheet_Header())
+            titles_cookie = request.cookies.get("titles_localsheet")
+            return render_template("form/taxon_form_localsheet.html", titles_check=used_sheet.get_Sheet_Header(), titles_base=base_sheet.get_Sheet_Header(), cookies = titles_cookie)
         else:
             return render_template("errorscreen/InvalidFile.html")
 

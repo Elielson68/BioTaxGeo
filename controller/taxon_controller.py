@@ -26,7 +26,7 @@ def taxon_list():
             response.set_cookie("titles_gbif", titles_cookie)
             return response
         except:
-            render_template("errorscreen/InvalidValue.html")
+            return render_template("errorscreen/InvalidValue.html")
 
 @taxon_blueprint.route("/taxon_validation", methods=["GET", "POST"])
 def taxon_validation():
@@ -44,13 +44,15 @@ def taxon_list2():
             base_sheet = form_controller.base_sheet
             titles_check = request.form["selection_check"]
             titles_base = request.form["selection_base"]
+
             if("null" in titles_check):
                 titles_check = titles_check.replace("null", "None")
             if("null" in titles_base):
                 titles_base = titles_base.replace("null", "None")
             titles_check = eval(titles_check)
             titles_base = eval(titles_base)
-
+            titles_cookie = {"check": titles_check, "base": titles_base}
+            titles_cookie = json.dumps(titles_cookie)
             kingdom_value = base_sheet.Value_in_Column(titles_base["kingdom"])
             phylum_value = base_sheet.Value_in_Column(titles_base["phylum"])
             class_value = base_sheet.Value_in_Column(titles_base["class"])
@@ -261,6 +263,9 @@ def taxon_list2():
                     }
             used_sheet.data_treatment.set_Verified_Hierarchy(Fuzzy_Find)
             Fuzzy_Find  = json.dumps(Fuzzy_Find)
-            return render_template("list/taxon_list_localsheet.html", verification=Fuzzy_Find, total_rows=used_sheet.get_Row_Total())
+            response = make_response(render_template("list/taxon_list_localsheet.html", verification=Fuzzy_Find, total_rows=used_sheet.get_Row_Total()))
+
+            response.set_cookie("titles_localsheet", titles_cookie)
+            return response
         except:
             return render_template("errorscreen/InvalidValue.html")

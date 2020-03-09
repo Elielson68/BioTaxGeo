@@ -105,6 +105,7 @@ class Sheet:
         self.values_row = []
 
     def set_Check_Columns (self, titles):
+        self.data_treatment.Reset_Values()
         for column in titles:
             if titles[column] != None:
                 values_column = self.Value_in_Column(titles[column])

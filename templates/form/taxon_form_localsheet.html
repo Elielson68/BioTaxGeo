@@ -109,6 +109,10 @@
             titles_check = JSON.parse(titles_check)
             titles_base = titles_base.replace(/&#39;/g,'"');
             titles_base = JSON.parse(titles_base)
+            var cookies = "{{cookies}}"
+            cookies = cookies.replace(/&#34;/g,'"');
+            cookies != "None" ? cookies = JSON.parse(cookies) : cookies = null
+            console.log(cookies)
             selected_titles = {"kingdom": null, "phylum": null, "class": null, "order": null, "family": null, "subfamily": null, "genus": null, "subgenus": null, "specie": null, "subspecie": null}
             var select_kingdom = document.getElementById("kingdom");
             var select_phylum = document.getElementById("phylum");
@@ -123,6 +127,7 @@
             var buttom_continue = document.getElementById("continue");
             var form = document.getElementById("form")
             var page = 1
+
             Assign_Titles()
             function Assign_Titles(){
                 for (title of page==1 ? titles_check : titles_base){
@@ -214,7 +219,43 @@
                form.removeAttribute("hidden")
                buttom_continue.setAttribute("hidden", "hidden")
             }
-
+            function Auto_Selected_Using_Cookie(){
+               let form = page==1 ? "base":"check"
+               for (value=1; value < select_kingdom.options.length; value++){
+                  if(select_kingdom[value].label == cookies[form].kingdom){
+                     select_kingdom.selectedIndex = value
+                     selected_titles.kingdom = cookies[form].kingdom
+                  }
+                  if(select_phylum[value].label == cookies[form].phylum){
+                     select_phylum.selectedIndex = value
+                     selected_titles.phylum = cookies[form].phylum
+                  }
+                  if(select_class[value].label == cookies[form].class){
+                     select_class.selectedIndex = value
+                     selected_titles.class = cookies[form].class
+                  }
+                  if(select_order[value].label == cookies[form].order){
+                     select_order.selectedIndex = value
+                     selected_titles.order = cookies[form].order
+                  }
+                  if(select_family[value].label == cookies[form].family){
+                     select_family.selectedIndex = value
+                     selected_titles.family = cookies[form].family
+                  }
+                  if(select_genus[value].label == cookies[form].genus){
+                     select_genus.selectedIndex = value
+                     selected_titles.genus = cookies[form].genus
+                  }
+                  if(select_specie[value].label == cookies[form].specie){
+                     select_specie.selectedIndex = value
+                     selected_titles.specie = cookies[form].specie
+                  }
+               }
+                selected_titles[this.id] = this.value;
+                var formated_titles = JSON.stringify(selected_titles);
+                var input_text = document.getElementById("selection_titles");
+                input_text.value = formated_titles;
+            }
             select_kingdom.addEventListener("change", Selected);
             select_phylum.addEventListener("change",Selected);
             select_class.addEventListener("change",Selected);

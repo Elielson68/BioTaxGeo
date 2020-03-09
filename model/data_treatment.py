@@ -16,7 +16,11 @@ class Data_Treatment:
 
     def set_Original_Titles (self, title):
         self.original_titles.append(title)
-
+    def Reset_Values(self):
+        self.verified_hierarchy = {}  # NC = Nomes Científicos
+        self.validate_columns = {}
+        self.original_titles = []
+        self.taxon_validation = None
     def get_Original_Titles (self):
         return self.original_titles
 
