@@ -78,7 +78,7 @@
                     <input type="text" name = "selection_coordinate" value="" hidden="hidden" id="selection_coordinate"/>
                     <input type="text" name = "selection_region" value="" hidden="hidden" id="selection_region"/>
                     <input type="text" name = "selection_taxon" value="" hidden="hidden" id="selection_taxon"/>
-                    <input type="submit" value="Iniciar verificação" class="btn btn-success btn-lg btn-block"/>
+                    <input type="submit" id="submit" value="Iniciar verificação" class="btn btn-success btn-lg btn-block" disabled/>
                   </div>
                </form>
             </div>
@@ -93,6 +93,9 @@
             titles = titles.replace(/&#39;/g,'"');
             titles = JSON.parse(titles)
 
+            var cookies = "{{cookies}}"
+            cookies = cookies.replace(/&#34;/g,'"');
+            cookies != "None" ? cookies = JSON.parse(cookies) : cookies = null
             var coordinates = {"latitude": null, "longitude": null}
             var region = {"country": null, "state": null, "county": null}
             var taxon = {"genus": null, "specie": null}
@@ -104,8 +107,13 @@
             var select_country = document.getElementById("country");
             var select_state = document.getElementById("state")
             var select_county = document.getElementById("county")
+            var submit_button = document.getElementById("submit")
 
             AssigningTitles()
+            if(cookies != null){
+               Auto_Selected_Using_Cookie()
+               ActiveSubmit()
+            }
             function AssigningTitles(){
                 for (title of titles){
                     new_option1 = document.createElement("option");
@@ -140,25 +148,113 @@
                 }
             }
             function Selected(){
-                if(this.id in coordinates){
-                    coordinates[this.id] = this.value;
-                    var formated_coordinate = JSON.stringify(coordinates);
-                    var input_text1 = document.getElementById("selection_coordinate");
-                    input_text1.value = formated_coordinate;
-                }
-                if(this.id in region){
-                    region[this.id] = this.value;
-                    var formated_region = JSON.stringify(region);
-                    var input_text2 = document.getElementById("selection_region");
-                    input_text2.value = formated_region;
-                }
-                if(this.id in taxon){
-                    taxon[this.id] = this.value;
-                    var formated_taxon = JSON.stringify(taxon);
-                    var input_text3 = document.getElementById("selection_taxon");
-                    input_text3.value = formated_taxon;
-                }
+               if(this.id in coordinates){
+                  coordinates[this.id] = this.value;
+                  var formated_coordinate = JSON.stringify(coordinates);
+                  var input_text1 = document.getElementById("selection_coordinate");
+                  input_text1.value = formated_coordinate;
+               }
+               if(this.id in region){
+                  region[this.id] = this.value;
+                  var formated_region = JSON.stringify(region);
+                  var input_text2 = document.getElementById("selection_region");
+                  input_text2.value = formated_region;
+               }
+               if(this.id in taxon){
+                  taxon[this.id] = this.value;
+                  var formated_taxon = JSON.stringify(taxon);
+                  var input_text3 = document.getElementById("selection_taxon");
+                  input_text3.value = formated_taxon;
+               }
+               ActiveSubmit()
+            }
+            function Auto_Selected_Using_Cookie(){
+               for (value=0; value < select_genus.options.length; value++){
+                  if(select_genus[value].label == cookies[2].genus){
+                     select_genus.selectedIndex = value
+                     taxon.genus = cookies[2].genus;
+                     var formated_taxon = JSON.stringify(taxon);
+                     var input_text3 = document.getElementById("selection_taxon");
+                     input_text3.value = formated_taxon;
+                  }
+                  if(select_specie[value].label == cookies[2].specie){
+                     select_specie.selectedIndex = value
+                     taxon.specie = cookies[2].specie;
+                     var formated_taxon = JSON.stringify(taxon);
+                     var input_text3 = document.getElementById("selection_taxon");
+                     input_text3.value = formated_taxon;
+                  }
 
+                  if(select_latitude[value].label == cookies[0].latitude){
+                     select_latitude.selectedIndex = value
+                     coordinates.latitude = cookies[0].latitude
+                     var formated_coordinate = JSON.stringify(coordinates)
+                     var input_text1 = document.getElementById("selection_coordinate")
+                     input_text1.value = formated_coordinate;
+                  }
+                  if(select_longitude[value].label == cookies[0].longitude){
+                     select_longitude.selectedIndex = value
+                     coordinates.longitude = cookies[0].longitude
+                     var formated_coordinate = JSON.stringify(coordinates)
+                     var input_text1 = document.getElementById("selection_coordinate")
+                     input_text1.value = formated_coordinate;
+                  }
+
+                  if(select_country[value].label == cookies[1].country){
+                     select_country.selectedIndex = value
+                     region.country = cookies[1].country
+                     var formated_region = JSON.stringify(region)
+                     var input_text2 = document.getElementById("selection_region")
+                     input_text2.value = formated_region
+                  }
+                  if(select_state[value].label == cookies[1].state){
+                     select_state.selectedIndex = value
+                     region.state = cookies[1].state
+                     var formated_region = JSON.stringify(region)
+                     var input_text2 = document.getElementById("selection_region")
+                     input_text2.value = formated_region
+                  }                  
+                  if(select_county[value].label == cookies[1].county){
+                     select_county.selectedIndex = value
+                     region.county = cookies[1].county
+                     var formated_region = JSON.stringify(region)
+                     var input_text2 = document.getElementById("selection_region")
+                     input_text2.value = formated_region
+                  }
+                  
+               }
+            }
+            
+            function isAllSelected(){
+               let t = true
+               let r = true
+               let c = true
+               for (value in taxon){
+                  if (taxon[value] === null){
+                     t = false
+                  }
+               }
+               for (value in region){
+                  if (region[value] === null){
+                     r = false
+                  }
+               }
+               for (value in coordinates){
+                  if (coordinates[value] === null){
+                     c = false
+                  }
+               }
+               if (t && r && c){
+                  return true
+               }
+               else {
+                  return false
+               }
+            }
+            function ActiveSubmit(){
+               if(isAllSelected()){
+                  submit_button.removeAttribute("disabled")
+               }
             }
             select_genus.addEventListener("change", Selected);
             select_specie.addEventListener("change", Selected);

@@ -25,7 +25,8 @@ def taxon_form2():
         else:
             return render_template("errorscreen/InvalidFile.html")
 
-@form_blueprint.route("/coord_form", methods=["GET", "POST"])
-def coord_form():
+@form_blueprint.route("/markers_form", methods=["GET", "POST"])
+def markers_form():
     if request.method == 'GET':
-        return render_template("form/markers_form.html", titles=used_sheet.get_Sheet_Header())
+        cookies = request.cookies.get("titles_marker")
+        return render_template("form/markers_form.html", titles=used_sheet.get_Sheet_Header(), cookies=cookies)
