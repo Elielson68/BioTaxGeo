@@ -129,6 +129,9 @@
             var page = 1
 
             Assign_Titles()
+            if(cookies != null){
+               Auto_Selected_Using_Cookie()
+            }
             function Assign_Titles(){
                 for (title of page==1 ? titles_check : titles_base){
                     new_option1 = document.createElement("option");
@@ -218,9 +221,11 @@
                Assign_Titles()
                form.removeAttribute("hidden")
                buttom_continue.setAttribute("hidden", "hidden")
+               Auto_Selected_Using_Cookie()
             }
             function Auto_Selected_Using_Cookie(){
                let form = page==1 ? "base":"check"
+               let input_text = page==1 ? document.getElementById("selection_titles1"):document.getElementById("selection_titles2")
                for (value=1; value < select_kingdom.options.length; value++){
                   if(select_kingdom[value].label == cookies[form].kingdom){
                      select_kingdom.selectedIndex = value
@@ -253,7 +258,6 @@
                }
                 selected_titles[this.id] = this.value;
                 var formated_titles = JSON.stringify(selected_titles);
-                var input_text = document.getElementById("selection_titles");
                 input_text.value = formated_titles;
             }
             select_kingdom.addEventListener("change", Selected);

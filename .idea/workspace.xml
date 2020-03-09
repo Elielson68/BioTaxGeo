@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="Inserido cookies para a tela do mapa, salvando as colunas anteriormente já preenchidas. Criado condição para que ele só avance no formulário caso todos os valores estejam devidamente preenchidos.">
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/form_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/form_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/taxon_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/taxon_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/data_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/data_treatment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/sheet_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/sheet_treatment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/markers_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/markers_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form_gbif.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form_gbif.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,13 +180,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00066" summary="Melhorar front-end do criar_poligono_mapa.html e plotar_poligono_mapa.html">
-      <created>1576262013443</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1576262013444</updated>
     </task>
     <task id="LOCAL-00067" summary="Melhorar front-end do criar_poligono_mapa.html e plotar_poligono_mapa.html">
       <created>1576359090487</created>
@@ -530,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583779018409</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="Criado página para caso a pessoa preencha errado algum formulário. Consertado bug em que alterando os valores do formulário o programa apresentava resultado iguais ao da pesquisa passada.">
+      <created>1583783464453</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1583783464453</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -567,7 +561,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Filtragem das coordenadas e dos locais" />
     <MESSAGE value="Finalizado a filtragem para retornar as linhas corretas de cada coordenada referente a região" />
     <MESSAGE value="Implementando modal para mudar Região ou Coordenada que estejam possivelmente erradas." />
     <MESSAGE value="Identificando qual região está errada e sugerindo uma nova com base na coordenada." />
@@ -592,16 +585,17 @@
     <MESSAGE value="Retirado o nível de localidade do mapa, personalizado o botão de ativar/desativar o marker cluster, inserido a cor vermelha pra delimitar áreas no mapa que aparece nos modais" />
     <MESSAGE value="Alterando cor da célula que foi modificada pelo usuário, e salvando os dados dos formulários em Cookies" />
     <MESSAGE value="Inserido cookies para a tela do mapa, salvando as colunas anteriormente já preenchidas. Criado condição para que ele só avance no formulário caso todos os valores estejam devidamente preenchidos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Inserido cookies para a tela do mapa, salvando as colunas anteriormente já preenchidas. Criado condição para que ele só avance no formulário caso todos os valores estejam devidamente preenchidos." />
+    <MESSAGE value="Criado página para caso a pessoa preencha errado algum formulário. Consertado bug em que alterando os valores do formulário o programa apresentava resultado iguais ao da pesquisa passada." />
+    <option name="LAST_COMMIT_MESSAGE" value="Criado página para caso a pessoa preencha errado algum formulário. Consertado bug em que alterando os valores do formulário o programa apresentava resultado iguais ao da pesquisa passada." />
   </component>
   <component name="WindowStateProjectService">
     <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583340571861" />
     <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1583779029285">
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1583783463742">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" timestamp="1583779029285" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" timestamp="1583783463742" />
     <state x="100" y="99" width="1240" height="669" key="DiffContextDialog" timestamp="1583340571861" />
     <state x="100" y="99" width="1240" height="669" key="DiffContextDialog/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1583340571861" />
