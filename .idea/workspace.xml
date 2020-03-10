@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/data_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/data_treatment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,13 +182,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00067" summary="Melhorar front-end do criar_poligono_mapa.html e plotar_poligono_mapa.html">
-      <created>1576359090487</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1576359090487</updated>
     </task>
     <task id="LOCAL-00068" summary="Padrão de projeto Python">
       <created>1576360588324</created>
@@ -524,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583783464453</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="Inserido cookie no mapa, no taxon_gbif e taxon_localsheet. Falta criar condição de prosseguir para a tela de taxon_localsheet">
+      <created>1583783682732</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1583783682732</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -561,7 +563,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Finalizado a filtragem para retornar as linhas corretas de cada coordenada referente a região" />
     <MESSAGE value="Implementando modal para mudar Região ou Coordenada que estejam possivelmente erradas." />
     <MESSAGE value="Identificando qual região está errada e sugerindo uma nova com base na coordenada." />
     <MESSAGE value="Convertendo coordenadas de graus para DDMMSS e DDMM" />
@@ -586,40 +587,41 @@
     <MESSAGE value="Alterando cor da célula que foi modificada pelo usuário, e salvando os dados dos formulários em Cookies" />
     <MESSAGE value="Inserido cookies para a tela do mapa, salvando as colunas anteriormente já preenchidas. Criado condição para que ele só avance no formulário caso todos os valores estejam devidamente preenchidos." />
     <MESSAGE value="Criado página para caso a pessoa preencha errado algum formulário. Consertado bug em que alterando os valores do formulário o programa apresentava resultado iguais ao da pesquisa passada." />
-    <option name="LAST_COMMIT_MESSAGE" value="Criado página para caso a pessoa preencha errado algum formulário. Consertado bug em que alterando os valores do formulário o programa apresentava resultado iguais ao da pesquisa passada." />
+    <MESSAGE value="Inserido cookie no mapa, no taxon_gbif e taxon_localsheet. Falta criar condição de prosseguir para a tela de taxon_localsheet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inserido cookie no mapa, no taxon_gbif e taxon_localsheet. Falta criar condição de prosseguir para a tela de taxon_localsheet" />
   </component>
   <component name="WindowStateProjectService">
     <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583340571861" />
     <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1583783463742">
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1583783682546">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" timestamp="1583783463742" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" timestamp="1583783682546" />
     <state x="100" y="99" width="1240" height="669" key="DiffContextDialog" timestamp="1583340571861" />
     <state x="100" y="99" width="1240" height="669" key="DiffContextDialog/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1583340571861" />
     <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state width="792" height="182" key="GridCell.Tab.0.bottom" timestamp="1583781774573">
+    <state width="792" height="182" key="GridCell.Tab.0.bottom" timestamp="1583783731250">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state width="792" height="182" key="GridCell.Tab.0.bottom/0.0.1440.869@0.0.1440.869" timestamp="1583781774573" />
-    <state width="792" height="182" key="GridCell.Tab.0.center" timestamp="1583781774573">
+    <state width="792" height="182" key="GridCell.Tab.0.bottom/0.0.1440.869@0.0.1440.869" timestamp="1583783731250" />
+    <state width="792" height="182" key="GridCell.Tab.0.center" timestamp="1583783731249">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state width="792" height="182" key="GridCell.Tab.0.center/0.0.1440.869@0.0.1440.869" timestamp="1583781774573" />
-    <state width="792" height="182" key="GridCell.Tab.0.left" timestamp="1583781774573">
+    <state width="792" height="182" key="GridCell.Tab.0.center/0.0.1440.869@0.0.1440.869" timestamp="1583783731249" />
+    <state width="792" height="182" key="GridCell.Tab.0.left" timestamp="1583783731249">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state width="792" height="182" key="GridCell.Tab.0.left/0.0.1440.869@0.0.1440.869" timestamp="1583781774573" />
-    <state width="792" height="182" key="GridCell.Tab.0.right" timestamp="1583781774573">
+    <state width="792" height="182" key="GridCell.Tab.0.left/0.0.1440.869@0.0.1440.869" timestamp="1583783731249" />
+    <state width="792" height="182" key="GridCell.Tab.0.right" timestamp="1583783731250">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state width="792" height="182" key="GridCell.Tab.0.right/0.0.1440.869@0.0.1440.869" timestamp="1583781774573" />
+    <state width="792" height="182" key="GridCell.Tab.0.right/0.0.1440.869@0.0.1440.869" timestamp="1583783731250" />
     <state x="428" y="149" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1583340571861" />
     <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
     <state x="428" y="149" key="MultipleFileMergeDialog/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
@@ -628,11 +630,11 @@
     </state>
     <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
     <state x="219" y="64" key="SettingsEditor/0.0.1440.869@0.0.1440.869" timestamp="1583518933167" />
-    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1583524062279">
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1583783691457">
       <screen x="0" y="0" width="1440" height="869" />
     </state>
     <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
-    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.869@0.0.1440.869" timestamp="1583524062279" />
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.869@0.0.1440.869" timestamp="1583783691457" />
     <state x="373" y="51" width="683" height="762" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583780920292">
       <screen x="0" y="0" width="1440" height="869" />
     </state>

@@ -195,7 +195,7 @@ class Data_Treatment:
                                 "correctness": self.taxon_validation.get_Scientific_Name_Correctness(),
                                 "suggestion": self.taxon_validation.get_Scientific_Name_Suggestion(),
                                 "synonymous": "",
-                                "font:": "Planilha",
+                                "font": "Planilha",
                                 "synonym": "",
                                 "accept": "",
                                 "canonicalname": "",
@@ -223,6 +223,7 @@ class Data_Treatment:
 
                                 if (correct == wrong):
                                     self.verified_hierarchy[wrong_name][key]["correctness"] = self.verified_hierarchy[correct_name][key]["correctness"]
+
                 else:
                     self.taxon_validation = Taxon_Validation(
                         k=self.verified_hierarchy[wrong_name]["kingdom"]["type"],

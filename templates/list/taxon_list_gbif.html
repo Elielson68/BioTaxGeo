@@ -33,11 +33,13 @@
               </div>
               <div class="card-body">
                 <div class="row" style="margin-bottom: 10px;">
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <i class="fa fa-square" aria-hidden="true" style="font-size:20px;color:#FFD700"></i>&nbsp;
-                    <span>Valores tratam-se de um análogo.</span>&nbsp;&nbsp;&nbsp;
-                    <i aria-hidden="true" class="fa fa-square" style="font-size:20px;color:#DA3530"></i>&nbsp;
-                    <span>Valores estão incorretos.</span>&nbsp;&nbsp;&nbsp;
+                    <span>O valor trata-se de um Sinônimo homotípico.</span>&nbsp;&nbsp;&nbsp;
+                    <i aria-hidden="true" class="fa fa-square" style="font-size:20px;color:#f57600"></i>&nbsp;
+                    <span>Ortografia incorreta.</span>&nbsp;&nbsp;&nbsp;
+                    <i aria-hidden="true" class="fa fa-square" style="font-size:20px;color:#ff0000"></i>&nbsp;
+                    <span>Não foram encontradas soluções.</span>&nbsp;&nbsp;&nbsp;
                   </div>
                 </div>
               <table class="table" id="spreadsheet_table">
@@ -156,6 +158,7 @@
             var tr_body = document.createElement("tr");
             if(only_wrong){
               for (key in hierarchy){
+                console.log(hierarchy[key])
                 if(hierarchy[key]["correctness"] != "EXACT"){
                   create = true
                 }
@@ -185,7 +188,17 @@
             }
             
             if(hierarchy["kingdom"]["correctness"] != "EXACT"){
-              hierarchy["scientific name"]["synonymous"] == true ? td_kingdom.style = "color: orange" : td_kingdom.style = "color: red" 
+              is_array = Array.isArray(hierarchy["kingdom"]["suggestion"])
+              array_count = is_array ? hierarchy["kingdom"]["suggestion"].length:null
+              if ( hierarchy["scientific name"]["synonymous"] ) {
+                td_kingdom.style = "color: #FFD700"
+              } else if ( !is_array ) {
+                td_kingdom.style = "color: #f57600"
+              } else if ( array_count > 0 ) {
+                td_kingdom.style = "color: #f57600"
+              } else {
+                td_kingdom.style = "color: #ff0000"   
+              } 
               td_kingdom.setAttribute("data-target","#exampleModal")
               td_kingdom.setAttribute("data-toggle","modal")
               td_kingdom.addEventListener("click", ChangingData)
@@ -193,16 +206,26 @@
               td_kingdom.id = hierarchy["scientific name"]["type"]+"kingdom"
               td_kingdom.innerHTML = `${hierarchy["kingdom"]["type"]}: ${hierarchy["kingdom"]["amount"]}`
               tr_body.appendChild(td_kingdom);
-            }
-            else if (!only_wrong || create) {
+            } 
+            else if ( !only_wrong || create ) {
               td_kingdom.innerHTML = `${hierarchy["kingdom"]["type"]}: ${hierarchy["kingdom"]["amount"]}`
-              // td_kingdom.style = "color: white;" 
               tr_body.appendChild(td_kingdom);
             }
-            
-            if(hierarchy["phylum"]["correctness"] != "EXACT"){
-              hierarchy["scientific name"]["synonymous"] == true ? td_phylum.style = "color: orange" : td_phylum.style = "color: red"
-              //td_phylum.style = "color: red" 
+            if ( hierarchy["phylum"]["correctness"] != "EXACT" ) {
+              is_array = Array.isArray(hierarchy["phylum"]["suggestion"])
+              array_count = is_array ? hierarchy["phylum"]["suggestion"].length:null
+              if (hierarchy["scientific name"]["synonymous"]){
+                td_phylum.style = "color: #FFD700"
+              }
+              else if (!is_array){
+                td_phylum.style = "color: #f57600"
+              }
+              else if (array_count > 0){
+                td_phylum.style = "color: #f57600"
+              }
+              else{
+                td_phylum.style = "color: #ff0000"   
+              } 
               td_phylum.setAttribute("data-target","#exampleModal")
               td_phylum.setAttribute("data-toggle","modal")
               td_phylum.addEventListener("click", ChangingData)
@@ -218,7 +241,20 @@
             }
 
             if(hierarchy["class"]["correctness"] != "EXACT"){
-              hierarchy["scientific name"]["synonymous"] == true ? td_class.style = "color: orange" : td_class.style = "color: red"
+              is_array = Array.isArray(hierarchy["class"]["suggestion"])
+              array_count = is_array ? hierarchy["class"]["suggestion"].length:null
+              if (hierarchy["scientific name"]["synonymous"]){
+                td_class.style = "color: #FFD700"
+              }
+              else if (!is_array){
+                td_class.style = "color: #f57600"
+              }
+              else if (array_count > 0){
+                td_class.style = "color: #f57600"
+              }
+              else{
+                td_class.style = "color: #ff0000"   
+              } 
               td_class.setAttribute("data-target","#exampleModal")
               td_class.setAttribute("data-toggle","modal")
               td_class.addEventListener("click", ChangingData)
@@ -234,8 +270,20 @@
             }
 
             if(hierarchy["order"]["correctness"] != "EXACT"){
-              hierarchy["scientific name"]["synonymous"] == true ? td_order.style = "color: orange" : td_order.style = "color: red"
-              //td_order.style = "color: red" 
+              is_array = Array.isArray(hierarchy["order"]["suggestion"])
+              array_count = is_array ? hierarchy["order"]["suggestion"].length:null
+              if (hierarchy["scientific name"]["synonymous"]){
+                td_order.style = "color: #FFD700"
+              }
+              else if (!is_array){
+                td_order.style = "color: #f57600"
+              }
+              else if (array_count > 0){
+                td_order.style = "color: #f57600"
+              }
+              else{
+                td_order.style = "color: #ff0000"   
+              } 
               td_order.setAttribute("data-target","#exampleModal")
               td_order.setAttribute("data-toggle","modal")
               td_order.addEventListener("click", ChangingData)
@@ -251,8 +299,20 @@
             }
 
             if(hierarchy["family"]["correctness"] != "EXACT"){
-              hierarchy["scientific name"]["synonymous"] == true ? td_family.style = "color: orange" : td_family.style = "color: red"
-              //td_family.style = "color: red" 
+              is_array = Array.isArray(hierarchy["family"]["suggestion"])
+              array_count = is_array ? hierarchy["family"]["suggestion"].length:null
+              if (hierarchy["scientific name"]["synonymous"]){
+                td_family.style = "color: #FFD700"
+              }
+              else if (!is_array){
+                td_family.style = "color: #f57600"
+              }
+              else if (array_count > 0){
+                td_family.style = "color: #f57600"
+              }
+              else{
+                td_family.style = "color: #ff0000"   
+              }  
               td_family.setAttribute("data-target","#exampleModal")
               td_family.setAttribute("data-toggle","modal")
               td_family.addEventListener("click", ChangingData)
@@ -263,13 +323,24 @@
             }
             else if (!only_wrong || create) {
               td_family.innerHTML = `${hierarchy["family"]["type"]}: ${hierarchy["family"]["amount"]}`
-              // td_family.style = "color: white;" 
               tr_body.appendChild(td_family);
             }
             
             if(hierarchy["genus"]["correctness"] != "EXACT"){
-              hierarchy["scientific name"]["synonymous"] == true ? td_genus.style = "color: orange" : td_genus.style = "color: red"
-              //td_genus.style = "color: red" 
+              is_array = Array.isArray(hierarchy["genus"]["suggestion"])
+              array_count = is_array ? hierarchy["genus"]["suggestion"].length:null
+              if (hierarchy["scientific name"]["synonymous"]){
+                td_genus.style = "color: #FFD700"
+              }
+              else if (!is_array){
+                td_genus.style = "color: #f57600"
+              }
+              else if (array_count > 0){
+                td_genus.style = "color: #f57600"
+              }
+              else{
+                td_genus.style = "color: #ff0000"   
+              }
               td_genus.setAttribute("data-target","#exampleModal")
               td_genus.setAttribute("data-toggle","modal")
               td_genus.addEventListener("click", ChangingData)
@@ -280,13 +351,24 @@
             }
             else if (!only_wrong || create){
               td_genus.innerHTML = `${hierarchy["genus"]["type"]}: ${hierarchy["genus"]["amount"]}`
-              // td_genus.style = "color: white;" 
               tr_body.appendChild(td_genus);
             }
 
             if(hierarchy["specie"]["correctness"] != "EXACT"){
-              hierarchy["scientific name"]["synonymous"] == true ? td_specie.style = "color: orange" : td_specie.style = "color: red"        
-              //td_specie.style = "color: red" 
+              is_array = Array.isArray(hierarchy["specie"]["suggestion"])
+              array_count = is_array ? hierarchy["specie"]["suggestion"].length:null
+              if (hierarchy["scientific name"]["synonymous"]){
+                td_specie.style = "color: #FFD700"
+              }
+              else if (!is_array){
+                td_specie.style = "color: #f57600"
+              }
+              else if (array_count > 0){
+                td_specie.style = "color: #f57600"
+              }
+              else{
+                td_specie.style = "color: #ff0000"   
+              } 
               td_specie.setAttribute("data-target","#exampleModal")
               td_specie.setAttribute("data-toggle","modal")
               td_specie.addEventListener("click", ChangingData)
@@ -301,7 +383,6 @@
             else if (!only_wrong || create) {
               td_specie.innerHTML = `${hierarchy["specie"]["type"]}: ${hierarchy["specie"]["amount"]}`
               td_scientific_name.innerHTML = `${hierarchy["scientific name"]["type"]}: 0<br>Canonical Name`
-              // td_specie.style = "color: white;" 
               tr_body.appendChild(td_specie);
               tr_body.appendChild(td_scientific_name);
             }
@@ -320,6 +401,7 @@
             count2 = 0
             Confirm_Buttom.setAttribute("disabled", "")
             // LOCAL
+            
             let level_editing = true
             let modal = document.getElementById("modal_body")
             let text = document.getElementById("modal_text")
@@ -335,28 +417,32 @@
             if(!(isArray)){
               more_one = false
               selected = 0
-              if(verified_hierarchy[key1]["scientific name"]["synonymous"]){
-               
+              if ( verified_hierarchy[key1]["scientific name"]["synonymous"] ) {
+
                 let linkGbifSynom = "https://www.gbif.org/species/"+verified_hierarchy[key1]["scientific name"]["synonym"]
                 let linkGbifAccept = "https://www.gbif.org/species/"+verified_hierarchy[key1]["scientific name"]["accept"]
                 let CanonicalName = verified_hierarchy[key1]["scientific name"]["canonicalname"]
                 let SpeciesName = verified_hierarchy[key1]["scientific name"]["speciesname"]
-                text.innerHTML = `Fonte: ${verified_hierarchy[key1]['scientific name']['font']} <br>Verificamos que sua espécie <a href=${linkGbifSynom} target="_blank">${CanonicalName}</a> trata-se de um <b>Sinônimo homotípico</b> de <a href=${linkGbifAccept} target="_blank">${SpeciesName}</a>.<br>Deseja alterar o valor de <b><label style='color: orange;'>${wrong_value}</label></b> para <b><label style='color: green;'>${correct_value}</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>`
-              }
-              else{
+                text.innerHTML = `Fonte: ${verified_hierarchy[key1]['scientific name']['font']} <br>Verificamos que sua espécie <a href=${linkGbifSynom} target="_blank">${CanonicalName}</a> trata-se de um <b>Sinônimo homotípico</b> de <a href=${linkGbifAccept} target="_blank">${SpeciesName}</a>.<br>Deseja alterar o valor de <b><label style='color: #FFD700;'>${wrong_value}</label></b> para <b><label style='color: green;'>${correct_value}</label></b>?<br>Abaixo está a quantidade de valores que deseja alterar: <br>`
+              
+              } else {
+
                 let linkGbif = "https://www.gbif.org/species/"+verified_hierarchy[key1]["scientific name"]["accept"]
                 fonte = verified_hierarchy[key1]["scientific name"]["font"] == "GBIF" ? `<a href=${linkGbif} target="_blank">GBIF</a>` : "Planilha"
-                text.innerHTML = "Fonte: "+fonte+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+wrong_value+"</label></b> para <b><label style='color: green;'>"+correct_value+"</label></b>?<br>Abaixo está a amount de valores que deseja alterar: <br>"
+                SpeciesName = verified_hierarchy[key1]["scientific name"]["speciesname"]
+                text.innerHTML = "Fonte: "+fonte+"<br>O valor "+wrong_value+" referente a sua espécie "+SpeciesName+" pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: #f57600;'>"+wrong_value+"</label></b> para <b><label style='color: green;'>"+correct_value+"</label></b>?<br>Abaixo está a quantidade de valores que deseja alterar: <br>"
+              
               }
             }
             else if (correct_value.length > 0){
               more_one = true
               if(verified_hierarchy[key1]["scientific name"]["synonymous"]){
-                let CanonicalName = verified_hierarchy[key1]["scientific name"]["canonicalname"]
-                text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que sua espécie "+CanonicalName+" pode se tratar de um <b>Sinônimo homotípico</b>.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+wrong_value+"</b>"
+                let CanonicalName = verified_hierarchy[key1]["scientific name"]["type"]
+                text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que sua espécie "+CanonicalName+" pode tratar-se de um <b>Sinônimo homotípico</b>.<br>Deseja alterar o valor de <b><label style='color: #FFD700;'>"+wrong_value+"</b>, para:"
               }
               else{
-                text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que seu dado pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: red;'>"+wrong_value+"</b>"
+                let CanonicalName = verified_hierarchy[key1]["scientific name"]["type"]
+                text.innerHTML = "Fonte: "+verified_hierarchy[key1]["scientific name"]["font"]+"<br>Verificamos que o valor "+wrong_value+" de sua espécie "+CanonicalName+" pode estar <b>possivelmente errado</b>.<br>Deseja alterar o valor de <b><label style='color: #f57600;'>"+wrong_value+"</b>, para: "
               }
               
               for (names of correct_value){
@@ -388,7 +474,7 @@
             else{
               level_editing = false
               more_one = false
-                text.innerHTML = "Não foi possível encontrar sugestões de correções para o valor de <b><label style='color: red;'>"+wrong_value+"</b>"
+                text.innerHTML = "Não foi possível encontrar sugestões de correções para o valor de <b><label style='color: #ff0000;'>"+wrong_value+"</b>"
             }
             if(level_editing){
               for (key=init; key<keys.length-1; key++){
@@ -443,9 +529,9 @@
             let key2 = wrong_cell.className
             let data = document.getElementById("data")
             submit_buttom.removeAttribute("disabled")
-            // wrong_cell.style = "color: white;";
             wrong_cell.setAttribute("data-toggle","");
             wrong_cell.setAttribute("data-target",""); 
+            wrong_cell.style = "color: black;"
             //achar uma forma dele create mais de uma key sem precisar del tudo
             if(changed_data[key1] == null){
                changed_data[key1] = {}
@@ -457,6 +543,7 @@
               }
               changed_data[key1][key2] =  {"suggestion":verified_hierarchy[key1][key2]["suggestion"], "level": [selected_amount, verified_hierarchy[key1][selected_amount]["type"]]}
               wrong_cell.innerHTML = verified_hierarchy[key1][key2]["suggestion"]+": "+verified_hierarchy[key1][key2]["amount"];
+              verified_hierarchy[key1][key2]["type"] = verified_hierarchy[key1][key2]["suggestion"]
             }
             else{
               if(changed_data[key1][key2] == null){
@@ -464,8 +551,12 @@
               }
               changed_data[key1][key2] =  {"suggestion": verified_hierarchy[key1][key2]["suggestion"][selected], "level": [selected_amount, verified_hierarchy[key1][selected_amount]["type"]]}
               wrong_cell.innerHTML = verified_hierarchy[key1][key2]["suggestion"][selected]+": "+verified_hierarchy[key1][key2]["amount"];
-              
+              verified_hierarchy[key1][key2]["type"] = verified_hierarchy[key1][key2]["suggestion"][selected]
             }
+            console.log(verified_hierarchy[key1][key2])
+            verified_hierarchy[key1][key2]["correctness"] = "EXACT"
+            console.log(verified_hierarchy[key1][key2])
+            
             InputsRemove()
             send_values = JSON.stringify(changed_data)
             data.value =  send_values
