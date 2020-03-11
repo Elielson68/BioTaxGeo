@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Planilha</title>
+        <title>Spreadsheet</title>
         <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading.css') }}"/>
         <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
         {% block content %}
         <div class="container" style="justify-content: center; display: grid;">
          <div class="formCard card">
-            <div class="card-header text-center cardHeader">Formulário</div>
+            <div class="card-header text-center cardHeader">Form</div>
             <div style="background-color: rgba(255,255,255,0)" class="card-body">
                <table class="table table-striped">
                   <tbody>
@@ -24,45 +24,45 @@
                            <form class="well form-horizontal">
                               <fieldset>
                                  <div class="form-group">
-                                    <label class="col-md-4 control-label">Selecione a coluna onde está o Gênero</label>
+                                    <label class="col-md-4 control-label">Select the column where the Gender is</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><select class="custom-select" id="genus"><option>Selecionar gênero...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><select class="custom-select" id="genus"><option>Select gender...</option></select></div>
                                     </div>
                                  </div>
                                  <div class="form-group">
-                                    <label class="col-md-4 control-label">Selecione a coluna onde está a Espécie</label>
+                                    <label class="col-md-4 control-label">Select the column where the species is</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="specie"><option>Selecionar espécie...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="specie"><option>Select species...</option></select></div>
                                     </div>
                                  </div>
                                  <div class="form-group">
-                                    <label class="col-md-4 control-label">Selecione a coluna onde está a Latitude</label>
+                                    <label class="col-md-4 control-label">Select the column where Latitude is</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="latitude"><option>Selecionar latitude...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="latitude"><option>Select latitude...</option></select></div>
                                     </div>
                                  </div>
                                  <div class="form-group">
-                                    <label class="col-md-4 control-label">Selecione a coluna onde está a Longitude</label>
+                                    <label class="col-md-4 control-label">Select the column where the Longitude is</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="longitude"><option>Selecionar longitude...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="longitude"><option>Select longitude...</option></select></div>
                                     </div>
                                  </div>
                                  <div class="form-group">
-                                    <label class="col-md-4 control-label">Selecione a coluna onde está o País</label>
+                                    <label class="col-md-4 control-label">Select the column where the country is</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="country"><option>Selecionar país...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="country"><option>Select country...</option></select></div>
                                     </div>
                                  </div>
                                  <div class="form-group">
-                                    <label class="col-md-4 control-label">Selecione a coluna onde está o Estado</label>
+                                    <label class="col-md-4 control-label">Select the column where the State is</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="state"><option>Selecionar estado...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="state"><option>Select State...</option></select></div>
                                     </div>
                                  </div>
                                  <div class="form-group">
-                                   <label class="col-md-4 control-label">Selecione a coluna onde está o Município</label>
+                                   <label class="col-md-4 control-label">Select the column where the County is</label>
                                    <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="county"><option>Selecionar município...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="county"><option>Select County...</option></select></div>
                                    </div>
                                  </div>
                               </fieldset>

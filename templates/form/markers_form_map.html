@@ -17,11 +17,11 @@
     {% block content %}
       
     <!--Div que recebe o objeto mapa criado pelo JS-->
-    <h1 style="margin-top: 10px" class="TextForm cardHeader text-center">Instruções</h1>
+    <h1 style="margin-top: 10px" class="TextForm cardHeader text-center">Instructions</h1>
     <hr style="background-color: white;">        
-    <h4 style="color: #fff; text-align: center;">Comece a verificação adicionando marcadores no mapa, delimitando a sua área de pesquisa.</h4>
+    <h4 style="color: #fff; text-align: center;">Start verification by adding markers on the map, delimiting your search area.</h4>
     <br>
-    <h5 style="color: #fff; text-align: center;">Não se esqueça de salvar as coordenadas antes da verificação.</h5>
+    <h5 style="color: #fff; text-align: center;">Don't forget to save the coordinates before checking.</h5>
     <hr style="background-color: white;">
     <div class="container">
       <!-- <div class="row" style="margin-bottom: 15px;">
@@ -46,25 +46,25 @@
           <div id="column_right" class="card" style="background-color: rgba(255,255,255,.85); border-radius: 5px;">
             <div class="card-body" >
               <select class="form-control" style="margin-bottom: 10px;" id="select_poly">
-                <option value=-1>Selecionar Poligono</option>
-                <option value=0>Poligono 1</option>
+                <option value=-1>Select Polygon</option>
+                <option value=0>Polygon 1</option>
               </select>
               
               <div class="input-group mb-3">
                 <div class="input-group">
                   <div class="input-group-prepend">
-                    <span class="input-group-text">Vértice</span>
+                    <span class="input-group-text">Vertex</span>
                   </div>
                   <input type="number" aria-label="Latitude" class="form-control" placeholder="Latitude" id="Latitude">
                   <input type="number" aria-label="Longitude" class="form-control" placeholder="Longitude" id="Longitude">
-                  <button class="btn btn-primary" type="button" id="btn_create_vertex">Criar vértice</button>
+                  <button class="btn btn-primary" type="button" id="btn_create_vertex">Create vertex</button>
                 </div>
               </div>
               
               <div id="insert_inputs"></div>
               <div>
-                <button id="Btn_Create_Poly" type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Adicionar +1 Poligono</button>
-                <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px" id="btn_save_coord">Salvar coordenadas</button>
+                <button id="Btn_Create_Poly" type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px">Add +1 Polygon</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 15px; margin-bottom: 15px;margin-right: 25px" id="btn_save_coord">Save coordinates</button>
                 <form id="form" action = "markers_list_map" method="POST" enctype="application/json">
                   <input id="submit" type = "submit" value="Verificar áreas" class="btn btn-primary btn-lg btn-block"/>
                   <input type="text" name = "vertices" value="{}" hidden="hidden" id="send_polygons"/>
