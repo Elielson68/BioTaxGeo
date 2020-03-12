@@ -25,7 +25,8 @@ function plotPolygon() {
     var List_Components_HTML/*..............*/ = [];
     var List_Marker/*.......................*/ = [];
     //_____________________________________________________________________________________________________________________
-
+    
+    
     //todos esses for são para verificar se há markers dentro de algum polígono
     for (poly in polygons){
         let selected_polygon = new Polygon(map)
@@ -194,16 +195,17 @@ function plotPolygon() {
         }
         else if(coordinates.indexOf(column) > -1){
             BUTTOM_CONFIRM.setAttribute("disabled","");
+
+            
             let CompRest = {
-                        componentRestrictions: { 
-                                                country: country[index],                                                
-                                                administrativeArea: state[index],
-                                                locality: county[index],                                            
-                                               }
-                } 
-            Geo.geocode(CompRest, function (a){
+                   
+                }
+            let address = {"address": `${country[index]}, ${state[index]}, ${county[index]}`, "componentRestrictions": { 
+                country: country[index],                                                
+                administrativeArea: county[index],                                      
+               }  } 
+            Geo.geocode(address, function (a){
                 coordinate = {"latitude": {"decimal": null, "MMDDSS": null, "MMDD": null}, "longitude":{"decimal": null, "MMDDSS": null, "MMDD": null}}               
-                console.log(a)
                 latitude = a[0]['geometry']['location']['lat']()
                 longitude = a[0]['geometry']['location']['lng']()
                 lat_lng = column == "latitude" ? "lat":"lng"
