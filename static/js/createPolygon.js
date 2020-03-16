@@ -74,10 +74,10 @@ function createPolygon() {
             
             var new_components = new ComponentHTML()
             total_polygon = list_polygons.length
-            new_components.createOption(index_polygon, "Poligono "+total_polygon, select_poly_component)
+            new_components.createOption(index_polygon, "Polygon "+total_polygon, select_poly_component)
         }
         else{
-            alert("Para criar novo polígono é necessário que o atual tenha mais de 2 vértices!")
+            alert("To create a new polygon it is necessary that the current one has more than 2 vertices!")
         }
 
     }
@@ -113,7 +113,7 @@ function createPolygon() {
             list_componentsHTML[ind+1].setIDInputLng("Lng"+i)
             list_componentsHTML[ind+1].setIDButton("Delete"+i)
             list_componentsHTML[ind+1].setIDSpan("span"+i)
-            list_componentsHTML[ind+1].setTextSpan((ind+1)+"ª. "+"Vértice")
+            list_componentsHTML[ind+1].setTextSpan((ind+1)+"ª. "+"Vertice")
             selected_polygon.getListVertices()[ind].setIndex(ind)
         }
     }
@@ -124,7 +124,7 @@ function createPolygon() {
         }
         send_polygons = JSON.stringify(send_polygons)
         input_send_polygons.value = send_polygons
-        alert("Coordenadas salvas!")
+        alert("Coordinates Saved!")
     }
 
     map.addListener('click', addVerticesPolygon);

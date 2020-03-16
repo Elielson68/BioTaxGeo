@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Planilha</title>
+        <title>Spreadsheet</title>
         <link rel="stylesheet" type="text/css" href="../static/css/font-awesome-4.7.0/css/font-awesome.min.css"/>
         <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading.css') }}"/>
@@ -14,30 +14,30 @@
         {% extends "fragments/navbar.html" %}
         {% block content %}
 
-        <h1 style="margin-top: 10px" class="TextForm cardHeader text-center">Comparação dos dados entre planilhas</h1>
+        <h1 style="margin-top: 10px" class="TextForm cardHeader text-center">Comparison of data between spreadsheets</h1>
         <hr style="background-color: white;">        
-        <h4 style="color: #fff; text-align: center;">Para receber sugestões, clique em cima dos valores sinalizados.</h4>
+        <h4 style="color: #fff; text-align: center;">To receive suggestions, click on the flagged values.</h4>
         <hr style="background-color: white;">     
 
         <!--______________________________________PLANILHA______________________________________________________-->
         <div id="spreadsheet">
           <div class="card" style="margin-bottom: 15px;">
-            <div class="card-header cardHeader text-center">Sua Planilha</div>
+            <div class="card-header cardHeader text-center">Your Spreadsheet</div>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-secondary active rounded-0"  >
-                  <input type="radio" name="options" id="option1" autocomplete="on" checked> Visualizar tudo
+                  <input type="radio" name="options" id="option1" autocomplete="on" checked> View all
                 </label>
                 <label class="btn btn-secondary rounded-0">
-                  <input type="radio" name="options" id="option2" autocomplete="on"> Visualizar apenas os erros
+                  <input type="radio" name="options" id="option2" autocomplete="on"> Errors only
                 </label>
             </div>
             <div class="card-body">
               <div class="row" style="margin-bottom: 10px;">
                 <div class="col-md-6">
                   <i class="fa fa-square" aria-hidden="true" style="font-size:20px;color:#FFD700"></i>&nbsp;
-                  <span>Valores tratam-se de um sinônimo.</span>&nbsp;&nbsp;&nbsp;
+                  <span>Values are a synonym.</span>&nbsp;&nbsp;&nbsp;
                   <i aria-hidden="true" class="fa fa-square" style="font-size:20px;color:#DA3530"></i>&nbsp;
-                  <span>Valores estão incorretos.</span>&nbsp;&nbsp;&nbsp;
+                  <span>Values are incorrect.</span>&nbsp;&nbsp;&nbsp;
                 </div>
               </div>
             <table class="table" id="spreadsheet_table">
@@ -62,7 +62,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Alterar valor</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Change value</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close_x">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -71,8 +71,8 @@
                 <label id="modal_text"></label>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Cancel_Buttom">Cancelar</button>
-                <button type="button" class="btn btn-primary" onclick="SaveChange()" data-dismiss="modal" id="Confirm_Buttom" >Salvar alteração</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Cancel_Buttom">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="SaveChange()" data-dismiss="modal" id="Confirm_Buttom" >Save Changes</button>
               </div>
             </div>
           </div>
@@ -321,9 +321,9 @@
             count2             = 0
             wrong_cell         = this;
             //____________________________________________
-            text.innerHTML     = "Não encontramos o valor "+wrong_value+" na sua planilha base, porém encontramos valores semelhantes.<br>Deseja alterar o valor de <b><label style='color: orange;'>"+wrong_value+"</b> para:"
+            text.innerHTML     = "We didn't find the "+wrong_value+" value in your base spreadsheet, but we found similar values.<br>Do you want to change the value of <b><label style='color: orange;'>"+wrong_value+"</b> to:"
             text2.id           = "text_aux"
-            text2.innerHTML    = "<br>Selecione abaixo a quantidade de valores que deseja alterar: <br>"
+            text2.innerHTML    = "<br>Select the amount of values you want to change below: <br>"
             Confirm_Buttom.setAttribute("disabled", "")
 
             for (names of correct_value){
@@ -369,7 +369,7 @@
               
               label.className = "form-check-label"
               label.for = count
-              label.innerHTML = "Deseja alterar <b>"+verified_hierarchy[key1][keys[key]]["amount"]+"</b> valores em sua planilha a nível de "+keys[key]+"?"
+              label.innerHTML = "Do you want to change <b>"+verified_hierarchy[key1][keys[key]]["amount"]+"</b> values in your spreadsheet at the level of "+keys[key]+"?"
               div.appendChild(input)
               div.appendChild(label)
               modal.appendChild(div)
@@ -430,7 +430,7 @@
           function NotFoundValue(){
             modal = document.getElementById("modal_body")
             text = document.getElementById("modal_text")
-            text.innerHTML = "Não foram encontrados valores na planilha base para este dado."
+            text.innerHTML = "No values were found in the base spreadsheet for this data."
           }
           InitTable()
           CreatingRows()

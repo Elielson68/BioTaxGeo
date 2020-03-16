@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Planilha</title>
+        <title>Spreadsheet</title>
         <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading.css') }}"/>
         <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
         {% block content %}
         <div class="container" style="justify-content: center; display: grid;">
          <div class="formCard card">
-            <div class="card-header text-center cardHeader">Formulário</div>
+            <div class="card-header text-center cardHeader">Form</div>
             <div style="background-color: rgba(255,255,255,0)" class="card-body">
                <table class="table table-striped">
                   <tbody>
@@ -24,45 +24,45 @@
                            <form class="well form-horizontal">
                               <fieldset>
                                  <div class="form-group">
-                                    <label class="col-md-4 control-label">Selecione a coluna onde está o Reino</label>
+                                    <label class="col-md-4 control-label">Select the kingdom column</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><select class="custom-select" id="kingdom"><option>Selecionar reino...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><select class="custom-select" id="kingdom"><option>Select...</option></select></div>
                                     </div>
                                  </div>
                                  <div class="form-group">
-                                    <label class="col-md-4 control-label">Selecione a coluna onde está o Filo</label>
+                                    <label class="col-md-4 control-label">Selec the phylum column</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="phylum"><option>Selecionar filo...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="phylum"><option>Select...</option></select></div>
                                     </div>
                                  </div>
                                  <div class="form-group">
-                                    <label class="col-md-4 control-label">Selecione a coluna onde está a Classe</label>
+                                    <label class="col-md-4 control-label">Select the class column</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="class"><option>Selecionar classe...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="class"><option>Select...</option></select></div>
                                     </div>
                                  </div>
                                  <div class="form-group">
-                                    <label class="col-md-4 control-label">Selecione a coluna onde está a Ordem</label>
+                                    <label class="col-md-4 control-label">Select the order column</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="order"><option>Selecionar ordem...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="order"><option>Select...</option></select></div>
                                     </div>
                                  </div>
                                  <div class="form-group">
-                                    <label class="col-md-4 control-label">Selecione a coluna onde está a Família</label>
+                                    <label class="col-md-4 control-label">Select the family column</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="family"><option>Selecionar família...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="family"><option>Select...</option></select></div>
                                     </div>
                                  </div>
                                  <div class="form-group">
-                                    <label class="col-md-4 control-label">Selecione a coluna onde está o Gênero</label>
+                                    <label class="col-md-4 control-label">Select the genus column</label>
                                     <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="genus"><option>Selecionar gênero...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="genus"><option>Selecionar...</option></select></div>
                                     </div>
                                  </div>
                                  <div class="form-group">
-                                   <label class="col-md-4 control-label">Selecione a coluna onde está a Espécie</label>
+                                   <label class="col-md-4 control-label">Select the species column</label>
                                    <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="specie"><option>Selecionar espécie...</option></select></div>
+                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="specie"><option>Select...</option></select></div>
                                    </div>
                                  </div>
                               </fieldset>
@@ -76,7 +76,7 @@
                <form action="taxon_list" method = "POST" enctype = "multipart/form-data">
                   <div align="center" class="container">
                      <input type="text" name="selection" value="" hidden="hidden" id="selection_titles"/> 
-                     <input id="submit" type="submit" value="Iniciar verificação" class="col-md-4 btn btn-success btn-lg btn-block" disabled/>
+                     <input id="submit" type="submit" value="Start Verification" class="col-md-4 btn btn-success btn-lg btn-block" disabled/>
                   </div>
                </form>
             </div>
