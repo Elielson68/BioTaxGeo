@@ -5,12 +5,12 @@ ComponentHTML.prototype.createInputGroup = function(lat, lng, index, append, eve
     this.super_div = document.createElement('div');
     this.children_div = document.createElement('div');
     this.span = document.createElement('span');
-    this.text_span  = document.createTextNode((index+1)+"ª. "+"Vertice");
+    this.text_span  = document.createTextNode((index+1)+"ª. "+"Vertex");
     this.input_1 = document.createElement('input');
     this.input_2 = document.createElement('input');
     this.div_button_children = document.createElement('div');
     this.button_delete = document.createElement('button');
-    this.text_button =  document.createTextNode("Excluir");  
+    this.text_button =  document.createTextNode("Delete");
     
     this.super_div.className = "input-group";
     this.super_div.id = "input_vertex"+index;

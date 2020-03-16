@@ -14,12 +14,12 @@ def home():
         if(used_sheet.get_Path() == None):
             return render_template("index.html")
         else:
-            return  render_template("Selecionar_Rota.html")
+            return  render_template("transition/choose_route.html")
     if request.method == "POST":
         f = request.files['file']
         if(".xls" in f.filename or ".xlsx" in f.filename):
             f.save("files/"+secure_filename(f.filename))
             used_sheet.set_Path(secure_filename(f.filename))
-            return render_template("Selecionar_Rota.html")
+            return render_template("transition/choose_route.html")
         else:
             return render_template("errorscreen/InvalidFile.html")
