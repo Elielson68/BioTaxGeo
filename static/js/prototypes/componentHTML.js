@@ -5,12 +5,12 @@ ComponentHTML.prototype.createInputGroup = function(lat, lng, index, append, eve
     this.super_div = document.createElement('div');
     this.children_div = document.createElement('div');
     this.span = document.createElement('span');
-    this.text_span  = document.createTextNode((index+1)+"ª. "+"Vertex");
+    this.text_span  = document.createTextNode((index+1)+"ª. "+"Vértice");
     this.input_1 = document.createElement('input');
     this.input_2 = document.createElement('input');
     this.div_button_children = document.createElement('div');
     this.button_delete = document.createElement('button');
-    this.text_button =  document.createTextNode("Delete");
+    this.text_button =  document.createTextNode("Excluir");  
     
     this.super_div.className = "input-group";
     this.super_div.id = "input_vertex"+index;
@@ -212,19 +212,19 @@ ComponentHTML.prototype.createTitleTable = function (){
     this.th_index.setAttribute("scope","col")
     this.th_index.innerHTML = "#"
     this.th_name.setAttribute("scope","col")
-    this.th_name.innerHTML = "Scientific Name"
+    this.th_name.innerHTML = "Nome Científico"
     this.th_country.setAttribute("scope","col")
-    this.th_country.innerHTML = "Country"
+    this.th_country.innerHTML = "País"
     this.th_state.setAttribute("scope","col")
-    this.th_state.innerHTML = "State"
+    this.th_state.innerHTML = "Estado"
     this.th_county.setAttribute("scope","col")
-    this.th_county.innerHTML = "County"
+    this.th_county.innerHTML = "Município"
     this.th_latitude.setAttribute("scope","col")
     this.th_latitude.innerHTML = "Latitude"
     this.th_longitude.setAttribute("scope","col")
     this.th_longitude.innerHTML = "Longitude"
     this.th_index_row.setAttribute("scope","col")
-    this.th_index_row.innerHTML = "Line"
+    this.th_index_row.innerHTML = "Linha"
 
     //Anexando todos eles a coluna principal
     this.tr_titles.appendChild(this.th_index)

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Map</title>
+    <title>Mapa</title>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="../static/css/font-awesome-4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loading.css') }}"/>
@@ -15,11 +15,11 @@
     <div class="loader"> <img src="../static/image/tree-spinner.gif"></div>
     {% extends "fragments/navbar.html" %}
     {% block content %}
-    <h1 style="margin-top: 10px" class="TextForm cardHeader text-center">Instructions</h1>
+    <h1 style="margin-top: 10px" class="TextForm cardHeader text-center">Instruções</h1>
     <hr style="background-color: white;">        
-    <h4 style="color: #fff; text-align: center;">Your coordinate data is represented below, the markers within the delimited area represents that your coordinate is correct, the other markers might need correction.</h4>
+    <h4 style="color: #fff; text-align: center;">Seu dados de coordenada foram representados abaixo, os marcadores dentro da área delimitada representam que sua coordenada está correta, os demais marcadores necessitam correção.</h4>
     <br>
-    <h5 style="color: #fff; text-align: center;">To receive suggestions, click on the flagged values.</h5>
+    <h5 style="color: #fff; text-align: center;">Para receber sugestões, clique em cima dos valores sinalizados.</h5>
     <hr style="background-color: white;">
     <div class="container">
       
@@ -33,16 +33,16 @@
             <input type="checkbox" class="border-right" aria-label="Checkbox for following text input" id="checkbox" active="active" >
           </div>
         </div>
-        <input type="text" class="form-control" aria-label="Text input with checkbox" disabled value="Group markers" style="background-color: white; border-width: 0px 0px 0px 1px;">
+        <input type="text" class="form-control" aria-label="Text input with checkbox" disabled value="Agrupar marcadores" style="background-color: white; border-width: 0px 0px 0px 1px;">
       </div> 
 
       <!-- Div de instruções para utilização da tabela-->
       <div style="margin-bottom: 0;">
             <br clear="all">
             <i class="fa fa-square" aria-hidden="true" style="font-size:20px;color:#FFD700"></i>&nbsp;
-            <span style="color: #fff;">Orthographic error</span>&nbsp;&nbsp;&nbsp;
+            <span style="color: #fff;">Erro ortográfico</span>&nbsp;&nbsp;&nbsp;
             <i aria-hidden="true" class="fa fa-square" style="font-size:20px;color:#DA3530"></i>&nbsp;
-            <span style="color: #fff;">Region outside the given coordinate</span>&nbsp;&nbsp;&nbsp;
+            <span style="color: #fff;">Região fora da coordenada fornecida</span>&nbsp;&nbsp;&nbsp;
       </div>
       
       <!-- Div referente a tabela que contém informações dos markers-->
@@ -50,7 +50,7 @@
         <table style="background-color: rgba(255,255,255,.90);" class="table" id="table">
         </table>
         <form style="margin-bottom: 50px;" action = "markers_confirm" method = "POST" enctype = "multipart/form-data">
-          <button id="submit" type="submit" class="btn btn-success btn-lg btn-block rounded-0" disabled>Save Changes</button>
+          <button id="submit" type="submit" class="btn btn-success btn-lg btn-block rounded-0" disabled>Salvar alterações</button>
           <input type="text" name = "data" value="" id="data" hidden>
         </form>
       </div>
@@ -61,7 +61,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Change Value</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Alterar valor</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close_x">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -70,8 +70,8 @@
               <label id="modal_text"></label>  
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Cancel_Buttom">Cancel</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal" id="Confirm_Buttom" >Save Changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Cancel_Buttom">Cancelar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" id="Confirm_Buttom" >Salvar alteração</button>
             </div>
           </div>
         </div>
@@ -122,14 +122,13 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNEzVQus5NRrbNeVKppxbEy7nKre_0Djc&libraries=geometry"></script>
       <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-      <script type="text/javascript" src="../static/js/coordinate.js"></script>
-      <script type="text/javascript" src="../static/js/point_marker.js"></script>
-      <script type="text/javascript" src="../static/js/polygon.js"></script>
-      <script type="text/javascript" src="../static/js/createComponentHTML.js"></script>
-      <script type="text/javascript" src="../static/js/plotPolygon.js"></script>
-      <script type="text/javascript" src="../static/js/loading.js"></script>
+      <script type="text/javascript" src="../../static/js/prototypes/coordinate.js"></script>
+      <script type="text/javascript" src="../../static/js/prototypes/point_marker.js"></script>
+      <script type="text/javascript" src="../../static/js/prototypes/polygon.js"></script>
+      <script type="text/javascript" src="../../static/js/prototypes/componentHTML.js"></script>
+      <script type="text/javascript" src="../../static/js/implementation/plotPolygon.js"></script>
+      <script type="text/javascript" src="../../static/js/events/loading.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ47tWCXOUSPql_E5MRnw5iFKo9uaaWp8&callback=plotPolygon"></script>
-    
     {% endblock %}
 </body>
 </html>
