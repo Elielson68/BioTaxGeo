@@ -13,7 +13,7 @@
         {% block content %}
         <div class="container" style="justify-content: center; display: grid;">
          <div class="formCard card">
-            <div class="card-header text-center cardHeader" id="sheet_number">Planilha a ser analisada</div>
+            <div class="card-header text-center cardHeader" id="sheet_number">Spreadsheet to be analyzed</div>
             <div style="background-color: rgba(255,255,255,0)" class="card-body">
             <table class="table table-striped">
                <tbody>
@@ -89,7 +89,7 @@
             </table>
          </div>
          <div class="card-footer">
-            <button id="continue" type="button" class="btn btn-primary btn-lg btn-block" disabled>Continuar</button>
+            <button id="continue" type="button" class="btn btn-primary btn-lg btn-block" disabled>Continue</button>
             <form id="form" action="taxon_list2" method = "POST" enctype = "multipart/form-data" hidden>
                <input type="text" name="selection_check" value="" hidden="hidden" id="selection_titles1"/>
                 <input type="text" name="selection_base" value="" hidden="hidden" id="selection_titles2"/>
@@ -100,7 +100,7 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="../static/js/loading.js"></script>
+        <script type="text/javascript" src="../static/js/events/loading.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script>
 
@@ -210,7 +210,7 @@
                   select_subspecie.removeChild(select_subspecie.lastChild)
                }
                window.scrollTo(0, 0);
-               document.getElementById('sheet_number').innerHTML = "Planilha usada como referência"
+               document.getElementById('sheet_number').innerHTML = "Spreadsheet to be used as reference"
             }
             function Selected(){
                selected_titles[this.id] = this.value;

@@ -34,7 +34,7 @@ function plotPolygon() {
         selected_polygon.setActive(false)
         selected_polygon.setPath(polygons[poly])
         List_Poly.push(selected_polygon)
-        header_table.createHeaderTable("Lista de Markers dentro do Polígono "+List_Poly.length, List_Poly.length)
+        header_table.createHeaderTable("List of Markers within the Polygon "+List_Poly.length, List_Poly.length)
         header_table.createTitleTable()
         selected_polygon.setTitle("polygon"+List_Poly.length)
         List_Components_HTML.push(header_table)
@@ -51,7 +51,7 @@ function plotPolygon() {
             if(List_Poly[p].haveMarker(List_Marker[i].getPosition())){
                 List_Marker[i].setIcon("../static/image/blue_marker2.png")
                 List_Marker[i].setInsidePolygon(true)
-                List_Marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
+                List_Marker[i].setTitle(`\tSpreadsheet info \nCountry: ${country[i]}\nState: ${state[i]}\nCounty: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
                 name = genus[i]+" "+specie[i]
                 
                 List_Components_HTML[p].createBodyTable(name, country[i], state[i], county[i], List_Marker[i].getLatitude(), List_Marker[i].getLongitude(), row_coord_lat[i], i, List_Poly[p].getTitle())
@@ -89,12 +89,12 @@ function plotPolygon() {
 
     //Esse for específico é para verificar os que estão fora de qualquer
     MarkersOutPolygon = new ComponentHTML()
-    MarkersOutPolygon.createHeaderTable("Lista de Markers fora de Polígonos", "Without", "red")
+    MarkersOutPolygon.createHeaderTable("List of Markers outside Polygons", "Without", "red")
     MarkersOutPolygon.createTitleTable()
     for(i=0;i<List_Marker.length;i++){
             if(!List_Marker[i].isInsidePolygon()){
                 name = genus[i]+" "+specie[i]
-                List_Marker[i].setTitle(`\tInfo. da Planilha\nPaís: ${country[i]}\nEstado: ${state[i]}\nMunicípio: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
+                List_Marker[i].setTitle(`\tSpreadsheet info \nCountry: ${country[i]}\nState: ${state[i]}\nCounty: ${county[i]}\nLatitude: ${latitudes[i]}\nLongitude: ${longitudes[i]}`)
                 MarkersOutPolygon.createBodyTable(name, country[i], state[i], county[i], List_Marker[i].getLatitude(), List_Marker[i].getLongitude(), row_coord_lat[i], i, "without")
                 if(list_checked_regions[i]['country']['score']<60 && list_checked_regions[i]['country']['name2'] != "null"){
                     MarkersOutPolygon.setWrongRow(MarkersOutPolygon.getRowCountry(), list_checked_regions[i]['country']['name1'], ActiveModal)
@@ -156,15 +156,15 @@ function plotPolygon() {
         if(region.indexOf(column) > -1){
             BUTTOM_CONFIRM.removeAttribute("disabled");
             if(column == "country"){
-                text.innerHTML = `Verificamos que seu PAÍS está incorreto.<br>Observamos que em sua planilha sua coluna referente ao País consta o valor: <b style='color: red;'>${country[index]}</b><br>Enquanto sua coordenada representa o local: <b style='color: green;'>${list_region[index][column]}<b>`
+                text.innerHTML = `We have verified that your COUNTRY is incorrect.<br>We noticed that in your spreadsheet your column for the country contains the value: <b style='color: red;'>${country[index]}</b><br>While its coordinate represents the location: <b style='color: green;'>${list_region[index][column]}<b>`
                 Values_To_Send[Column_Modify] = list_region[index][column]
             }
             else if(column == "state"){
-                text.innerHTML = `Verificamos que seu ESTADO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Estado consta o valor: <b style='color: red;'>${state[index]}</b><br>Enquanto sua coordenada representa o local: <b style='color: green;'>${list_region[index][column]}<b>`
+                text.innerHTML = `We have verified that your STATE is incorrect.<br>We noticed that in your spreadsheet your column for the state contains the value: <b style='color: red;'>${state[index]}</b><br>While its coordinate represents the location: <b style='color: green;'>${list_region[index][column]}<b>`
                 Values_To_Send[Column_Modify] = list_region[index][column]
             }
             else if(column == "county"){
-                text.innerHTML = `Verificamos que seu MUNICÍPIO está incorreto.<br>Observamos que em sua planilha sua coluna referente ao Município consta o valor: <b style='color: red;'>${county[index]}</b><br>Enquanto sua coordenada representa o local: <b style='color: green;'>${list_region[index][column]}<b>`
+                text.innerHTML = `We have verified that your COUNTY is incorrect.<br>We noticed that in your spreadsheet your column for the county contains the value: <b style='color: red;'>${county[index]}</b><br>While its coordinate represents the location: <b style='color: green;'>${list_region[index][column]}<b>`
                 Values_To_Send[Column_Modify] = list_region[index][column]
             }
 
@@ -184,9 +184,9 @@ function plotPolygon() {
       
             map_aux = new google.maps.Map(div_aux, {zoom: 12, center: List_Marker[index].getPosition(), styles: mapStyle,  gestureHandling: 'greedy'});
             marker = new Point_Marker(List_Marker[index].getPosition(), map_aux, "../static/image/green_marker.png" , false)
-            marker.setTitle(`Coordenadas\nLatitude: ${List_Marker[index].getLatitude()}\nLongitude: ${List_Marker[index].getLongitude()}`)
+            marker.setTitle(`Coordinates\nLatitude: ${List_Marker[index].getLatitude()}\nLongitude: ${List_Marker[index].getLongitude()}`)
               
-            let contentString = '<div id="content">'+'<p>Sua coordenada aponta para cá</p>'+'</div>'
+            let contentString = '<div id="content">'+'<p>Your coordinate points here</p>'+'</div>'
             let infowindow = new google.maps.InfoWindow({
                 content: contentString
               });
@@ -213,7 +213,7 @@ function plotPolygon() {
                 coord_decimal = coordinate[column]['decimal']
                 coordinate[column]['DDMMSS'] = COORDINATE_CONVERSOR.toDDMMSS(coord_decimal, lat_lng)
                 coordinate[column]['DDMM'] = COORDINATE_CONVERSOR.toDDMM(coord_decimal, lat_lng)
-                text.innerHTML = `Verificamos que sua coordenada está incorreta.<br>A região informada em sua planilha é: ${country[index]}, ${state[index]}, ${county[index]}<br><br>Enquanto que suas coordenadas apontam para: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}<br><br>As coordenadas corretas para este local são:<br><br>`
+                text.innerHTML = `We found that your coordinate might be incorrect.<br>The region reported in your spreadsheet is: ${country[index]}, ${state[index]}, ${county[index]}<br><br>While its coordinates point to: ${list_region[index]['country']}, ${list_region[index]['state']}, ${list_region[index]['county']}<br><br>The correct coordinates for this location are:<br><br>`
                 
                 decimal = coordinate[column]['decimal']
                 DDMMSS = coordinate[column]['DDMMSS']
@@ -236,7 +236,7 @@ function plotPolygon() {
                 marker = new Point_Marker(a[0]['geometry']['location'], map_aux, "../static/image/green_marker.png" , false)
                 marker.setTitle(`Coordenadas\nLatitude: ${latitude}\nLongitude: ${longitude}`)
             
-                let contentString = '<div id="content">'+'<p>A coordenada sugerida aponta para cá</p>'+'</div>'
+                let contentString = '<div id="content">'+'<p>The suggested coordinate points here</p>'+'</div>'
                 let infowindow = new google.maps.InfoWindow({
                     content: contentString
                   });
