@@ -2,40 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/js/events/changeDataTable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/events/loading.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/implementation/createPolygon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/implementation/createTableGBIF.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/implementation/createTableLocalsheet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/implementation/plotPolygon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/prototypes/componentHTML.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/prototypes/coordinate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/prototypes/locality.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/prototypes/point_marker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/prototypes/polygon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/prototypes/table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coordenadas_Testes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/Att_Scripts.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Att_Scripts.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/coordinate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/createComponentHTML.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/createPolygon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/loading.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/locality.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/plotPolygon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/point_marker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/polygon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/markers_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/markers_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/markers_form_map.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/markers_form_map.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form_gbif.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form_gbif.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list/markers_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/markers_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/home_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/home_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/events/changeDataTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/events/changeDataTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/implementation/createTableLocalsheet.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/implementation/createTableLocalsheet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/prototypes/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/prototypes/table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/errorscreen/InvalidFile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/errorscreen/InvalidFile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/errorscreen/InvalidValue.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/errorscreen/InvalidValue.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/list/taxon_list_localsheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list_localsheet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/transition/choose_route.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/transition/choose_route.html" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,8 +54,8 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/BioTaxGeo/Scripts/python.exe" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -99,6 +79,18 @@
       <recent name="$PROJECT_DIR$/templates/list" />
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Python.run">
     <configuration name="Gbif_Testes" type="PythonConfigurationType" factoryName="Python">
@@ -171,9 +163,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\BioTaxGeo\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run.py" />
@@ -662,15 +654,5 @@
     <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583340571861" />
     <state x="520" y="348" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
     <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/model/data_treatment.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

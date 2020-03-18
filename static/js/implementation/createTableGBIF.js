@@ -20,7 +20,7 @@ for (key in verified_hierarchy){
     amount_value = verified_hierarchy[key][key2]["amount"]
     value += `: ${amount_value!=undefined?amount_value:0}`
     table.createColumnInBody(value)
-    if(verified_hierarchy[key][key2]["correctness"] != "EXACT" && verified_hierarchy[key][key2]["correctness"] != "100%"){
+    if(verified_hierarchy[key][key2]["correctness"] != "EXACT" && verified_hierarchy[key][key2]["correctness"] != "100%" && key2 != "scientific name"){
       is_array = Array.isArray(verified_hierarchy[key][key2]["suggestion"])
       array_count = is_array ? verified_hierarchy[key][key2]["suggestion"].length:null
       table.setClassNameRowBody(row, "wrong")
@@ -35,6 +35,7 @@ for (key in verified_hierarchy){
       } 
       table.setAttributeTdBody(row, column, "data-target","#exampleModal")
       table.setAttributeTdBody(row, column, "data-toggle","modal")
+      table.setAttributeTdBody(row, column, "wrong","true")
       table.setEventTdBody(row, column, "click", ChangingDataGBIF)
       table.setClassNameTdBody(row, column, key2)
       table.setIDTdBody(row, column, key+key2)

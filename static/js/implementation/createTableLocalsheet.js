@@ -26,6 +26,7 @@ for (key in verified_hierarchy){
       correctness == "FUZZY" ? table.setStyleTdBody(row, column, "color: orange;"):table.setStyleTdBody(row, column, "color: red;")
       table.setAttributeTdBody(row, column, "data-target","#exampleModal")
       table.setAttributeTdBody(row, column, "data-toggle","modal")
+      table.setAttributeTdBody(row, column, "wrong","true")
       table.setEventTdBody(row, column, "click", ChangingDataLocalSheet)
       table.setClassNameTdBody(row, column, key2)
       table.setIDTdBody(row, column, key+key2)

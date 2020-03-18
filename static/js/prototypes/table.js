@@ -58,8 +58,10 @@ Table.prototype.setClassNameTdBody = function (row, column, classs){
      this.body[1][row][column].className = classs;
 }
 Table.prototype.setIDTdBody = function (row, column, id){
-     this.body[1][row][column].id = id;
-     
+     this.body[1][row][column].id = id; 
+}
+Table.prototype.setTagNameTdBody = function (row, column, name){
+    this.body[1][row][column].setAttribute("name", name); 
 }
 Table.prototype.setInnerHTMLTdBody = function (row, column, value){
      this.body[1][row][column].innerHTML = value;

@@ -24,10 +24,10 @@
           <div class="card" style="margin-bottom: 15px;">
             <div class="card-header cardHeader text-center">Your Spreadsheet</div>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary active rounded-0"  >
+                <label class="btn btn-secondary active rounded-0"  onclick="ShowAllValues()">
                   <input type="radio" name="options" id="option1" autocomplete="on" checked> View all
                 </label>
-                <label class="btn btn-secondary rounded-0">
+                <label class="btn btn-secondary rounded-0" onclick="ShowOnlyWrong()">
                   <input type="radio" name="options" id="option2" autocomplete="on"> Errors only
                 </label>
             </div>
@@ -99,6 +99,7 @@
           var wrong_cell;
           var count;
           var count2;
+          var super_row;
         </script>
         <script type="text/javascript" src="../static/js/events/loading.js"></script>
         <script type="text/javascript" src="../../static/js/prototypes/table.js"></script>
