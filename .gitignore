@@ -1,3 +1,6 @@
 /.vscode/
-/cmd.exe
 /venv/
+/OficialEnv/
+/.idea/
+/NovaEnv/
+/.__pycache__/

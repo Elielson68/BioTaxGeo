@@ -2,766 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/rSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/bin/activate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/bin/activate.csh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/bin/activate.fish" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/bin/easy_install" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/bin/easy_install-3.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/bin/pip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/bin/pip3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/bin/pip3.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/bin/python" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/bin/python3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/bin/python3.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Click-7.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Click-7.0.dist-info/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Click-7.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Click-7.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Click-7.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Click-7.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Flask-1.1.1.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Flask-1.1.1.dist-info/LICENSE.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Flask-1.1.1.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Flask-1.1.1.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Flask-1.1.1.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Flask-1.1.1.dist-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Flask-1.1.1.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Jinja2-2.10.3.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Jinja2-2.10.3.dist-info/LICENSE.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Jinja2-2.10.3.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Jinja2-2.10.3.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Jinja2-2.10.3.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Jinja2-2.10.3.dist-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Jinja2-2.10.3.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Levenshtein/StringMatcher.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Levenshtein/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Levenshtein/_levenshtein.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Levenshtein/_levenshtein.cpython-37m-x86_64-linux-gnu.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Levenshtein/_levenshtein.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/MarkupSafe-1.1.1-py3.8.egg-info/PKG-INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/MarkupSafe-1.1.1-py3.8.egg-info/SOURCES.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/MarkupSafe-1.1.1-py3.8.egg-info/dependency_links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/MarkupSafe-1.1.1-py3.8.egg-info/installed-files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/MarkupSafe-1.1.1-py3.8.egg-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Werkzeug-0.16.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Werkzeug-0.16.0.dist-info/LICENSE.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Werkzeug-0.16.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Werkzeug-0.16.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Werkzeug-0.16.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/Werkzeug-0.16.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/certifi-2019.9.11.dist-info/DESCRIPTION.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/certifi-2019.9.11.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/certifi-2019.9.11.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/certifi-2019.9.11.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/certifi-2019.9.11.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/certifi-2019.9.11.dist-info/metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/certifi-2019.9.11.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/certifi/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/certifi/__main__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/certifi/cacert.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/certifi/core.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet-3.0.4.dist-info/DESCRIPTION.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet-3.0.4.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet-3.0.4.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet-3.0.4.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet-3.0.4.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet-3.0.4.dist-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet-3.0.4.dist-info/metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet-3.0.4.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/big5freq.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/big5prober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/chardistribution.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/charsetgroupprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/charsetprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/cli/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/cli/chardetect.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/codingstatemachine.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/cp949prober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/enums.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/escprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/escsm.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/eucjpprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/euckrfreq.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/euckrprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/euctwfreq.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/euctwprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/gb2312freq.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/gb2312prober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/hebrewprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/jisfreq.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/jpcntx.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/langbulgarianmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/langcyrillicmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/langgreekmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/langhebrewmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/langhungarianmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/langthaimodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/langturkishmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/latin1prober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/mbcharsetprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/mbcsgroupprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/mbcssm.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/sbcharsetprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/sbcsgroupprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/sjisprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/universaldetector.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/utf8prober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/chardet/version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/_bashcomplete.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/_compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/_termui_impl.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/_textwrap.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/_unicodefun.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/_winconsole.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/core.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/decorators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/formatting.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/globals.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/parser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/termui.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/testing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/types.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/click/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/easy-install.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/__main__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/_compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/blueprints.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/cli.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/ctx.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/debughelpers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/globals.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/helpers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/json/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/json/tag.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/logging.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/sessions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/signals.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/templating.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/testing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/flask/wrappers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy-0.17.0.dist-info/DESCRIPTION.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy-0.17.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy-0.17.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy-0.17.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy-0.17.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy-0.17.0.dist-info/metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy-0.17.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy-0.17.0.dist-info/zip-safe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy/StringMatcher.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy/fuzz.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy/process.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy/string_processing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/fuzzywuzzy/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna-2.8.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna-2.8.dist-info/LICENSE.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna-2.8.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna-2.8.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna-2.8.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna-2.8.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna/codec.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna/compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna/core.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna/idnadata.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna/intranges.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna/package_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/idna/uts46data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous-1.1.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous-1.1.0.dist-info/LICENSE.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous-1.1.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous-1.1.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous-1.1.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous-1.1.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous/_compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous/_json.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous/encoding.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous/exc.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous/jws.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous/serializer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous/signer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous/timed.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/itsdangerous/url_safe.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/_compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/_identifier.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/asyncfilters.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/asyncsupport.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/bccache.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/compiler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/constants.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/debug.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/defaults.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/environment.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/ext.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/filters.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/idtracking.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/lexer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/loaders.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/meta.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/nativetypes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/nodes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/optimizer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/parser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/runtime.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/sandbox.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/jinja2/visitor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/markupsafe/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/markupsafe/_compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/markupsafe/_constants.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/markupsafe/_native.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/markupsafe/_speedups.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/EGG-INFO/PKG-INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/EGG-INFO/SOURCES.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/EGG-INFO/dependency_links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/EGG-INFO/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/EGG-INFO/not-zip-safe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/EGG-INFO/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/__main__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/build_env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/cache.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/cli/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/cli/autocompletion.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/cli/base_command.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/cli/cmdoptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/cli/main_parser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/cli/parser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/cli/status_codes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/check.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/completion.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/configuration.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/download.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/freeze.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/hash.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/help.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/install.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/list.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/search.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/show.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/uninstall.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/commands/wheel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/configuration.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/download.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/index.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/locations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/models/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/models/candidate.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/models/format_control.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/models/index.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/models/link.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/operations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/operations/check.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/operations/freeze.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/operations/prepare.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/pep425tags.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/pyproject.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/req/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/req/constructors.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/req/req_file.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/req/req_install.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/req/req_set.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/req/req_tracker.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/req/req_uninstall.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/resolve.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/appdirs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/deprecation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/encoding.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/filesystem.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/glibc.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/hashes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/logging.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/misc.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/outdated.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/packaging.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/setuptools_build.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/temp_dir.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/typing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/utils/ui.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/vcs/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/vcs/bazaar.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/vcs/git.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/vcs/mercurial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/vcs/subversion.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_internal/wheel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/appdirs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/cachecontrol/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/cachecontrol/_cmd.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/cachecontrol/adapter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/cachecontrol/cache.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/cachecontrol/caches/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/cachecontrol/caches/file_cache.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/cachecontrol/caches/redis_cache.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/cachecontrol/compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/cachecontrol/controller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/cachecontrol/filewrapper.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/cachecontrol/heuristics.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/cachecontrol/serialize.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/cachecontrol/wrapper.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/certifi/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/certifi/__main__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/certifi/cacert.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/certifi/core.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/big5freq.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/big5prober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/chardistribution.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/charsetgroupprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/charsetprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/cli/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/cli/chardetect.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/codingstatemachine.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/cp949prober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/enums.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/escprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/escsm.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/eucjpprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/euckrfreq.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/euckrprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/euctwfreq.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/euctwprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/gb2312freq.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/gb2312prober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/hebrewprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/jisfreq.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/jpcntx.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/langbulgarianmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/langcyrillicmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/langgreekmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/langhebrewmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/langhungarianmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/langthaimodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/langturkishmodel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/latin1prober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/mbcharsetprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/mbcsgroupprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/mbcssm.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/sbcharsetprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/sbcsgroupprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/sjisprober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/universaldetector.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/utf8prober.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/chardet/version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/colorama/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/colorama/ansi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/colorama/ansitowin32.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/colorama/initialise.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/colorama/win32.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/colorama/winterm.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/_backport/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/_backport/misc.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/_backport/shutil.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/_backport/sysconfig.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/_backport/sysconfig.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/_backport/tarfile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/database.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/index.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/locators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/manifest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/markers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/metadata.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/resources.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/scripts.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/t32.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/t64.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/util.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/w32.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/w64.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distlib/wheel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/distro.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/_ihatexml.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/_inputstream.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/_tokenizer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/_trie/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/_trie/_base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/_trie/datrie.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/_trie/py.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/constants.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/filters/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/filters/alphabeticalattributes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/filters/base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/filters/inject_meta_charset.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/filters/lint.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/filters/optionaltags.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/filters/sanitizer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/filters/whitespace.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/html5parser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/serializer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treeadapters/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treeadapters/genshi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treeadapters/sax.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treebuilders/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treebuilders/base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treebuilders/dom.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treebuilders/etree.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treebuilders/etree_lxml.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treewalkers/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treewalkers/base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treewalkers/dom.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treewalkers/etree.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treewalkers/etree_lxml.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/html5lib/treewalkers/genshi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/idna/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/idna/codec.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/idna/compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/idna/core.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/idna/idnadata.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/idna/intranges.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/idna/package_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/idna/uts46data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/ipaddress.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/lockfile/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/lockfile/linklockfile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/lockfile/mkdirlockfile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/lockfile/pidlockfile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/lockfile/sqlitelockfile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/lockfile/symlinklockfile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/msgpack/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/msgpack/_version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/msgpack/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/msgpack/fallback.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/packaging/__about__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/packaging/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/packaging/_compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/packaging/_structures.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/packaging/markers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/packaging/requirements.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/packaging/specifiers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/packaging/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/packaging/version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pep517/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pep517/_in_process.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pep517/build.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pep517/check.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pep517/colorlog.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pep517/compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pep517/envbuild.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pep517/wrappers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pkg_resources/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pkg_resources/py31compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/progress/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/progress/bar.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/progress/counter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/progress/helpers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/progress/spinner.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pyparsing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pytoml/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pytoml/core.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pytoml/parser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pytoml/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pytoml/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/pytoml/writer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/__version__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/_internal_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/adapters.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/auth.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/certs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/cookies.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/help.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/hooks.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/packages.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/sessions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/status_codes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/structures.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/requests/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/retrying.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/six.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/_collections.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/connection.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/connectionpool.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/contrib/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/contrib/_appengine_environ.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/contrib/_securetransport/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/contrib/_securetransport/bindings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/contrib/_securetransport/low_level.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/contrib/appengine.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/contrib/ntlmpool.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/contrib/pyopenssl.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/contrib/securetransport.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/contrib/socks.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/fields.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/filepost.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/packages/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/packages/backports/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/packages/backports/makefile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/packages/six.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/packages/ssl_match_hostname/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/packages/ssl_match_hostname/_implementation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/poolmanager.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/request.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/response.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/util/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/util/connection.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/util/queue.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/util/request.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/util/response.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/util/retry.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/util/ssl_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/util/timeout.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/util/url.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/urllib3/util/wait.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/webencodings/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/webencodings/labels.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/webencodings/mklabels.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/webencodings/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/pip-19.0.3-py3.7.egg/pip/_vendor/webencodings/x_user_defined.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/python_Levenshtein-0.12.0.dist-info/COPYING" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/python_Levenshtein-0.12.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/python_Levenshtein-0.12.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/python_Levenshtein-0.12.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/python_Levenshtein-0.12.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/python_Levenshtein-0.12.0.dist-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/python_Levenshtein-0.12.0.dist-info/namespace_packages.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/python_Levenshtein-0.12.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests-2.22.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests-2.22.0.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests-2.22.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests-2.22.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests-2.22.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests-2.22.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/__version__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/_internal_utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/adapters.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/auth.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/certs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/cookies.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/help.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/hooks.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/packages.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/sessions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/status_codes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/structures.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/requests/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/setuptools-40.8.0-py3.7.egg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/setuptools.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3-1.25.7.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3-1.25.7.dist-info/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3-1.25.7.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3-1.25.7.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3-1.25.7.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3-1.25.7.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/_collections.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/connection.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/connectionpool.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/contrib/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/contrib/_appengine_environ.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/contrib/_securetransport/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/contrib/_securetransport/bindings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/contrib/_securetransport/low_level.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/contrib/appengine.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/contrib/ntlmpool.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/contrib/pyopenssl.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/contrib/securetransport.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/contrib/socks.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/fields.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/filepost.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/packages/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/packages/backports/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/packages/backports/makefile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/packages/six.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/packages/ssl_match_hostname/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/packages/ssl_match_hostname/_implementation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/poolmanager.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/request.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/response.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/util/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/util/connection.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/util/queue.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/util/request.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/util/response.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/util/retry.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/util/ssl_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/util/timeout.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/util/url.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/urllib3/util/wait.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/_compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/_internal.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/_reloader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/contrib/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/contrib/atom.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/contrib/cache.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/contrib/fixers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/contrib/iterio.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/contrib/lint.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/contrib/profiler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/contrib/securecookie.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/contrib/sessions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/contrib/wrappers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/datastructures.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/debug/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/debug/console.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/debug/repr.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/debug/shared/FONT_LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/debug/shared/console.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/debug/shared/debugger.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/debug/shared/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/debug/shared/less.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/debug/shared/more.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/debug/shared/source.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/debug/shared/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/debug/shared/ubuntu.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/debug/tbtools.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/filesystem.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/formparser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/http.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/local.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/middleware/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/middleware/dispatcher.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/middleware/http_proxy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/middleware/lint.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/middleware/profiler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/middleware/proxy_fix.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/middleware/shared_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/posixemulation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/routing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/security.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/serving.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/testapp.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/useragents.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/wrappers/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/wrappers/accept.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/wrappers/auth.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/wrappers/base_request.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/wrappers/base_response.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/wrappers/common_descriptors.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/wrappers/etag.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/wrappers/json.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/wrappers/request.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/wrappers/response.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/wrappers/user_agent.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/werkzeug/wsgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd-1.2.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd-1.2.0.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd-1.2.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd-1.2.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd-1.2.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd-1.2.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd/biffh.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd/book.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd/compdoc.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd/formatting.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd/formula.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd/info.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd/sheet.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd/timemachine.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd/xldate.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlrd/xlsx.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils-2.0.0.dist-info/DESCRIPTION.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils-2.0.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils-2.0.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils-2.0.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils-2.0.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils-2.0.0.dist-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils-2.0.0.dist-info/metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils-2.0.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/copy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/display.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/filter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/license.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/margins.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/save.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/styles.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/date.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/datetime.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/fixtures.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/ragged.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/sample.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/test.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/test_copy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/test_docs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/test_filter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/test_save.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/test_styles.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/test_view.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/testall.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/tests/testnoformatting.xls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/version.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlutils/view.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt-1.3.0.dist-info/DESCRIPTION.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt-1.3.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt-1.3.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt-1.3.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt-1.3.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt-1.3.0.dist-info/metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt-1.3.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/BIFFRecords.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/Bitmap.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/Cell.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/Column.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/CompoundDoc.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/ExcelFormula.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/ExcelFormulaLexer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/ExcelFormulaParser.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/ExcelMagic.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/Formatting.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/Row.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/Style.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/UnicodeUtils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/Utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/Workbook.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/Worksheet.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/antlr.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/compat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib/python3.7/site-packages/xlwt/excel-formula.g" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/lib64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NovaEnv/pyvenv.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -775,17 +16,21 @@
         <option value="HTML File" />
       </list>
     </option>
+    <option name="SCHEME" value="Project" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="88ec8eaa4650405f4a3a9cf0a537d80aa25b3c1b" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1PL1ilamHjnr18TVtYNDECoyh0Q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -798,7 +43,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NovaEnv" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/BioTaxGeo/Scripts/python.exe" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -811,13 +56,32 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/transition" />
+      <recent name="$PROJECT_DIR$/model" />
       <recent name="$PROJECT_DIR$/templates" />
+      <recent name="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\SpecieGeo\static\css" />
+      <recent name="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\SpecieGeo\static" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/errorscreen" />
+      <recent name="$PROJECT_DIR$/templates/ErrorScreens" />
+      <recent name="$PROJECT_DIR$/templates/list" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Gbif_Testes">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.run">
     <configuration name="Gbif_Testes" type="PythonConfigurationType" factoryName="Python">
       <module name="teste" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -852,48 +116,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Gbif_Testes.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Gbif_Testes" type="PythonConfigurationType" factoryName="Python">
-      <module name="teste" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Gbif_Testes.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="SpecieGeo_App" type="PythonConfigurationType" factoryName="Python">
-      <module name="teste" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SpecieGeo_App.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -923,19 +145,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="planilha" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="run" type="PythonConfigurationType" factoryName="Python">
       <module name="teste" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/../tratamento_dados_specify/venv/bin/python" />
+      <option name="SDK_HOME" value="C:\Users\Elielson\Documents\PyCharm - Projetos atuais\BioTaxGeo\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/planilha.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -946,29 +168,11 @@
     </configuration>
     <list>
       <item itemvalue="Python.Gbif_Testes" />
-      <item itemvalue="Python.SpecieGeo_App" />
-      <item itemvalue="Python.planilha" />
+      <item itemvalue="Python.run" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.planilha" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration>$USER_HOME$/.subversion</configuration>
+    <configuration>$PROJECT_DIR$/../.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -978,351 +182,354 @@
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
     </task>
-    <task id="LOCAL-00010" summary="Plotagem do poligono no mapa após ser criado">
-      <created>1569610872623</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
+    <task id="LOCAL-00076" summary="atualizado o Path das funções">
+      <created>1576689661678</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
       <option name="project" value="LOCAL" />
-      <updated>1569610872623</updated>
+      <updated>1576689661678</updated>
     </task>
-    <task id="LOCAL-00011" summary="Personalização da área plotada">
-      <created>1569611658830</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
+    <task id="LOCAL-00077" summary="utilizando blueprint para separar as rotas do arquivo principal">
+      <created>1576692018148</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
       <option name="project" value="LOCAL" />
-      <updated>1569611658830</updated>
+      <updated>1576692018148</updated>
     </task>
-    <task id="LOCAL-00012" summary="Código de testes passado para o arquivo principal De GBIF Testes.py Para Loko.py">
-      <created>1569612319179</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
+    <task id="LOCAL-00078" summary="utilizando blueprint para separar as rotas do arquivo principal">
+      <created>1576693346541</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
       <option name="project" value="LOCAL" />
-      <updated>1569612319179</updated>
+      <updated>1576693346541</updated>
     </task>
-    <task id="LOCAL-00013" summary="Inserção da leitura de planilha e seleção de área pelo usuário">
-      <created>1569867171562</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
+    <task id="LOCAL-00079" summary="Refatoramento model">
+      <created>1576761117558</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
       <option name="project" value="LOCAL" />
-      <updated>1569867171562</updated>
+      <updated>1576761117559</updated>
     </task>
-    <task id="LOCAL-00014" summary="Verificação se marker está dentro de área estabelecida pelo usuário">
-      <created>1569870054691</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
+    <task id="LOCAL-00080" summary="traduzindo codigo">
+      <created>1576785271990</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
       <option name="project" value="LOCAL" />
-      <updated>1569870054691</updated>
+      <updated>1576785271991</updated>
     </task>
-    <task id="LOCAL-00015" summary="Lista de markers que estão dentro da área">
-      <created>1569873027460</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
+    <task id="LOCAL-00081" summary="traduzindo codigo">
+      <created>1577128880143</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
       <option name="project" value="LOCAL" />
-      <updated>1569873027460</updated>
+      <updated>1577128880143</updated>
     </task>
-    <task id="LOCAL-00016" summary="Modificação no layout, inserção da opção de criar vértices através de inputs">
-      <created>1569954963464</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
+    <task id="LOCAL-00082" summary="código JS refatorado">
+      <created>1578943971488</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
       <option name="project" value="LOCAL" />
-      <updated>1569954963464</updated>
+      <updated>1578943971489</updated>
     </task>
-    <task id="LOCAL-00017" summary="Modificação no layout, inserção da opção de criar vértices através de inputs">
-      <created>1569955571042</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
+    <task id="LOCAL-00083" summary="código JS refatorado">
+      <created>1578944602789</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
       <option name="project" value="LOCAL" />
-      <updated>1569955571042</updated>
+      <updated>1578944602790</updated>
     </task>
-    <task id="LOCAL-00018" summary="inserido limite para criação de inputs">
-      <created>1569956448998</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
+    <task id="LOCAL-00084" summary="traduzindo components HTML, ID's e Keys">
+      <created>1579030702653</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
       <option name="project" value="LOCAL" />
-      <updated>1569956448998</updated>
+      <updated>1579030702654</updated>
     </task>
-    <task id="LOCAL-00019" summary="Criação de inputs através do click do mouse">
-      <created>1569960814697</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
+    <task id="LOCAL-00085" summary="Tudo traduzido, inserido na plotagem dos markers no mapa os markers fora de qualquer poligono alem de mostrar a linha daquela coordana na planilha">
+      <created>1579117037554</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
       <option name="project" value="LOCAL" />
-      <updated>1569960814697</updated>
+      <updated>1579117037555</updated>
     </task>
-    <task id="LOCAL-00020" summary="Upando os dois html para o git">
-      <created>1570034754629</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
+    <task id="LOCAL-00086" summary="Filtragem das coordenadas e dos locais">
+      <created>1580241793052</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
       <option name="project" value="LOCAL" />
-      <updated>1570034754629</updated>
+      <updated>1580241793052</updated>
     </task>
-    <task id="LOCAL-00021" summary="formatações referente a nomes">
-      <created>1570036108243</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
+    <task id="LOCAL-00087" summary="Finalizado a filtragem para retornar as linhas corretas de cada coordenada referente a região">
+      <created>1580338189392</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
       <option name="project" value="LOCAL" />
-      <updated>1570036108243</updated>
+      <updated>1580338189392</updated>
     </task>
-    <task id="LOCAL-00022" summary="formatação na pesquisa utilizando quadrados e poligonos">
-      <created>1570036897071</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
+    <task id="LOCAL-00088" summary="Finalizado a filtragem para retornar as linhas corretas de cada coordenada referente a região">
+      <created>1580411388851</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
       <option name="project" value="LOCAL" />
-      <updated>1570036897071</updated>
+      <updated>1580411388851</updated>
     </task>
-    <task id="LOCAL-00023" summary="Alteração das vertices pelos: inputs; markers e clicks.">
-      <created>1570130603909</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
+    <task id="LOCAL-00089" summary="Implementando modal para mudar Região ou Coordenada que estejam possivelmente erradas.">
+      <created>1580759425858</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
       <option name="project" value="LOCAL" />
-      <updated>1570130603909</updated>
+      <updated>1580759425881</updated>
     </task>
-    <task id="LOCAL-00024" summary="Criando formas automaticamente">
-      <created>1570217491565</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
+    <task id="LOCAL-00090" summary="Identificando qual região está errada e sugerindo uma nova com base na coordenada.">
+      <created>1580845275300</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
       <option name="project" value="LOCAL" />
-      <updated>1570217491565</updated>
+      <updated>1580845275300</updated>
     </task>
-    <task id="LOCAL-00025" summary="Criando circulo">
-      <created>1570564327217</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
+    <task id="LOCAL-00091" summary="Identificando qual região está errada e sugerindo uma nova com base na coordenada.">
+      <created>1580928014484</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
       <option name="project" value="LOCAL" />
-      <updated>1570564327217</updated>
+      <updated>1580928014709</updated>
     </task>
-    <task id="LOCAL-00026" summary="Exclusão de vértice: retirado os inputs, retirado os markers e vertice. Falta configurar os novos inputs a serem plotados pós exclusão">
-      <created>1570650011060</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
+    <task id="LOCAL-00092" summary="Identificando qual região está errada e sugerindo uma nova com base na coordenada.">
+      <created>1580932127146</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
       <option name="project" value="LOCAL" />
-      <updated>1570650011060</updated>
+      <updated>1580932127146</updated>
     </task>
-    <task id="LOCAL-00027" summary="Seleção de poligonos para editar(manipular vertices), salvando poligonos novos criados">
-      <created>1571162224710</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
+    <task id="LOCAL-00093" summary="Convertendo coordenadas de graus para DDMMSS e DDMM">
+      <created>1581019081183</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
       <option name="project" value="LOCAL" />
-      <updated>1571162224710</updated>
+      <updated>1581019081198</updated>
     </task>
-    <task id="LOCAL-00028" summary="inserido condições para criação de novos poligonos, foi restrito a ter pelo menos 3 vertices">
-      <created>1571172462090</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
+    <task id="LOCAL-00094" summary="Informando coordenadas e localização com base nas regiões informadas nas colunas da planilha">
+      <created>1581104923937</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
       <option name="project" value="LOCAL" />
-      <updated>1571172462090</updated>
+      <updated>1581104923937</updated>
     </task>
-    <task id="LOCAL-00029" summary="inserido mouseover sobre os inputs na selecao dos poligonos">
-      <created>1571176694437</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
+    <task id="LOCAL-00095" summary="Finalizado, salvando coordenadas nas respectivas linhas e salvando a localidade.">
+      <created>1581364286685</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
       <option name="project" value="LOCAL" />
-      <updated>1571176694437</updated>
+      <updated>1581364286717</updated>
     </task>
-    <task id="LOCAL-00030" summary="mouseover foi melhorado para saber em qual poligono a pessoa está editando">
-      <created>1571179384580</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
+    <task id="LOCAL-00096" summary="Desabilitando opcao de modificar regiao caso usuario escolha modificar as coordenadas.">
+      <created>1581450542561</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
       <option name="project" value="LOCAL" />
-      <updated>1571179384580</updated>
+      <updated>1581450542816</updated>
     </task>
-    <task id="LOCAL-00031" summary="Adicionado identificador dos poligonos alem do identificador do dropdown, ao clicar no poligono ele cria uma caixinha informando qual é o poligono clicado">
-      <created>1571186022580</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
+    <task id="LOCAL-00097" summary="novo nome">
+      <created>1581526611942</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
       <option name="project" value="LOCAL" />
-      <updated>1571186022580</updated>
+      <updated>1581526611942</updated>
     </task>
-    <task id="LOCAL-00032" summary="focando em analisar os dados">
-      <created>1571341556014</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
+    <task id="LOCAL-00098" summary="tentnado encontrar a melhor forma de obter valores mais condizentes com a região infomada">
+      <created>1581537938210</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
       <option name="project" value="LOCAL" />
-      <updated>1571341556014</updated>
+      <updated>1581537938223</updated>
     </task>
-    <task id="LOCAL-00033" summary="enviando para o servidor formatado e convertendo no backend pra json">
-      <created>1571609037962</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
+    <task id="LOCAL-00099" summary="Criar método para comparar duas planilhas distintas">
+      <created>1581623380690</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
       <option name="project" value="LOCAL" />
-      <updated>1571609037962</updated>
+      <updated>1581623380690</updated>
     </task>
-    <task id="LOCAL-00034" summary="Formatado layout do home e da tela de plotagem para ficar um padrão">
-      <created>1571942134673</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
+    <task id="LOCAL-00100" summary="Criado segundo formulário para a planilha servida como base, retornando JSON com os valores das colunas">
+      <created>1581708874709</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
       <option name="project" value="LOCAL" />
-      <updated>1571942134673</updated>
+      <updated>1581708874709</updated>
     </task>
-    <task id="LOCAL-00035" summary="Formatado layout da tela de plotagem, tabela agora indica os poligonos que contém ou não markers">
-      <created>1571946499744</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
+    <task id="LOCAL-00101" summary="Criado segundo formulário para a planilha servida como base, retornando JSON com os valores das colunas">
+      <created>1581710084017</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
       <option name="project" value="LOCAL" />
-      <updated>1571946499744</updated>
+      <updated>1581710084017</updated>
     </task>
-    <task id="LOCAL-00036" summary="Formatado layout da tela de plotagem, tabela agora indica os poligonos que contém ou não markers">
-      <created>1571946698553</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
+    <task id="LOCAL-00102" summary="consertado bug onde as species retornavam null">
+      <created>1581966125034</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
       <option name="project" value="LOCAL" />
-      <updated>1571946698553</updated>
+      <updated>1581966125035</updated>
     </task>
-    <task id="LOCAL-00037" summary="formatado algumas coisas e mudando a forma de se selecionar o poligono">
-      <created>1572032676002</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
+    <task id="LOCAL-00103" summary="usando FuzzyMatching para identificar valores semelhantes das duas planilhas">
+      <created>1581968323055</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
       <option name="project" value="LOCAL" />
-      <updated>1572032676002</updated>
+      <updated>1581968323056</updated>
     </task>
-    <task id="LOCAL-00038" summary="Codigo formatado para maneira antiga, porem com as atualizacoes a serem feitas em formato de comentarios">
-      <created>1572368433929</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
+    <task id="LOCAL-00104" summary="Finalizando a comparacao dos dados entre as duas planilhas">
+      <created>1582055964083</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
       <option name="project" value="LOCAL" />
-      <updated>1572368433929</updated>
+      <updated>1582055964084</updated>
     </task>
-    <task id="LOCAL-00039" summary="Começando a implementar a API REST pra analise dos dados da planilha">
-      <created>1572464585318</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
+    <task id="LOCAL-00105" summary="Comparacao finalizada, plotando comparacao na tabela e alterando os valores pelos valores escolhidos pelo usuario">
+      <created>1582141347388</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
       <option name="project" value="LOCAL" />
-      <updated>1572464585318</updated>
+      <updated>1582141347407</updated>
     </task>
-    <task id="LOCAL-00040" summary="Criacao de arquivo pra ler planilha">
-      <created>1572637636168</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
+    <task id="LOCAL-00106" summary="Finalizado">
+      <created>1582227444610</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
       <option name="project" value="LOCAL" />
-      <updated>1572637636168</updated>
+      <updated>1582227444681</updated>
     </task>
-    <task id="LOCAL-00041" summary="Utilizando o objeto de Planilha para pegar latitude e longitude">
-      <created>1572892584946</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
+    <task id="LOCAL-00107" summary="Consertado bug onde a pessoa poderia salvar os dados da tabela taxonomica sem ter selecionado qualquer dado">
+      <created>1582315224055</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
       <option name="project" value="LOCAL" />
-      <updated>1572892584946</updated>
+      <updated>1582315224055</updated>
     </task>
-    <task id="LOCAL-00042" summary="Usando o metodo GET da API REST do GBIF para retornar a precisao dos nomes cientificos">
-      <created>1572896133707</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
+    <task id="LOCAL-00108" summary="Tratamento de erros: o programa verifica se o arquivo enviado é do tipo .xls, caso não seja ele mostra a tela InvalidFile.html">
+      <created>1582738968268</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
       <option name="project" value="LOCAL" />
-      <updated>1572896133707</updated>
+      <updated>1582738968268</updated>
     </task>
-    <task id="LOCAL-00043" summary="Retornando sugestao de correcao e mostrando precisao do nome cientifico">
-      <created>1572897202221</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
+    <task id="LOCAL-00109" summary="Tratamento de erros: criado rotas separadas para o markers list e markers form">
+      <created>1582834315060</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
       <option name="project" value="LOCAL" />
-      <updated>1572897202222</updated>
+      <updated>1582834315060</updated>
     </task>
-    <task id="LOCAL-00044" summary="reorganzacao do codigo da planilha">
-      <created>1572983489086</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
+    <task id="LOCAL-00110" summary="Tratamento de erros: Criado critério no mapa para que só possa ser salvo se fizer alguma alteração, e só pode salvar a modificação das coordenadas caso tenha selecionado um tipo. Consertado bug na hierarquia onde as caixas de seleção não desapareciam.">
+      <created>1582919948170</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
       <option name="project" value="LOCAL" />
-      <updated>1572983489086</updated>
+      <updated>1582919948170</updated>
     </task>
-    <task id="LOCAL-00045" summary="hierarquia upada novamente">
-      <created>1573176547408</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
+    <task id="LOCAL-00111" summary="Inserido a box de ativar e desativar os markers dentro do mapa, inserido mapa quando clicar para alterar a região">
+      <created>1583352099043</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
       <option name="project" value="LOCAL" />
-      <updated>1573176547408</updated>
+      <updated>1583352099077</updated>
     </task>
-    <task id="LOCAL-00046" summary="env upada pro git">
-      <created>1573787366093</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
+    <task id="LOCAL-00112" summary="Retirado o nível de localidade do mapa, personalizado o botão de ativar/desativar o marker cluster, inserido a cor vermelha pra delimitar áreas no mapa que aparece nos modais">
+      <created>1583438383391</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
       <option name="project" value="LOCAL" />
-      <updated>1573787366093</updated>
+      <updated>1583438383391</updated>
     </task>
-    <task id="LOCAL-00047" summary="JSON resultando os valores da chave referente a coluna da planilha">
-      <created>1573840368779</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
+    <task id="LOCAL-00113" summary="Alterando cor da célula que foi modificada pelo usuário, e salvando os dados dos formulários em Cookies">
+      <created>1583524053224</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
       <option name="project" value="LOCAL" />
-      <updated>1573840368779</updated>
+      <updated>1583524053224</updated>
     </task>
-    <task id="LOCAL-00048" summary="Criado classe Hierarquia Taxonomica para organizar mais o codigo">
-      <created>1574101763806</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
+    <task id="LOCAL-00114" summary="Inserido cookies para a tela do mapa, salvando as colunas anteriormente já preenchidas. Criado condição para que ele só avance no formulário caso todos os valores estejam devidamente preenchidos.">
+      <created>1583779018405</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
       <option name="project" value="LOCAL" />
-      <updated>1574101763806</updated>
+      <updated>1583779018409</updated>
     </task>
-    <task id="LOCAL-00049" summary="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela">
-      <created>1574104944647</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
+    <task id="LOCAL-00115" summary="Criado página para caso a pessoa preencha errado algum formulário. Consertado bug em que alterando os valores do formulário o programa apresentava resultado iguais ao da pesquisa passada.">
+      <created>1583783464453</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
       <option name="project" value="LOCAL" />
-      <updated>1574104944647</updated>
+      <updated>1583783464453</updated>
     </task>
-    <task id="LOCAL-00050" summary="Consertar erro que deu na chave">
-      <created>1574106390649</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
+    <task id="LOCAL-00116" summary="Inserido cookie no mapa, no taxon_gbif e taxon_localsheet. Falta criar condição de prosseguir para a tela de taxon_localsheet">
+      <created>1583783682732</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
       <option name="project" value="LOCAL" />
-      <updated>1574106390649</updated>
+      <updated>1583783682732</updated>
     </task>
-    <task id="LOCAL-00051" summary="Hierarquia sendo analisada por completo, verificar quanto aos genus e species que são sinonimos, se considera o canonicalname ou o genus e specie">
-      <created>1574184935897</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
+    <task id="LOCAL-00117" summary="Nenhuma alteração">
+      <created>1584043010577</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
       <option name="project" value="LOCAL" />
-      <updated>1574184935897</updated>
+      <updated>1584043010606</updated>
     </task>
-    <task id="LOCAL-00052" summary="Verificacao completa da hierarquia, comecar a criar a tela onde mostrara os erros">
-      <created>1574189697550</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
+    <task id="LOCAL-00118" summary="refactor: tradução do componente referente aos cluster do mapa e do botão de excluir&#10;refactor: traduzido arquivo de seleção de rotas e criado pasta para este">
+      <created>1584387878182</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
       <option name="project" value="LOCAL" />
-      <updated>1574189697550</updated>
+      <updated>1584387878182</updated>
     </task>
-    <task id="LOCAL-00053" summary="Passando JSON pro HTML, comecar a leitura dos dados e por na tabela">
-      <created>1574191236452</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
+    <task id="LOCAL-00119" summary="chore: ao mostrar somente os valores incorretos, agora ao alterar o valor para o correto a linha some e atualiza automaticamente a lista de valores incorretos.">
+      <created>1584558858382</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
       <option name="project" value="LOCAL" />
-      <updated>1574191236452</updated>
+      <updated>1584558858383</updated>
     </task>
-    <task id="LOCAL-00054" summary="Imprimindo na tabela os nomes (Ok)">
-      <created>1574192316335</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
+    <task id="LOCAL-00120" summary="chore: ao mostrar somente os valores incorretos, agora ao alterar o valor para o correto a linha some e atualiza automaticamente a lista de valores incorretos.">
+      <created>1584559671840</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
       <option name="project" value="LOCAL" />
-      <updated>1574192316335</updated>
+      <updated>1584559671840</updated>
     </task>
-    <task id="LOCAL-00055" summary="Configuracao da hierarquia na tabela (OK), falta enviar dados alterados para o servidor">
-      <created>1574277172158</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
+    <task id="LOCAL-00121" summary="docs: bugs que a tradução havia sido retirada">
+      <created>1584565882856</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
       <option name="project" value="LOCAL" />
-      <updated>1574277172159</updated>
+      <updated>1584565882857</updated>
     </task>
-    <task id="LOCAL-00056" summary="Configuracao da hierarquia na tabela (OK), falta enviar dados alterados para o servidor">
-      <created>1574280869054</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
+    <task id="LOCAL-00122" summary="fix: tradução havia sumido de algumas páginas">
+      <created>1584568839143</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
       <option name="project" value="LOCAL" />
-      <updated>1574280869054</updated>
+      <updated>1584568839143</updated>
     </task>
-    <task id="LOCAL-00057" summary="Configuracao da hierarquia na tabela (OK), falta enviar dados alterados para o servidor">
-      <created>1574280972098</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
+    <task id="LOCAL-00123" summary="fix: legenda atualizada, constava uma informação incorreta">
+      <created>1584569148159</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
       <option name="project" value="LOCAL" />
-      <updated>1574280972098</updated>
+      <updated>1584569148159</updated>
     </task>
-    <task id="LOCAL-00058" summary="mudando nome da coisa">
-      <created>1574355029462</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
+    <task id="LOCAL-00124" summary="feat: criado checkbox para subs: family;genus;specie&#10;feat: criado collapse para select dos subs&#10;refactor: backend adaptado para seleção de alguma das subs&#10;perf: diminuindo linha de códigos do back para verificar chaves de dicts&#10;chore: verifica os subs (opcionalmente)&#10;fix: não era possível alterar tipo de arquivo para comparar quando enviado um incorreto anteriormente">
+      <created>1584674583811</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
       <option name="project" value="LOCAL" />
-      <updated>1574355029462</updated>
+      <updated>1584674583812</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <option name="localTasksCounter" value="125" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -1355,61 +562,86 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Adicionado identificador dos poligonos alem do identificador do dropdown, ao clicar no poligono ele cria uma caixinha informando qual é o poligono clicado" />
-    <MESSAGE value="focando em analisar os dados" />
-    <MESSAGE value="enviando para o servidor formatado e convertendo no backend pra json" />
-    <MESSAGE value="Formatado layout do home e da tela de plotagem para ficar um padrão" />
-    <MESSAGE value="Formatado layout da tela de plotagem, tabela agora indica os poligonos que contém ou não markers" />
-    <MESSAGE value="formatado algumas coisas e mudando a forma de se selecionar o poligono" />
-    <MESSAGE value="Codigo formatado para maneira antiga, porem com as atualizacoes a serem feitas em formato de comentarios" />
-    <MESSAGE value="Começando a implementar a API REST pra analise dos dados da planilha" />
-    <MESSAGE value="Criacao de arquivo pra ler planilha" />
-    <MESSAGE value="Utilizando o objeto de Planilha para pegar latitude e longitude" />
-    <MESSAGE value="Usando o metodo GET da API REST do GBIF para retornar a precisao dos nomes cientificos" />
-    <MESSAGE value="Retornando sugestao de correcao e mostrando precisao do nome cientifico" />
-    <MESSAGE value="reorganzacao do codigo da planilha" />
-    <MESSAGE value="hierarquia upada novamente" />
-    <MESSAGE value="env upada pro git" />
-    <MESSAGE value="JSON resultando os valores da chave referente a coluna da planilha" />
-    <MESSAGE value="Criado classe Hierarquia Taxonomica para organizar mais o codigo" />
-    <MESSAGE value="Finalizando verificacao de toda hierarquia criando JSON para todos os campos dela" />
-    <MESSAGE value="Consertar erro que deu na chave" />
-    <MESSAGE value="Hierarquia sendo analisada por completo, verificar quanto aos genus e species que são sinonimos, se considera o canonicalname ou o genus e specie" />
-    <MESSAGE value="Verificacao completa da hierarquia, comecar a criar a tela onde mostrara os erros" />
-    <MESSAGE value="Passando JSON pro HTML, comecar a leitura dos dados e por na tabela" />
-    <MESSAGE value="Imprimindo na tabela os nomes (Ok)" />
-    <MESSAGE value="Configuracao da hierarquia na tabela (OK), falta enviar dados alterados para o servidor" />
-    <MESSAGE value="mudando nome da coisa" />
-    <option name="LAST_COMMIT_MESSAGE" value="mudando nome da coisa" />
+    <MESSAGE value="Criar método para comparar duas planilhas distintas" />
+    <MESSAGE value="Criado segundo formulário para a planilha servida como base, retornando JSON com os valores das colunas" />
+    <MESSAGE value="consertado bug onde as species retornavam null" />
+    <MESSAGE value="usando FuzzyMatching para identificar valores semelhantes das duas planilhas" />
+    <MESSAGE value="Finalizando a comparacao dos dados entre as duas planilhas" />
+    <MESSAGE value="Comparacao finalizada, plotando comparacao na tabela e alterando os valores pelos valores escolhidos pelo usuario" />
+    <MESSAGE value="Finalizado" />
+    <MESSAGE value="Consertado bug onde a pessoa poderia salvar os dados da tabela taxonomica sem ter selecionado qualquer dado" />
+    <MESSAGE value="Tratamento de erros: o programa verifica se o arquivo enviado é do tipo .xls, caso não seja ele mostra a tela InvalidFile.html" />
+    <MESSAGE value="Tratamento de erros: criado rotas separadas para o markers list e markers form" />
+    <MESSAGE value="Tratamento de erros: Criado critério no mapa para que só possa ser salvo se fizer alguma alteração, e só pode salvar a modificação das coordenadas caso tenha selecionado um tipo. Consertado bug na hierarquia onde as caixas de seleção não desapareciam." />
+    <MESSAGE value="Inserido a box de ativar e desativar os markers dentro do mapa, inserido mapa quando clicar para alterar a região" />
+    <MESSAGE value="Retirado o nível de localidade do mapa, personalizado o botão de ativar/desativar o marker cluster, inserido a cor vermelha pra delimitar áreas no mapa que aparece nos modais" />
+    <MESSAGE value="Alterando cor da célula que foi modificada pelo usuário, e salvando os dados dos formulários em Cookies" />
+    <MESSAGE value="Inserido cookies para a tela do mapa, salvando as colunas anteriormente já preenchidas. Criado condição para que ele só avance no formulário caso todos os valores estejam devidamente preenchidos." />
+    <MESSAGE value="Criado página para caso a pessoa preencha errado algum formulário. Consertado bug em que alterando os valores do formulário o programa apresentava resultado iguais ao da pesquisa passada." />
+    <MESSAGE value="Inserido cookie no mapa, no taxon_gbif e taxon_localsheet. Falta criar condição de prosseguir para a tela de taxon_localsheet" />
+    <MESSAGE value="Nenhuma alteração" />
+    <MESSAGE value="refactor: tradução do componente referente aos cluster do mapa e do botão de excluir&#10;refactor: traduzido arquivo de seleção de rotas e criado pasta para este" />
+    <MESSAGE value="refactor: alterado a composição das pastas e do scripts referentes as tabelas tanto locais quanto do gbif" />
+    <MESSAGE value="chore: ao mostrar somente os valores incorretos, agora ao alterar o valor para o correto a linha some e atualiza automaticamente a lista de valores incorretos." />
+    <MESSAGE value="docs: bugs que a tradução havia sido retirada" />
+    <MESSAGE value="fix: tradução havia sumido de algumas páginas" />
+    <MESSAGE value="fix: legenda atualizada, constava uma informação incorreta" />
+    <MESSAGE value="feat: criado checkbox para subs: family;genus;specie&#10;feat: criado collapse para select dos subs&#10;refactor: backend adaptado para seleção de alguma das subs&#10;perf: diminuindo linha de códigos do back para verificar chaves de dicts&#10;chore: verifica os subs (opcionalmente)&#10;fix: não era possível alterar tipo de arquivo para comparar quando enviado um incorreto anteriormente" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: criado checkbox para subs: family;genus;specie&#10;feat: criado collapse para select dos subs&#10;refactor: backend adaptado para seleção de alguma das subs&#10;perf: diminuindo linha de códigos do back para verificar chaves de dicts&#10;chore: verifica os subs (opcionalmente)&#10;fix: não era possível alterar tipo de arquivo para comparar quando enviado um incorreto anteriormente" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="452" y="101" key="FileChooserDialogImpl" timestamp="1576351989003">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583340571861" />
+    <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2" timestamp="1584475691492">
+      <screen x="0" y="0" width="1440" height="869" />
     </state>
-    <state x="452" y="101" key="FileChooserDialogImpl/62.0.1218.720@62.0.1218.720" timestamp="1576351989003" />
-    <state width="586" height="145" key="GridCell.Tab.0.bottom" timestamp="1576358849597">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
+    <state x="362" y="25" width="695" height="805" key="CommitChangelistDialog2/0.0.1440.869@0.0.1440.869" timestamp="1584475691492" />
+    <state x="100" y="99" width="1240" height="669" key="DiffContextDialog" timestamp="1583340571861" />
+    <state x="100" y="99" width="1240" height="669" key="DiffContextDialog/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
+    <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl" timestamp="1583340571861" />
+    <state x="503" y="186" width="424" height="482" key="FileChooserDialogImpl/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom" timestamp="1584475533616">
+      <screen x="0" y="0" width="1440" height="869" />
     </state>
-    <state width="586" height="145" key="GridCell.Tab.0.bottom/62.0.1218.720@62.0.1218.720" timestamp="1576358849597" />
-    <state width="586" height="145" key="GridCell.Tab.0.center" timestamp="1576358849597">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
+    <state width="1417" height="182" key="GridCell.Tab.0.bottom/0.0.1440.869@0.0.1440.869" timestamp="1584475533616" />
+    <state width="1417" height="182" key="GridCell.Tab.0.center" timestamp="1584475533616">
+      <screen x="0" y="0" width="1440" height="869" />
     </state>
-    <state width="586" height="145" key="GridCell.Tab.0.center/62.0.1218.720@62.0.1218.720" timestamp="1576358849597" />
-    <state width="586" height="145" key="GridCell.Tab.0.left" timestamp="1576358849597">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
+    <state width="1417" height="182" key="GridCell.Tab.0.center/0.0.1440.869@0.0.1440.869" timestamp="1584475533616" />
+    <state width="1417" height="182" key="GridCell.Tab.0.left" timestamp="1584475533616">
+      <screen x="0" y="0" width="1440" height="869" />
     </state>
-    <state width="586" height="145" key="GridCell.Tab.0.left/62.0.1218.720@62.0.1218.720" timestamp="1576358849597" />
-    <state width="586" height="145" key="GridCell.Tab.0.right" timestamp="1576358849597">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
+    <state width="1417" height="182" key="GridCell.Tab.0.left/0.0.1440.869@0.0.1440.869" timestamp="1584475533616" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right" timestamp="1584475533616">
+      <screen x="0" y="0" width="1440" height="869" />
     </state>
-    <state width="586" height="145" key="GridCell.Tab.0.right/62.0.1218.720@62.0.1218.720" timestamp="1576358849597" />
-    <state x="173" y="3" key="SettingsEditor" timestamp="1576352279263">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
+    <state width="1417" height="182" key="GridCell.Tab.0.right/0.0.1440.869@0.0.1440.869" timestamp="1584475533616" />
+    <state x="428" y="149" width="564" height="561" key="MultipleFileMergeDialog" timestamp="1584386756341">
+      <screen x="0" y="0" width="1440" height="869" />
     </state>
-    <state x="173" y="3" key="SettingsEditor/62.0.1218.720@62.0.1218.720" timestamp="1576352279263" />
-    <state x="367" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1576357260392">
-      <screen x="62" y="0" width="1218" height="720" />
+    <state x="428" y="147" width="564" height="561" key="MultipleFileMergeDialog/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
+    <state x="428" y="149" width="564" height="561" key="MultipleFileMergeDialog/0.0.1440.869@0.0.1440.869" timestamp="1584386756341" />
+    <state x="219" y="64" key="SettingsEditor" timestamp="1583518933167">
+      <screen x="0" y="0" width="1440" height="869" />
     </state>
-    <state x="367" y="184" key="com.intellij.ide.util.TipDialog/62.0.1218.720@62.0.1218.720" timestamp="1576357260392" />
+    <state x="219" y="63" key="SettingsEditor/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
+    <state x="219" y="64" key="SettingsEditor/0.0.1440.869@0.0.1440.869" timestamp="1583518933167" />
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1584388081153">
+      <screen x="0" y="0" width="1440" height="869" />
+    </state>
+    <state x="310" y="164" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
+    <state x="310" y="166" width="800" height="526" key="Vcs.Push.Dialog.v2/0.0.1440.869@0.0.1440.869" timestamp="1584388081153" />
+    <state x="373" y="51" width="683" height="762" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583780920292">
+      <screen x="0" y="0" width="1440" height="869" />
+    </state>
+    <state x="373" y="51" width="683" height="762" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.869@0.0.1440.869" timestamp="1583780920292" />
+    <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583340571861" />
+    <state x="520" y="348" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.859@0.0.1440.859" timestamp="1583340571861" />
+    <state x="520" y="352" width="380" height="158" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.869@0.0.1440.869" timestamp="1583340571861" />
   </component>
 </project>

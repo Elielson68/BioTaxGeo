@@ -1,65 +1,31 @@
 
-#fundo_home{
-     background: url("https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2019/06/formacao_igreja-e-meio-ambiente-olhos-voltados-para-a-amazonia.jpg");
-     position: absolute;
+
+/* Tela inicial | index.html */
+body{
+     background-image: url("../image/fundo2.jpg");
+     position: relative;
      width: 100%;
-     height: 120%;
+     height: 100%;
      background-size:cover;
-     background-repeat:no-repeat;
-     filter: blur(3px);
+     /* background-repeat:no-repeat; */
+     overflow : auto;
+
+}
+#NavBar{
+    background: rgb(3,38,4);
+    background: linear-gradient(90deg, rgba(3,38,4,1) 0%, rgba(29,121,32,1) 72%, rgba(33,171,199,1) 100%);
+}
+#TextoNav{
+    font-family: 'Tomorrow', sans-serif;
+    color: #ffff;
+    font-size: 30px;
+    letter-spacing:5px
 }
 #card{
      position: relative;
      left: 30%;
      width: 40%;
      margin-top: 5px; 
-}
-#arquivo{
-     border: #696969;
-     border-style: dashed;
-     margin-bottom: 2%;
-}
-#body{
-     width: 100%;
-     height: 100%;
-     margin: 0px;
-     padding: 0px;
-}
-#mapa_criar {
-     position: absolute;
-     width: 66%;
-     height: 100%;
-     float: left;
-}
-#mapa_plotar {
-     position: absolute;
-     width: 66%;
-     height: 100%;
-     float: left;  
-}
-
-#inserir_poligono{
-     margin-left: 66%;
-     position: absolute;
-     width: 34%;
-     height: 100%;
-     background-color: #696969;
-     float: right;
-}
-#input_vertices{
-     overflow: auto; 
-     height: 45%;
-}
-#dropdown_poligonos{
-     margin-bottom: 2%;
-}
-#Tabelita{
-     margin-left: 66%;
-     position: absolute;
-     width: 34%;
-     height: 100%;
-     float: right;
-     overflow: auto; 
 }
 .fileUpload {
      position: relative;
@@ -77,9 +43,101 @@
      opacity: 0;
      filter: alpha(opacity=0);
  }
- #planilha{
+ /*_________________________________________________________*/
+
+/* Mapa 1 | criar_poligono_no_mapa.html*/
+#body{
+     width: 100%;
+     height: 100%;
+     margin: 0px;
+     padding: 0px;
+}
+#first_map{
+     /* position: absolute; */
+     width: 100%;
+     height: 581px;
+     /* float: left; */
+}
+/* #column_right{
+     margin-left: 66%;
+     position: absolute;
+     width: 34%;
+     height: 100%;
+     background-color: #696969;
+     float: right;
+} */
+#insert_inputs{
+     overflow: auto; 
+     height: 250px;
+}
+#dropdown_poligonos{
+     margin-bottom: 2%;
+}
+ /*_________________________________________________________*/
+
+/* Mapa 2 | plotar_poligono_no_mapa.html*/
+ #second_map {
+     /* position: absolute; */
+     width: 100%;
+     height: 500px; 
+}
+#box_checkbox{
+     position: absolute;
+     right: 250px;
+     top: 326.15px;
+     height: 50px;
+     width: 230px;
+     padding: 0px;
+     z-index: 5;
+     border: 0px solid #ffffff;
+     background: #fff;
+}
+#div_table{
+     /* margin-top: 50px; */
+     /* position: absolute; */
+     width: 100%;
+     height: 50%;
+     /* float: right; */
+     overflow: auto; 
+}
+ /*_________________________________________________________*/
+
+ /* Planilha com hierarquia taxonômica | planilha.html*/
+ #spreadsheet{
       margin-left: 10%;
       margin-right: 10%;
       position: absolute;
       overflow: auto; 
+ }
+
+ /* Formulários */
+ .TextForm{
+      color: white;
+ }
+
+ .cardHeader {
+     font-size: 45px;
+     letter-spacing: 5px ;
+     font-family: 'Tomorrow',
+     sans-serif; font-weight: bol;
+ }
+
+ .formCard {
+     background-color: rgba(255,255,255,.85);
+     width: 50rem;
+ }
+
+ .routesColDiv {
+     justify-content: center;
+     display: flex;
+ }
+
+ .routesCard {
+     background-color: rgba(255,255,255,.85) !important;
+     width: 25rem;
+ }
+
+ .routeCardHeader{
+     font-size: 20px;
+     font-family: 'Tomorrow', sans-serif;
  }
