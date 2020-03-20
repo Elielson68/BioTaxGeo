@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/teste.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/teste.iml" afterDir="false" />
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="chore: ao mostrar somente os valores incorretos, agora ao alterar o valor para o correto a linha some e atualiza automaticamente a lista de valores incorretos.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/form_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/form_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/home_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/home_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/events/changeDataTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/events/changeDataTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/taxon_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/taxon_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/Att_Scripts.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Att_Scripts.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/sheet_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/sheet_treatment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/implementation/createTableLocalsheet.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/implementation/createTableLocalsheet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/prototypes/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/prototypes/table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/errorscreen/InvalidFile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/errorscreen/InvalidFile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/errorscreen/InvalidValue.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/errorscreen/InvalidValue.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list_localsheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list_localsheet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -192,41 +188,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00070" summary="refatorando verificação de coordenada">
-      <created>1576524200564</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1576524200565</updated>
-    </task>
-    <task id="LOCAL-00071" summary="refatorando verificação de coordenada">
-      <created>1576525390891</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1576525390891</updated>
-    </task>
-    <task id="LOCAL-00072" summary="refatorando verificação de coordenada">
-      <created>1576600866628</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1576600866628</updated>
-    </task>
-    <task id="LOCAL-00073" summary="Renomeando rotas e separando arquivos">
-      <created>1576611982233</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1576611982234</updated>
-    </task>
-    <task id="LOCAL-00074" summary="Renomeando rotas e separando arquivos">
-      <created>1576687761620</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1576687761620</updated>
     </task>
     <task id="LOCAL-00075" summary="rotas organizadas">
       <created>1576688819409</created>
@@ -536,7 +497,42 @@
       <option name="project" value="LOCAL" />
       <updated>1584387878182</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="chore: ao mostrar somente os valores incorretos, agora ao alterar o valor para o correto a linha some e atualiza automaticamente a lista de valores incorretos.">
+      <created>1584558858382</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1584558858383</updated>
+    </task>
+    <task id="LOCAL-00120" summary="chore: ao mostrar somente os valores incorretos, agora ao alterar o valor para o correto a linha some e atualiza automaticamente a lista de valores incorretos.">
+      <created>1584559671840</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1584559671840</updated>
+    </task>
+    <task id="LOCAL-00121" summary="docs: bugs que a tradução havia sido retirada">
+      <created>1584565882856</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1584565882857</updated>
+    </task>
+    <task id="LOCAL-00122" summary="fix: tradução havia sumido de algumas páginas">
+      <created>1584568839143</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1584568839143</updated>
+    </task>
+    <task id="LOCAL-00123" summary="fix: legenda atualizada, constava uma informação incorreta">
+      <created>1584569148159</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1584569148159</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -573,10 +569,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Informando coordenadas e localização com base nas regiões informadas nas colunas da planilha" />
-    <MESSAGE value="Finalizado, salvando coordenadas nas respectivas linhas e salvando a localidade." />
-    <MESSAGE value="Desabilitando opcao de modificar regiao caso usuario escolha modificar as coordenadas." />
-    <MESSAGE value="novo nome" />
     <MESSAGE value="tentnado encontrar a melhor forma de obter valores mais condizentes com a região infomada" />
     <MESSAGE value="Criar método para comparar duas planilhas distintas" />
     <MESSAGE value="Criado segundo formulário para a planilha servida como base, retornando JSON com os valores das colunas" />
@@ -598,7 +590,11 @@
     <MESSAGE value="Nenhuma alteração" />
     <MESSAGE value="refactor: tradução do componente referente aos cluster do mapa e do botão de excluir&#10;refactor: traduzido arquivo de seleção de rotas e criado pasta para este" />
     <MESSAGE value="refactor: alterado a composição das pastas e do scripts referentes as tabelas tanto locais quanto do gbif" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: alterado a composição das pastas e do scripts referentes as tabelas tanto locais quanto do gbif" />
+    <MESSAGE value="chore: ao mostrar somente os valores incorretos, agora ao alterar o valor para o correto a linha some e atualiza automaticamente a lista de valores incorretos." />
+    <MESSAGE value="docs: bugs que a tradução havia sido retirada" />
+    <MESSAGE value="fix: tradução havia sumido de algumas páginas" />
+    <MESSAGE value="fix: legenda atualizada, constava uma informação incorreta" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: legenda atualizada, constava uma informação incorreta" />
   </component>
   <component name="WindowStateProjectService">
     <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583340571861" />

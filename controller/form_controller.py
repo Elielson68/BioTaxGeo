@@ -1,9 +1,9 @@
-from flask import render_template, request, Blueprint
+from flask import render_template, request, Blueprint, redirect, url_for
 from werkzeug.utils import secure_filename
 from model.sheet_treatment import Sheet
 from controller.home_controller import used_sheet
 
-base_sheet = Sheet()
+reference_sheet = Sheet()
 
 form_blueprint = Blueprint('form', __name__, template_folder='templates')
 
@@ -17,14 +17,18 @@ def taxon_form():
 @form_blueprint.route("/taxon_form2", methods=["GET", "POST"])
 def taxon_form2():
     if request.method == 'POST':
-        f = request.files['file']
-        if (".xls" in f.filename):
-            f.save("files/"+secure_filename(f.filename))
-            base_sheet.set_Path(secure_filename(f.filename))
+        try:
+            if(reference_sheet.get_Path() == None):
+                f = request.files['file']
+                f.save("files/"+secure_filename(f.filename))
+                reference_sheet.set_Path_configure_all(secure_filename(f.filename))
             titles_cookie = request.cookies.get("titles_localsheet")
-            return render_template("form/taxon_form_localsheet.html", titles_check=used_sheet.get_Sheet_Header(), titles_base=base_sheet.get_Sheet_Header(), cookies = titles_cookie)
-        else:
+            return render_template("form/taxon_form_localsheet.html", titles_check=used_sheet.get_Sheet_Header(), titles_base=reference_sheet.get_Sheet_Header(), cookies = titles_cookie)
+        except:
+            reference_sheet.set_Path(None)
             return render_template("errorscreen/InvalidFile.html")
+    else:
+        return redirect(url_for("home.home"))
 
 @form_blueprint.route("/markers_form", methods=["GET", "POST"])
 def markers_form():

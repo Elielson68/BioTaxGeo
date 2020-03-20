@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
+        <div class="loader"> <img src="../static/image/tree-spinner.gif"></div>
         {% extends "fragments/navbar.html" %}
         {% block content %}
         <div class="container" style="justify-content: center; display: grid;">
@@ -51,11 +52,20 @@
                                     <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="family"><option>Select...</option></select></div>
                                  </div>
                               </div>
+
                               <div class="form-group">
-                                    <label class="col-md-4 control-label">Selecione the subfamily column</label>
-                                    <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="subfamily"><option>Select...</option></select></div>
+                                 <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group mb-3">
+                                       <div class="input-group-prepend">
+                                          <div class="input-group-text">
+                                             <input type="checkbox" id="cb_family" aria-label="Checkbox for following text input" data-toggle="collapse" href=".subfamily">
+                                          </div>
+                                       </div>
+                                       <input type="text" value="Do you want to analyze subfamily?" class="form-control" aria-label="Text input with checkbox" disabled>
                                     </div>
+                                    <label class="col-md-8 control-label collapse subfamily">Select the subfamily column</label>
+                                    <div class="input-group collapse subfamily"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="subfamily"><option>Select...</option></select></div>
+                                 </div>
                               </div>
                               <div class="form-group">
                                  <label class="col-md-4 control-label">Select the genus column</label>
@@ -64,21 +74,37 @@
                                  </div>
                               </div>
                               <div class="form-group">
-                                    <label class="col-md-4 control-label">Select the sub-genus column</label>
-                                    <div class="col-md-8 inputGroupContainer">
-                                       <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="subgenus"><option>Select...</option></select></div>
+                                 <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group mb-3">
+                                       <div class="input-group-prepend">
+                                          <div class="input-group-text">
+                                             <input type="checkbox" id="cb_genus" aria-label="Checkbox for following text input" data-toggle="collapse" href=".subgenus">
+                                          </div>
+                                       </div>
+                                       <input type="text" value="Do you want to analyze subgenus?" class="form-control" aria-label="Text input with checkbox" disabled>
                                     </div>
+                                    <label class="col-md-8 control-label collapse subgenus">Select the subgenus column</label>
+                                    <div class="input-group collapse subgenus"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="subgenus"><option>Select...</option></select></div>
+                                 </div>
                               </div>
                               <div class="form-group">
-                                <label class="col-md-4 control-label">Selecione the species column</label>
+                                <label class="col-md-4 control-label">Select the species column</label>
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="specie"><option>Select...</option></select></div>
                                 </div>
                               </div>
                               <div class="form-group">
-                                 <label class="col-md-4 control-label">Selecione the sub-species column</label>
                                  <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="subspecie"><option>Select...</option></select></div>
+                                    <div class="input-group mb-3">
+                                       <div class="input-group-prepend">
+                                          <div class="input-group-text">
+                                             <input type="checkbox" id="cb_specie" aria-label="Checkbox for following text input" data-toggle="collapse" href=".subspecie">
+                                          </div>
+                                       </div>
+                                       <input type="text" value="Do you want to analyze subspecie?" class="form-control" aria-label="Text input with checkbox" disabled>
+                                    </div>
+                                    <label class="col-md-8 control-label collapse subspecie">Select the subspecies column</label>
+                                    <div class="input-group collapse subspecie"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><select class="custom-select" id="subspecie"><option>Select...</option></select></div>
                                  </div>
                               </div>
                            </fieldset>
@@ -100,24 +126,25 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="../static/js/events/loading.js"></script>
+        <script type="text/javascript" src="../../static/js/events/loading.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script>
 
-            var titles_check = "{{titles_check}}";
-            var titles_base  = "{{titles_base}}";
-            var cookies      = "{{cookies}}";
+            var titles_check     = "{{titles_check}}";
+            var titles_base      = "{{titles_base}}";
+            var cookies          = "{{cookies}}";
+            
+            titles_check         = titles_check.replace(/&#39;/g,'"');
+            titles_base          = titles_base.replace(/&#39;/g,'"');
+            cookies              = cookies.replace(/&#34;/g,'"');
 
-            titles_check = titles_check.replace(/&#39;/g,'"');
-            titles_base  = titles_base.replace(/&#39;/g,'"');
-            cookies      = cookies.replace(/&#34;/g,'"');
+            titles_check         = JSON.parse(titles_check)           
+            titles_base          = JSON.parse(titles_base)  
+            cookies             != "None" ? cookies = JSON.parse(cookies) : cookies = null
 
-            titles_check = JSON.parse(titles_check)           
-            titles_base  = JSON.parse(titles_base)  
-            cookies     != "None" ? cookies = JSON.parse(cookies) : cookies = null
-
-            var selected_titles = {"kingdom": null, "phylum": null, "class": null, "order": null, "family": null, "subfamily": null, "genus": null, "subgenus": null, "specie": null, "subspecie": null}
-            var page            = 1
+            var selected_titles  = {"kingdom": null, "phylum": null, "class": null, "order": null, "family": null, "subfamily": null, "genus": null, "subgenus": null, "specie": null, "subspecie": null}
+            var page             = 1
+            var sub_values       = ["subfamily", "subgenus", "subspecie"]
 
             var select_kingdom   = document.getElementById("kingdom");
             var select_phylum    = document.getElementById("phylum");
@@ -132,8 +159,9 @@
             var buttom_continue  = document.getElementById("continue");
             var button_submit    = document.getElementById("submit");
             var form             = document.getElementById("form");
-            
-
+            var cb_family        = document.getElementById("cb_family");
+            var cb_genus         = document.getElementById("cb_genus");
+            var cb_specie        = document.getElementById("cb_specie");
             Assign_Titles();
 
             if(cookies != null){
@@ -224,9 +252,13 @@
                   input_text.value = formated_titles;
                }
                ActiveSubmit()
+               console.log(selected_titles)
             }
             function NextPage(){
                page = 2
+               cb_family.setAttribute("disabled","disabled")
+               cb_genus.setAttribute("disabled","disabled")
+               cb_specie.setAttribute("disabled","disabled")
                ResetSelection()
                Assign_Titles()
                form.removeAttribute("hidden")
@@ -274,8 +306,9 @@
             
             function isAllSelected(){
                let t = true
+               SubValuesCheck()
                for (value in selected_titles){
-                  not_is = parseInt(["subfamily", "subgenus", "subspecie"].indexOf(value));
+                  not_is = parseInt(sub_values.indexOf(value));
                   if (selected_titles[value] === null && not_is == -1){
                      t = false
                   }
@@ -286,11 +319,45 @@
                if(isAllSelected() && page==1){
                   buttom_continue.removeAttribute("disabled")
                }
-               else if(page==2){
+               else if(isAllSelected() == false){
+                  buttom_continue.setAttribute("disabled", "disabled")
+               }
+               if(isAllSelected() && page==2){
                   button_submit.removeAttribute("disabled")
                }
             }
+            function SubValuesCheck(){
+               let index_f = parseInt(sub_values.indexOf("subfamily"))
+               let index_g = parseInt(sub_values.indexOf("subgenus"))
+               let index_s = parseInt(sub_values.indexOf("subspecie"))
 
+               if(cb_family.checked){
+                  if(index_f != -1){
+                     sub_values.splice(index_f, 1)
+                  }
+               }
+               else if(index_f == -1){
+                  sub_values.push("subfamily")
+               }
+
+               if(cb_genus.checked){
+                  if(index_g != -1){
+                     sub_values.splice(index_g,1)
+                  }
+               }
+               else if(index_g == -1){
+                  sub_values.push("subgenus")
+               }
+
+               if(cb_specie.checked){
+                  if(index_s != -1){
+                     sub_values.splice(index_s,1)
+                  }
+               }
+               else if(index_s == -1){
+                  sub_values.push("subspecie")
+               }
+            }
             select_kingdom.addEventListener("change", Selected);
             select_phylum.addEventListener("change",Selected);
             select_class.addEventListener("change",Selected);
@@ -301,7 +368,10 @@
             select_subgenus.addEventListener("change",Selected);
             select_specie.addEventListener("change",Selected);
             select_subspecie.addEventListener("change",Selected);
-            buttom_continue.addEventListener("click", NextPage)
+            buttom_continue.addEventListener("click", NextPage);
+            cb_family.addEventListener("change", ActiveSubmit)
+            cb_genus.addEventListener("change", ActiveSubmit)
+            cb_specie.addEventListener("change", ActiveSubmit)
         </script>
         {% endblock %}
     </body>
