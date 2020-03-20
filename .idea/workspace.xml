@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="chore: ao mostrar somente os valores incorretos, agora ao alterar o valor para o correto a linha some e atualiza automaticamente a lista de valores incorretos.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/form_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/form_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/home_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/home_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/taxon_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/taxon_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/Att_Scripts.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Att_Scripts.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/sheet_treatment.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/sheet_treatment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/implementation/createTableLocalsheet.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/implementation/createTableLocalsheet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" afterDir="false" />
-    </list>
+    <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,13 +179,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00075" summary="rotas organizadas">
-      <created>1576688819409</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1576688819409</updated>
     </task>
     <task id="LOCAL-00076" summary="atualizado o Path das funções">
       <created>1576689661678</created>
@@ -532,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584569148159</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="feat: criado checkbox para subs: family;genus;specie&#10;feat: criado collapse para select dos subs&#10;refactor: backend adaptado para seleção de alguma das subs&#10;perf: diminuindo linha de códigos do back para verificar chaves de dicts&#10;chore: verifica os subs (opcionalmente)&#10;fix: não era possível alterar tipo de arquivo para comparar quando enviado um incorreto anteriormente">
+      <created>1584674583811</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1584674583812</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -569,7 +560,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="tentnado encontrar a melhor forma de obter valores mais condizentes com a região infomada" />
     <MESSAGE value="Criar método para comparar duas planilhas distintas" />
     <MESSAGE value="Criado segundo formulário para a planilha servida como base, retornando JSON com os valores das colunas" />
     <MESSAGE value="consertado bug onde as species retornavam null" />
@@ -594,7 +584,8 @@
     <MESSAGE value="docs: bugs que a tradução havia sido retirada" />
     <MESSAGE value="fix: tradução havia sumido de algumas páginas" />
     <MESSAGE value="fix: legenda atualizada, constava uma informação incorreta" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: legenda atualizada, constava uma informação incorreta" />
+    <MESSAGE value="feat: criado checkbox para subs: family;genus;specie&#10;feat: criado collapse para select dos subs&#10;refactor: backend adaptado para seleção de alguma das subs&#10;perf: diminuindo linha de códigos do back para verificar chaves de dicts&#10;chore: verifica os subs (opcionalmente)&#10;fix: não era possível alterar tipo de arquivo para comparar quando enviado um incorreto anteriormente" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: criado checkbox para subs: family;genus;specie&#10;feat: criado collapse para select dos subs&#10;refactor: backend adaptado para seleção de alguma das subs&#10;perf: diminuindo linha de códigos do back para verificar chaves de dicts&#10;chore: verifica os subs (opcionalmente)&#10;fix: não era possível alterar tipo de arquivo para comparar quando enviado um incorreto anteriormente" />
   </component>
   <component name="WindowStateProjectService">
     <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583340571861" />
