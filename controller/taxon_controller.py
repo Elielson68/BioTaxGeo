@@ -22,10 +22,15 @@ def taxon_list():
             used_sheet.set_Check_Columns(titles)
             used_sheet.data_treatment.Verified_Hierarchy(used_sheet.get_Columns_Checked())
             verification = json.dumps(used_sheet.data_treatment.get_Verified_Hierarchy())
-            response = make_response(render_template("list/taxon_list_gbif.html", verification=verification,
-                                                     total_rows=used_sheet.get_Row_Total()))
-            response.set_cookie("titles_gbif", titles_cookie)
-            return response
+            if(request.cookies.get("isUseCookie") == "accept"):
+                response = make_response(render_template("list/taxon_list_gbif.html", verification=verification,
+                                                         total_rows=used_sheet.get_Row_Total()))
+                response.set_cookie("titles_gbif", titles_cookie)
+                return response
+            else:
+                return render_template("list/taxon_list_gbif.html", verification=verification,
+                                                         total_rows=used_sheet.get_Row_Total())
+
         except:
             return render_template("errorscreen/InvalidValue.html")
 
@@ -355,10 +360,14 @@ def taxon_list2():
                     }
             used_sheet.data_treatment.set_Verified_Hierarchy(Fuzzy_Find)
             Fuzzy_Find = json.dumps(Fuzzy_Find)
-            response = make_response(render_template("list/taxon_list_localsheet.html", verification=Fuzzy_Find,
-                                                     total_rows=used_sheet.get_Row_Total()))
 
-            response.set_cookie("titles_localsheet", titles_cookie)
-            return response
+            if (request.cookies.get("isUseCookie") == "accept"):
+                response = make_response(render_template("list/taxon_list_localsheet.html", verification=Fuzzy_Find,
+                                                         total_rows=used_sheet.get_Row_Total()))
+                response.set_cookie("titles_localsheet", titles_cookie)
+                return response
+            else:
+                return render_template("list/taxon_list_localsheet.html", verification=Fuzzy_Find,
+                                                         total_rows=used_sheet.get_Row_Total())
         except:
             return render_template("errorscreen/InvalidValue.html")

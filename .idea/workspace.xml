@@ -3,12 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/form_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/form_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/home_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/home_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/markers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/markers_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/taxon_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/taxon_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/Planilha_Formatada.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Planilha_Formatada.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/events/changeDataTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/events/changeDataTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/implementation/createTableLocalsheet.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/implementation/createTableLocalsheet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list_localsheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list_localsheet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -188,13 +191,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00076" summary="atualizado o Path das funções">
-      <created>1576689661678</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1576689661678</updated>
     </task>
     <task id="LOCAL-00077" summary="utilizando blueprint para separar as rotas do arquivo principal">
       <created>1576692018148</created>
@@ -532,7 +528,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584674583812</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="feat: salvando cookies de subs">
+      <created>1585021878417</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1585021878417</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -569,7 +572,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Criar método para comparar duas planilhas distintas" />
     <MESSAGE value="Criado segundo formulário para a planilha servida como base, retornando JSON com os valores das colunas" />
     <MESSAGE value="consertado bug onde as species retornavam null" />
     <MESSAGE value="usando FuzzyMatching para identificar valores semelhantes das duas planilhas" />
@@ -594,7 +596,8 @@
     <MESSAGE value="fix: tradução havia sumido de algumas páginas" />
     <MESSAGE value="fix: legenda atualizada, constava uma informação incorreta" />
     <MESSAGE value="feat: criado checkbox para subs: family;genus;specie&#10;feat: criado collapse para select dos subs&#10;refactor: backend adaptado para seleção de alguma das subs&#10;perf: diminuindo linha de códigos do back para verificar chaves de dicts&#10;chore: verifica os subs (opcionalmente)&#10;fix: não era possível alterar tipo de arquivo para comparar quando enviado um incorreto anteriormente" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: criado checkbox para subs: family;genus;specie&#10;feat: criado collapse para select dos subs&#10;refactor: backend adaptado para seleção de alguma das subs&#10;perf: diminuindo linha de códigos do back para verificar chaves de dicts&#10;chore: verifica os subs (opcionalmente)&#10;fix: não era possível alterar tipo de arquivo para comparar quando enviado um incorreto anteriormente" />
+    <MESSAGE value="feat: salvando cookies de subs" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: salvando cookies de subs" />
   </component>
   <component name="WindowStateProjectService">
     <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583340571861" />

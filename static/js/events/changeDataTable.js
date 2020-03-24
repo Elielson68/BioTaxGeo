@@ -20,7 +20,7 @@ function ChangingDataLocalSheet(){
     super_row          = this.parentElement
     //____________________________________________
     if (correct_value.length > 0){
-        text.innerHTML     = "We didn't find the "+wrong_value+" value in your base spreadsheet, but we found similar values.<br>Do you want to change the value of <b><label style='color: orange;'>"+wrong_value+"</b> to:"
+        text.innerHTML     = "We didn't find the "+wrong_value+" value in your reference spreadsheet, but we found similar values.<br>Do you want to change the value of <b><label style='color: orange;'>"+wrong_value+"</b> to:"
         text2.id           = "text_aux"
         text2.innerHTML    = "<br>Select the amount of values you want to change below: <br>"
         Confirm_Buttom.setAttribute("disabled", "")
@@ -77,7 +77,7 @@ function ChangingDataLocalSheet(){
     }
     else{
         Confirm_Buttom.setAttribute("disabled", "")
-        text.innerHTML     = "We didn't find the "+wrong_value+" value in your base spreadsheet."
+        text.innerHTML     = "We didn't find the "+wrong_value+" value in your reference spreadsheet."
     }
 
 
@@ -159,7 +159,7 @@ function ChangingDataGBIF(){
     else{
         level_editing = false
         more_one = false
-        text.innerHTML = "It was not possible to find suggestions for corrections to the value of <b><label style='color: #ff0000;'>"+wrong_value+"</b>"
+        text.innerHTML = "It was not possible to find suggestions in the GBIF and your spreadsheet for corrections to the value of <b><label style='color: #ff0000;'>"+wrong_value+"</b>"
     }
     if(level_editing){
         for (key=init; key<keys.length-1; key++){

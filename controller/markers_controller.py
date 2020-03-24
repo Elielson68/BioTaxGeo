@@ -39,10 +39,13 @@ def markers_validation():
         spreadsheet_titles['county'] = region["county"]
         spreadsheet_titles['latitude'] = coord["latitude"]
         spreadsheet_titles['longitude'] = coord["longitude"]
-        response = make_response(redirect(url_for("markers.markers_form_map")))
-        titles_cookie = json.dumps(titles_cookie)
-        response.set_cookie("titles_marker", titles_cookie)
-        return response
+        if (request.cookies.get("isUseCookie") == "accept"):
+            response = make_response(redirect(url_for("markers.markers_form_map")))
+            titles_cookie = json.dumps(titles_cookie)
+            response.set_cookie("titles_marker", titles_cookie)
+            return response
+        else:
+            return redirect(url_for("markers.markers_form_map"))
 
 @markers_blueprint .route("/markers_form_map",methods=["GET","POST"])
 def markers_form_map():

@@ -28,7 +28,7 @@
                   <input type="radio" name="options" id="option1" autocomplete="on" checked> View all
                 </label>
                 <label class="btn btn-secondary rounded-0" onclick="ShowOnlyWrong()">
-                  <input type="radio" name="options" id="option2" autocomplete="on"> Errors only
+                  <input type="radio" name="options" id="option2" autocomplete="on">Suggestions only
                 </label>
             </div>
             <div class="card-body">
@@ -78,6 +78,7 @@
           </div>
         </div>
         <script>
+          document.cookie = "cookie_consent=false";
           var verified_hierarchy = "{{verification}}"
           const TOTAL_ROWS = ("{{total_rows}}") -1
           verified_hierarchy = verified_hierarchy.replace(/&#34;/g,`"`);
