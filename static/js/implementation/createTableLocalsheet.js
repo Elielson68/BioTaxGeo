@@ -20,7 +20,7 @@ for (key in verified_hierarchy){
     amount_value = verified_hierarchy[key][key2]["amount"]
     value += `: ${amount_value!=undefined?amount_value:0}`
     table.createColumnInBody(value)
-    if(verified_hierarchy[key][key2]["correctness"] != "EXACT"){
+    if(verified_hierarchy[key][key2]["correctness"] != "EXACT" && key2 != "scientific name"){
       table.setClassNameRowBody(row, "wrong")
       correctness = verified_hierarchy[key][key2]["correctness"]
       correctness == "FUZZY" ? table.setStyleTdBody(row, column, "color: orange;"):table.setStyleTdBody(row, column, "color: red;")

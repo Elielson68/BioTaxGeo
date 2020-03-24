@@ -19,60 +19,68 @@ function ChangingDataLocalSheet(){
     wrong_cell         = this;
     super_row          = this.parentElement
     //____________________________________________
-    text.innerHTML     = "We didn't find the "+wrong_value+" value in your base spreadsheet, but we found similar values.<br>Do you want to change the value of <b><label style='color: orange;'>"+wrong_value+"</b> to:"
-    text2.id           = "text_aux"
-    text2.innerHTML    = "<br>Select the amount of values you want to change below: <br>"
-    Confirm_Buttom.setAttribute("disabled", "")
-  
-    for (names of correct_value){
-      let div = document.createElement("div")
-      let input = document.createElement("input")
-      let label = document.createElement("label")
-      let number_id = count
-  
-      div.className = "form-check"
-      div.id = "inputs"+number_id.toString()
-      
-      input.className = "form-check-input"
-      input.type = "radio"
-      input.name = "Radio"
-      input.id = number_id
-      input.value = "option"
-      input.addEventListener("click", SelectedValue)
-  
-      label.className = "form-check-label"
-      label.innerHTML = names
-      label.style = "color: green;"
-  
-      div.appendChild(input)
-      div.appendChild(label)
-      modal.appendChild(div)
-      count++
+    if (correct_value.length > 0){
+        text.innerHTML     = "We didn't find the "+wrong_value+" value in your base spreadsheet, but we found similar values.<br>Do you want to change the value of <b><label style='color: orange;'>"+wrong_value+"</b> to:"
+        text2.id           = "text_aux"
+        text2.innerHTML    = "<br>Select the amount of values you want to change below: <br>"
+        Confirm_Buttom.setAttribute("disabled", "")
+          
+        for (names of correct_value){
+        let div = document.createElement("div")
+        let input = document.createElement("input")
+        let label = document.createElement("label")
+        let number_id = count
+    
+        div.className = "form-check"
+        div.id = "inputs"+number_id.toString()
+        
+        input.className = "form-check-input"
+        input.type = "radio"
+        input.name = "Radio"
+        input.id = number_id
+        input.value = "option"
+        input.addEventListener("click", SelectedValue)
+    
+        label.className = "form-check-label"
+        label.innerHTML = names
+        label.style = "color: green;"
+    
+        div.appendChild(input)
+        div.appendChild(label)
+        modal.appendChild(div)
+        count++
+        }
+        modal.appendChild(text2)
+        for (key=init; key<keys.length-1; key++){
+        let div = document.createElement("div")
+        let input = document.createElement("input")
+        let label = document.createElement("label")
+    
+        div.className = "form-check"
+        div.id = "inputs_quant"+count2
+        
+        input.className = "form-check-input"
+        input.type = "radio"
+        input.name = "Radio2"
+        input.id = keys[key]
+        input.value = "option2"
+        input.addEventListener("click", SelectedValueAmount)
+        
+        label.className = "form-check-label"
+        label.for = count
+        label.innerHTML = "Do you want to change <b>"+verified_hierarchy[key1][keys[key]]["amount"]+"</b> values in your spreadsheet at the level of "+keys[key]+"?"
+        div.appendChild(input)
+        div.appendChild(label)
+        modal.appendChild(div)
+        count2++
+        }
     }
-    modal.appendChild(text2)
-    for (key=init; key<keys.length-1; key++){
-      let div = document.createElement("div")
-      let input = document.createElement("input")
-      let label = document.createElement("label")
-  
-      div.className = "form-check"
-      div.id = "inputs_quant"+count2
-      
-      input.className = "form-check-input"
-      input.type = "radio"
-      input.name = "Radio2"
-      input.id = keys[key]
-      input.value = "option2"
-      input.addEventListener("click", SelectedValueAmount)
-      
-      label.className = "form-check-label"
-      label.for = count
-      label.innerHTML = "Do you want to change <b>"+verified_hierarchy[key1][keys[key]]["amount"]+"</b> values in your spreadsheet at the level of "+keys[key]+"?"
-      div.appendChild(input)
-      div.appendChild(label)
-      modal.appendChild(div)
-      count2++
+    else{
+        Confirm_Buttom.setAttribute("disabled", "")
+        text.innerHTML     = "We didn't find the "+wrong_value+" value in your base spreadsheet."
     }
+
+
   }
 function ChangingDataGBIF(){
     // LOCAL

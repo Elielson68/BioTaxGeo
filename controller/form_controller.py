@@ -18,10 +18,9 @@ def taxon_form():
 def taxon_form2():
     if request.method == 'POST':
         try:
-            if(reference_sheet.get_Path() == None):
-                f = request.files['file']
-                f.save("files/"+secure_filename(f.filename))
-                reference_sheet.set_Path_configure_all(secure_filename(f.filename))
+            f = request.files['file']
+            f.save("files/"+secure_filename(f.filename))
+            reference_sheet.set_Path_configure_all(secure_filename(f.filename))
             titles_cookie = request.cookies.get("titles_localsheet")
             return render_template("form/taxon_form_localsheet.html", titles_check=used_sheet.get_Sheet_Header(), titles_base=reference_sheet.get_Sheet_Header(), cookies = titles_cookie)
         except:

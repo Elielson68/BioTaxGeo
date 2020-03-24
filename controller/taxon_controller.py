@@ -47,14 +47,15 @@ def taxon_list2():
             reference_sheet = form_controller.reference_sheet
             titles_check = request.form["selection_check"]
             titles_reference = request.form["selection_base"]
-
+            selecteds_subs = request.form["subs"]
             if ("null" in titles_check):
                 titles_check = titles_check.replace("null", "None")
             if ("null" in titles_reference):
                 titles_reference = titles_reference.replace("null", "None")
             titles_check = eval(titles_check)
             titles_reference = eval(titles_reference)
-            titles_cookie = {"check": titles_check, "base": titles_reference}
+            selecteds_subs = eval(selecteds_subs)
+            titles_cookie = {"check": titles_check, "base": titles_reference, "subs": selecteds_subs}
             titles_cookie = json.dumps(titles_cookie)
 
             reference_kingdom = reference_sheet.Value_in_Column(titles_reference["kingdom"])
@@ -263,7 +264,10 @@ def taxon_list2():
                         "order_score": "Not found",
                         "family_score": "Not found",
                         "genus_score": "Not found",
-                        "specie_score": "Not found"
+                        "specie_score": "Not found",
+                        "subfamily_score": "Not found",
+                        "subgenus_score": "Not found",
+                        "subspecie_score": "Not found"
                     }
                     precision = "Not found"
 
