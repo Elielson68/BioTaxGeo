@@ -1,4 +1,4 @@
-from flask import render_template, request, Blueprint, redirect, url_for
+from flask import render_template, request, Blueprint, redirect, url_for, make_response
 from werkzeug.utils import secure_filename
 from model.sheet_treatment import Sheet
 from controller.home_controller import used_sheet
@@ -12,8 +12,19 @@ form_blueprint = Blueprint('form', __name__, template_folder='templates')
 def taxon_form():
     if request.method == 'GET':
         titles_cookie = request.cookies.get("titles_gbif")
-        return render_template("form/taxon_form_gbif.html", titles=used_sheet.get_Sheet_Header(), cookies = titles_cookie)
-
+        if titles_cookie == "":
+            titles_cookie = None
+        if(request.cookies.get("isUseCookie") == "accept"):
+            if(titles_cookie != None):
+                return redirect(url_for("taxon.taxon_list"))
+            else:
+                return render_template("form/taxon_form_gbif.html", titles=used_sheet.get_Sheet_Header(), cookies = titles_cookie)
+        else:
+            return render_template("form/taxon_form_gbif.html", titles=used_sheet.get_Sheet_Header(), cookies = titles_cookie)
+    else:
+        res = make_response(render_template("form/taxon_form_gbif.html", titles=used_sheet.get_Sheet_Header()))
+        res.set_cookie("titles_gbif", "None")
+        return redirect(url_for("form.taxon_form"))
 @form_blueprint.route("/taxon_form2", methods=["GET", "POST"])
 def taxon_form2():
     if request.method == 'POST':

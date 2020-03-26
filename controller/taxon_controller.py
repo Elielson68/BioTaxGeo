@@ -14,26 +14,47 @@ taxon_blueprint = Blueprint("taxon", __name__, template_folder="templates")
 def taxon_list():
     if request.method == "POST":
         try:
-            titles = request.form["selection"]
-            if ("null" in titles):
-                titles = titles.replace("null", "None")
-            titles_cookie = titles
-            titles = eval(titles)
-            used_sheet.set_Check_Columns(titles)
-            used_sheet.data_treatment.Verified_Hierarchy(used_sheet.get_Columns_Checked())
-            verification = json.dumps(used_sheet.data_treatment.get_Verified_Hierarchy())
             if(request.cookies.get("isUseCookie") == "accept"):
-                response = make_response(render_template("list/taxon_list_gbif.html", verification=verification,
+                titles_gbif = request.cookies.get("titles_gbif")
+                if(titles_gbif == ""):
+                    titles_gbif = None
+                if(titles_gbif == None):
+                    titles = request.form["selection"]
+                    if ("null" in titles):
+                        titles = titles.replace("null", "None")
+                    titles_cookie = titles
+                    titles = eval(titles)
+                    used_sheet.set_Check_Columns(titles)
+                    used_sheet.data_treatment.Verified_Hierarchy(used_sheet.get_Columns_Checked())
+                    verification = json.dumps(used_sheet.data_treatment.get_Verified_Hierarchy())
+                    response = make_response(render_template("list/taxon_list_gbif.html", verification=verification,
                                                          total_rows=used_sheet.get_Row_Total()))
-                response.set_cookie("titles_gbif", titles_cookie)
-                return response
+                    response.set_cookie("titles_gbif", titles_cookie)
+                    return response
             else:
+                titles = request.form["selection"]
+                if ("null" in titles):
+                    titles = titles.replace("null", "None")
+                titles = eval(titles)
+                used_sheet.set_Check_Columns(titles)
+                used_sheet.data_treatment.Verified_Hierarchy(used_sheet.get_Columns_Checked())
+                verification = json.dumps(used_sheet.data_treatment.get_Verified_Hierarchy())
                 return render_template("list/taxon_list_gbif.html", verification=verification,
                                                          total_rows=used_sheet.get_Row_Total())
 
         except:
             return render_template("errorscreen/InvalidValue.html")
-
+    else:
+        titles_cookie = request.cookies.get("titles_gbif")
+        print(titles_cookie)
+        titles = eval(titles_cookie)
+        used_sheet.set_Check_Columns(titles)
+        used_sheet.data_treatment.Verified_Hierarchy(used_sheet.get_Columns_Checked())
+        verification = json.dumps(used_sheet.data_treatment.get_Verified_Hierarchy())
+        response = make_response(render_template("list/taxon_list_gbif.html", verification=verification,
+                                                total_rows=used_sheet.get_Row_Total()))
+        response.set_cookie("titles_gbif", titles_cookie)
+        return response
 
 @taxon_blueprint.route("/taxon_validation", methods=["GET", "POST"])
 def taxon_validation():

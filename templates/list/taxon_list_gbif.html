@@ -55,6 +55,9 @@
                   <input type="text" name = "data" value="" hidden="hidden" id="data"/>
                   <input id="submit" type="submit" value="Save editions" class="btn btn-success rounded-0" disabled/>
                 </form>
+                <form action="taxon_form" method = "POST" enctype = "multipart/form-data">
+                  <input id="change_columns" type="submit" value="change columns form" class="btn btn-success rounded-0"/>
+                </form>
               </div>
             </div>
           </div>
@@ -96,7 +99,7 @@
           const Cancel_Buttom = document.getElementById("Cancel_Buttom")
           const Close_Buttom = document.getElementById("close_x")
           const Confirm_Buttom = document.getElementById("Confirm_Buttom")
-
+          const change_columns_Buttom = document.getElementById("change_columns")
           var changed_data = {}
           var more_one = false
           var only_wrong = false;

@@ -60,7 +60,6 @@ def markers_list_map():
         try:
             polygons = request.form['vertices']
             polygons = eval(polygons)
-            print(polygons)
             coord_lat = used_sheet.coordinate.get_Latitude_Column_values()
             coord_lng = used_sheet.coordinate.get_Longitude_Column_values()
             coord_lat = used_sheet.coordinate.Convert_Lat_Decimal(coord_lat)

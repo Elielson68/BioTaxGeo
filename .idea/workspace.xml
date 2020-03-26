@@ -3,15 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/home_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/home_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/form_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/form_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/markers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/markers_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/taxon_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/taxon_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/events/changeDataTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/events/changeDataTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form_localsheet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/Planilha_Formatada.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Planilha_Formatada.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form_gbif.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form_gbif.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list_localsheet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list_localsheet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -176,10 +173,37 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="taxon_controller" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="teste" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../tratamento_dados_specify/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/controller/taxon_controller.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.Gbif_Testes" />
       <item itemvalue="Python.run" />
+      <item itemvalue="Python.taxon_controller" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.taxon_controller" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration>$PROJECT_DIR$/../.subversion</configuration>
@@ -191,13 +215,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00077" summary="utilizando blueprint para separar as rotas do arquivo principal">
-      <created>1576692018148</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1576692018148</updated>
     </task>
     <task id="LOCAL-00078" summary="utilizando blueprint para separar as rotas do arquivo principal">
       <created>1576693346541</created>
@@ -535,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585021878417</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="feat: opção de aceitar ou recusar usar os cookies">
+      <created>1585087996519</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1585087996519</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -572,7 +596,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="Criado segundo formulário para a planilha servida como base, retornando JSON com os valores das colunas" />
     <MESSAGE value="consertado bug onde as species retornavam null" />
     <MESSAGE value="usando FuzzyMatching para identificar valores semelhantes das duas planilhas" />
     <MESSAGE value="Finalizando a comparacao dos dados entre as duas planilhas" />
@@ -597,7 +620,8 @@
     <MESSAGE value="fix: legenda atualizada, constava uma informação incorreta" />
     <MESSAGE value="feat: criado checkbox para subs: family;genus;specie&#10;feat: criado collapse para select dos subs&#10;refactor: backend adaptado para seleção de alguma das subs&#10;perf: diminuindo linha de códigos do back para verificar chaves de dicts&#10;chore: verifica os subs (opcionalmente)&#10;fix: não era possível alterar tipo de arquivo para comparar quando enviado um incorreto anteriormente" />
     <MESSAGE value="feat: salvando cookies de subs" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: salvando cookies de subs" />
+    <MESSAGE value="feat: opção de aceitar ou recusar usar os cookies" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: opção de aceitar ou recusar usar os cookies" />
   </component>
   <component name="WindowStateProjectService">
     <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583340571861" />
