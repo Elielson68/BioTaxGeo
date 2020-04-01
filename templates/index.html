@@ -25,17 +25,13 @@
                             <div class="col-md-12">
                                 <form action = "http://localhost:8080/" method = "POST" enctype = "multipart/form-data">
                                     <input style="width: 100%;" class="input-group-text" id="uploadFile" placeholder="Choose the file" disabled="disabled" />
-                                    <div style="display: flex; flex-direction: row-reverse;">
-                                        <div>
-                                            <div style="margin-top: 10px;">
-                                                <input id="submit_home" type="submit" value="Send file" class="btn btn-success" disabled />
-                                            </div>
+                                    <div style="display: flex; flex-direction: row; justify-content: center;">
+                                        <div class="fileUpload btn btn-primary">
+                                            <span style="font-size: 15px;">Choose file</span>
+                                            <input id="uploadBtn" type="file" name="file" class="upload" />
                                         </div>
-                                        <div>
-                                            <div class="fileUpload btn btn-primary">
-                                                <span style="font-size: 15px;">Choose file</span>
-                                                <input id="uploadBtn" type="file" name="file" class="upload" />
-                                            </div>
+                                        <div style="margin-top: 10px;">
+                                            <input id="submit_home" type="submit" value="Send file" class="btn btn-success" disabled />
                                         </div>
                                     </div>
                                 </form>
