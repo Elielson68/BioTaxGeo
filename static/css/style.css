@@ -12,8 +12,7 @@ body{
 
 }
 #NavBar{
-    background: rgb(3,38,4);
-    background: linear-gradient(90deg, rgba(3,38,4,1) 0%, rgba(29,121,32,1) 72%, rgba(33,171,199,1) 100%);
+    background-color: rgba(3,38,4,0);
 }
 #TextoNav{
     font-family: 'Tomorrow', sans-serif;
@@ -108,6 +107,13 @@ body{
       margin-right: 10%;
       position: absolute;
       overflow: auto; 
+ }
+
+ .spreadsheetFooter{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-around;
+     align-items: center;
  }
 
  /* Formulários */
