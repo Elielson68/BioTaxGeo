@@ -23,7 +23,7 @@ for (key in verified_hierarchy){
     if(verified_hierarchy[key][key2]["correctness"] != "EXACT" && key2 != "scientific name"){
       table.setClassNameRowBody(row, "wrong")
       correctness = verified_hierarchy[key][key2]["correctness"]
-      correctness == "FUZZY" ? table.setStyleTdBody(row, column, "color: orange;"):table.setStyleTdBody(row, column, "color: red;")
+      correctness == "FUZZY" ? table.setStyleTdBody(row, column, "color: orange;cursor: pointer;"):table.setStyleTdBody(row, column, "color: red;cursor: pointer;")
       table.setAttributeTdBody(row, column, "data-target","#exampleModal")
       table.setAttributeTdBody(row, column, "data-toggle","modal")
       table.setAttributeTdBody(row, column, "wrong","true")

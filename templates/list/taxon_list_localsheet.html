@@ -24,10 +24,10 @@
           <div class="card" style="margin-bottom: 15px;">
             <div class="card-header cardHeader text-center">Your Spreadsheet</div>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary active rounded-0"  onclick="ShowAllValues()">
+                <label style="cursor: pointer;" class="btn btn-secondary active rounded-0"  onclick="ShowAllValues()">
                   <input type="radio" name="options" id="option1" autocomplete="on" checked> View all
                 </label>
-                <label class="btn btn-secondary rounded-0" onclick="ShowOnlyWrong()">
+                <label style="cursor: pointer;" class="btn btn-secondary rounded-0" onclick="ShowOnlyWrong()">
                   <input type="radio" name="options" id="option2" autocomplete="on">Suggestions only
                 </label>
             </div>
@@ -48,7 +48,7 @@
               <tbody id="tbody_table">
               </tbody>
             </table>
-            <div style="display: grid; justify-items: center;">
+            <div  class="spreadsheetFooter">
               <form action="taxon_validation" method = "POST" enctype = "multipart/form-data">
                 <input type="text" name = "data" value="" hidden="hidden" id="data"/>
                 <input id="submit" type="submit" value="Save editions" class="btn btn-success rounded-0" disabled/>

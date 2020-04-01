@@ -25,13 +25,13 @@ for (key in verified_hierarchy){
       array_count = is_array ? verified_hierarchy[key][key2]["suggestion"].length:null
       table.setClassNameRowBody(row, "wrong")
       if (verified_hierarchy[key]["scientific name"]["synonymous"]){
-        table.setStyleTdBody(row, column, "color: #FFD700;")
+        table.setStyleTdBody(row, column, "color: #FFD700;cursor: pointer;")
       } else if ( !is_array ) {
-        table.setStyleTdBody(row, column, "color: #f57600;")
+        table.setStyleTdBody(row, column, "color: #f57600;cursor: pointer;")
       } else if ( array_count > 0 ) {
-        table.setStyleTdBody(row, column, "color: #f57600;")
+        table.setStyleTdBody(row, column, "color: #f57600;cursor: pointer;")
       } else {
-        table.setStyleTdBody(row, column, "color: #ff0000;")   
+        table.setStyleTdBody(row, column, "color: #ff0000;cursor: pointer;")   
       } 
       table.setAttributeTdBody(row, column, "data-target","#exampleModal")
       table.setAttributeTdBody(row, column, "data-toggle","modal")
