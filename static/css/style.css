@@ -105,8 +105,10 @@ body{
  #spreadsheet{
       margin-left: 10%;
       margin-right: 10%;
-      position: absolute;
-      overflow: auto; 
+      overflow: auto;
+      align-items: center;
+      display: flex;
+      flex: 1;
  }
 
  .spreadsheetFooter{
@@ -114,6 +116,7 @@ body{
      flex-direction: row;
      justify-content: space-around;
      align-items: center;
+     flex: 1;
  }
 
  /* Formulários */
@@ -147,3 +150,4 @@ body{
      font-size: 20px;
      font-family: 'Tomorrow', sans-serif;
  }
+ 
