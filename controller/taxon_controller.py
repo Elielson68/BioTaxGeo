@@ -84,11 +84,11 @@ def taxon_list2():
             titles_cookie = {"check": titles_check, "base": titles_reference, "subs": selecteds_subs}
             titles_cookie = json.dumps(titles_cookie)
 
-            reference_kingdom = reference_sheet.Value_in_Column(titles_reference["kingdom"])
-            reference_phylum = reference_sheet.Value_in_Column(titles_reference["phylum"])
-            reference_class = reference_sheet.Value_in_Column(titles_reference["class"])
-            reference_order = reference_sheet.Value_in_Column(titles_reference["order"])
-            reference_family = reference_sheet.Value_in_Column(titles_reference["family"])
+            reference_kingdom = reference_sheet.Value_in_Column(titles_reference["kingdom"]) if titles_reference["kingdom"] != "None" else None
+            reference_phylum = reference_sheet.Value_in_Column(titles_reference["phylum"]) if titles_reference["phylum"] != "None" else None
+            reference_class = reference_sheet.Value_in_Column(titles_reference["class"]) if titles_reference["class"] != "None" else None
+            reference_order = reference_sheet.Value_in_Column(titles_reference["order"]) if titles_reference["order"] != "None" else None
+            reference_family = reference_sheet.Value_in_Column(titles_reference["family"]) if titles_reference["family"] != "None" else None
             reference_genus = reference_sheet.Value_in_Column(titles_reference["genus"])
             reference_specie = reference_sheet.Value_in_Column(titles_reference["specie"])
             reference_subfamily = reference_sheet.Value_in_Column(titles_reference["subfamily"]) if titles_reference[
@@ -98,11 +98,11 @@ def taxon_list2():
             reference_subspecie = reference_sheet.Value_in_Column(titles_reference["subspecie"]) if titles_reference[
                                                                                                         "subspecie"] != "None" else None
 
-            check_kingdom = used_sheet.Value_in_Column(titles_check["kingdom"])
-            check_phylum = used_sheet.Value_in_Column(titles_check["phylum"])
-            check_class = used_sheet.Value_in_Column(titles_check["class"])
-            check_order = used_sheet.Value_in_Column(titles_check["order"])
-            check_family = used_sheet.Value_in_Column(titles_check["family"])
+            check_kingdom = used_sheet.Value_in_Column(titles_check["kingdom"]) if titles_check["kingdom"] != "None" else None
+            check_phylum = used_sheet.Value_in_Column(titles_check["phylum"]) if titles_check["phylum"] != "None" else None
+            check_class = used_sheet.Value_in_Column(titles_check["class"]) if titles_check["class"] != "None" else None
+            check_order = used_sheet.Value_in_Column(titles_check["order"]) if titles_check["order"] != "None" else None
+            check_family = used_sheet.Value_in_Column(titles_check["family"]) if titles_check["family"] != "None" else None
             check_genus = used_sheet.Value_in_Column(titles_check["genus"])
             check_specie = used_sheet.Value_in_Column(titles_check["specie"])
             check_subfamily = used_sheet.Value_in_Column(titles_check["subfamily"]) if titles_check[
@@ -116,14 +116,19 @@ def taxon_list2():
                 scientific_name = "{} {}".format(reference_genus[x], reference_specie[x])
                 if scientific_name not in reference_classification_taxon:
                     reference_classification_taxon[scientific_name] = {
-                        "kingdom": reference_kingdom[x],
-                        "phylum": reference_phylum[x],
-                        "class": reference_class[x],
-                        "order": reference_order[x],
-                        "family": reference_family[x],
                         "genus": reference_genus[x],
                         "specie": reference_specie[x]
                     }
+                    if reference_kingdom is not None:
+                        reference_classification_taxon[scientific_name]["kingdom"] = reference_kingdom[x]
+                    if reference_phylum is not None:
+                        reference_classification_taxon[scientific_name]["phylum"] = reference_phylum[x]
+                    if reference_class is not None:
+                        reference_classification_taxon[scientific_name]["class"] = reference_class[x]
+                    if reference_order is not None:
+                        reference_classification_taxon[scientific_name]["order"] = reference_order[x]
+                    if reference_family is not None:
+                        reference_classification_taxon[scientific_name]["family"] = reference_family[x]
                     if reference_subfamily is not None:
                         reference_classification_taxon[scientific_name]["subfamily"] = reference_subfamily[x]
                     if reference_subgenus is not None:
@@ -135,14 +140,19 @@ def taxon_list2():
                 scientific_name = "{} {}".format(check_genus[x], check_specie[x])
                 if scientific_name not in check_classification_taxon:
                     check_classification_taxon[scientific_name] = {
-                        "kingdom": check_kingdom[x],
-                        "phylum": check_phylum[x],
-                        "class": check_class[x],
-                        "order": check_order[x],
-                        "family": check_family[x],
                         "genus": check_genus[x],
                         "specie": check_specie[x]
                     }
+                    if check_kingdom is not None:
+                        check_classification_taxon[scientific_name]["kingdom"] = check_kingdom[x]
+                    if check_phylum is not None:
+                        check_classification_taxon[scientific_name]["phylum"] = check_phylum[x]
+                    if check_class is not None:
+                        check_classification_taxon[scientific_name]["class"] = check_class[x]
+                    if check_order is not None:
+                        check_classification_taxon[scientific_name]["order"] = check_order[x]
+                    if check_family is not None:
+                        check_classification_taxon[scientific_name]["family"] = check_family[x]
                     if check_subfamily is not None:
                         check_classification_taxon[scientific_name]["subfamily"] = check_subfamily[x]
                     if check_subgenus is not None:
@@ -162,24 +172,29 @@ def taxon_list2():
                 if len(sn_score) > 0:
                     key = sn_score[0][0]
                     hierarchy_score = {
-                        "kingdom_score": "FUZZY",
-                        "phylum_score": "FUZZY",
-                        "class_score": "FUZZY",
-                        "order_score": "FUZZY",
-                        "family_score": "FUZZY",
                         "genus_score": "FUZZY",
                         "specie_score": "FUZZY"
                     }
 
                     hierarchy_suggest = {
-                        "kingdom_suggest": [],
-                        "phylum_suggest": [],
-                        "class_suggest": [],
-                        "order_suggest": [],
-                        "family_suggest": [],
                         "genus_suggest": [],
                         "specie_suggest": []
                     }
+                    if check_kingdom is not None:
+                        hierarchy_score["kingdom_score"] = "FUZZY"
+                        hierarchy_suggest["kingdom_suggest"] = []
+                    if check_phylum is not None:
+                        hierarchy_score["phylum_score"] = "FUZZY"
+                        hierarchy_suggest["phylum_suggest"] = []
+                    if check_class is not None:
+                        hierarchy_score["class_score"] = "FUZZY"
+                        hierarchy_suggest["class_suggest"] = []
+                    if check_order is not None:
+                        hierarchy_score["order_score"] = "FUZZY"
+                        hierarchy_suggest["order_suggest"] = []
+                    if check_family is not None:
+                        hierarchy_score["family_score"] = "FUZZY"
+                        hierarchy_suggest["family_suggest"] = []
                     if check_subfamily is not None:
                         hierarchy_score["subfamily_score"] = "FUZZY"
                         hierarchy_suggest["subfamily_suggest"] = []
@@ -197,46 +212,47 @@ def taxon_list2():
                             else:
                                 hierarchy_suggest[key + "_suggest"].append(reference_classification_taxon[i[0]][key])
 
-                    Fuzzy_Find[specie] = {
-                        "kingdom": {
+                    Fuzzy_Find[specie] = {}
+                    if check_kingdom is not None:
+                        Fuzzy_Find[specie]["kingdom"] = {
                             "amount": check_kingdom.count(check_classification_taxon[specie]["kingdom"]),
                             "correctness": hierarchy_score["kingdom_score"],
                             "suggestion": hierarchy_suggest["kingdom_suggest"],
                             "title": titles_check["kingdom"],
                             "type": check_classification_taxon[specie]["kingdom"]
-                        },
-
-                        "phylum": {
+                        }
+                    if check_phylum is not None:
+                        Fuzzy_Find[specie]["phylum"] = {
                             "amount": check_phylum.count(check_classification_taxon[specie]["phylum"]),
                             "correctness": hierarchy_score["phylum_score"],
                             "suggestion": hierarchy_suggest["phylum_suggest"],
                             "title": titles_check["phylum"],
                             "type": check_classification_taxon[specie]["phylum"]
-                        },
-
-                        "class": {
+                        }
+                    if check_class is not None:
+                        Fuzzy_Find[specie]["class"] = {
                             "amount": check_class.count(check_classification_taxon[specie]["class"]),
                             "correctness": hierarchy_score["class_score"],
                             "suggestion": hierarchy_suggest["class_suggest"],
                             "title": titles_check["class"],
                             "type": check_classification_taxon[specie]["class"]
-                        },
-
-                        "order": {
+                        }
+                    if check_order is not None:
+                        Fuzzy_Find[specie]["order"] = {
                             "amount": check_order.count(check_classification_taxon[specie]["order"]),
                             "correctness": hierarchy_score["order_score"],
                             "suggestion": hierarchy_suggest["order_suggest"],
                             "title": titles_check["order"],
                             "type": check_classification_taxon[specie]["order"]
-                        },
-                    }
-                    Fuzzy_Find[specie]["family"] = {
-                        "amount": check_family.count(check_classification_taxon[specie]["family"]),
-                        "correctness": hierarchy_score["family_score"],
-                        "suggestion": hierarchy_suggest["family_suggest"],
-                        "title": titles_check["family"],
-                        "type": check_classification_taxon[specie]["family"]
-                    }
+                        }
+                    if check_family is not None:
+                        Fuzzy_Find[specie]["family"] = {
+                            "amount": check_family.count(check_classification_taxon[specie]["family"]),
+                            "correctness": hierarchy_score["family_score"],
+                            "suggestion": hierarchy_suggest["family_suggest"],
+                            "title": titles_check["family"],
+                            "type": check_classification_taxon[specie]["family"]
+                        }
                     if check_subfamily is not None:
                         Fuzzy_Find[specie]["subfamily"] = {
                             "amount": check_subfamily.count(check_classification_taxon[specie]["subfamily"]),
@@ -297,43 +313,47 @@ def taxon_list2():
                     }
                     precision = "Not found"
 
-                    Fuzzy_Find[specie] = {
-                        "kingdom": {
+                    Fuzzy_Find[specie] = {}
+                    if check_kingdom is not None:
+                        Fuzzy_Find[specie]["kingdom"] = {
                             "amount": check_kingdom.count(check_classification_taxon[specie]["kingdom"]),
                             "correctness": hierarchy_score["kingdom_score"],
                             "suggestion": "",
                             "title": titles_check["kingdom"],
                             "type": check_classification_taxon[specie]["kingdom"]
-                        },
-
-                        "phylum": {
+                        }
+                    if check_phylum is not None:
+                        Fuzzy_Find[specie]["phylum"] = {
                             "amount": check_phylum.count(check_classification_taxon[specie]["phylum"]),
                             "correctness": hierarchy_score["phylum_score"],
                             "suggestion": "",
-                            "title": titles_check["phylum"], "type": check_classification_taxon[specie]["phylum"]
-                        },
-
-                        "class": {
+                            "title": titles_check["phylum"],
+                            "type": check_classification_taxon[specie]["phylum"]
+                        }
+                    if check_class is not None:
+                        Fuzzy_Find[specie]["class"] = {
                             "amount": check_class.count(check_classification_taxon[specie]["class"]),
                             "correctness": hierarchy_score["class_score"],
                             "suggestion": "",
-                            "title": titles_check["class"], "type": check_classification_taxon[specie]["class"]
-                        },
-
-                        "order": {
+                            "title": titles_check["class"],
+                            "type": check_classification_taxon[specie]["class"]
+                        }
+                    if check_order is not None:
+                        Fuzzy_Find[specie]["order"] = {
                             "amount": check_order.count(check_classification_taxon[specie]["order"]),
                             "correctness": hierarchy_score["order_score"],
                             "suggestion": "",
-                            "title": titles_check["order"], "type": check_classification_taxon[specie]["order"]
-                        },
-                    }
-                    Fuzzy_Find[specie]["family"] = {
-                        "amount": check_family.count(check_classification_taxon[specie]["family"]),
-                        "correctness": hierarchy_score["family_score"],
-                        "suggestion": "",
-                        "title": titles_check["family"],
-                        "type": check_classification_taxon[specie]["family"]
-                    }
+                            "title": titles_check["order"],
+                            "type": check_classification_taxon[specie]["order"]
+                        }
+                    if check_family is not None:
+                        Fuzzy_Find[specie]["family"] = {
+                            "amount": check_family.count(check_classification_taxon[specie]["family"]),
+                            "correctness": hierarchy_score["family_score"],
+                            "suggestion": "",
+                            "title": titles_check["family"],
+                            "type": check_classification_taxon[specie]["family"]
+                        }
                     if check_subfamily is not None:
                         Fuzzy_Find[specie]["subfamily"] = {
                             "amount": check_subfamily.count(check_classification_taxon[specie]["subfamily"]),
