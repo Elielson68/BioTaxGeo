@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="84f34604-53b5-4826-8d99-82ad8c724d98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/form_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/form_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/markers_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/markers_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/taxon_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/taxon_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/files/Planilha_Formatada.xls" beforeDir="false" afterPath="$PROJECT_DIR$/files/Planilha_Formatada.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form/taxon_form_gbif.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form/taxon_form_gbif.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list/taxon_list_gbif.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/implementation/createPolygon.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/implementation/createPolygon.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -215,20 +211,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565638691316</updated>
-    </task>
-    <task id="LOCAL-00078" summary="utilizando blueprint para separar as rotas do arquivo principal">
-      <created>1576693346541</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1576693346541</updated>
-    </task>
-    <task id="LOCAL-00079" summary="Refatoramento model">
-      <created>1576761117558</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1576761117559</updated>
     </task>
     <task id="LOCAL-00080" summary="traduzindo codigo">
       <created>1576785271990</created>
@@ -559,7 +541,21 @@
       <option name="project" value="LOCAL" />
       <updated>1585087996519</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="feat: ao invés de ir para o formulário agora ele pula direto para a tela da tabela caso já tenha verificado anteriormente">
+      <created>1585252301148</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1585252301148</updated>
+    </task>
+    <task id="LOCAL-00128" summary="feat: No formulário LocalSheet agora só é obrigatório a seleção dos campos genus e species. &#10;feat: Campos não selecionados no primeiro form são desabilitados no segundo form">
+      <created>1586057219226</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1586057219226</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -596,8 +592,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/https:/github.com/Elielson68/SpeciesGeo.git" />
     </ignored-roots>
-    <MESSAGE value="consertado bug onde as species retornavam null" />
-    <MESSAGE value="usando FuzzyMatching para identificar valores semelhantes das duas planilhas" />
     <MESSAGE value="Finalizando a comparacao dos dados entre as duas planilhas" />
     <MESSAGE value="Comparacao finalizada, plotando comparacao na tabela e alterando os valores pelos valores escolhidos pelo usuario" />
     <MESSAGE value="Finalizado" />
@@ -621,7 +615,9 @@
     <MESSAGE value="feat: criado checkbox para subs: family;genus;specie&#10;feat: criado collapse para select dos subs&#10;refactor: backend adaptado para seleção de alguma das subs&#10;perf: diminuindo linha de códigos do back para verificar chaves de dicts&#10;chore: verifica os subs (opcionalmente)&#10;fix: não era possível alterar tipo de arquivo para comparar quando enviado um incorreto anteriormente" />
     <MESSAGE value="feat: salvando cookies de subs" />
     <MESSAGE value="feat: opção de aceitar ou recusar usar os cookies" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: opção de aceitar ou recusar usar os cookies" />
+    <MESSAGE value="feat: ao invés de ir para o formulário agora ele pula direto para a tela da tabela caso já tenha verificado anteriormente" />
+    <MESSAGE value="feat: No formulário LocalSheet agora só é obrigatório a seleção dos campos genus e species. &#10;feat: Campos não selecionados no primeiro form são desabilitados no segundo form" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: No formulário LocalSheet agora só é obrigatório a seleção dos campos genus e species. &#10;feat: Campos não selecionados no primeiro form são desabilitados no segundo form" />
   </component>
   <component name="WindowStateProjectService">
     <state x="178" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583340571861" />

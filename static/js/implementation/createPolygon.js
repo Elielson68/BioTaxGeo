@@ -74,7 +74,7 @@ function createPolygon() {
             
             var new_components = new ComponentHTML()
             total_polygon = list_polygons.length
-            new_components.createOption(index_polygon, "Poligono "+total_polygon, select_poly_component)
+            new_components.createOption(index_polygon, "Polygon "+total_polygon, select_poly_component)
         }
         else{
             alert("To create a new polygon it is necessary that the current one has more than 2 vertices!")
