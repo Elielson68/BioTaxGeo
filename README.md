@@ -26,7 +26,7 @@ A quality software for taxonomic, geospatial data and occurrences of biodiversit
 
 This section will ask for you to fill the fields correctly to identify the columns in your spreadsheet file.
 
-> After the software identify your columns, the data will be compared with a global sistem of information about biodiversity. [GBIF](https://www.gbif.org/)
+> After the software identify your columns, the data will be compared with a global sistem of information about biodiversity.<a href="https://www.gbif.org/" target="_blank">GBIF</a>
 
 ![gbif](files/images/gbif-spreadsheet.jpeg)
 
@@ -67,13 +67,13 @@ This section will ask for you to fill the fields correctly to identify the colum
 
 - Marcos Paulo Alves de Sousa
   - email: marcosp.belem@gmail.com
-  - github: [marcosp-sousa](https://github.com/marcosp-sousa)
+  - github: <a href="https://github.com/marcosp-sousa" target="_blank">marcosp-sousa</a>
 - Elielson Fernando dos Santos Barbosa
   - email: elielsonbr.com@gmail.com
-  - github: [Elielson68](https://github.com/Elielson68)
+  - github: <a href="https://github.com/Elielson68" target="_blank">Elielson68</a>
 - Renan Figueiredo Carneiro
   - email: renanfigcarneiro@gmail.com
-  - github: [rnanc](https://github.com/rnanc)
+  - github: <a href="https://github.com/rnanc" target="_blank">rnanc</a>
 
 ### License
 
