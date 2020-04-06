@@ -124,7 +124,7 @@ function createPolygon() {
         }
         send_polygons = JSON.stringify(send_polygons)
         input_send_polygons.value = send_polygons
-        alert("Saved coordinates!")
+        alert("Coordinates Saved!")
     }
 
     map.addListener('click', addVerticesPolygon);
