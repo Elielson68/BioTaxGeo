@@ -20,41 +20,43 @@
         <hr style="background-color: white;">     
 
         <!--______________________________________PLANILHA______________________________________________________-->
-        <div id="spreadsheet">
-          <div class="card" style="margin-bottom: 15px;">
-            <div class="card-header cardHeader text-center">Your Spreadsheet</div>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label style="cursor: pointer;" class="btn btn-secondary active rounded-0"  onclick="ShowAllValues()">
-                  <input type="radio" name="options" id="option1" autocomplete="on" checked> View all
-                </label>
-                <label style="cursor: pointer;" class="btn btn-secondary rounded-0" onclick="ShowOnlyWrong()">
-                  <input type="radio" name="options" id="option2" autocomplete="on">Suggestions only
-                </label>
-            </div>
-            <div class="card-body">
-              <div class="row" style="margin-bottom: 10px;">
-                <div class="col-md-6">
-                  <i class="fa fa-square" aria-hidden="true" style="font-size:20px;color:#FFD700"></i>&nbsp;
-                  <span>Incorrect spelling.</span>&nbsp;&nbsp;&nbsp;
-                  <i aria-hidden="true" class="fa fa-square" style="font-size:20px;color:#DA3530"></i>&nbsp;
-                  <span>No solutions found.</span>&nbsp;&nbsp;&nbsp;
-                </div>
+        <div class="container">
+          <div id="spreadsheet" style="justify-content: center;">
+            <div class="card" style="margin-bottom: 15px;">
+              <div class="card-header cardHeader text-center">Your Spreadsheet</div>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label style="cursor: pointer;" class="btn btn-secondary active rounded-0"  onclick="ShowAllValues()">
+                    <input type="radio" name="options" id="option1" autocomplete="on" checked> View all
+                  </label>
+                  <label style="cursor: pointer;" class="btn btn-secondary rounded-0" onclick="ShowOnlyWrong()">
+                    <input type="radio" name="options" id="option2" autocomplete="on">Suggestions only
+                  </label>
               </div>
-              <div class="table-responsive">
-              <table class="table" id="spreadsheet_table">
-                <thead id="thead_table">
-                  <tr id="tr_thead">
-                  </tr>
-                </thead>
-                <tbody id="tbody_table">
-                </tbody>
-              </table>
-            </div>
-            <div  class="spreadsheetFooter">
-              <form action="taxon_validation" method = "POST" enctype = "multipart/form-data">
-                <input type="text" name = "data" value="" hidden="hidden" id="data"/>
-                <input id="submit" type="submit" value="Save editions" class="btn btn-success rounded-0" disabled/>
-              </form>
+              <div class="card-body">
+                <div class="row" style="margin-bottom: 10px;">
+                  <div class="col-md-6">
+                    <i class="fa fa-square" aria-hidden="true" style="font-size:20px;color:#FFD700"></i>&nbsp;
+                    <span>Incorrect spelling.</span>&nbsp;&nbsp;&nbsp;
+                    <i aria-hidden="true" class="fa fa-square" style="font-size:20px;color:#DA3530"></i>&nbsp;
+                    <span>No solutions found.</span>&nbsp;&nbsp;&nbsp;
+                  </div>
+                </div>
+                <div class="table-responsive">
+                <table class="table" id="spreadsheet_table">
+                  <thead id="thead_table">
+                    <tr id="tr_thead">
+                    </tr>
+                  </thead>
+                  <tbody id="tbody_table">
+                  </tbody>
+                </table>
+              </div>
+              <div  class="spreadsheetFooter">
+                <form action="taxon_validation" method = "POST" enctype = "multipart/form-data">
+                  <input type="text" name = "data" value="" hidden="hidden" id="data"/>
+                  <input id="submit" type="submit" value="Save editions" class="btn btn-success rounded-0" disabled/>
+                </form>
+              </div>
             </div>
           </div>
         </div>
