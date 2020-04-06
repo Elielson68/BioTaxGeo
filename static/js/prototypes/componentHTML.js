@@ -287,14 +287,14 @@ ComponentHTML.prototype.setWrongRow = function(component, text, event){
     component.innerHTML = text
     component.setAttribute("data-target","#exampleModal") 
     component.setAttribute("data-toggle","modal")
-    component.style = "color: red" 
+    component.style = "color: red; cursor: pointer" 
     component.addEventListener("click", event)
 }
 ComponentHTML.prototype.setIncorrectRow = function(component, text, event){
     component.innerHTML = text
     component.setAttribute("data-target","#exampleModal") 
     component.setAttribute("data-toggle","modal")
-    component.style = "color: orange" 
+    component.style = "color: orange; cursor: pointer" 
     component.addEventListener("click", event)
 }
 ComponentHTML.prototype.removeStatusWrongRow = function(component, text, event){
